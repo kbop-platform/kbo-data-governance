@@ -99,22 +99,13 @@ cp .env.example .env                       # DB 접속 정보 설정
 전체 문서를 검색 가능한 HTML 사이트로 빌드한다.
 
 ```bash
-pip install mkdocs-material    # 최초 1회
-
-# docs/ 심볼릭 링크 생성 (최초 1회)
-mkdir -p docs
-ln -sfn ../dictionary docs/dictionary
-ln -sfn ../standards docs/standards
-ln -sfn ../glossary docs/glossary
-ln -sfn ../governance docs/governance
-ln -sfn ../analysis docs/analysis
-ln -sfn ../assets docs/assets
-ln -sf ../README.md docs/index.md
-ln -sf ../project-guide.md docs/project-guide.md
-
-mkdocs serve      # http://127.0.0.1:8000
-mkdocs build      # site/ 정적 HTML 생성
+git clone git@github.com:kbop-platform/kbo-data-governance.git
+cd kbo-data-governance
+pip install mkdocs-material
+./serve.sh
 ```
+
+`serve.sh`가 심볼릭 링크 생성 + 서버 실행을 자동으로 처리한다. 브라우저에서 `http://127.0.0.1:8000` 접속.
 
 > `site/`와 `docs/`는 `.gitignore`에 포함.
 

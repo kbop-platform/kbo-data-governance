@@ -35,3 +35,7 @@ desktop.ini
 # === MkDocs ===
 site/
 docs/
+
+# === Claude Code ===
+CLAUDE.md
+.claude/
