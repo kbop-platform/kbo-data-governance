@@ -4,20 +4,44 @@
 (function () {
   var HASH = '31f5fb453a215d6cb849a0c7d34238f25b33d9309cb3a159527ea3287b22370e';
   var KEY = 'kbo-ds-auth';
+  var authenticated = sessionStorage.getItem(KEY) === HASH;
 
-  if (sessionStorage.getItem(KEY) === HASH) return;
-
-  /* ── 페이지 콘텐츠 숨기기 ── */
-  document.documentElement.style.visibility = 'hidden';
+  if (!authenticated) {
+    document.documentElement.style.visibility = 'hidden';
+  }
 
   async function sha256(msg) {
     var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
     return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
   }
 
-  window.addEventListener('DOMContentLoaded', function () {
-    document.documentElement.style.visibility = 'hidden';
+  function getBaseUrl() {
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; i++) {
+      var src = scripts[i].src || '';
+      var idx = src.indexOf('assets/js/auth.js');
+      if (idx !== -1) return src.substring(0, idx);
+    }
+    return './';
+  }
 
+  function addLogoutButton() {
+    var header = document.querySelector('.md-header__inner');
+    if (!header) return;
+
+    var btn = document.createElement('button');
+    btn.className = 'md-header__button logout-btn';
+    btn.title = 'Logout';
+    btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>';
+    btn.addEventListener('click', function () {
+      sessionStorage.removeItem(KEY);
+      location.reload();
+    });
+
+    header.appendChild(btn);
+  }
+
+  function showLogin() {
     var overlay = document.createElement('div');
     overlay.id = 'auth-overlay';
     overlay.innerHTML = [
@@ -62,15 +86,13 @@
         setTimeout(function () { err.classList.remove('shake'); }, 500);
       }
     });
-  });
-
-  function getBaseUrl() {
-    var scripts = document.getElementsByTagName('script');
-    for (var i = 0; i < scripts.length; i++) {
-      var src = scripts[i].src || '';
-      var idx = src.indexOf('assets/js/auth.js');
-      if (idx !== -1) return src.substring(0, idx);
-    }
-    return './';
   }
+
+  window.addEventListener('DOMContentLoaded', function () {
+    if (authenticated) {
+      addLogoutButton();
+    } else {
+      showLogin();
+    }
+  });
 })();

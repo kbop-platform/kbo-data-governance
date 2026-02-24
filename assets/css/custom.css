@@ -195,3 +195,23 @@
 .shake {
   animation: authShake 0.4s ease;
 }
+
+/* ── 로그아웃 버튼 ── */
+.logout-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+.logout-btn:hover {
+  color: #fff;
+}
+.logout-btn svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
