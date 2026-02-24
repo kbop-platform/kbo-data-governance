@@ -46,6 +46,9 @@ plugins:
 extra_css:
   - assets/css/custom.css
 
+extra_javascript:
+  - assets/js/auth.js
+
 extra:
   generator: false
 
