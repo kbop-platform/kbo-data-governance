@@ -1,0 +1,2135 @@
+{
+  "databases": [
+    {
+      "db_name": "DB1_BASEBALL_2_220328",
+      "db_type": "DB1",
+      "tables": [
+        {
+          "table_name": "MSpeer_conflictdetectionconfigrequest",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigresponse",
+          "column_count": 13,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_lsns",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_originatorid_history",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_request",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_response",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyrequest",
+          "column_count": 3,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyresponse",
+          "column_count": 8,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpub_identity_range",
+          "column_count": 6,
+          "row_count": 0
+        },
+        {
+          "table_name": "SEASON_PLAYER_HITTER",
+          "column_count": 43,
+          "row_count": 19747
+        },
+        {
+          "table_name": "SEASON_PLAYER_HITTER_SITUATION",
+          "column_count": 14,
+          "row_count": 360625
+        },
+        {
+          "table_name": "SEASON_PLAYER_PITCHER",
+          "column_count": 54,
+          "row_count": 13306
+        },
+        {
+          "table_name": "SEASON_PLAYER_PITCHER_SITUATION",
+          "column_count": 14,
+          "row_count": 301375
+        },
+        {
+          "table_name": "sysarticlecolumns",
+          "column_count": 5,
+          "row_count": 125
+        },
+        {
+          "table_name": "sysarticles",
+          "column_count": 23,
+          "row_count": 4
+        },
+        {
+          "table_name": "sysarticleupdates",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "sysdiagrams",
+          "column_count": 5,
+          "row_count": 0
+        },
+        {
+          "table_name": "syspublications",
+          "column_count": 41,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysreplservers",
+          "column_count": 2,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysschemaarticles",
+          "column_count": 12,
+          "row_count": 0
+        },
+        {
+          "table_name": "syssubscriptions",
+          "column_count": 14,
+          "row_count": 8
+        },
+        {
+          "table_name": "systranschemas",
+          "column_count": 4,
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "db_name": "DB1_BASEBALL_220328",
+      "db_type": "DB1",
+      "tables": [
+        {
+          "table_name": "BatTotal",
+          "column_count": 23,
+          "row_count": 13616
+        },
+        {
+          "table_name": "DEFEN",
+          "column_count": 12,
+          "row_count": 846736
+        },
+        {
+          "table_name": "dtproperties",
+          "column_count": 7,
+          "row_count": 56
+        },
+        {
+          "table_name": "ENTRY",
+          "column_count": 11,
+          "row_count": 854280
+        },
+        {
+          "table_name": "GAME_HR",
+          "column_count": 15,
+          "row_count": 7784
+        },
+        {
+          "table_name": "GAME_MEMO",
+          "column_count": 20,
+          "row_count": 54544
+        },
+        {
+          "table_name": "GAME_MEMO_PITCHCLOCK",
+          "column_count": 16,
+          "row_count": 237
+        },
+        {
+          "table_name": "GAMECONTAPP",
+          "column_count": 29,
+          "row_count": 2531702
+        },
+        {
+          "table_name": "GAMEINFO",
+          "column_count": 27,
+          "row_count": 23579
+        },
+        {
+          "table_name": "Hitter",
+          "column_count": 26,
+          "row_count": 648248
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigrequest",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigresponse",
+          "column_count": 13,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_lsns",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_originatorid_history",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_request",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_response",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyrequest",
+          "column_count": 3,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyresponse",
+          "column_count": 8,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpub_identity_range",
+          "column_count": 6,
+          "row_count": 0
+        },
+        {
+          "table_name": "oauth2_registered_client",
+          "column_count": 12,
+          "row_count": 1
+        },
+        {
+          "table_name": "Pitcher",
+          "column_count": 36,
+          "row_count": 223624
+        },
+        {
+          "table_name": "PitTotal",
+          "column_count": 22,
+          "row_count": 9377
+        },
+        {
+          "table_name": "Score",
+          "column_count": 60,
+          "row_count": 23579
+        },
+        {
+          "table_name": "sysarticlecolumns",
+          "column_count": 5,
+          "row_count": 269
+        },
+        {
+          "table_name": "sysarticles",
+          "column_count": 23,
+          "row_count": 10
+        },
+        {
+          "table_name": "sysarticleupdates",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "sysdiagrams",
+          "column_count": 5,
+          "row_count": 0
+        },
+        {
+          "table_name": "syspublications",
+          "column_count": 41,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysreplservers",
+          "column_count": 2,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysschemaarticles",
+          "column_count": 12,
+          "row_count": 0
+        },
+        {
+          "table_name": "syssubscriptions",
+          "column_count": 14,
+          "row_count": 20
+        },
+        {
+          "table_name": "systranschemas",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "TeamRank",
+          "column_count": 30,
+          "row_count": 373
+        }
+      ]
+    },
+    {
+      "db_name": "DB1_MINOR_BASEBALL_220328",
+      "db_type": "DB1",
+      "tables": [
+        {
+          "table_name": "BATTOTAL",
+          "column_count": 22,
+          "row_count": 9535
+        },
+        {
+          "table_name": "ENTRY",
+          "column_count": 12,
+          "row_count": 334439
+        },
+        {
+          "table_name": "GAMECONTAPP",
+          "column_count": 29,
+          "row_count": 975096
+        },
+        {
+          "table_name": "GAMEINFO",
+          "column_count": 27,
+          "row_count": 8531
+        },
+        {
+          "table_name": "HITTER",
+          "column_count": 26,
+          "row_count": 239888
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigrequest",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigresponse",
+          "column_count": 13,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_lsns",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_originatorid_history",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_request",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_response",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyrequest",
+          "column_count": 3,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyresponse",
+          "column_count": 8,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpub_identity_range",
+          "column_count": 6,
+          "row_count": 0
+        },
+        {
+          "table_name": "PITCHER",
+          "column_count": 36,
+          "row_count": 92915
+        },
+        {
+          "table_name": "PITTOTAL",
+          "column_count": 21,
+          "row_count": 6910
+        },
+        {
+          "table_name": "SCORE",
+          "column_count": 60,
+          "row_count": 8531
+        },
+        {
+          "table_name": "sysarticlecolumns",
+          "column_count": 5,
+          "row_count": 262
+        },
+        {
+          "table_name": "sysarticles",
+          "column_count": 23,
+          "row_count": 9
+        },
+        {
+          "table_name": "sysarticleupdates",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "sysdiagrams",
+          "column_count": 5,
+          "row_count": 0
+        },
+        {
+          "table_name": "syspublications",
+          "column_count": 41,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysreplservers",
+          "column_count": 2,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysschemaarticles",
+          "column_count": 12,
+          "row_count": 0
+        },
+        {
+          "table_name": "syssubscriptions",
+          "column_count": 14,
+          "row_count": 18
+        },
+        {
+          "table_name": "systranschemas",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "TEAMRANK",
+          "column_count": 29,
+          "row_count": 179
+        }
+      ]
+    },
+    {
+      "db_name": "DB1_MINOR_SO_BASEBALL",
+      "db_type": "DB1",
+      "tables": [
+        {
+          "table_name": "BATTOTAL",
+          "column_count": 22,
+          "row_count": 1946
+        },
+        {
+          "table_name": "ENTRY",
+          "column_count": 12,
+          "row_count": 4516
+        },
+        {
+          "table_name": "GAMECONTAPP",
+          "column_count": 29,
+          "row_count": 13309
+        },
+        {
+          "table_name": "GAMEINFO",
+          "column_count": 27,
+          "row_count": 124
+        },
+        {
+          "table_name": "HITTER",
+          "column_count": 26,
+          "row_count": 3303
+        },
+        {
+          "table_name": "PITCHER",
+          "column_count": 36,
+          "row_count": 1265
+        },
+        {
+          "table_name": "PITTOTAL",
+          "column_count": 21,
+          "row_count": 1142
+        },
+        {
+          "table_name": "SCORE",
+          "column_count": 60,
+          "row_count": 124
+        },
+        {
+          "table_name": "TEAMRANK",
+          "column_count": 29,
+          "row_count": 67
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_ALLSTAR",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "BatTotal",
+          "column_count": 22,
+          "row_count": 0
+        },
+        {
+          "table_name": "ENTRY",
+          "column_count": 12,
+          "row_count": 2560
+        },
+        {
+          "table_name": "GAMECONTAPP",
+          "column_count": 29,
+          "row_count": 5683
+        },
+        {
+          "table_name": "GAMEINFO",
+          "column_count": 27,
+          "row_count": 56
+        },
+        {
+          "table_name": "Hitter",
+          "column_count": 26,
+          "row_count": 1713
+        },
+        {
+          "table_name": "IE_BallCount",
+          "column_count": 11,
+          "row_count": 25
+        },
+        {
+          "table_name": "IE_BatterRecord",
+          "column_count": 25,
+          "row_count": 858
+        },
+        {
+          "table_name": "IE_GameList",
+          "column_count": 6,
+          "row_count": 21
+        },
+        {
+          "table_name": "IE_GAMESTATE",
+          "column_count": 5,
+          "row_count": 25
+        },
+        {
+          "table_name": "IE_LiveText",
+          "column_count": 7,
+          "row_count": 11461
+        },
+        {
+          "table_name": "IE_PitcherRecord",
+          "column_count": 22,
+          "row_count": 379
+        },
+        {
+          "table_name": "IE_Scoreinning",
+          "column_count": 5,
+          "row_count": 418
+        },
+        {
+          "table_name": "IE_ScoreRHEB",
+          "column_count": 7,
+          "row_count": 48
+        },
+        {
+          "table_name": "KBO_BATRESULT",
+          "column_count": 90,
+          "row_count": 548
+        },
+        {
+          "table_name": "KBO_ETCGAME",
+          "column_count": 5,
+          "row_count": 135
+        },
+        {
+          "table_name": "KBO_PITRESULT",
+          "column_count": 23,
+          "row_count": 300
+        },
+        {
+          "table_name": "Pitcher",
+          "column_count": 36,
+          "row_count": 833
+        },
+        {
+          "table_name": "PitTotal",
+          "column_count": 21,
+          "row_count": 0
+        },
+        {
+          "table_name": "Score",
+          "column_count": 60,
+          "row_count": 56
+        },
+        {
+          "table_name": "TeamRank",
+          "column_count": 29,
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_BASEBALL_2_220328",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "MSpeer_conflictdetectionconfigrequest",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigresponse",
+          "column_count": 13,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_lsns",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_originatorid_history",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_request",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_response",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyrequest",
+          "column_count": 3,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyresponse",
+          "column_count": 8,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpub_identity_range",
+          "column_count": 6,
+          "row_count": 0
+        },
+        {
+          "table_name": "SEASON_PLAYER_HITTER",
+          "column_count": 43,
+          "row_count": 16099
+        },
+        {
+          "table_name": "SEASON_PLAYER_HITTER_SITUATION",
+          "column_count": 14,
+          "row_count": 228487
+        },
+        {
+          "table_name": "SEASON_PLAYER_PITCHER",
+          "column_count": 54,
+          "row_count": 11173
+        },
+        {
+          "table_name": "SEASON_PLAYER_PITCHER_SITUATION",
+          "column_count": 14,
+          "row_count": 214288
+        },
+        {
+          "table_name": "sysarticlecolumns",
+          "column_count": 5,
+          "row_count": 132
+        },
+        {
+          "table_name": "sysarticles",
+          "column_count": 23,
+          "row_count": 5
+        },
+        {
+          "table_name": "sysarticleupdates",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "syspublications",
+          "column_count": 41,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysreplservers",
+          "column_count": 2,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysschemaarticles",
+          "column_count": 12,
+          "row_count": 0
+        },
+        {
+          "table_name": "syssubscriptions",
+          "column_count": 14,
+          "row_count": 10
+        },
+        {
+          "table_name": "systranschemas",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "TEAM",
+          "column_count": 7,
+          "row_count": 401
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_BASEBALL_220328",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "BatTotal",
+          "column_count": 23,
+          "row_count": 796
+        },
+        {
+          "table_name": "DEFEN",
+          "column_count": 12,
+          "row_count": 28243
+        },
+        {
+          "table_name": "dtproperties",
+          "column_count": 7,
+          "row_count": 49
+        },
+        {
+          "table_name": "ENTRY",
+          "column_count": 12,
+          "row_count": 28058
+        },
+        {
+          "table_name": "GAME_HR",
+          "column_count": 15,
+          "row_count": 1280
+        },
+        {
+          "table_name": "GAME_MEMO",
+          "column_count": 20,
+          "row_count": 23978
+        },
+        {
+          "table_name": "GAME_MEMO_PITCHCLOCK",
+          "column_count": 16,
+          "row_count": 237
+        },
+        {
+          "table_name": "GAMECONTAPP",
+          "column_count": 29,
+          "row_count": 77280
+        },
+        {
+          "table_name": "GAMEINFO",
+          "column_count": 27,
+          "row_count": 720
+        },
+        {
+          "table_name": "GAMEINFO_WEATHER",
+          "column_count": 12,
+          "row_count": 1680
+        },
+        {
+          "table_name": "Hitter",
+          "column_count": 26,
+          "row_count": 19946
+        },
+        {
+          "table_name": "KBO_BATRESULT",
+          "column_count": 90,
+          "row_count": 424921
+        },
+        {
+          "table_name": "KBO_ETCGAME",
+          "column_count": 5,
+          "row_count": 122762
+        },
+        {
+          "table_name": "KBO_PITRESULT",
+          "column_count": 23,
+          "row_count": 134292
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigrequest",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigresponse",
+          "column_count": 13,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_lsns",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_originatorid_history",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_request",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_response",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyrequest",
+          "column_count": 3,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyresponse",
+          "column_count": 8,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpub_identity_range",
+          "column_count": 6,
+          "row_count": 0
+        },
+        {
+          "table_name": "PITCHCLOCK",
+          "column_count": 19,
+          "row_count": 215
+        },
+        {
+          "table_name": "Pitcher",
+          "column_count": 36,
+          "row_count": 8466
+        },
+        {
+          "table_name": "PitTotal",
+          "column_count": 22,
+          "row_count": 562
+        },
+        {
+          "table_name": "Score",
+          "column_count": 60,
+          "row_count": 720
+        },
+        {
+          "table_name": "sysarticlecolumns",
+          "column_count": 5,
+          "row_count": 388
+        },
+        {
+          "table_name": "sysarticles",
+          "column_count": 23,
+          "row_count": 13
+        },
+        {
+          "table_name": "sysarticleupdates",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "sysdiagrams",
+          "column_count": 5,
+          "row_count": 0
+        },
+        {
+          "table_name": "syspublications",
+          "column_count": 41,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysreplservers",
+          "column_count": 2,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysschemaarticles",
+          "column_count": 12,
+          "row_count": 0
+        },
+        {
+          "table_name": "syssubscriptions",
+          "column_count": 14,
+          "row_count": 26
+        },
+        {
+          "table_name": "systranschemas",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "TeamRank",
+          "column_count": 30,
+          "row_count": 10
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_BASEBALL_NEW_220328",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "CANCEL_GAME",
+          "column_count": 6,
+          "row_count": 1290
+        },
+        {
+          "table_name": "dtproperties",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "IE_BallCount",
+          "column_count": 11,
+          "row_count": 15482
+        },
+        {
+          "table_name": "IE_BatterRecord",
+          "column_count": 25,
+          "row_count": 451166
+        },
+        {
+          "table_name": "IE_GameList",
+          "column_count": 6,
+          "row_count": 15908
+        },
+        {
+          "table_name": "IE_GAMESTATE",
+          "column_count": 5,
+          "row_count": 15237
+        },
+        {
+          "table_name": "IE_LiveText",
+          "column_count": 7,
+          "row_count": 8005079
+        },
+        {
+          "table_name": "IE_log",
+          "column_count": 3,
+          "row_count": 785406
+        },
+        {
+          "table_name": "IE_PitcherRecord",
+          "column_count": 22,
+          "row_count": 134388
+        },
+        {
+          "table_name": "IE_Scoreinning",
+          "column_count": 5,
+          "row_count": 267166
+        },
+        {
+          "table_name": "IE_ScoreRHEB",
+          "column_count": 7,
+          "row_count": 30860
+        },
+        {
+          "table_name": "KBO_schedule",
+          "column_count": 22,
+          "row_count": 27340
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigrequest",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigresponse",
+          "column_count": 13,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_lsns",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_originatorid_history",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_request",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_response",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyrequest",
+          "column_count": 3,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyresponse",
+          "column_count": 8,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpub_identity_range",
+          "column_count": 6,
+          "row_count": 0
+        },
+        {
+          "table_name": "person",
+          "column_count": 20,
+          "row_count": 100812
+        },
+        {
+          "table_name": "PERSON_FA",
+          "column_count": 4,
+          "row_count": 228
+        },
+        {
+          "table_name": "person2",
+          "column_count": 17,
+          "row_count": 91891
+        },
+        {
+          "table_name": "STADIUM",
+          "column_count": 3,
+          "row_count": 487
+        },
+        {
+          "table_name": "sysarticlecolumns",
+          "column_count": 5,
+          "row_count": 132
+        },
+        {
+          "table_name": "sysarticles",
+          "column_count": 23,
+          "row_count": 11
+        },
+        {
+          "table_name": "sysarticleupdates",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "sysdiagrams",
+          "column_count": 5,
+          "row_count": 0
+        },
+        {
+          "table_name": "syspublications",
+          "column_count": 41,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysreplservers",
+          "column_count": 2,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysschemaarticles",
+          "column_count": 12,
+          "row_count": 0
+        },
+        {
+          "table_name": "syssubscriptions",
+          "column_count": 14,
+          "row_count": 22
+        },
+        {
+          "table_name": "systranschemas",
+          "column_count": 4,
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_EXHIBITION",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "BatTotal",
+          "column_count": 22,
+          "row_count": 5127
+        },
+        {
+          "table_name": "ENTRY",
+          "column_count": 12,
+          "row_count": 57411
+        },
+        {
+          "table_name": "GAMECONTAPP",
+          "column_count": 29,
+          "row_count": 124637
+        },
+        {
+          "table_name": "GAMEINFO",
+          "column_count": 27,
+          "row_count": 1205
+        },
+        {
+          "table_name": "Hitter",
+          "column_count": 26,
+          "row_count": 40728
+        },
+        {
+          "table_name": "IE_BallCount",
+          "column_count": 11,
+          "row_count": 916
+        },
+        {
+          "table_name": "IE_BatterRecord",
+          "column_count": 25,
+          "row_count": 35601
+        },
+        {
+          "table_name": "IE_GameList",
+          "column_count": 6,
+          "row_count": 916
+        },
+        {
+          "table_name": "IE_GAMESTATE",
+          "column_count": 5,
+          "row_count": 969
+        },
+        {
+          "table_name": "IE_LiveText",
+          "column_count": 7,
+          "row_count": 480083
+        },
+        {
+          "table_name": "IE_PitcherRecord",
+          "column_count": 22,
+          "row_count": 9672
+        },
+        {
+          "table_name": "IE_Scoreinning",
+          "column_count": 5,
+          "row_count": 16114
+        },
+        {
+          "table_name": "IE_ScoreRHEB",
+          "column_count": 7,
+          "row_count": 2022
+        },
+        {
+          "table_name": "KBO_BATRESULT",
+          "column_count": 90,
+          "row_count": 29217
+        },
+        {
+          "table_name": "KBO_ETCGAME",
+          "column_count": 5,
+          "row_count": 7092
+        },
+        {
+          "table_name": "KBO_PITRESULT",
+          "column_count": 23,
+          "row_count": 8942
+        },
+        {
+          "table_name": "Pitcher",
+          "column_count": 36,
+          "row_count": 14756
+        },
+        {
+          "table_name": "PitTotal",
+          "column_count": 21,
+          "row_count": 3904
+        },
+        {
+          "table_name": "Score",
+          "column_count": 60,
+          "row_count": 1205
+        },
+        {
+          "table_name": "SEASON_PLAYER_HITTER",
+          "column_count": 43,
+          "row_count": 466
+        },
+        {
+          "table_name": "SEASON_PLAYER_HITTER_SITUATION",
+          "column_count": 14,
+          "row_count": 5700
+        },
+        {
+          "table_name": "SEASON_PLAYER_PITCHER",
+          "column_count": 54,
+          "row_count": 394
+        },
+        {
+          "table_name": "SEASON_PLAYER_PITCHER_SITUATION",
+          "column_count": 14,
+          "row_count": 5460
+        },
+        {
+          "table_name": "TeamRank",
+          "column_count": 29,
+          "row_count": 214
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_INTERNATIONAL",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "BatTotal",
+          "column_count": 22,
+          "row_count": 0
+        },
+        {
+          "table_name": "ENTRY",
+          "column_count": 12,
+          "row_count": 2073
+        },
+        {
+          "table_name": "GAMECONTAPP",
+          "column_count": 29,
+          "row_count": 4586
+        },
+        {
+          "table_name": "GAMEINFO",
+          "column_count": 27,
+          "row_count": 43
+        },
+        {
+          "table_name": "Hitter",
+          "column_count": 26,
+          "row_count": 116
+        },
+        {
+          "table_name": "IE_BallCount",
+          "column_count": 11,
+          "row_count": 34
+        },
+        {
+          "table_name": "IE_BatterRecord",
+          "column_count": 25,
+          "row_count": 1364
+        },
+        {
+          "table_name": "IE_GameList",
+          "column_count": 6,
+          "row_count": 34
+        },
+        {
+          "table_name": "IE_GAMESTATE",
+          "column_count": 5,
+          "row_count": 34
+        },
+        {
+          "table_name": "IE_LiveText",
+          "column_count": 7,
+          "row_count": 18535
+        },
+        {
+          "table_name": "IE_PitcherRecord",
+          "column_count": 22,
+          "row_count": 394
+        },
+        {
+          "table_name": "IE_Scoreinning",
+          "column_count": 5,
+          "row_count": 595
+        },
+        {
+          "table_name": "IE_ScoreRHEB",
+          "column_count": 7,
+          "row_count": 68
+        },
+        {
+          "table_name": "KBO_BATRESULT",
+          "column_count": 90,
+          "row_count": 1324
+        },
+        {
+          "table_name": "KBO_ETCGAME",
+          "column_count": 5,
+          "row_count": 323
+        },
+        {
+          "table_name": "KBO_PITRESULT",
+          "column_count": 23,
+          "row_count": 452
+        },
+        {
+          "table_name": "person",
+          "column_count": 20,
+          "row_count": 87
+        },
+        {
+          "table_name": "Pitcher",
+          "column_count": 36,
+          "row_count": 592
+        },
+        {
+          "table_name": "PitTotal",
+          "column_count": 21,
+          "row_count": 0
+        },
+        {
+          "table_name": "Score",
+          "column_count": 60,
+          "row_count": 43
+        },
+        {
+          "table_name": "TeamRank",
+          "column_count": 29,
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_MINOR_BASEBALL_220328",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "BATTOTAL",
+          "column_count": 22,
+          "row_count": 958
+        },
+        {
+          "table_name": "ENTRY",
+          "column_count": 12,
+          "row_count": 22098
+        },
+        {
+          "table_name": "GAMECONTAPP",
+          "column_count": 29,
+          "row_count": 63928
+        },
+        {
+          "table_name": "GAMEINFO",
+          "column_count": 27,
+          "row_count": 539
+        },
+        {
+          "table_name": "HITTER",
+          "column_count": 26,
+          "row_count": 15083
+        },
+        {
+          "table_name": "KBO_BATRESULT",
+          "column_count": 65,
+          "row_count": 221839
+        },
+        {
+          "table_name": "KBO_ETCGAME",
+          "column_count": 5,
+          "row_count": 70096
+        },
+        {
+          "table_name": "KBO_PITRESULT",
+          "column_count": 23,
+          "row_count": 70729
+        },
+        {
+          "table_name": "KBO_SCHEDULE",
+          "column_count": 15,
+          "row_count": 4023
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigrequest",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigresponse",
+          "column_count": 13,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_lsns",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_originatorid_history",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_request",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_response",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyrequest",
+          "column_count": 3,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyresponse",
+          "column_count": 8,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpub_identity_range",
+          "column_count": 6,
+          "row_count": 0
+        },
+        {
+          "table_name": "PERSON",
+          "column_count": 16,
+          "row_count": 13902
+        },
+        {
+          "table_name": "PITCHCLOCK",
+          "column_count": 19,
+          "row_count": 168
+        },
+        {
+          "table_name": "PITCHER",
+          "column_count": 36,
+          "row_count": 6743
+        },
+        {
+          "table_name": "PITTOTAL",
+          "column_count": 21,
+          "row_count": 804
+        },
+        {
+          "table_name": "SCORE",
+          "column_count": 60,
+          "row_count": 539
+        },
+        {
+          "table_name": "STADIUM",
+          "column_count": 3,
+          "row_count": 284
+        },
+        {
+          "table_name": "sysarticlecolumns",
+          "column_count": 5,
+          "row_count": 393
+        },
+        {
+          "table_name": "sysarticles",
+          "column_count": 23,
+          "row_count": 15
+        },
+        {
+          "table_name": "sysarticleupdates",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "sysdiagrams",
+          "column_count": 5,
+          "row_count": 0
+        },
+        {
+          "table_name": "syspublications",
+          "column_count": 41,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysreplservers",
+          "column_count": 2,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysschemaarticles",
+          "column_count": 12,
+          "row_count": 0
+        },
+        {
+          "table_name": "syssubscriptions",
+          "column_count": 14,
+          "row_count": 30
+        },
+        {
+          "table_name": "systranschemas",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "TEAM",
+          "column_count": 7,
+          "row_count": 210
+        },
+        {
+          "table_name": "TEAMRANK",
+          "column_count": 29,
+          "row_count": 11
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_MINOR_BASEBALL_NEW_220328",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "IE_BALLCOUNT",
+          "column_count": 11,
+          "row_count": 8651
+        },
+        {
+          "table_name": "IE_BATTERRECORD",
+          "column_count": 25,
+          "row_count": 263107
+        },
+        {
+          "table_name": "IE_GAMELIST",
+          "column_count": 6,
+          "row_count": 8362
+        },
+        {
+          "table_name": "IE_GAMESTATE",
+          "column_count": 5,
+          "row_count": 6978
+        },
+        {
+          "table_name": "IE_LIVETEXT",
+          "column_count": 7,
+          "row_count": 4506413
+        },
+        {
+          "table_name": "IE_PITCHERRECORD",
+          "column_count": 22,
+          "row_count": 75646
+        },
+        {
+          "table_name": "IE_SCOREINNING",
+          "column_count": 5,
+          "row_count": 147846
+        },
+        {
+          "table_name": "IE_SCORERHEB",
+          "column_count": 7,
+          "row_count": 17302
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigrequest",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_conflictdetectionconfigresponse",
+          "column_count": 13,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_lsns",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_originatorid_history",
+          "column_count": 7,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_request",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_response",
+          "column_count": 4,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyrequest",
+          "column_count": 3,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpeer_topologyresponse",
+          "column_count": 8,
+          "row_count": 0
+        },
+        {
+          "table_name": "MSpub_identity_range",
+          "column_count": 6,
+          "row_count": 0
+        },
+        {
+          "table_name": "sysarticlecolumns",
+          "column_count": 5,
+          "row_count": 88
+        },
+        {
+          "table_name": "sysarticles",
+          "column_count": 23,
+          "row_count": 8
+        },
+        {
+          "table_name": "sysarticleupdates",
+          "column_count": 10,
+          "row_count": 0
+        },
+        {
+          "table_name": "sysdiagrams",
+          "column_count": 5,
+          "row_count": 0
+        },
+        {
+          "table_name": "syspublications",
+          "column_count": 41,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysreplservers",
+          "column_count": 2,
+          "row_count": 1
+        },
+        {
+          "table_name": "sysschemaarticles",
+          "column_count": 12,
+          "row_count": 0
+        },
+        {
+          "table_name": "syssubscriptions",
+          "column_count": 14,
+          "row_count": 16
+        },
+        {
+          "table_name": "systranschemas",
+          "column_count": 4,
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_MINOR_POSTSEASON",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "BatTotal",
+          "column_count": 22,
+          "row_count": 0
+        },
+        {
+          "table_name": "ENTRY",
+          "column_count": 12,
+          "row_count": 111
+        },
+        {
+          "table_name": "GAMECONTAPP",
+          "column_count": 29,
+          "row_count": 347
+        },
+        {
+          "table_name": "GAMEINFO",
+          "column_count": 27,
+          "row_count": 3
+        },
+        {
+          "table_name": "Hitter",
+          "column_count": 26,
+          "row_count": 77
+        },
+        {
+          "table_name": "IE_BallCount",
+          "column_count": 11,
+          "row_count": 3
+        },
+        {
+          "table_name": "IE_BatterRecord",
+          "column_count": 25,
+          "row_count": 77
+        },
+        {
+          "table_name": "IE_GameList",
+          "column_count": 6,
+          "row_count": 0
+        },
+        {
+          "table_name": "IE_GAMESTATE",
+          "column_count": 5,
+          "row_count": 3
+        },
+        {
+          "table_name": "IE_LiveText",
+          "column_count": 7,
+          "row_count": 1672
+        },
+        {
+          "table_name": "IE_PitcherRecord",
+          "column_count": 22,
+          "row_count": 36
+        },
+        {
+          "table_name": "IE_Scoreinning",
+          "column_count": 5,
+          "row_count": 53
+        },
+        {
+          "table_name": "IE_ScoreRHEB",
+          "column_count": 7,
+          "row_count": 6
+        },
+        {
+          "table_name": "KBO_BATRESULT",
+          "column_count": 90,
+          "row_count": 77
+        },
+        {
+          "table_name": "KBO_ETCGAME",
+          "column_count": 5,
+          "row_count": 21
+        },
+        {
+          "table_name": "KBO_PITRESULT",
+          "column_count": 23,
+          "row_count": 36
+        },
+        {
+          "table_name": "PITCHCLOCK",
+          "column_count": 19,
+          "row_count": 1
+        },
+        {
+          "table_name": "Pitcher",
+          "column_count": 36,
+          "row_count": 42
+        },
+        {
+          "table_name": "PitTotal",
+          "column_count": 21,
+          "row_count": 0
+        },
+        {
+          "table_name": "Score",
+          "column_count": 60,
+          "row_count": 3
+        },
+        {
+          "table_name": "TeamRank",
+          "column_count": 29,
+          "row_count": 0
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_MINOR_SO_BASEBALL",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "BATTOTAL",
+          "column_count": 22,
+          "row_count": 144
+        },
+        {
+          "table_name": "ENTRY",
+          "column_count": 12,
+          "row_count": 346
+        },
+        {
+          "table_name": "GAMECONTAPP",
+          "column_count": 29,
+          "row_count": 954
+        },
+        {
+          "table_name": "GAMEINFO",
+          "column_count": 27,
+          "row_count": 9
+        },
+        {
+          "table_name": "HITTER",
+          "column_count": 26,
+          "row_count": 246
+        },
+        {
+          "table_name": "KBO_BATRESULT",
+          "column_count": 65,
+          "row_count": 3303
+        },
+        {
+          "table_name": "KBO_ETCGAME",
+          "column_count": 5,
+          "row_count": 1119
+        },
+        {
+          "table_name": "KBO_PITRESULT",
+          "column_count": 23,
+          "row_count": 1099
+        },
+        {
+          "table_name": "KBO_SCHEDULE",
+          "column_count": 15,
+          "row_count": 146
+        },
+        {
+          "table_name": "PERSON",
+          "column_count": 16,
+          "row_count": 8249
+        },
+        {
+          "table_name": "PITCHER",
+          "column_count": 36,
+          "row_count": 103
+        },
+        {
+          "table_name": "PITTOTAL",
+          "column_count": 21,
+          "row_count": 116
+        },
+        {
+          "table_name": "SCORE",
+          "column_count": 60,
+          "row_count": 9
+        },
+        {
+          "table_name": "TEAM",
+          "column_count": 7,
+          "row_count": 178
+        },
+        {
+          "table_name": "TEAMRANK",
+          "column_count": 29,
+          "row_count": 4
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_MINOR_SO_BASEBALL_NEW",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "IE_BALLCOUNT",
+          "column_count": 11,
+          "row_count": 16
+        },
+        {
+          "table_name": "IE_BATTERRECORD",
+          "column_count": 25,
+          "row_count": 449
+        },
+        {
+          "table_name": "IE_GAMELIST",
+          "column_count": 6,
+          "row_count": 0
+        },
+        {
+          "table_name": "IE_GAMESTATE",
+          "column_count": 5,
+          "row_count": 16
+        },
+        {
+          "table_name": "IE_LIVETEXT",
+          "column_count": 7,
+          "row_count": 7813
+        },
+        {
+          "table_name": "IE_PITCHERRECORD",
+          "column_count": 22,
+          "row_count": 141
+        },
+        {
+          "table_name": "IE_SCOREINNING",
+          "column_count": 5,
+          "row_count": 279
+        },
+        {
+          "table_name": "IE_SCORERHEB",
+          "column_count": 7,
+          "row_count": 32
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_OTHER_GAME",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "BatTotal",
+          "column_count": 22,
+          "row_count": 207
+        },
+        {
+          "table_name": "ENTRY",
+          "column_count": 12,
+          "row_count": 1614
+        },
+        {
+          "table_name": "GAMECONTAPP",
+          "column_count": 29,
+          "row_count": 3307
+        },
+        {
+          "table_name": "GAMEINFO",
+          "column_count": 27,
+          "row_count": 32
+        },
+        {
+          "table_name": "Hitter",
+          "column_count": 26,
+          "row_count": 1131
+        },
+        {
+          "table_name": "IE_BallCount",
+          "column_count": 11,
+          "row_count": 2
+        },
+        {
+          "table_name": "IE_BatterRecord",
+          "column_count": 25,
+          "row_count": 46
+        },
+        {
+          "table_name": "IE_GameList",
+          "column_count": 6,
+          "row_count": 2
+        },
+        {
+          "table_name": "IE_GAMESTATE",
+          "column_count": 5,
+          "row_count": 2
+        },
+        {
+          "table_name": "IE_LiveText",
+          "column_count": 7,
+          "row_count": 894
+        },
+        {
+          "table_name": "IE_PitcherRecord",
+          "column_count": 22,
+          "row_count": 14
+        },
+        {
+          "table_name": "IE_Scoreinning",
+          "column_count": 5,
+          "row_count": 35
+        },
+        {
+          "table_name": "IE_ScoreRHEB",
+          "column_count": 7,
+          "row_count": 4
+        },
+        {
+          "table_name": "KBO_BATRESULT",
+          "column_count": 90,
+          "row_count": 1131
+        },
+        {
+          "table_name": "KBO_ETCGAME",
+          "column_count": 5,
+          "row_count": 260
+        },
+        {
+          "table_name": "KBO_PITRESULT",
+          "column_count": 23,
+          "row_count": 355
+        },
+        {
+          "table_name": "Pitcher",
+          "column_count": 36,
+          "row_count": 419
+        },
+        {
+          "table_name": "PitTotal",
+          "column_count": 21,
+          "row_count": 161
+        },
+        {
+          "table_name": "Score",
+          "column_count": 60,
+          "row_count": 32
+        },
+        {
+          "table_name": "TeamRank",
+          "column_count": 29,
+          "row_count": 10
+        }
+      ]
+    },
+    {
+      "db_name": "DB2_POSTSEASON",
+      "db_type": "DB2",
+      "tables": [
+        {
+          "table_name": "BatTotal",
+          "column_count": 23,
+          "row_count": 2615
+        },
+        {
+          "table_name": "ENTRY",
+          "column_count": 12,
+          "row_count": 19482
+        },
+        {
+          "table_name": "GAMECONTAPP",
+          "column_count": 29,
+          "row_count": 57975
+        },
+        {
+          "table_name": "GAMEINFO",
+          "column_count": 27,
+          "row_count": 551
+        },
+        {
+          "table_name": "Hitter",
+          "column_count": 26,
+          "row_count": 14604
+        },
+        {
+          "table_name": "IE_BallCount",
+          "column_count": 11,
+          "row_count": 310
+        },
+        {
+          "table_name": "IE_BatterRecord",
+          "column_count": 25,
+          "row_count": 8507
+        },
+        {
+          "table_name": "IE_GameList",
+          "column_count": 6,
+          "row_count": 296
+        },
+        {
+          "table_name": "IE_GAMESTATE",
+          "column_count": 5,
+          "row_count": 294
+        },
+        {
+          "table_name": "IE_LiveText",
+          "column_count": 7,
+          "row_count": 164791
+        },
+        {
+          "table_name": "IE_PitcherRecord",
+          "column_count": 22,
+          "row_count": 3015
+        },
+        {
+          "table_name": "IE_Scoreinning",
+          "column_count": 5,
+          "row_count": 5605
+        },
+        {
+          "table_name": "IE_ScoreRHEB",
+          "column_count": 7,
+          "row_count": 622
+        },
+        {
+          "table_name": "KBO_BATRESULT",
+          "column_count": 90,
+          "row_count": 6573
+        },
+        {
+          "table_name": "KBO_ETCGAME",
+          "column_count": 5,
+          "row_count": 1957
+        },
+        {
+          "table_name": "KBO_PITRESULT",
+          "column_count": 23,
+          "row_count": 2463
+        },
+        {
+          "table_name": "PITCHCLOCK",
+          "column_count": 19,
+          "row_count": 2
+        },
+        {
+          "table_name": "Pitcher",
+          "column_count": 36,
+          "row_count": 5706
+        },
+        {
+          "table_name": "PitTotal",
+          "column_count": 22,
+          "row_count": 1892
+        },
+        {
+          "table_name": "Score",
+          "column_count": 60,
+          "row_count": 551
+        },
+        {
+          "table_name": "TeamRank",
+          "column_count": 30,
+          "row_count": 165
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_dbs": 17,
+    "db1_count": 4,
+    "db2_count": 13,
+    "total_tables": 395,
+    "total_unique_tables": 73,
+    "generated_at": "2026-02-23 15:20:09",
+    "server": "49.50.172.83:1433",
+    "user": "kbousr1",
+    "all_databases_on_server": [
+      "BROADCAST_BASEBALL",
+      "DB1_BASEBALL_2_220328",
+      "DB1_BASEBALL_220328",
+      "DB1_MINOR_BASEBALL_220328",
+      "DB1_MINOR_SO_BASEBALL",
+      "DB2_ALLSTAR",
+      "DB2_BASEBALL_2_220328",
+      "DB2_BASEBALL_220328",
+      "DB2_BASEBALL_NEW_220328",
+      "DB2_EXHIBITION",
+      "DB2_INTERNATIONAL",
+      "DB2_MINOR_BASEBALL_220328",
+      "DB2_MINOR_BASEBALL_NEW_220328",
+      "DB2_MINOR_POSTSEASON",
+      "DB2_MINOR_SO_BASEBALL",
+      "DB2_MINOR_SO_BASEBALL_NEW",
+      "DB2_OTHER_GAME",
+      "DB2_POSTSEASON",
+      "distribution",
+      "FALL_LEAGUE_BASEBALL",
+      "master",
+      "model",
+      "msdb",
+      "tempdb",
+      "TEST_DB1_BASEBALL",
+      "TEST_DB1_BASEBALL_2",
+      "TEST_DB1_MINOR_BASEBALL",
+      "TEST_DB1_MINOR_SO_BASEBALL",
+      "TEST_DB2_ALLSTAR",
+      "TEST_DB2_BASEBALL",
+      "TEST_DB2_BASEBALL_2",
+      "TEST_DB2_BASEBALL_NEW",
+      "TEST_DB2_EXHIBITION",
+      "TEST_DB2_INTERNATIONAL",
+      "TEST_DB2_MINOR_BASEBALL",
+      "TEST_DB2_MINOR_BASEBALL_NEW",
+      "TEST_DB2_MINOR_POSTSEASON",
+      "TEST_DB2_MINOR_SO_BASEBALL",
+      "TEST_DB2_MINOR_SO_BASEBALL_NEW",
+      "TEST_DB2_OTHER_GAME",
+      "TEST_DB2_POSTSEASON",
+      "TEST_FALL_LEAGUE_BASEBALL"
+    ]
+  }
+}

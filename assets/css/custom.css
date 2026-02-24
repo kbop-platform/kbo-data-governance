@@ -1,0 +1,81 @@
+/* === KBO Data Standards — MkDocs Material Custom Theme === */
+
+:root {
+  --kbo-navy: #1B2A5B;
+  --kbo-navy-light: #2A3D7A;
+  --kbo-navy-dark: #111D40;
+  --kbo-accent: #4A7BF7;
+  --kbo-bg-subtle: #F5F7FA;
+}
+
+/* ── 헤더 ── */
+.md-header {
+  background-color: var(--kbo-navy);
+}
+
+/* 헤더 로고 — 흰색 반전 + 사이트명과 밀착 */
+.md-header .md-header__button.md-logo {
+  margin: 0;
+  padding: 0.4rem 0.3rem 0.4rem 0.4rem;
+}
+.md-header .md-header__button.md-logo img {
+  filter: brightness(0) invert(1);
+  height: 1.3rem;
+  width: auto;
+}
+.md-header .md-header__title {
+  margin-left: 0;
+}
+
+/* 탭 바 */
+.md-tabs {
+  background-color: var(--kbo-navy-dark);
+}
+
+/* ── 사이드바 ── */
+@media screen and (min-width: 76.25em) {
+  :root {
+    --md-sidebar-width: 17rem;
+  }
+}
+
+.md-nav__item .md-nav__link {
+  font-size: 0.78rem;
+}
+
+/* ── 테이블 ── */
+.md-typeset table:not([class]) th {
+  background-color: var(--kbo-navy);
+  color: #fff;
+  font-weight: 600;
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: var(--kbo-navy-light);
+}
+.md-typeset table:not([class]) tr:nth-child(even) td {
+  background-color: var(--kbo-bg-subtle);
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ── 사이드바 활성 메뉴 ── */
+.md-nav__link--active {
+  font-weight: 600;
+}
+
+/* ── 푸터 ── */
+.md-footer-meta {
+  background-color: var(--kbo-navy-dark);
+}
+
+/* ── 코드 ── */
+.md-typeset code {
+  font-size: 0.82em;
+}
+
+/* ── 폰트 ── */
+.md-typeset {
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  line-height: 1.75;
+}

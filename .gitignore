@@ -1,0 +1,37 @@
+# === Credentials / Secrets ===
+.env
+.env.*
+*.env.local
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Temp / Backup ===
+*.tmp
+*.bak
+*.log
+
+# === Excel lock files ===
+~$*.xlsx
+~$*.xls
+
+# === MkDocs ===
+site/
+docs/

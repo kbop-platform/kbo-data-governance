@@ -1,0 +1,126 @@
+site_name: Data Standards
+site_description: KBO 데이터 표준 및 거버넌스 체계 (RFP DAR-001)
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  language: ko
+  logo: assets/images/kbo-logo.png
+  favicon: assets/images/kbo-logo.png
+  font:
+    text: Noto Sans KR
+    code: JetBrains Mono
+  palette:
+    - scheme: default
+      primary: custom
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 다크 모드
+    - scheme: slate
+      primary: custom
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 라이트 모드
+  features:
+    - search.highlight
+    - search.suggest
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.path
+    - toc.integrate
+    - content.code.copy
+    - header.autohide
+
+plugins:
+  - search:
+      lang:
+        - ko
+        - en
+
+extra_css:
+  - assets/css/custom.css
+
+extra:
+  generator: false
+
+copyright: "&copy; 2026 KBOP Data Biz Team &mdash; Data Standards v1.0 &middot; Confidential"
+
+nav:
+  - Home: index.md
+  - 프로젝트 가이드: project-guide.md
+  - 데이터 사전:
+    - 테이블 조감도: dictionary/index.md
+    - 경기 기록:
+      - dictionary/game/README.md
+      - 01. 경기 정보: dictionary/game/GAMEINFO.md
+      - 02. 경기 날씨: dictionary/game/GAMEINFO_WEATHER.md
+      - 03. 이벤트 상세: dictionary/game/GAMECONTAPP.md
+      - 04. 출전 엔트리: dictionary/game/ENTRY.md
+      - 05. 타자 기록: dictionary/game/Hitter.md
+      - 06. 투수 기록: dictionary/game/Pitcher.md
+      - 07. 스코어: dictionary/game/Score.md
+      - 08. 수비 기록: dictionary/game/DEFEN.md
+      - 09. 홈런 기록: dictionary/game/GAME_HR.md
+      - 10. 투구 메모: dictionary/game/GAME_MEMO.md
+      - 11. 피치클럭 메모: dictionary/game/GAME_MEMO_PITCHCLOCK.md
+      - 12. 피치클럭: dictionary/game/PITCHCLOCK.md
+    - 통계:
+      - dictionary/stats/README.md
+      - 01. 타격 합산: dictionary/stats/BatTotal.md
+      - 02. 투구 합산: dictionary/stats/PitTotal.md
+      - 03. 팀 순위: dictionary/stats/TeamRank.md
+      - 04. 이닝별 타격: dictionary/stats/KBO_BATRESULT.md
+      - 05. 투수 결과: dictionary/stats/KBO_PITRESULT.md
+      - 06. 기타 경기: dictionary/stats/KBO_ETCGAME.md
+      - 07. 시즌 타자: dictionary/stats/SEASON_PLAYER_HITTER.md
+      - 08. 시즌 타자 상황별: dictionary/stats/SEASON_PLAYER_HITTER_SITUATION.md
+      - 09. 시즌 투수: dictionary/stats/SEASON_PLAYER_PITCHER.md
+      - 10. 시즌 투수 상황별: dictionary/stats/SEASON_PLAYER_PITCHER_SITUATION.md
+    - 실시간:
+      - dictionary/realtime/README.md
+      - 01. 문자 중계: dictionary/realtime/IE_LiveText.md
+      - 02. 볼카운트: dictionary/realtime/IE_BallCount.md
+      - 03. 타자 기록: dictionary/realtime/IE_BatterRecord.md
+      - 04. 투수 기록: dictionary/realtime/IE_PitcherRecord.md
+      - 05. 경기 목록: dictionary/realtime/IE_GameList.md
+      - 06. 경기 상태: dictionary/realtime/IE_GAMESTATE.md
+      - 07. 점수 요약: dictionary/realtime/IE_ScoreRHEB.md
+      - 08. 이닝 점수: dictionary/realtime/IE_Scoreinning.md
+      - 09. 시스템 로그: dictionary/realtime/IE_log.md
+    - 마스터:
+      - dictionary/master/README.md
+      - 01. 선수: dictionary/master/person.md
+      - 02. 선수 2: dictionary/master/person2.md
+      - 03. 선수 (마이너): dictionary/master/PERSON.md
+      - 04. FA 선수: dictionary/master/PERSON_FA.md
+      - 05. 팀: dictionary/master/TEAM.md
+      - 06. 구장: dictionary/master/STADIUM.md
+      - 07. 경기 일정: dictionary/master/KBO_schedule.md
+      - 08. 취소 경기: dictionary/master/CANCEL_GAME.md
+  - 표준 정의:
+    - 1. 명명 규칙: standards/naming-rules.md
+    - 2. ID 체계: standards/id-system.md
+    - 3. 코드 사전: standards/code-dictionary.md
+    - 4. 도메인 타입: standards/domain-types.md
+    - 5. 약어 사전: standards/abbreviations.md
+  - 용어 사전:
+    - 업무 용어: glossary/business-terms.md
+  - 거버넌스:
+    - 1. 데이터 오너십: governance/data-ownership.md
+    - 2. 품질 규칙: governance/quality-rules.md
+    - 3. 변경 관리 절차: governance/change-process.md
+    - 4. 테이블 설계 가이드: governance/table-design-guide.md
+  - 분석 결과:
+    - 1. 테이블 매핑: analysis/table-mapping.md
+    - 2. 컬럼 차이: analysis/column-diff.md
+    - 3. 코드 분석: analysis/code-analysis.md
+    - 4. ID 분석: analysis/id-analysis.md
+    - 5. 네이밍 패턴: analysis/naming-patterns.md
+    - 6. 컬럼 인벤토리: analysis/column-inventory.md
+    - 7. OPS 스키마 요약: analysis/ops-schema-summary.md
