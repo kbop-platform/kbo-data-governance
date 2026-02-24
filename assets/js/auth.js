@@ -1,8 +1,8 @@
-/* === KBO Data Standards — Password Gate === */
-/* 비밀번호 변경: python3 -c "import hashlib; print(hashlib.sha256(b'새비밀번호').hexdigest())" */
+/* === KBO Data Standards — Login Gate === */
+/* 계정 변경: python3 -c "import hashlib; print(hashlib.sha256(b'아이디:비밀번호').hexdigest())" */
 
 (function () {
-  var HASH = '8b4640a8317afd3cec39a4f6aa7571dc1cb091f66da8eb6a6ad08e2d7194307a';
+  var HASH = '31f5fb453a215d6cb849a0c7d34238f25b33d9309cb3a159527ea3287b22370e';
   var KEY = 'kbo-ds-auth';
 
   if (sessionStorage.getItem(KEY) === HASH) return;
@@ -26,12 +26,15 @@
       '    <img src="' + getBaseUrl() + 'assets/images/kbo-logo.png" alt="KBO">',
       '  </div>',
       '  <h1 class="auth-title">Data Standards</h1>',
-      '  <p class="auth-desc">문서 열람을 위해 비밀번호를 입력하세요.</p>',
+      '  <p class="auth-desc">문서 열람을 위해 로그인하세요.</p>',
       '  <form id="auth-form">',
       '    <div class="auth-input-wrap">',
-      '      <input type="password" id="auth-pw" placeholder="Password" autocomplete="off" autofocus>',
+      '      <input type="text" id="auth-id" placeholder="ID" autocomplete="off" autofocus>',
       '    </div>',
-      '    <button type="submit" class="auth-btn">Enter</button>',
+      '    <div class="auth-input-wrap">',
+      '      <input type="password" id="auth-pw" placeholder="Password" autocomplete="off">',
+      '    </div>',
+      '    <button type="submit" class="auth-btn">Login</button>',
       '    <p id="auth-error" class="auth-error"></p>',
       '  </form>',
       '  <p class="auth-footer">&copy; 2026 KBOP Data Biz Team</p>',
@@ -44,14 +47,15 @@
 
     document.getElementById('auth-form').addEventListener('submit', async function (e) {
       e.preventDefault();
+      var id = document.getElementById('auth-id').value;
       var pw = document.getElementById('auth-pw').value;
-      var hash = await sha256(pw);
+      var hash = await sha256(id + ':' + pw);
       if (hash === HASH) {
         sessionStorage.setItem(KEY, HASH);
         location.reload();
       } else {
         var err = document.getElementById('auth-error');
-        err.textContent = '비밀번호가 올바르지 않습니다.';
+        err.textContent = 'ID 또는 비밀번호가 올바르지 않습니다.';
         document.getElementById('auth-pw').value = '';
         document.getElementById('auth-pw').focus();
         err.classList.add('shake');
