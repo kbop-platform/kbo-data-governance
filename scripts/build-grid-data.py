@@ -48,6 +48,27 @@ def parse_index_std_names():
                 mapping[tname] = std_cell
     return mapping
 
+# ── 2b. dictionary/index.md 에서 설명 파싱 ────────────────────
+def parse_index_descriptions():
+    """index.md 테이블에서 테이블명 → 설명 매핑"""
+    p = BASE / "dictionary" / "index.md"
+    mapping = {}
+    with open(p, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line.startswith("|"):
+                continue
+            cols = [c.strip() for c in line.split("|")]
+            if len(cols) < 12:
+                continue
+            table_cell = cols[2]
+            desc_cell = cols[11]
+            m = re.search(r"\[([^\]]+)\]", table_cell)
+            if m and desc_cell and desc_cell not in ("설명", "---", "--------"):
+                tname = m.group(1)
+                mapping[tname] = desc_cell
+    return mapping
+
 # ── 3. dictionary/{domain}/{table}.md 파싱 ────────────────────
 def parse_dictionary_md(md_path):
     """단일 dictionary md 파일에서 메타 + 컬럼 상세 파싱"""
@@ -346,7 +367,11 @@ def build_catalog_instances():
     # 4) index.md 에서 tier/owner 파싱 (보조)
     index_meta = parse_index_meta()
 
-    # 5) 인스턴스 행 생성
+    # 5) index.md 에서 표준명(안), 설명 파싱
+    std_names = parse_index_std_names()
+    idx_descs = parse_index_descriptions()
+
+    # 6) 인스턴스 행 생성
     rows = []
     for db in inventory["databases"]:
         db_name = db["db_name"]
@@ -374,11 +399,15 @@ def build_catalog_instances():
                 meta = dentry["meta"]
                 tier = meta.get("tier", "")
                 owner = meta.get("owner", "")
+                refresh = meta.get("refresh", "")
+                access = meta.get("access", "")
             else:
                 domain = ""
                 table_doc_url = ""
                 tier = ""
                 owner = ""
+                refresh = ""
+                access = ""
 
             # index.md 보조 (dictionary md에 없으면)
             idx = index_meta.get(table_name) or index_meta.get(table_name.lower(), {})
@@ -397,6 +426,25 @@ def build_catalog_instances():
                         break
             schema_gen = cm.get("schema_generation", "")
 
+            # pk_columns (column-metadata.json)
+            pk_cols = cm.get("pk_columns", [])
+            pk_columns = ", ".join(pk_cols) if pk_cols else ""
+
+            # table_std_name, description (index.md)
+            table_std_name = std_names.get(table_name, "")
+            if not table_std_name:
+                # case-insensitive fallback
+                for k, v in std_names.items():
+                    if k.lower() == table_name.lower():
+                        table_std_name = v
+                        break
+            description = idx_descs.get(table_name, "")
+            if not description:
+                for k, v in idx_descs.items():
+                    if k.lower() == table_name.lower():
+                        description = v
+                        break
+
             # table_name_ci (case-insensitive 그룹 키)
             table_name_ci = table_name.lower()
 
@@ -406,12 +454,17 @@ def build_catalog_instances():
                 "league": league,
                 "table_name": table_name,
                 "table_name_ci": table_name_ci,
+                "table_std_name": table_std_name,
                 "domain": domain,
                 "column_count": column_count,
                 "row_count": row_count,
                 "tier": tier,
                 "owner": owner,
                 "schema_gen": schema_gen,
+                "pk_columns": pk_columns,
+                "refresh": refresh,
+                "access": access,
+                "description": description,
                 "table_doc_url": table_doc_url,
             })
 

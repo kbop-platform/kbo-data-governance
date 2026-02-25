@@ -6,9 +6,12 @@ hide:
 
 <div class="ag-grid-page" markdown>
 
-# 용어 사전
-
-> KBO 업무 용어를 한 화면에서 검색·필터 — 야구 기록, 경기 운영, 코드 체계, 데이터 품질
+<!-- Catalog Sub-Tabs -->
+<div class="catalog-tabs">
+  <a href="../instances/"><span class="tab-icon">&#9638;</span> 테이블 목록 <span class="tab-count">248</span></a>
+  <a href="../columns/"><span class="tab-icon">&#9776;</span> 컬럼 검색 <span class="tab-count">787</span></a>
+  <a href="../glossary/" class="active"><span class="tab-icon">&#9733;</span> 용어 사전 <span class="tab-count">134</span></a>
+</div>
 
 <!-- Stats Cards -->
 <div class="grid-stats">
@@ -25,7 +28,10 @@ hide:
 <!-- Filter Bar -->
 <div class="grid-filter-bar">
   <input type="text" id="grid-search" class="filter-search" placeholder="검색... (Ctrl+F)">
-  <select id="sel-category" data-field="category"><option value="">분류</option></select>
+  <div class="filter-group">
+    <label class="filter-label" for="sel-category">분류</label>
+    <select id="sel-category" data-field="category"><option value="">전체</option></select>
+  </div>
   <button id="btn-reset" class="btn-reset">초기화</button>
 </div>
 

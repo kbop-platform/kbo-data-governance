@@ -1,4 +1,4 @@
-/* === KBO Data Standards — Login Gate === */
+/* === KBO DataHub — Login Gate === */
 /* 계정 변경: python3 -c "import hashlib; print(hashlib.sha256(b'아이디:비밀번호').hexdigest())" */
 
 (function () {
@@ -49,7 +49,7 @@
       '  <div class="auth-logo">',
       '    <img src="' + getBaseUrl() + 'assets/images/kbo-logo.png" alt="KBO">',
       '  </div>',
-      '  <h1 class="auth-title">Data Standards</h1>',
+      '  <h1 class="auth-title">KBO DataHub</h1>',
       '  <p class="auth-desc">문서 열람을 위해 로그인하세요.</p>',
       '  <form id="auth-form">',
       '    <div class="auth-input-wrap">',

@@ -6,9 +6,12 @@ hide:
 
 <div class="ag-grid-page" markdown>
 
-# 인스턴스 현황
-
-> 17개 DB × 248개 테이블 인스턴스 — 물리 배포 현황을 한 화면에서 검색/필터
+<!-- Catalog Sub-Tabs -->
+<div class="catalog-tabs">
+  <a href="../instances/" class="active"><span class="tab-icon">&#9638;</span> 테이블 목록 <span class="tab-count">248</span></a>
+  <a href="../columns/"><span class="tab-icon">&#9776;</span> 컬럼 검색 <span class="tab-count">787</span></a>
+  <a href="../glossary/"><span class="tab-icon">&#9733;</span> 용어 사전 <span class="tab-count">134</span></a>
+</div>
 
 <!-- Stats Cards -->
 <div class="grid-stats">
@@ -33,10 +36,26 @@ hide:
 <!-- Filter Bar -->
 <div class="grid-filter-bar">
   <input type="text" id="grid-search" class="filter-search" placeholder="검색... (Ctrl+F)">
-  <select id="sel-db_type" data-field="db_type"><option value="">DB타입</option></select>
-  <select id="sel-league" data-field="league"><option value="">리그</option></select>
-  <select id="sel-domain" data-field="domain"><option value="">도메인</option></select>
-  <select id="sel-table_name" data-field="table_name"><option value="">테이블</option></select>
+  <div class="filter-group">
+    <label class="filter-label" for="sel-db_type">DB타입</label>
+    <select id="sel-db_type" data-field="db_type"><option value="">전체</option></select>
+  </div>
+  <div class="filter-group">
+    <label class="filter-label" for="sel-league">리그</label>
+    <select id="sel-league" data-field="league"><option value="">전체</option></select>
+  </div>
+  <div class="filter-group">
+    <label class="filter-label" for="sel-domain">도메인</label>
+    <select id="sel-domain" data-field="domain"><option value="">전체</option></select>
+  </div>
+  <div class="filter-group">
+    <label class="filter-label" for="sel-schema_gen">세대</label>
+    <select id="sel-schema_gen" data-field="schema_gen"><option value="">전체</option></select>
+  </div>
+  <div class="filter-group">
+    <label class="filter-label" for="sel-table_name">테이블</label>
+    <select id="sel-table_name" data-field="table_name"><option value="">전체</option></select>
+  </div>
   <button id="btn-reset" class="btn-reset">초기화</button>
 </div>
 

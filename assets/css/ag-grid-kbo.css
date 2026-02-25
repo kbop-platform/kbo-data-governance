@@ -73,6 +73,85 @@
   letter-spacing: 0.3px;
 }
 
+/* 세대(generation) 배지 */
+.ag-theme-kbo .cell-badge-legacy {
+  display: inline-block;
+  background: #e65100;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+}
+.ag-theme-kbo .cell-badge-new {
+  display: inline-block;
+  background: #2E7D32;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+}
+.ag-theme-kbo .cell-badge-unknown {
+  display: inline-block;
+  background: #9e9e9e;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+}
+
+/* 갱신 주기 배지 */
+.ag-theme-kbo .cell-refresh-realtime {
+  display: inline-block;
+  background: #1565c0;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.ag-theme-kbo .cell-refresh-gameday {
+  display: inline-block;
+  background: #2E7D32;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.ag-theme-kbo .cell-refresh-d1 {
+  display: inline-block;
+  background: #e65100;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.ag-theme-kbo .cell-refresh-season {
+  display: inline-block;
+  background: #6a1b9a;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.ag-theme-kbo .cell-refresh-yearly {
+  display: inline-block;
+  background: #757575;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
 /* 티어 배지 */
 .ag-theme-kbo .cell-tier-1 {
   color: #c62828;
@@ -128,6 +207,30 @@
 [data-md-color-scheme="slate"] .ag-theme-kbo .cell-badge-db2 {
   background: #5C8AE6;
 }
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-badge-legacy {
+  background: #bf360c;
+}
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-badge-new {
+  background: #388E3C;
+}
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-badge-unknown {
+  background: #616161;
+}
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-refresh-realtime {
+  background: #1976d2;
+}
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-refresh-gameday {
+  background: #388E3C;
+}
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-refresh-d1 {
+  background: #bf360c;
+}
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-refresh-season {
+  background: #7b1fa2;
+}
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-refresh-yearly {
+  background: #616161;
+}
 
 /* ══════════════════════════════════════════
    Stats Cards
@@ -173,10 +276,22 @@
    ══════════════════════════════════════════ */
 .grid-filter-bar {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 8px;
   flex-wrap: wrap;
   margin-bottom: 10px;
+}
+.grid-filter-bar .filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.grid-filter-bar .filter-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 0.03em;
+  padding-left: 2px;
 }
 .grid-filter-bar .filter-search {
   flex: 1 1 200px;
@@ -235,6 +350,9 @@
   background-color: rgba(255, 255, 255, 0.06);
   border-color: #444;
   color: #ddd;
+}
+[data-md-color-scheme="slate"] .grid-filter-bar .filter-label {
+  color: #999;
 }
 [data-md-color-scheme="slate"] .grid-filter-bar .btn-reset {
   background: rgba(255, 255, 255, 0.06);
@@ -339,6 +457,78 @@
 }
 
 /* ══════════════════════════════════════════
+   Catalog 서브 탭 네비게이션
+   ══════════════════════════════════════════ */
+.catalog-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #e2e6ed;
+  margin-bottom: 20px;
+}
+.catalog-tabs a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.catalog-tabs a:hover {
+  color: var(--kbo-navy, #1B2A5B);
+  border-bottom-color: #ccc;
+}
+.catalog-tabs a.active {
+  color: var(--kbo-accent, #4A7BF7);
+  font-weight: 700;
+  border-bottom-color: var(--kbo-accent, #4A7BF7);
+}
+.catalog-tabs .tab-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+.catalog-tabs .tab-count {
+  font-size: 10px;
+  font-weight: 600;
+  background: #eee;
+  color: #666;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-left: 2px;
+}
+.catalog-tabs a.active .tab-count {
+  background: rgba(74, 123, 247, 0.12);
+  color: var(--kbo-accent, #4A7BF7);
+}
+
+[data-md-color-scheme="slate"] .catalog-tabs {
+  border-bottom-color: #333;
+}
+[data-md-color-scheme="slate"] .catalog-tabs a {
+  color: #888;
+}
+[data-md-color-scheme="slate"] .catalog-tabs a:hover {
+  color: #ccc;
+  border-bottom-color: #555;
+}
+[data-md-color-scheme="slate"] .catalog-tabs a.active {
+  color: #6fa0ff;
+  border-bottom-color: #6fa0ff;
+}
+[data-md-color-scheme="slate"] .catalog-tabs .tab-count {
+  background: rgba(255, 255, 255, 0.08);
+  color: #888;
+}
+[data-md-color-scheme="slate"] .catalog-tabs a.active .tab-count {
+  background: rgba(111, 160, 255, 0.15);
+  color: #6fa0ff;
+}
+
+/* ══════════════════════════════════════════
    AG Grid 전체 폭 레이아웃 (hide nav/toc)
    ══════════════════════════════════════════ */
 .ag-grid-page .md-sidebar {
@@ -382,6 +572,9 @@
   }
   .grid-filter-bar .filter-search {
     flex: unset;
+  }
+  .grid-filter-bar .filter-group {
+    width: 100%;
   }
   .grid-filter-bar select {
     width: 100%;

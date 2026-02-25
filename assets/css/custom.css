@@ -1,4 +1,4 @@
-/* === KBO Data Standards — MkDocs Material Custom Theme === */
+/* === KBO DataHub — MkDocs Material Custom Theme === */
 
 :root {
   --kbo-navy: #1B2A5B;
@@ -25,6 +25,14 @@
 }
 .md-header .md-header__title {
   margin-left: 0;
+}
+/* 헤더 사이트명 고정 — 스크롤 시 페이지 제목으로 바뀌는 것 방지 */
+.md-header__title .md-header__topic:first-child {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+.md-header__title .md-header__topic + .md-header__topic {
+  display: none !important;
 }
 
 /* 탭 바 */
