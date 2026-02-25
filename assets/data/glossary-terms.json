@@ -1,0 +1,1211 @@
+{
+  "generated": "2026-02-25",
+  "rows": [
+    {
+      "category": "타격 기록",
+      "term_ko": "타석",
+      "term_en": "Plate Appearance",
+      "abbreviation": "PA",
+      "definition": "타자가 타석에 들어선 횟수. 볼넷·사구·희생 포함",
+      "db_column": "`pa` (레거시: `PA`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "타수",
+      "term_en": "At Bat",
+      "abbreviation": "AB",
+      "definition": "타석에서 볼넷·사구·희생번트·희생플라이를 제외한 횟수",
+      "db_column": "`ab` (레거시: `AB`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "안타",
+      "term_en": "Hit",
+      "abbreviation": "HIT",
+      "definition": "타자가 안전하게 출루한 타격. 1루타+2루타+3루타+홈런",
+      "db_column": "`hit` (레거시: `HIT`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "1루타",
+      "term_en": "Single",
+      "abbreviation": "H1",
+      "definition": "타격 후 1루까지 진루한 안타",
+      "db_column": "`h1b` (레거시: `H1`)",
+      "related_tables": "Hitter"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "2루타",
+      "term_en": "Double",
+      "abbreviation": "H2",
+      "definition": "타격 후 2루까지 진루한 안타",
+      "db_column": "`h2b` (레거시: `H2`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "3루타",
+      "term_en": "Triple",
+      "abbreviation": "H3",
+      "definition": "타격 후 3루까지 진루한 안타",
+      "db_column": "`h3b` (레거시: `H3`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "홈런",
+      "term_en": "Home Run",
+      "abbreviation": "HR",
+      "definition": "타격 후 본루까지 진루한 안타",
+      "db_column": "`hr` (레거시: `HR`)",
+      "related_tables": "Hitter, BatTotal, GAME_HR"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "타점",
+      "term_en": "Runs Batted In",
+      "abbreviation": "RBI",
+      "definition": "타자의 타격·희생 등으로 주자가 득점한 수",
+      "db_column": "`rbi` (레거시: `RBI`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "득점",
+      "term_en": "Run Scored",
+      "abbreviation": "RUN",
+      "definition": "주자가 본루를 밟아 득점한 횟수",
+      "db_column": "`run` (레거시: `RUN`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "볼넷",
+      "term_en": "Base on Balls",
+      "abbreviation": "BB",
+      "definition": "투수가 4볼을 던져 타자에게 1루를 내준 것",
+      "db_column": "`bb` (레거시: `BB`)",
+      "related_tables": "Hitter, Pitcher, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "사구",
+      "term_en": "Hit by Pitch",
+      "abbreviation": "HBP",
+      "definition": "투수의 공이 타자 몸에 맞아 1루로 출루",
+      "db_column": "`hbp` (레거시: `HP`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "고의사구",
+      "term_en": "Intentional Walk",
+      "abbreviation": "IBB",
+      "definition": "투수가 의도적으로 볼넷을 허용한 것",
+      "db_column": "`ibb` (레거시: `IB`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "삼진",
+      "term_en": "Strikeout",
+      "abbreviation": "SO",
+      "definition": "3스트라이크로 타자가 아웃된 것",
+      "db_column": "`so` (레거시: `KK`)",
+      "related_tables": "Hitter, Pitcher, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "도루",
+      "term_en": "Stolen Base",
+      "abbreviation": "SB",
+      "definition": "주자가 투수의 투구 중 다음 루로 진루",
+      "db_column": "`sb` (레거시: `SB`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "도루실패",
+      "term_en": "Caught Stealing",
+      "abbreviation": "CS",
+      "definition": "도루 시도 중 태그아웃",
+      "db_column": "`cs` (레거시: `CS`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "희생번트",
+      "term_en": "Sacrifice Hit",
+      "abbreviation": "SH",
+      "definition": "타자가 번트로 자신을 희생하여 주자를 진루시킨 것",
+      "db_column": "`sh` (레거시: `SH`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "희생플라이",
+      "term_en": "Sacrifice Fly",
+      "abbreviation": "SF",
+      "definition": "외야 플라이로 자신은 아웃되나 3루 주자가 득점",
+      "db_column": "`sf` (레거시: `SF`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "병살타",
+      "term_en": "Grounded into DP",
+      "abbreviation": "GIDP",
+      "definition": "타자의 타격으로 2명의 주자가 동시 아웃",
+      "db_column": "`gidp` (레거시: `GD`)",
+      "related_tables": "Hitter, BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "실책",
+      "term_en": "Error",
+      "abbreviation": "ERR",
+      "definition": "수비수의 실수로 주자가 진루하거나 타자가 출루",
+      "db_column": "`err` (레거시: `ERR`)",
+      "related_tables": "Hitter, DEFEN"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "잔루",
+      "term_en": "Left on Base",
+      "abbreviation": "LOB",
+      "definition": "이닝 종료 시 루상에 남은 주자 수",
+      "db_column": "`lob` (레거시: `LOB`)",
+      "related_tables": "Hitter"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "루타",
+      "term_en": "Total Bases",
+      "abbreviation": "TB",
+      "definition": "안타로 획득한 총 루수. 1루타×1 + 2루타×2 + 3루타×3 + 홈런×4",
+      "db_column": "`tb_cn` (레거시: `TB` int)",
+      "related_tables": "BatTotal"
+    },
+    {
+      "category": "타격 기록",
+      "term_ko": "장타",
+      "term_en": "Extra Base Hit",
+      "abbreviation": "XBH",
+      "definition": "2루타 이상의 안타 (2루타+3루타+홈런)",
+      "db_column": "`xbh_cn` (레거시: `XBH_CN`)",
+      "related_tables": "SEASON_PLAYER_HITTER"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "이닝",
+      "term_en": "Innings Pitched",
+      "abbreviation": "IP",
+      "definition": "투수가 던진 이닝 수. 1이닝=3아웃, 2/3이닝=2아웃",
+      "db_column": "`ip` (레거시: `INN`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "상대타자수",
+      "term_en": "Batters Faced",
+      "abbreviation": "BF",
+      "definition": "투수가 상대한 총 타자 수",
+      "db_column": "`bf` (레거시: `BF`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "승리",
+      "term_en": "Win",
+      "abbreviation": "W",
+      "definition": "경기에서 승리 투수로 기록된 것",
+      "db_column": "`win` (레거시: `W`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "패배",
+      "term_en": "Loss",
+      "abbreviation": "L",
+      "definition": "경기에서 패전 투수로 기록된 것",
+      "db_column": "`loss` (레거시: `L`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "세이브",
+      "term_en": "Save",
+      "abbreviation": "SV",
+      "definition": "리드를 지키며 경기를 마무리한 구원 투수에게 부여",
+      "db_column": "`sv` (레거시: `SV`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "홀드",
+      "term_en": "Hold",
+      "abbreviation": "HLD",
+      "definition": "리드 상황에서 등판하여 리드를 유지한 구원 투수",
+      "db_column": "`hld` (레거시: `HOLD`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "블론세이브",
+      "term_en": "Blown Save",
+      "abbreviation": "BS",
+      "definition": "세이브 상황에서 리드를 내준 것",
+      "db_column": "`bs` (레거시: `BS`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "완투",
+      "term_en": "Complete Game",
+      "abbreviation": "CG",
+      "definition": "투수가 경기 전체를 혼자 던진 것",
+      "db_column": "`cg` (레거시: `CG`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "완봉",
+      "term_en": "Shutout",
+      "abbreviation": "SHO",
+      "definition": "완투하면서 무실점으로 경기를 마친 것",
+      "db_column": "`sho` (레거시: `SHO`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "자책점",
+      "term_en": "Earned Run",
+      "abbreviation": "ER",
+      "definition": "투수의 책임으로 인정되는 실점 (실책 제외)",
+      "db_column": "`er` (레거시: `ER`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "실점",
+      "term_en": "Runs Allowed",
+      "abbreviation": "R",
+      "definition": "투수 등판 중 상대팀이 기록한 총 득점",
+      "db_column": "`runs_cn` (레거시: `R`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "투구수",
+      "term_en": "Number of Pitches",
+      "abbreviation": "NP",
+      "definition": "경기에서 투수가 던진 총 투구 수",
+      "db_column": "`pitch_cn` (레거시: `PIT_CN`)",
+      "related_tables": "Pitcher"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "폭투",
+      "term_en": "Wild Pitch",
+      "abbreviation": "WP",
+      "definition": "포수가 잡을 수 없는 투구로 주자가 진루",
+      "db_column": "`wp` (레거시: `WP`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "보크",
+      "term_en": "Balk",
+      "abbreviation": "BK",
+      "definition": "투수의 규칙 위반 동작으로 주자에게 진루 허용",
+      "db_column": "`bk` (레거시: `BK`)",
+      "related_tables": "Pitcher, PitTotal"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "포일",
+      "term_en": "Passed Ball",
+      "abbreviation": "PB",
+      "definition": "포수가 잡을 수 있었던 투구를 놓쳐 주자가 진루",
+      "db_column": "`pb` (레거시: `PB`)",
+      "related_tables": "DEFEN"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "승패세",
+      "term_en": "Win/Loss/Save",
+      "abbreviation": "WLS",
+      "definition": "투수의 경기 결과 (W=승, L=패, S=세이브)",
+      "db_column": "`wls_cd` (레거시: `WLS`)",
+      "related_tables": "Pitcher"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "QS",
+      "term_en": "Quality Start",
+      "abbreviation": "QS",
+      "definition": "선발 투수가 6이닝 이상, 자책점 3점 이하로 던진 경기",
+      "db_column": "`qs_cn` (레거시: `QS_CN`)",
+      "related_tables": "PitTotal, SEASON_PLAYER_PITCHER"
+    },
+    {
+      "category": "투수 기록",
+      "term_ko": "선발",
+      "term_en": "Start",
+      "abbreviation": "START",
+      "definition": "경기 첫 이닝부터 등판한 투수",
+      "db_column": "`start_if` (레거시: `START`)",
+      "related_tables": "Pitcher"
+    },
+    {
+      "category": "수비 기록",
+      "term_ko": "자살",
+      "term_en": "Put Out",
+      "abbreviation": "PO",
+      "definition": "수비수가 직접 아웃을 기록한 것 (플라이 캐치, 태그 등)",
+      "db_column": "`po` (레거시: `PO`)",
+      "related_tables": "DEFEN"
+    },
+    {
+      "category": "수비 기록",
+      "term_ko": "보살",
+      "term_en": "Assist",
+      "abbreviation": "AST",
+      "definition": "다른 수비수의 아웃을 도운 것 (송구 등)",
+      "db_column": "`ast` (레거시: `ASS`)",
+      "related_tables": "DEFEN"
+    },
+    {
+      "category": "수비 기록",
+      "term_ko": "병살",
+      "term_en": "Double Play",
+      "abbreviation": "DP",
+      "definition": "하나의 수비 플레이에서 2명의 주자를 아웃시킨 것",
+      "db_column": "`dp` (레거시: `DP`)",
+      "related_tables": "DEFEN"
+    },
+    {
+      "category": "수비 기록",
+      "term_ko": "견제사",
+      "term_en": "Pickoff",
+      "abbreviation": "POFF",
+      "definition": "투수 또는 포수가 루상 주자를 견제하여 아웃시킨 것",
+      "db_column": "`poff_cn` (레거시: `POFF_CN`)",
+      "related_tables": "PitTotal"
+    },
+    {
+      "category": "수비 기록",
+      "term_ko": "플라이아웃",
+      "term_en": "Fly Out",
+      "abbreviation": "FO",
+      "definition": "타구가 공중에서 수비수에게 잡혀 아웃",
+      "db_column": "`fo_cn` (레거시: `FO_CN`)",
+      "related_tables": "PitTotal"
+    },
+    {
+      "category": "수비 기록",
+      "term_ko": "땅볼아웃",
+      "term_en": "Ground Out",
+      "abbreviation": "GO",
+      "definition": "타구가 땅에 튀어 수비수에게 잡혀 아웃",
+      "db_column": "`go_cn` (레거시: `GO_CN`)",
+      "related_tables": "PitTotal"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "타율",
+      "term_en": "Batting Average",
+      "abbreviation": "AVG",
+      "definition": "안타/타수. 타자의 안타 생산 능력 지표",
+      "db_column": "`avg_rt` (레거시: `HRA`)",
+      "related_tables": "BatTotal, SEASON_PLAYER_HITTER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "출루율",
+      "term_en": "On-Base Percentage",
+      "abbreviation": "OBP",
+      "definition": "(안타+볼넷+사구)/(타수+볼넷+사구+희생플라이)",
+      "db_column": "`obp_rt` (레거시: `OBP_RT`)",
+      "related_tables": "SEASON_PLAYER_HITTER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "장타율",
+      "term_en": "Slugging Percentage",
+      "abbreviation": "SLG",
+      "definition": "루타/타수. 장타력 지표",
+      "db_column": "`slg_rt` (레거시: `SLG_RT`)",
+      "related_tables": "SEASON_PLAYER_HITTER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "OPS",
+      "term_en": "OBP + SLG",
+      "abbreviation": "OPS",
+      "definition": "출루율+장타율. 타자 종합 공격력 지표",
+      "db_column": "`ops_rt` (레거시: `OPS_RT`)",
+      "related_tables": "SEASON_PLAYER_HITTER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "순장타율",
+      "term_en": "Isolated Power",
+      "abbreviation": "ISO",
+      "definition": "장타율-타율. 순수 장타 능력",
+      "db_column": "`iso_rt` (레거시: `ISO_RT`)",
+      "related_tables": "SEASON_PLAYER_HITTER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "BABIP",
+      "term_en": "Batting Avg on Balls in Play",
+      "abbreviation": "BABIP",
+      "definition": "인플레이 타구 중 안타 비율. 운 vs 실력 판별",
+      "db_column": "`babip_rt` (레거시: `BABIP_RT`)",
+      "related_tables": "SEASON_PLAYER_HITTER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "평균자책점",
+      "term_en": "Earned Run Average",
+      "abbreviation": "ERA",
+      "definition": "9이닝당 자책점 수. 투수의 핵심 지표",
+      "db_column": "`era_rt` (레거시: `ERA`)",
+      "related_tables": "PitTotal, SEASON_PLAYER_PITCHER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "WHIP",
+      "term_en": "Walks+Hits per IP",
+      "abbreviation": "WHIP",
+      "definition": "이닝당 허용 볼넷+안타. 투수 안정성 지표",
+      "db_column": "`whip_rt` (레거시: `WHIP_RT`)",
+      "related_tables": "SEASON_PLAYER_PITCHER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "삼진/볼넷 비율",
+      "term_en": "Strikeout-to-Walk Ratio",
+      "abbreviation": "K/BB",
+      "definition": "삼진수/볼넷수. 투수 제구력 지표",
+      "db_column": "`so_bb_rt` (레거시: `KK_BB_RT`)",
+      "related_tables": "SEASON_PLAYER_PITCHER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "피안타율",
+      "term_en": "Opponent Batting Average",
+      "abbreviation": "OAVG",
+      "definition": "상대 타자의 타율. 피안타/상대타수",
+      "db_column": "`opp_avg_rt` (레거시: `OAVG_RT`)",
+      "related_tables": "SEASON_PLAYER_PITCHER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "피출루율",
+      "term_en": "Opponent OBP",
+      "abbreviation": "OOBP",
+      "definition": "상대 타자의 출루율",
+      "db_column": "`opp_obp_rt` (레거시: `OOBP_RT`)",
+      "related_tables": "SEASON_PLAYER_PITCHER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "피장타율",
+      "term_en": "Opponent SLG",
+      "abbreviation": "OSLG",
+      "definition": "상대 타자의 장타율",
+      "db_column": "`opp_slg_rt` (레거시: `OSLG_RT`)",
+      "related_tables": "SEASON_PLAYER_PITCHER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "피OPS",
+      "term_en": "Opponent OPS",
+      "abbreviation": "OOPS",
+      "definition": "상대 타자의 OPS",
+      "db_column": "`opp_ops_rt` (레거시: `OOPS_RT`)",
+      "related_tables": "SEASON_PLAYER_PITCHER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "가중득점생산",
+      "term_en": "Weighted Runs Created",
+      "abbreviation": "wRC",
+      "definition": "타자의 득점 기여를 가중치로 환산한 세이버메트릭스 지표",
+      "db_column": "`wrc` (레거시: `WRA`)",
+      "related_tables": "SEASON_PLAYER_HITTER"
+    },
+    {
+      "category": "비율/세이버메트릭스",
+      "term_ko": "도루 성공률",
+      "term_en": "Stolen Base Percentage",
+      "abbreviation": "SB%",
+      "definition": "도루성공/(도루성공+도루실패)",
+      "db_column": "`sb_rt` (레거시: `SB_RT`)",
+      "related_tables": "SEASON_PLAYER_HITTER"
+    },
+    {
+      "category": "경기 일반",
+      "term_ko": "경기키",
+      "term_en": "Game Key",
+      "abbreviation": "",
+      "definition": "경기를 고유하게 식별하는 13자리 코드 (YYYYMMDDVVHH#)",
+      "db_column": "`game_id` (레거시: `GMKEY`)",
+      "related_tables": "전체"
+    },
+    {
+      "category": "경기 일반",
+      "term_ko": "경기일자",
+      "term_en": "Game Date",
+      "abbreviation": "",
+      "definition": "경기가 열린 날짜 (YYYYMMDD)",
+      "db_column": "`game_dt` (레거시: `GDAY`)",
+      "related_tables": "GAMEINFO, Hitter, Pitcher"
+    },
+    {
+      "category": "경기 일반",
+      "term_ko": "시즌 연도",
+      "term_en": "Season Year",
+      "abbreviation": "",
+      "definition": "해당 시즌의 4자리 연도. 9999=통산 기록",
+      "db_column": "`season_yr` (레거시: `GYEAR`)",
+      "related_tables": "전체"
+    },
+    {
+      "category": "경기 일반",
+      "term_ko": "더블헤더",
+      "term_en": "Doubleheader",
+      "abbreviation": "",
+      "definition": "같은 날 같은 팀이 2경기를 치르는 것. 번호로 구분 (0/1/2)",
+      "db_column": "`doubleheader_no` (레거시: `DBHD`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 일반",
+      "term_ko": "차전",
+      "term_en": "Round",
+      "abbreviation": "",
+      "definition": "포스트시즌 등에서 몇 번째 경기인지 나타내는 번호",
+      "db_column": "`round_no` (레거시: `CHAJUN`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 일반",
+      "term_ko": "관중수",
+      "term_en": "Attendance",
+      "abbreviation": "",
+      "definition": "해당 경기의 입장 관중 수",
+      "db_column": "`crowd_cn` (레거시: `CROWD`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 일반",
+      "term_ko": "경기수",
+      "term_en": "Game Number",
+      "abbreviation": "",
+      "definition": "시즌 중 해당 팀/선수의 누적 경기 수",
+      "db_column": "`game_cn` (레거시: `GAMENUM`)",
+      "related_tables": "BatTotal, PitTotal"
+    },
+    {
+      "category": "경기 일반",
+      "term_ko": "구간",
+      "term_en": "Section",
+      "abbreviation": "",
+      "definition": "집계 구분. 시즌 연도 또는 9999(통산)",
+      "db_column": "`series_cd` (레거시: `SEC`)",
+      "related_tables": "BatTotal, PitTotal"
+    },
+    {
+      "category": "경기 일반",
+      "term_ko": "초/말",
+      "term_en": "Top/Bottom",
+      "abbreviation": "",
+      "definition": "이닝의 전반(초, T=원정팀 공격)과 후반(말, B=홈팀 공격)",
+      "db_column": "`top_bottom_cd` (레거시: `TB` char)",
+      "related_tables": "Hitter, Pitcher, Score"
+    },
+    {
+      "category": "경기 일반",
+      "term_ko": "아웃카운트",
+      "term_en": "Out Count",
+      "abbreviation": "",
+      "definition": "현재 이닝의 아웃 수 (0, 1, 2, 4=이닝종료)",
+      "db_column": "`out_count` (레거시: `OCOUNT`)",
+      "related_tables": "GAMECONTAPP"
+    },
+    {
+      "category": "경기 일반",
+      "term_ko": "경기 요일",
+      "term_en": "Day of Week",
+      "abbreviation": "",
+      "definition": "경기가 열린 요일",
+      "db_column": "`game_week_cd` (레거시: `GWEEK`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "심판/기록원",
+      "term_ko": "주심",
+      "term_en": "Home Plate Umpire",
+      "abbreviation": "",
+      "definition": "홈플레이트 뒤에서 스트라이크/볼을 판정하는 심판",
+      "db_column": "`umpire_chief_nm` (레거시: `UMPC`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "심판/기록원",
+      "term_ko": "1루심",
+      "term_en": "1st Base Umpire",
+      "abbreviation": "",
+      "definition": "1루 라인을 담당하는 심판",
+      "db_column": "`umpire_1b_nm` (레거시: `UMP1`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "심판/기록원",
+      "term_ko": "2루심",
+      "term_en": "2nd Base Umpire",
+      "abbreviation": "",
+      "definition": "2루 부근을 담당하는 심판",
+      "db_column": "`umpire_2b_nm` (레거시: `UMP2`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "심판/기록원",
+      "term_ko": "3루심",
+      "term_en": "3rd Base Umpire",
+      "abbreviation": "",
+      "definition": "3루 라인을 담당하는 심판",
+      "db_column": "`umpire_3b_nm` (레거시: `UMP3`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "심판/기록원",
+      "term_ko": "기록원 A",
+      "term_en": "Scorer A",
+      "abbreviation": "",
+      "definition": "경기 공식 기록을 담당하는 기록원 (1인)",
+      "db_column": "`scorer_a_nm` (레거시: `SCOA`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "심판/기록원",
+      "term_ko": "기록원 B",
+      "term_en": "Scorer B",
+      "abbreviation": "",
+      "definition": "경기 공식 기록을 담당하는 기록원 (2인)",
+      "db_column": "`scorer_b_nm` (레거시: `SCOB`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 환경",
+      "term_ko": "시작시간",
+      "term_en": "Start Time",
+      "abbreviation": "",
+      "definition": "경기 시작 시각 (HHmm 형식)",
+      "db_column": "`start_tm` (레거시: `STTM`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 환경",
+      "term_ko": "종료시간",
+      "term_en": "End Time",
+      "abbreviation": "",
+      "definition": "경기 종료 시각",
+      "db_column": "`end_tm` (레거시: `ENTM`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 환경",
+      "term_ko": "지연시간",
+      "term_en": "Delay Time",
+      "abbreviation": "",
+      "definition": "우천 등으로 중단된 시간",
+      "db_column": "`delay_tm` (레거시: `DLTM`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 환경",
+      "term_ko": "경기시간",
+      "term_en": "Game Duration",
+      "abbreviation": "",
+      "definition": "경기 소요 시간 (분 단위)",
+      "db_column": "`game_duration_tm` (레거시: `GMTM`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 환경",
+      "term_ko": "기온",
+      "term_en": "Temperature",
+      "abbreviation": "",
+      "definition": "경기 시작 시점 기온 (×10 정수 저장, API에서 /10 변환)",
+      "db_column": "`temperature_va` (레거시: `TEMP`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 환경",
+      "term_ko": "습도",
+      "term_en": "Humidity",
+      "abbreviation": "",
+      "definition": "경기 시작 시점 습도 (%)",
+      "db_column": "`humidity_va` (레거시: `MOIS`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 환경",
+      "term_ko": "날씨",
+      "term_en": "Weather",
+      "abbreviation": "",
+      "definition": "경기 시 날씨 상태 (맑음/흐림/비 등)",
+      "db_column": "`weather_cd` (레거시: `WEATH`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 환경",
+      "term_ko": "풍향",
+      "term_en": "Wind Direction",
+      "abbreviation": "",
+      "definition": "바람이 부는 방향 (16방위 코드)",
+      "db_column": "`wind_dir_cd` (레거시: `WIND`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 환경",
+      "term_ko": "풍속",
+      "term_en": "Wind Speed",
+      "abbreviation": "",
+      "definition": "바람의 세기 (m/s)",
+      "db_column": "`wind_speed_va` (레거시: `WINS`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "경기 환경",
+      "term_ko": "구장",
+      "term_en": "Stadium",
+      "abbreviation": "",
+      "definition": "경기가 열리는 야구장",
+      "db_column": "`stadium_cd` (레거시: `STAD`)",
+      "related_tables": "GAMEINFO"
+    },
+    {
+      "category": "코드 체계 용어",
+      "term_ko": "플레이 결과",
+      "term_en": "how_cd",
+      "abbreviation": "",
+      "definition": "타석의 최종 결과를 나타내는 코드. 49종",
+      "db_column": "`how_cd`",
+      "related_tables": ""
+    },
+    {
+      "category": "코드 체계 용어",
+      "term_ko": "타구 방향",
+      "term_en": "place_cd",
+      "abbreviation": "",
+      "definition": "타구가 날아간 방향/포지션 번호",
+      "db_column": "`place_cd`",
+      "related_tables": ""
+    },
+    {
+      "category": "코드 체계 용어",
+      "term_ko": "포지션",
+      "term_en": "position_cd",
+      "abbreviation": "",
+      "definition": "선수의 수비 위치. XY 2자리 형식 (X=교체순번, Y=포지션)",
+      "db_column": "`position_cd`",
+      "related_tables": ""
+    },
+    {
+      "category": "코드 체계 용어",
+      "term_ko": "투타 유형",
+      "term_en": "bat_throw_cd",
+      "abbreviation": "",
+      "definition": "선수의 투구 손/타격 손 조합",
+      "db_column": "`bat_throw_cd`",
+      "related_tables": ""
+    },
+    {
+      "category": "코드 체계 용어",
+      "term_ko": "경기 유형",
+      "term_en": "game_type_cd",
+      "abbreviation": "",
+      "definition": "경기 종류 구분",
+      "db_column": "`game_type_cd`",
+      "related_tables": ""
+    },
+    {
+      "category": "코드 체계 용어",
+      "term_ko": "경기 상태",
+      "term_en": "game_sc_id",
+      "abbreviation": "",
+      "definition": "경기 진행 상태",
+      "db_column": "`game_sc_id`",
+      "related_tables": ""
+    },
+    {
+      "category": "코드 체계 용어",
+      "term_ko": "취소 구분",
+      "term_en": "cancel_sc_id",
+      "abbreviation": "",
+      "definition": "경기 취소/중단 사유",
+      "db_column": "`cancel_sc_id`",
+      "related_tables": ""
+    },
+    {
+      "category": "코드 체계 용어",
+      "term_ko": "방송사",
+      "term_en": "broadcasting_cd",
+      "abbreviation": "",
+      "definition": "경기를 중계하는 방송사 코드",
+      "db_column": "`broad_cd`",
+      "related_tables": ""
+    },
+    {
+      "category": "코드 체계 용어",
+      "term_ko": "날씨 코드",
+      "term_en": "weather_cd",
+      "abbreviation": "",
+      "definition": "경기 시 날씨 상태 코드",
+      "db_column": "`weather_cd`",
+      "related_tables": ""
+    },
+    {
+      "category": "코드 체계 용어",
+      "term_ko": "기록 상태",
+      "term_en": "record_status_cd",
+      "abbreviation": "",
+      "definition": "경기 기록의 처리 단계",
+      "db_column": "`record_status_cd`",
+      "related_tables": ""
+    },
+    {
+      "category": "코드 체계 용어",
+      "term_ko": "구간 코드",
+      "term_en": "section_cd",
+      "abbreviation": "",
+      "definition": "시즌 통계 집계 구간 (전반기/후반기/전체 등)",
+      "db_column": "`section_cd`",
+      "related_tables": ""
+    },
+    {
+      "category": "코드 체계 용어",
+      "term_ko": "그룹 구분",
+      "term_en": "group_sc",
+      "abbreviation": "",
+      "definition": "그룹/조 구분 (가을리그 등)",
+      "db_column": "`group_sc`",
+      "related_tables": ""
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "선수 코드",
+      "term_en": "Player Code",
+      "abbreviation": "",
+      "definition": "선수를 고유하게 식별하는 코드 (5~6자리 숫자)",
+      "db_column": "`player_id` (레거시: `PCODE`)",
+      "related_tables": "전체"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "선수명",
+      "term_en": "Player Name",
+      "abbreviation": "",
+      "definition": "선수의 한글 이름",
+      "db_column": "`player_nm` (레거시: `NAME`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "영문명",
+      "term_en": "English Name",
+      "abbreviation": "",
+      "definition": "선수의 영문 이름",
+      "db_column": "`player_eng_nm` (레거시: `ENGNAME`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "한자명",
+      "term_en": "Chinese Name",
+      "abbreviation": "",
+      "definition": "선수 이름의 한자 표기",
+      "db_column": "`player_hanja_nm` (레거시: `CNAME`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "팀 코드",
+      "term_en": "Team Code",
+      "abbreviation": "",
+      "definition": "팀을 식별하는 2자리 코드 (HH=키움, HT=KIA 등)",
+      "db_column": "`team_id` (레거시: `T_ID`)",
+      "related_tables": "전체"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "등번호",
+      "term_en": "Back Number",
+      "abbreviation": "",
+      "definition": "선수 유니폼 뒷면의 번호",
+      "db_column": "`back_no` (레거시: `BACKNUM`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "포지션",
+      "term_en": "Position",
+      "abbreviation": "",
+      "definition": "선수의 주 수비 위치 (1=투수~9=우익수)",
+      "db_column": "`position_cd` (레거시: `POS`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "포지션명",
+      "term_en": "Position Name",
+      "abbreviation": "",
+      "definition": "수비 위치의 한글 이름 (투수, 포수, 내야, 외야 등)",
+      "db_column": "`position_nm` (레거시: `POSITION`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "생년월일",
+      "term_en": "Birth Date",
+      "abbreviation": "",
+      "definition": "선수의 생년월일 (YYYYMMDD)",
+      "db_column": "`birth_dt` (레거시: `BIRTH`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "키",
+      "term_en": "Height",
+      "abbreviation": "",
+      "definition": "선수의 키 (cm)",
+      "db_column": "`height_va` (레거시: `HEIGHT`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "몸무게",
+      "term_en": "Weight",
+      "abbreviation": "",
+      "definition": "선수의 체중 (kg)",
+      "db_column": "`weight_va` (레거시: `WEIGHT`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "입단일",
+      "term_en": "Join Date",
+      "abbreviation": "",
+      "definition": "프로 구단에 입단한 날짜",
+      "db_column": "`join_dt` (레거시: `INDATE`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "경력",
+      "term_en": "Career",
+      "abbreviation": "",
+      "definition": "선수의 학교·팀 이력 (EUC-KR 인코딩)",
+      "db_column": "`career_nm` (레거시: `CAREER`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "드래프트",
+      "term_en": "Draft",
+      "abbreviation": "",
+      "definition": "신인 드래프트 정보",
+      "db_column": "`draft_nm` (레거시: `DRAFT`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "계약금",
+      "term_en": "Signing Bonus",
+      "abbreviation": "",
+      "definition": "입단 계약금 (문자열, EUC-KR)",
+      "db_column": "`signing_bonus_va` (레거시: `PROMISE`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "선수/팀 용어",
+      "term_ko": "연봉",
+      "term_en": "Salary",
+      "abbreviation": "",
+      "definition": "연간 급여 (문자열, EUC-KR)",
+      "db_column": "`salary_va` (레거시: `MONEY`)",
+      "related_tables": "person"
+    },
+    {
+      "category": "시스템/실시간 용어",
+      "term_ko": "등록 일시",
+      "term_en": "Registration DateTime",
+      "abbreviation": "",
+      "definition": "데이터가 시스템에 등록된 시각",
+      "db_column": "`reg_dt` (레거시: `REG_DT`)",
+      "related_tables": "person, GAMEINFO"
+    },
+    {
+      "category": "시스템/실시간 용어",
+      "term_ko": "입력 시각",
+      "term_en": "Input Time",
+      "abbreviation": "",
+      "definition": "기록원이 데이터를 입력한 시각",
+      "db_column": "`input_dt` (레거시: `INPUTTIME`)",
+      "related_tables": "GAMECONTAPP"
+    },
+    {
+      "category": "시스템/실시간 용어",
+      "term_ko": "순번",
+      "term_en": "Sequence Number",
+      "abbreviation": "",
+      "definition": "동일 키 내에서 행을 구분하는 순차 번호",
+      "db_column": "`seq_no` (레거시: `SEQ_NO`, `SERNO`)",
+      "related_tables": "GAMECONTAPP, KBO_ETCGAME"
+    },
+    {
+      "category": "시스템/실시간 용어",
+      "term_ko": "타순",
+      "term_en": "Batting Order",
+      "abbreviation": "",
+      "definition": "경기에서 타석에 들어서는 순서 (1~9)",
+      "db_column": "`turn_no` (레거시: `TURN`)",
+      "related_tables": "Hitter, ENTRY"
+    },
+    {
+      "category": "시스템/실시간 용어",
+      "term_ko": "실시간 중계",
+      "term_en": "Live Text",
+      "abbreviation": "",
+      "definition": "경기 중 문자로 전달되는 실시간 중계 텍스트",
+      "db_column": "`live_text` (레거시: `LIVETEXT`)",
+      "related_tables": "IE_LiveText"
+    },
+    {
+      "category": "시스템/실시간 용어",
+      "term_ko": "텍스트 스타일",
+      "term_en": "Text Style",
+      "abbreviation": "",
+      "definition": "중계 텍스트의 표시 유형 코드 (득점·교체·일반 등)",
+      "db_column": "`text_style_cd` (레거시: `textStyle`)",
+      "related_tables": "IE_LiveText"
+    },
+    {
+      "category": "시스템/실시간 용어",
+      "term_ko": "볼카운트",
+      "term_en": "Ball Count",
+      "abbreviation": "",
+      "definition": "현재 타석의 볼-스트라이크-아웃 카운트",
+      "db_column": "`ball_count_cd` (레거시: `BCNT`)",
+      "related_tables": "IE_BallCount, GAMECONTAPP"
+    },
+    {
+      "category": "시스템/실시간 용어",
+      "term_ko": "주자 상태",
+      "term_en": "Base Runner",
+      "abbreviation": "",
+      "definition": "각 루에 주자 존재 여부 또는 선수 코드",
+      "db_column": "`base1b`~`base3a`",
+      "related_tables": "GAMECONTAPP, IE_BallCount"
+    },
+    {
+      "category": "시스템/실시간 용어",
+      "term_ko": "피치클럭",
+      "term_en": "Pitch Clock",
+      "abbreviation": "",
+      "definition": "투수의 투구 준비 시간 제한 (초)",
+      "db_column": "—",
+      "related_tables": "PITCHCLOCK"
+    },
+    {
+      "category": "시스템/실시간 용어",
+      "term_ko": "경기 상태",
+      "term_en": "Game State",
+      "abbreviation": "",
+      "definition": "현재 경기의 진행 상태 (예정/진행중/종료 등)",
+      "db_column": "`game_sc_id` (레거시: `STATUS_ID`)",
+      "related_tables": "IE_GAMESTATE"
+    },
+    {
+      "category": "데이터 품질 용어",
+      "term_ko": "EUC-KR 인코딩",
+      "term_en": "",
+      "abbreviation": "",
+      "definition": "레거시 시스템에서 한글을 저장하는 문자 인코딩. varchar 컬럼에 저장된 한글이 nvarchar 환경에서 깨져 보이는 원인. 표준은 nvarchar(UTF-16)",
+      "db_column": "",
+      "related_tables": ""
+    },
+    {
+      "category": "데이터 품질 용어",
+      "term_ko": "NULL vs 0 구분",
+      "term_en": "",
+      "abbreviation": "",
+      "definition": "비율 컬럼에서 NULL=분모 없음(타석 0), 0.000=분모 있으나 분자 0(타석 있지만 안타 0). 의미가 다름",
+      "db_column": "",
+      "related_tables": ""
+    },
+    {
+      "category": "데이터 품질 용어",
+      "term_ko": "-1 센티널",
+      "term_en": "",
+      "abbreviation": "",
+      "definition": "Score 테이블의 이닝 점수에서 -1=해당 이닝 미진행. NULL 대신 정수 센티널 사용",
+      "db_column": "",
+      "related_tables": ""
+    },
+    {
+      "category": "데이터 품질 용어",
+      "term_ko": "9999 예약값",
+      "term_en": "",
+      "abbreviation": "",
+      "definition": "GYEAR(시즌 연도)에서 9999=통산(Career Total) 기록을 나타내는 예약값",
+      "db_column": "",
+      "related_tables": ""
+    },
+    {
+      "category": "데이터 품질 용어",
+      "term_ko": "T/B 합계행",
+      "term_en": "",
+      "abbreviation": "",
+      "definition": "Hitter/Pitcher 등에서 PCODE='T' 또는 'B'인 행은 개인 기록이 아닌 팀 합계. 원정/홈 구분",
+      "db_column": "",
+      "related_tables": ""
+    },
+    {
+      "category": "데이터 품질 용어",
+      "term_ko": "레거시/신세대 공존",
+      "term_en": "",
+      "abbreviation": "",
+      "definition": "동일 DB에 구세대 스키마(GMKEY/PCODE)와 신세대 스키마(G_ID/P_ID/_CD/_CN 접미사)가 혼재",
+      "db_column": "",
+      "related_tables": ""
+    },
+    {
+      "category": "데이터 품질 용어",
+      "term_ko": "varchar 숫자 ID",
+      "term_en": "",
+      "abbreviation": "",
+      "definition": "PCODE는 varchar(10)이지만 실제 값은 5~6자리 숫자. 표준에서는 int로 전환 권고",
+      "db_column": "",
+      "related_tables": ""
+    },
+    {
+      "category": "데이터 품질 용어",
+      "term_ko": "이닝 피벗 컬럼",
+      "term_en": "",
+      "abbreviation": "",
+      "definition": "Score, KBO_BATRESULT 테이블에서 이닝 1~25까지 컬럼이 가로로 펼쳐진 구조 (1T, 1B, 2T, ...)",
+      "db_column": "",
+      "related_tables": ""
+    }
+  ]
+}

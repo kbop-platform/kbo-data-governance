@@ -1,0 +1,389 @@
+/* === AG Grid KBO Theme — ag-theme-alpine 기반 CSS 변수 오버라이드 === */
+
+.ag-theme-kbo {
+  --ag-header-background-color: var(--kbo-navy, #1B2A5B);
+  --ag-header-foreground-color: #fff;
+  --ag-alpine-active-color: var(--kbo-accent, #4A7BF7);
+  --ag-row-height: 36px;
+  --ag-header-height: 42px;
+  --ag-font-size: 13px;
+  --ag-font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --ag-odd-row-background-color: #f8f9fb;
+  --ag-row-hover-color: rgba(74, 123, 247, 0.07);
+  --ag-selected-row-background-color: rgba(74, 123, 247, 0.12);
+  --ag-range-selection-background-color: rgba(74, 123, 247, 0.15);
+  --ag-border-color: #e2e6ed;
+  --ag-secondary-border-color: #eef0f4;
+  --ag-header-column-separator-color: rgba(255, 255, 255, 0.2);
+  --ag-header-column-separator-display: block;
+}
+
+.ag-theme-kbo .ag-header-cell-text {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.ag-theme-kbo .ag-cell {
+  line-height: 36px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* PK / NN 배지 스타일 */
+.ag-theme-kbo .cell-badge-pk {
+  display: inline-block;
+  background: var(--kbo-navy, #1B2A5B);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+}
+.ag-theme-kbo .cell-badge-nn {
+  display: inline-block;
+  background: #e8eaf0;
+  color: #555;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* DB 타입 배지 */
+.ag-theme-kbo .cell-badge-db1 {
+  display: inline-block;
+  background: #1B5E20;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+}
+.ag-theme-kbo .cell-badge-db2 {
+  display: inline-block;
+  background: #4A7BF7;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+}
+
+/* 티어 배지 */
+.ag-theme-kbo .cell-tier-1 {
+  color: #c62828;
+  font-weight: 700;
+}
+.ag-theme-kbo .cell-tier-2 {
+  color: #e65100;
+  font-weight: 600;
+}
+.ag-theme-kbo .cell-tier-3 {
+  color: #888;
+}
+
+/* No-rows overlay */
+.ag-theme-kbo .ag-overlay-no-rows-center {
+  font-size: 14px;
+  color: #888;
+}
+
+/* ── 다크 모드 ── */
+[data-md-color-scheme="slate"] .ag-theme-kbo {
+  --ag-background-color: #1e1e2e;
+  --ag-header-background-color: var(--kbo-navy-light, #2A3D7A);
+  --ag-header-foreground-color: #e0e0e0;
+  --ag-foreground-color: #d4d4d4;
+  --ag-odd-row-background-color: rgba(255, 255, 255, 0.03);
+  --ag-row-hover-color: rgba(74, 123, 247, 0.12);
+  --ag-selected-row-background-color: rgba(74, 123, 247, 0.18);
+  --ag-border-color: #333;
+  --ag-secondary-border-color: #2a2a3a;
+  --ag-control-panel-background-color: #1e1e2e;
+  --ag-subheader-background-color: #252535;
+  --ag-input-border-color: #444;
+  --ag-alpine-active-color: #6fa0ff;
+}
+
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-badge-pk {
+  background: #4A7BF7;
+}
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-badge-nn {
+  background: #333;
+  color: #aaa;
+}
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-tier-1 {
+  color: #ef5350;
+}
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-tier-2 {
+  color: #ffb74d;
+}
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-badge-db1 {
+  background: #2E7D32;
+}
+[data-md-color-scheme="slate"] .ag-theme-kbo .cell-badge-db2 {
+  background: #5C8AE6;
+}
+
+/* ══════════════════════════════════════════
+   Stats Cards
+   ══════════════════════════════════════════ */
+.grid-stats {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.grid-stats .stat-card {
+  flex: 1 1 120px;
+  min-width: 100px;
+  background: var(--kbo-bg-subtle, #f5f7fa);
+  border: 1px solid #e2e6ed;
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-align: center;
+}
+.grid-stats .stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--kbo-navy, #1B2A5B);
+  line-height: 1.2;
+}
+.grid-stats .stat-label {
+  font-size: 0.72rem;
+  color: #888;
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+
+[data-md-color-scheme="slate"] .grid-stats .stat-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: #333;
+}
+[data-md-color-scheme="slate"] .grid-stats .stat-value {
+  color: #8ab4ff;
+}
+
+/* ══════════════════════════════════════════
+   Filter Bar
+   ══════════════════════════════════════════ */
+.grid-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.grid-filter-bar .filter-search {
+  flex: 1 1 200px;
+  min-width: 160px;
+  padding: 7px 12px 7px 32px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23999' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E") no-repeat 10px center;
+}
+.grid-filter-bar .filter-search:focus {
+  border-color: var(--kbo-accent, #4A7BF7);
+}
+.grid-filter-bar select {
+  padding: 7px 28px 7px 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: inherit;
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6.5 6 6.5-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+.grid-filter-bar select:focus {
+  border-color: var(--kbo-accent, #4A7BF7);
+}
+.grid-filter-bar .btn-reset {
+  padding: 7px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  color: #666;
+  transition: background 0.15s;
+}
+.grid-filter-bar .btn-reset:hover {
+  background: #f5f5f5;
+}
+
+[data-md-color-scheme="slate"] .grid-filter-bar .filter-search {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: #444;
+  color: #ddd;
+}
+[data-md-color-scheme="slate"] .grid-filter-bar select {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: #444;
+  color: #ddd;
+}
+[data-md-color-scheme="slate"] .grid-filter-bar .btn-reset {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: #444;
+  color: #aaa;
+}
+
+/* ══════════════════════════════════════════
+   Filter Chips
+   ══════════════════════════════════════════ */
+.grid-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  min-height: 0;
+}
+.grid-chips:empty {
+  display: none;
+}
+.grid-chips .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  background: rgba(74, 123, 247, 0.1);
+  color: var(--kbo-navy, #1B2A5B);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.grid-chips .chip .chip-close {
+  cursor: pointer;
+  font-size: 13px;
+  opacity: 0.6;
+  margin-left: 2px;
+}
+.grid-chips .chip .chip-close:hover {
+  opacity: 1;
+}
+.grid-chips .chip-clear-all {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  background: none;
+  border: 1px dashed #ccc;
+  border-radius: 20px;
+  font-size: 11px;
+  color: #888;
+  cursor: pointer;
+}
+.grid-chips .chip-clear-all:hover {
+  border-color: #999;
+  color: #555;
+}
+
+[data-md-color-scheme="slate"] .grid-chips .chip {
+  background: rgba(74, 123, 247, 0.15);
+  color: #8ab4ff;
+}
+[data-md-color-scheme="slate"] .grid-chips .chip-clear-all {
+  border-color: #555;
+  color: #888;
+}
+
+/* ══════════════════════════════════════════
+   Status Bar
+   ══════════════════════════════════════════ */
+.grid-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #888;
+}
+.grid-status .status-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.grid-status .btn-csv {
+  padding: 4px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+  color: #666;
+  transition: background 0.15s;
+}
+.grid-status .btn-csv:hover {
+  background: #f0f0f0;
+}
+
+[data-md-color-scheme="slate"] .grid-status .btn-csv {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: #444;
+  color: #aaa;
+}
+
+/* ══════════════════════════════════════════
+   AG Grid 전체 폭 레이아웃 (hide nav/toc)
+   ══════════════════════════════════════════ */
+.ag-grid-page .md-sidebar {
+  display: none;
+}
+.ag-grid-page .md-content {
+  max-width: 100%;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════
+   반응형
+   ══════════════════════════════════════════ */
+@media (max-width: 1200px) {
+  .grid-stats .stat-card {
+    flex: 1 1 80px;
+    padding: 10px 12px;
+  }
+  .grid-stats .stat-value {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-stats {
+    gap: 6px;
+  }
+  .grid-stats .stat-card {
+    flex: 1 1 60px;
+    padding: 8px 6px;
+  }
+  .grid-stats .stat-value {
+    font-size: 1rem;
+  }
+  .grid-stats .stat-label {
+    font-size: 0.65rem;
+  }
+  .grid-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .grid-filter-bar .filter-search {
+    flex: unset;
+  }
+  .grid-filter-bar select {
+    width: 100%;
+  }
+}

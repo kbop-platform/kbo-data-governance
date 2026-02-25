@@ -14,6 +14,7 @@ KBO 신규 시스템의 모든 데이터 요소에 적용하는 명명 규칙을
 
 → 참고: [약어 사전](./abbreviations.md) — 약어 정의 및 접미사 규칙
 → 참고: [도메인 타입 정의](./domain-types.md) — 접미사별 데이터 타입 매핑
+→ 참고: [ID 체계](./id-system.md) — ID 명명 및 GYEAR 이중 명명 (§2.5)
 
 ---
 
@@ -71,8 +72,6 @@ KBO 신규 시스템의 모든 데이터 요소에 적용하는 명명 규칙을
 
 접미사 목록: `_id`, `_nm`, `_cd`, `_sc`, `_cn`, `_rt`, `_if`, `_dt`, `_tm`, `_va`, `_no`
 
-→ 참고: [약어 사전 Section 6](./abbreviations.md#6)
-
 #### `_cd` vs `_sc` 구분 기준
 
 | 접미사 | 용도 | 특징 | 예시 |
@@ -116,7 +115,6 @@ obp_rt        → _rt 접미사 (비율 — 항상 필수)
 | 속성/필터 (조회 조건) | `season_yr` | BAT_TOTAL, PERSON, HITTER | 연도 속성으로 참조 |
 
 > 물리 타입은 동일 (`smallint`). 의미적 역할만 다름.
-> → 참고: [ID 체계 Section 2.5](./id-system.md#25-season_id-id)
 
 ### 3.3 레거시 → 표준 변환 5원칙
 
@@ -131,24 +129,17 @@ obp_rt        → _rt 접미사 (비율 — 항상 필수)
 | 5 | **이중 의미 분리** | 동일 약어가 다른 의미로 쓰이면 맥락별 구분 | `TB`(int) → `tb_cn`, `TB`(char) → `top_bottom_cd` |
 
 > 권위 매핑: `scripts/upgrade-dictionary.py` STANDARD_MAP (462개)
-> → 참고: [약어 사전 Section 7](./abbreviations.md#7-kbo)
 
-**변환 예시 전체 흐름**:
+**변환 예시** (원칙별 대표):
 
 | 레거시 | 원칙 | 표준명(안) | 비고 |
 |--------|------|-----------|------|
 | `GMKEY` | 1 (명시) | `game_id` | |
 | `PCODE` | 1 (명시) | `player_id` | |
-| `CROWD_CN` | 2 (접미사) | `crowd_cn` | |
 | `TB_SC` | 2 (접미사) | `top_bottom_sc` | |
-| `HR_DISTANCE_VA` | 2 (접미사) | `hr_distance_va` | |
 | `AB` | 3 (국제) | `ab` | |
-| `ERA` | 3 (국제) | `era` | |
 | `KK` | 4 (비표준) | `so` | KK→SO |
-| `HP` | 4 (비표준) | `hbp` | HP→HBP |
 | `HRA` | 4 (비표준) | `avg` | HRA→AVG |
-| `GD` | 4 (비표준) | `gidp` | GD→GIDP |
-| `ASS` | 4 (비표준) | `ast` | ASS→AST |
 | `TB` (int, 루타) | 5 (이중) | `tb_cn` | |
 | `TB` (char, 팀구분) | 5 (이중) | `top_bottom_cd` | |
 
@@ -334,41 +325,17 @@ def to_snake(name: str) -> str:
 
 ## 8. Do / Don't 예시
 
-### 테이블명
-
-| Do | Don't | 사유 |
-|----|-------|------|
-| `GAME_INFO` | `GAMEINFO`, `gameinfo`, `GameInfo` | UPPER_SNAKE 통일 |
-| `BAT_TOTAL` | `BatTotal`, `BATTOTAL` | 단어 구분 명확 |
-| `IE_LIVE_TEXT` | `IE_LiveText`, `IE_LIVETEXT` | UPPER_SNAKE 통일 |
-| `PERSON` | `person`, `Person` | UPPER 통일 |
-
-### 컬럼명 (DB)
-
-| Do | Don't | 사유 |
-|----|-------|------|
-| `game_id` | `GMKEY`, `G_ID`, `gmkey` | 표준 식별자 |
-| `player_id` | `PCODE`, `P_ID` | 표준 식별자 |
-| `so` | `KK` | 국제 표준 (삼진) |
-| `hbp` | `HP` | 국제 표준 (사구) |
-| `avg_rt` | `HRA`, `HRA_RT` | 국제 표준 (타율) |
-| `home_team_cd` | `HTEAM` | 가독성 |
-| `weather_cd` | `WEATH` | 가독성 |
-| `top_bottom_cd` | `TB` (char) | 이중 의미 해소 |
-| `tb_cn` | `TB` (int) | 이중 의미 해소 |
-| `stadium_nm` | `STADIUM` | 접미사로 타입 명시 |
-
-### API 필드명
-
-| Do | Don't | 사유 |
-|----|-------|------|
-| `gameId` | `game_id`, `GameId`, `gameID` | camelCase 통일 |
-| `avgRt` | `avg_rt`, `AVG_RT` | camelCase 통일 |
-| `topBottomSc` | `top_bottom_sc`, `TB` | camelCase 통일 |
-
-### Kafka 토픽
-
-| Do | Don't | 사유 |
-|----|-------|------|
-| `kbo.game.play` | `KBO.Game.Play`, `kbo_game_play` | dot.lower 통일 |
-| `kbo.stats.hitter.updated` | `kbo.stats.HITTER.updated` | 소문자 통일 |
+| 계층 | Do | Don't | 사유 |
+|------|-----|-------|------|
+| DB 테이블 | `GAME_INFO` | `GAMEINFO`, `GameInfo` | UPPER_SNAKE 통일 |
+| DB 테이블 | `BAT_TOTAL` | `BatTotal`, `BATTOTAL` | 단어 구분 명확 |
+| DB 테이블 | `IE_LIVE_TEXT` | `IE_LiveText` | UPPER_SNAKE 통일 |
+| DB 컬럼 | `game_id` | `GMKEY`, `G_ID` | 표준 식별자 |
+| DB 컬럼 | `so` | `KK` | 국제 표준 (삼진) |
+| DB 컬럼 | `avg_rt` | `HRA`, `HRA_RT` | 국제 표준 (타율) |
+| DB 컬럼 | `top_bottom_cd` | `TB` (char) | 이중 의미 해소 |
+| DB 컬럼 | `stadium_nm` | `STADIUM` | 접미사로 타입 명시 |
+| API | `gameId` | `game_id`, `gameID` | camelCase 통일 |
+| API | `avgRt` | `avg_rt`, `AVG_RT` | camelCase 통일 |
+| Kafka | `kbo.game.play` | `KBO.Game.Play`, `kbo_game_play` | dot.lower 통일 |
+| Kafka | `kbo.stats.hitter.updated` | `kbo.stats.HITTER.updated` | 소문자 통일 |

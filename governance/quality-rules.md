@@ -60,7 +60,7 @@
 | name (`_nm`) | 선택 | NULL | — |
 | code (`_cd`, `_sc`) | 선택 | NULL | — (NULL = 해당없음) |
 
-→ 참고: [도메인 타입 §5](../standards/domain-types.md#5-null-처리-정책) — NULL 처리 정책
+→ 참고: [도메인 타입 §4](../standards/domain-types.md#4-null) — NULL 처리 정책
 
 ---
 
@@ -156,7 +156,7 @@
 - 검증: `ABS(value - ROUND(value, 5)) > 0.000001` 이면 **WARNING**
 - 조치: 마이그레이션 시 `decimal(8,5)`로 전환, `ROUND(value, 5)` 적용
 
-→ 참고: [도메인 타입 §3.5](../standards/domain-types.md#35-rate-_rt) — rate 타입 정의
+→ 참고: [도메인 타입 §2.5](../standards/domain-types.md#25-rate-_rt) — rate 타입 정의
 
 ---
 
@@ -178,7 +178,7 @@
 > **마이그레이션 시**: varchar→nvarchar 전환은 CRITICAL (필수).
 > **현행 운영 시**: 기존 varchar 컬럼의 EUC-KR 깨짐은 WARNING (기록 후 통과).
 
-→ 참고: [도메인 타입 §4](../standards/domain-types.md#4-인코딩-정책) — 인코딩 정책
+→ 참고: [도메인 타입 §3](../standards/domain-types.md#3) — 인코딩 정책
 
 ### 5.2 코드 컬럼 ASCII 검증 — WARNING
 
@@ -280,7 +280,7 @@ Score 테이블의 이닝 점수 컬럼에서 `-1`은 **해당 이닝 미진행*
 | 집계 시 | 합계행을 반드시 제외하지 않으면 이중 집계 발생 |
 | 검증 | 집계 쿼리에 합계행 필터가 없으면 **WARNING** |
 
-→ 참고: [ID 체계 §5.1](../standards/id-system.md#51-pcode-t-b) — 합계행 표준 처리
+→ 참고: [ID 체계 §5.1](../standards/id-system.md#5) — 합계행 표준 처리
 
 ---
 

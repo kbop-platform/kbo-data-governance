@@ -25,8 +25,8 @@
 
 | 주의사항 | 설명 | 참조 |
 |----------|------|------|
-| **EUC-KR 깨짐** | `varchar`에 저장된 한글은 EUC-KR 인코딩 | [도메인 타입 §4](standards/domain-types.md#4-인코딩-정책) |
-| **float 노이즈** | 타율 등 비율이 `float`로 저장 | [도메인 타입 §3.5](standards/domain-types.md#35-rate-_rt) |
+| **EUC-KR 깨짐** | `varchar`에 저장된 한글은 EUC-KR 인코딩 | [도메인 타입 §3](standards/domain-types.md#3) |
+| **float 노이즈** | 타율 등 비율이 `float`로 저장 | [도메인 타입 §2.5](standards/domain-types.md#25-rate-_rt) |
 | **합계행 혼재** | `PCODE='T'/'B'` 팀 합계행이 개인 기록과 혼재 | [ID 체계 §5](standards/id-system.md#5) |
 | **9999 예약값** | `GYEAR=9999`는 통산 기록 (연도 아님) | [ID 체계 §5](standards/id-system.md#5) |
 | **-1 센티널** | Score 이닝 점수에서 `-1`은 미진행 이닝 | [품질 규칙 §7](governance/quality-rules.md#7) |

@@ -196,6 +196,136 @@
   animation: authShake 0.4s ease;
 }
 
+/* ══════════════════════════════════════════
+   DataTables 스타일 오버라이드
+   ══════════════════════════════════════════ */
+
+/* 컨테이너 */
+.dataTables_wrapper {
+  font-size: 0.85rem;
+  margin: 1rem 0;
+}
+
+/* 검색창 */
+.dataTables_wrapper .dataTables_filter input {
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.dataTables_wrapper .dataTables_filter input:focus {
+  border-color: var(--kbo-accent);
+}
+
+/* 행 수 선택 드롭다운 */
+.dataTables_wrapper .dataTables_length select {
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+/* 페이지네이션 버튼 */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 0.3rem 0.7rem !important;
+  margin: 0 2px !important;
+  font-size: 0.82rem;
+  background: transparent !important;
+  color: var(--kbo-navy) !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: var(--kbo-bg-subtle) !important;
+  color: var(--kbo-navy) !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: var(--kbo-navy) !important;
+  color: #fff !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+  opacity: 0.35;
+}
+
+/* 정렬 아이콘 색상 */
+table.dataTable thead .sorting::after,
+table.dataTable thead .sorting_asc::after,
+table.dataTable thead .sorting_desc::after {
+  opacity: 0.6;
+}
+
+/* DataTables가 추가하는 테이블에도 기존 th 스타일 유지 */
+table.dataTable thead th {
+  background-color: var(--kbo-navy) !important;
+  color: #fff !important;
+  font-weight: 600;
+  border-bottom: none !important;
+}
+
+/* 줄무늬 유지 */
+table.dataTable tbody tr:nth-child(even) td {
+  background-color: var(--kbo-bg-subtle);
+}
+table.dataTable tbody tr:hover td {
+  background-color: rgba(74, 123, 247, 0.08) !important;
+}
+
+/* 정보 텍스트 */
+.dataTables_wrapper .dataTables_info {
+  font-size: 0.8rem;
+  color: #888;
+  padding-top: 0.6rem;
+}
+
+/* ── 다크 모드 (slate) ── */
+[data-md-color-scheme="slate"] table.dataTable thead th {
+  background-color: var(--kbo-navy-light) !important;
+}
+[data-md-color-scheme="slate"] table.dataTable tbody tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+[data-md-color-scheme="slate"] table.dataTable tbody tr:hover td {
+  background-color: rgba(74, 123, 247, 0.12) !important;
+}
+[data-md-color-scheme="slate"] .dataTables_wrapper .dataTables_filter input {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #ddd;
+}
+[data-md-color-scheme="slate"] .dataTables_wrapper .dataTables_length select {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #ddd;
+}
+[data-md-color-scheme="slate"] .dataTables_wrapper .dataTables_paginate .paginate_button {
+  color: #aaa !important;
+}
+[data-md-color-scheme="slate"] .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+}
+[data-md-color-scheme="slate"] .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: var(--kbo-accent) !important;
+  color: #fff !important;
+}
+[data-md-color-scheme="slate"] .dataTables_wrapper .dataTables_info {
+  color: #777;
+}
+
+/* DataTables 기본 테두리 제거 — Material 스타일 통일 */
+table.dataTable,
+table.dataTable td,
+table.dataTable th {
+  border-collapse: collapse;
+}
+table.dataTable {
+  border: none !important;
+}
+
 /* ── 로그아웃 버튼 ── */
 .logout-btn {
   margin-left: auto;

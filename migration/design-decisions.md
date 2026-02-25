@@ -56,7 +56,7 @@ ALTER TABLE person ALTER COLUMN NAME nvarchar(100);
 -- 기존 데이터는 COLLATE 변환 또는 ETL에서 재인코딩
 ```
 
-> 인코딩 정책 상세: [도메인 타입 §4](../standards/domain-types.md#4-인코딩-정책)
+> 인코딩 정책 상세: [도메인 타입 §3](../standards/domain-types.md#3)
 
 ---
 
@@ -152,4 +152,4 @@ S2i에 확인 요청이 필요한 코드값 목록:
 | 6 | series_id 1~9 | — | 미요청 | |
 
 → 참고: [코드 사전](../standards/code-dictionary.md) — 확인된 코드값 정의
-→ 참고: [프로젝트 가이드 — 미결 사항](../project-guide.md#미결-사항) — S2i 확인 필요 전체 목록
+→ 참고: [프로젝트 가이드 — 미결 사항](../project-guide.md#_7) — S2i 확인 필요 전체 목록

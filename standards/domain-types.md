@@ -10,35 +10,13 @@
 → 참고: [약어 사전 Section 6](./abbreviations.md#6) — 접미사 의미 정의
 → 참고: [명명 규칙](./naming-rules.md) — 접미사 적용 규칙
 
----
-
-## 2. 현행 데이터 타입 분포
-
-DB2_BASEBALL_220328 기준 (~484 컬럼):
-
-| 타입 | 컬럼 수 | 비율 | 문제점 |
-|------|---------|------|--------|
-| varchar | 152 | 31.4% | 한글 컬럼에 사용 → EUC-KR 깨짐 |
-| smallint | 144 | 29.8% | 수량 컬럼에 불필요하게 작은 타입 |
-| char | 60 | 12.4% | 가변 코드에 고정길이 사용 |
-| int | 51 | 10.5% | — |
-| nvarchar | 38 | 7.9% | 정상 (유니코드) |
-| tinyint | 27 | 5.6% | 범위 초과 위험 |
-| datetime | 4 | 0.8% | — |
-| bigint | 4 | 0.8% | — |
-| float | 2 | 0.4% | 정밀도 손실 (타율 등) |
-| real | 1 | 0.2% | 정밀도 손실 |
-
-**주요 문제**:
-1. `varchar`에 한글 저장 → EUC-KR 인코딩 깨짐 (person.NAME, TEAM 등)
-2. `float`으로 비율 저장 → `0.25886523723602295` 같은 부동소수점 노이즈
-3. `smallint`/`tinyint` 혼용 → 통일 필요
+→ 현행 타입 분포는 [컬럼 매핑](../migration/column-mapping.md) 참조
 
 ---
 
-## 3. 표준 도메인 타입 정의
+## 2. 표준 도메인 타입 정의
 
-### 3.1 identifier (`_id`)
+### 2.1 identifier (`_id`)
 
 | 항목 | 값 |
 |------|-----|
@@ -56,12 +34,10 @@ DB2_BASEBALL_220328 기준 (~484 컬럼):
 |------|------|------|
 | varchar(10) | PCODE | int |
 | char(13) | GMKEY | char(13) — 유지 |
-| varchar(6) | TEAM | char(2) |
-| char(4) / smallint | GYEAR | smallint |
 
 → 참고: [ID 체계](./id-system.md) — ID별 형식 상세 정의
 
-### 3.2 name (`_nm`)
+### 2.2 name (`_nm`)
 
 | 항목 | 값 |
 |------|-----|
@@ -79,9 +55,8 @@ DB2_BASEBALL_220328 기준 (~484 컬럼):
 |------|------|------|
 | varchar(20) | person.NAME | nvarchar(100) |
 | varchar(255) | person.CAREER | nvarchar(500) |
-| varchar(20) | GAMEINFO.STADIUM | nvarchar(100) |
 
-### 3.3 code (`_cd`, `_sc`)
+### 2.3 code (`_cd`, `_sc`)
 
 | 항목 | 값 |
 |------|-----|
@@ -94,7 +69,7 @@ DB2_BASEBALL_220328 기준 (~484 컬럼):
 
 → 참고: [코드 사전](./code-dictionary.md) — 코드값 정의
 
-### 3.4 count (`_cn`)
+### 2.4 count (`_cn`)
 
 | 항목 | 값 |
 |------|-----|
@@ -111,9 +86,10 @@ DB2_BASEBALL_220328 기준 (~484 컬럼):
 |------|----------|------|
 | smallint | HR, RBI, BB 등 | int |
 | tinyint | SCORE_CN, INN_NO 등 | int |
-| int | GAMENUM | int (유지) |
 
-### 3.5 rate (`_rt`)
+> **이닝 점수 특수 케이스**: `inn_{N}_top`, `inn_{N}_bot`, `inn_{N}_score` 패턴의 피벗 컬럼(Score/KBO_BATRESULT, 이닝 1~25, 최대 50개)은 `smallint`, 범위 0~99, 미진행 이닝 = NULL.
+
+### 2.5 rate (`_rt`)
 
 | 항목 | 값 |
 |------|-----|
@@ -134,7 +110,7 @@ DB2_BASEBALL_220328 기준 (~484 컬럼):
 | float | HRA (타율) | decimal(8,5) |
 | real | — | decimal(8,5) |
 
-### 3.6 datetime (`_dt`)
+### 2.6 datetime (`_dt`)
 
 | 항목 | 값 |
 |------|-----|
@@ -153,7 +129,7 @@ DB2_BASEBALL_220328 기준 (~484 컬럼):
 | varchar(8) | GDAY, BIRTH | char(8) |
 | datetime | REG_DT | datetime2 |
 
-### 3.7 time (`_tm`)
+### 2.7 time (`_tm`)
 
 | 항목 | 값 |
 |------|-----|
@@ -165,7 +141,7 @@ DB2_BASEBALL_220328 기준 (~484 컬럼):
 | | `number` — 시간량 (분 단위) |
 | NOT NULL | 선택 |
 
-### 3.8 flag (`_if`)
+### 2.8 flag (`_if`)
 
 | 항목 | 값 |
 |------|-----|
@@ -183,7 +159,7 @@ DB2_BASEBALL_220328 기준 (~484 컬럼):
 
 > **주의**: `KBO_schedule.game_flag`는 불리언이 아님 (값: 0~9). 명칭을 `game_type_cd`로 변경 권고.
 
-### 3.9 value (`_va`)
+### 2.9 value (`_va`)
 
 | 항목 | 값 |
 |------|-----|
@@ -199,10 +175,8 @@ DB2_BASEBALL_220328 기준 (~484 컬럼):
 |------|---------|------|------|
 | temperature_va | 245 | ×10 (24.5°C) | 정수 저장, API에서 /10 변환 |
 | hr_distance_va | 120 | 미터 | 홈런 비거리 |
-| height_va | 183 | cm | 선수 키 |
-| weight_va | 85 | kg | 선수 몸무게 |
 
-### 3.10 number (`_no`)
+### 2.10 number (`_no`)
 
 | 항목 | 값 |
 |------|-----|
@@ -214,7 +188,7 @@ DB2_BASEBALL_220328 기준 (~484 컬럼):
 
 **예시**: `seq_no`, `inning_no`, `bat_order_no`, `doubleheader_no`
 
-### 3.11 text (접미사 없음)
+### 2.11 text (접미사 없음)
 
 | 항목 | 값 |
 |------|-----|
@@ -227,22 +201,9 @@ DB2_BASEBALL_220328 기준 (~484 컬럼):
 
 > 모든 텍스트 컬럼은 `nvarchar`. `varchar` 사용 금지.
 
-### 3.12 inning score (특수)
-
-| 항목 | 값 |
-|------|-----|
-| 패턴 | `inn_{N}_top`, `inn_{N}_bot`, `inn_{N}_score` |
-| 용도 | 이닝별 점수 (피벗 컬럼) |
-| MSSQL 타입 | `smallint` |
-| API 타입 | `number` (integer) |
-| 범위 | 0 ~ 99 |
-| NOT NULL | 선택 (미진행 이닝 = NULL) |
-
-Score/KBO_BATRESULT 테이블에서 이닝 1~25까지 최대 50개 피벗 컬럼 존재.
-
 ---
 
-## 4. 인코딩 정책
+## 3. 인코딩 정책
 
 | 구분 | 표준 | 사유 |
 |------|------|------|
@@ -255,7 +216,7 @@ Score/KBO_BATRESULT 테이블에서 이닝 1~25까지 최대 50개 피벗 컬럼
 
 ---
 
-## 5. NULL 처리 정책
+## 4. NULL 처리 정책
 
 | 도메인 타입 | NOT NULL | 기본값 | 사유 |
 |------------|----------|--------|------|

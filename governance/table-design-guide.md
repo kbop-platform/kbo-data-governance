@@ -15,7 +15,7 @@
 
 → 참고: [ID 체계 §7](../standards/id-system.md#7-id) — 신규 ID 설계 원칙
 → 참고: [명명 규칙 §3](../standards/naming-rules.md#3-db) — DB 계층 명명 규칙
-→ 참고: [도메인 타입 §3](../standards/domain-types.md#3) — 표준 타입 정의
+→ 참고: [도메인 타입 §2](../standards/domain-types.md#2) — 표준 타입 정의
 → 참고: [데이터 오너십 §4.1](./data-ownership.md#41) — KBO 자체 오너십
 
 ---
@@ -138,7 +138,7 @@
 | 날짜 | `char(8)` (YYYYMMDD) 또는 `datetime2` | |
 | 대용량 텍스트 | `nvarchar(max)` | |
 
-→ 참고: [도메인 타입 §3](../standards/domain-types.md#3) — 타입별 상세 정의
+→ 참고: [도메인 타입 §2](../standards/domain-types.md#2) — 타입별 상세 정의
 
 ### 5.3 NULL 정책
 
@@ -150,7 +150,7 @@
 | rate (`_rt`) | 선택 | NULL | NULL=분모 없음, 0.000=분모 있으나 분자 0 |
 | 감사 컬럼 | 필수 | `GETDATE()` / — | |
 
-→ 참고: [도메인 타입 §5](../standards/domain-types.md#5-null-처리-정책) — NULL 정책
+→ 참고: [도메인 타입 §4](../standards/domain-types.md#4-null) — NULL 정책
 
 ### 5.4 금지 사항
 
@@ -164,7 +164,7 @@
 | `text`, `ntext` | 레거시 타입 (MSSQL 권장 안 함) | `nvarchar(max)` |
 | `money` | 화폐 연산 부정확 | `decimal` |
 
-→ 참고: [도메인 타입 §2](../standards/domain-types.md#2) — 현행 문제점
+→ 참고: [컬럼 매핑](../migration/column-mapping.md) — 현행 타입 분포 및 문제점
 
 ---
 

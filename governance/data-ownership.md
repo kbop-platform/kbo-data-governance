@@ -169,7 +169,7 @@ Hitter, Pitcher 테이블에서 `PCODE = 'T'`(원정팀 합계), `PCODE = 'B'`(�
 2. 집계 쿼리 시 `WHERE PCODE NOT IN ('T', 'B')` 필터 필수
 3. 품질 검증: 합계행 값 = 개인 기록 SUM (§ quality-rules.md §6.2)
 
-→ 참고: [ID 체계 §5.1](../standards/id-system.md#51-pcode-t-b) — 합계행 표준 처리 방안
+→ 참고: [ID 체계 §5.1](../standards/id-system.md#5) — 합계행 표준 처리 방안
 
 ---
 
