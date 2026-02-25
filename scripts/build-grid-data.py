@@ -495,6 +495,81 @@ def parse_index_meta():
                 mapping[tname.lower()] = {"tier": tier, "owner": owner}
     return mapping
 
+# ── 7. 딕셔너리 테이블 요약 JSON 생성 ─────────────────────────
+def build_dictionary_tables():
+    """39종 테이블 요약 JSON 생성 (Dictionary AG Grid용)"""
+    col_meta = load_column_metadata()
+    std_names = parse_index_std_names()
+    idx_descs = parse_index_descriptions()
+
+    rows = []
+    for domain_key, domain_label in DOMAIN_MAP.items():
+        domain_dir = BASE / "dictionary" / domain_key
+        if not domain_dir.exists():
+            continue
+        for md_file in sorted(domain_dir.glob("*.md")):
+            if md_file.name in ("README.md", "index.md"):
+                continue
+            table_name = md_file.stem
+            meta, columns = parse_dictionary_md(md_file)
+
+            # column-metadata.json 보충
+            cm = col_meta.get(table_name, {})
+            if not cm:
+                for k, v in col_meta.items():
+                    if k.lower() == table_name.lower():
+                        cm = v
+                        break
+
+            row_count = meta.get("row_count", cm.get("row_count", 0))
+            schema_gen = meta.get("schema_gen", cm.get("schema_generation", "unknown"))
+            pk_cols = cm.get("pk_columns", [])
+            pk_columns = ", ".join(pk_cols) if pk_cols else ""
+
+            table_std_name = std_names.get(table_name, "")
+            if not table_std_name:
+                for k, v in std_names.items():
+                    if k.lower() == table_name.lower():
+                        table_std_name = v
+                        break
+            description = idx_descs.get(table_name, "")
+            if not description:
+                for k, v in idx_descs.items():
+                    if k.lower() == table_name.lower():
+                        description = v
+                        break
+
+            column_count = len(columns) if columns else cm.get("column_count", 0)
+
+            # 컬럼 요약 (사이드패널용)
+            col_summary = []
+            for c in columns[:50]:
+                col_summary.append({
+                    "name": c["column_name"],
+                    "type": c["data_type"],
+                    "pk": c["is_pk"],
+                    "desc": c["description"],
+                })
+
+            rows.append({
+                "domain": domain_label,
+                "domain_key": domain_key,
+                "table_name": table_name,
+                "table_std_name": table_std_name,
+                "column_count": column_count,
+                "row_count": row_count,
+                "pk_columns": pk_columns,
+                "schema_gen": schema_gen,
+                "tier": meta.get("tier", ""),
+                "owner": meta.get("owner", ""),
+                "refresh": meta.get("refresh", ""),
+                "description": description,
+                "table_doc_url": f"dictionary/{domain_key}/{table_name}/",
+                "columns": col_summary,
+            })
+
+    return rows
+
 # ── main ──────────────────────────────────────────────────────
 def main():
     out_dir = BASE / "assets" / "data"
@@ -520,6 +595,13 @@ def main():
     with open(inst_path, "w", encoding="utf-8") as f:
         json.dump({"generated": "2026-02-25", "rows": inst_rows}, f, ensure_ascii=False, indent=2)
     print(f"catalog-instances.json: {len(inst_rows)} rows")
+
+    # 딕셔너리 테이블 요약
+    dict_rows = build_dictionary_tables()
+    dict_path = out_dir / "dictionary-tables.json"
+    with open(dict_path, "w", encoding="utf-8") as f:
+        json.dump({"generated": "2026-02-25", "rows": dict_rows}, f, ensure_ascii=False, indent=2)
+    print(f"dictionary-tables.json: {len(dict_rows)} rows")
 
 if __name__ == "__main__":
     main()

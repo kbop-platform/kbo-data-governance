@@ -49,6 +49,7 @@ extra_css:
   - https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/styles/ag-theme-alpine.min.css
   - assets/css/custom.css
   - assets/css/ag-grid-kbo.css
+  - assets/css/side-panel.css
   - assets/css/home.css
 
 extra_javascript:
@@ -60,6 +61,7 @@ extra_javascript:
   - assets/js/ag-grid-catalog.js
   - assets/js/ag-grid-instances.js
   - assets/js/ag-grid-glossary.js
+  - assets/js/ag-grid-dictionary.js
 
 extra:
   generator: false

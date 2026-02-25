@@ -1,0 +1,5066 @@
+{
+  "generated": "2026-02-25",
+  "rows": [
+    {
+      "domain": "경기 기록",
+      "domain_key": "game",
+      "table_name": "DEFEN",
+      "table_std_name": "DEFEN",
+      "column_count": 12,
+      "row_count": 846736,
+      "pk_columns": "",
+      "schema_gen": "legacy",
+      "tier": "Tier 2",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "수비 기록",
+      "table_doc_url": "dictionary/game/DEFEN/",
+      "columns": [
+        {
+          "name": "GMKEY",
+          "type": "char",
+          "pk": "",
+          "desc": "경기 고유키 (YYYYMMDDVVHH#, 13자리)"
+        },
+        {
+          "name": "GDAY",
+          "type": "int",
+          "pk": "",
+          "desc": "경기 일자 (YYYYMMDD)"
+        },
+        {
+          "name": "TB",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 구분 (T=원정/Top, B=홈/Bottom)"
+        },
+        {
+          "name": "ONETURN",
+          "type": "int",
+          "pk": "",
+          "desc": "타순 (1~9)"
+        },
+        {
+          "name": "POSI",
+          "type": "varchar",
+          "pk": "",
+          "desc": "포지션 코드 (XY: X=교체순번, Y=포지션)"
+        },
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "PO",
+          "type": "smallint",
+          "pk": "",
+          "desc": "자살 (Put Out)"
+        },
+        {
+          "name": "ASS",
+          "type": "smallint",
+          "pk": "",
+          "desc": "보살 (Assist)"
+        },
+        {
+          "name": "ERR",
+          "type": "smallint",
+          "pk": "",
+          "desc": "실책"
+        },
+        {
+          "name": "DP",
+          "type": "smallint",
+          "pk": "",
+          "desc": "병살 (Double Play)"
+        },
+        {
+          "name": "PB",
+          "type": "smallint",
+          "pk": "",
+          "desc": "포일 (Passed Ball)"
+        },
+        {
+          "name": "INPUTTIME",
+          "type": "datetime",
+          "pk": "",
+          "desc": "입력 시각"
+        }
+      ]
+    },
+    {
+      "domain": "경기 기록",
+      "domain_key": "game",
+      "table_name": "ENTRY",
+      "table_std_name": "ENTRY",
+      "column_count": 11,
+      "row_count": 854280,
+      "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
+      "schema_gen": "legacy",
+      "tier": "Tier 1",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "출전 엔트리",
+      "table_doc_url": "dictionary/game/ENTRY/",
+      "columns": [
+        {
+          "name": "GMKEY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 고유키 (YYYYMMDDVVHH#, 13자리)"
+        },
+        {
+          "name": "GDAY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 일자 (YYYYMMDD)"
+        },
+        {
+          "name": "TURN",
+          "type": "char",
+          "pk": "PK",
+          "desc": "타순"
+        },
+        {
+          "name": "NAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "선수명 (varchar=EUC-KR 깨짐 가능)"
+        },
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "TEAM",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 코드 (2자리, HH=키움, HT=KIA 등)"
+        },
+        {
+          "name": "POSI",
+          "type": "char",
+          "pk": "PK",
+          "desc": "포지션 코드 (XY: X=교체순번, Y=포지션)"
+        },
+        {
+          "name": "CHIN",
+          "type": "varchar",
+          "pk": "",
+          "desc": "교체 이닝"
+        },
+        {
+          "name": "CHTURN",
+          "type": "char",
+          "pk": "",
+          "desc": "교체 타순"
+        },
+        {
+          "name": "CHBCNT",
+          "type": "varchar",
+          "pk": "",
+          "desc": "교체 시점 볼카운트"
+        },
+        {
+          "name": "CHIN2",
+          "type": "char",
+          "pk": "",
+          "desc": "교체 이닝 세부"
+        }
+      ]
+    },
+    {
+      "domain": "경기 기록",
+      "domain_key": "game",
+      "table_name": "GAMECONTAPP",
+      "table_std_name": "GAME_CONT_APP",
+      "column_count": 29,
+      "row_count": 2531702,
+      "pk_columns": "GMKEY, GYEAR, SERNO",
+      "schema_gen": "legacy",
+      "tier": "Tier 1",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "경기 이벤트 상세",
+      "table_doc_url": "dictionary/game/GAMECONTAPP/",
+      "columns": [
+        {
+          "name": "GMKEY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 고유키 (YYYYMMDDVVHH#, 13자리)"
+        },
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "GDAY",
+          "type": "char",
+          "pk": "",
+          "desc": "경기 일자 (YYYYMMDD)"
+        },
+        {
+          "name": "SERNO",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "일련번호"
+        },
+        {
+          "name": "TURN",
+          "type": "char",
+          "pk": "",
+          "desc": "타순"
+        },
+        {
+          "name": "INN",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "이닝 번호"
+        },
+        {
+          "name": "TB",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 구분 (T=원정/Top, B=홈/Bottom)"
+        },
+        {
+          "name": "INN2",
+          "type": "char",
+          "pk": "",
+          "desc": "이닝 세부 (아웃수 환산 또는 연장 구분)"
+        },
+        {
+          "name": "OCOUNT",
+          "type": "char",
+          "pk": "",
+          "desc": "아웃 카운트 (0,1,2,4=이닝종료)"
+        },
+        {
+          "name": "BCOUNT",
+          "type": "varchar",
+          "pk": "",
+          "desc": "투구 시퀀스 상세 (S/B/T/F/H 등)"
+        },
+        {
+          "name": "RTURN",
+          "type": "char",
+          "pk": "",
+          "desc": "실제 타순 (교체 포함)"
+        },
+        {
+          "name": "HOW",
+          "type": "char",
+          "pk": "",
+          "desc": "플레이 결과 코드 (H1=안타, HR=홈런, KK=삼진 등 49종)"
+        },
+        {
+          "name": "FIELD",
+          "type": "varchar",
+          "pk": "",
+          "desc": "수비 배치 코드"
+        },
+        {
+          "name": "PLACE",
+          "type": "char",
+          "pk": "",
+          "desc": "타구 방향 (0~9=포지션번호, S=삼진 등)"
+        },
+        {
+          "name": "HITTER",
+          "type": "varchar",
+          "pk": "",
+          "desc": "타자 선수 코드"
+        },
+        {
+          "name": "HITNAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "타자 이름 (EUC-KR)"
+        },
+        {
+          "name": "PITNAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "투수 이름 (EUC-KR)"
+        },
+        {
+          "name": "PITCHER",
+          "type": "varchar",
+          "pk": "",
+          "desc": "투수 선수 코드"
+        },
+        {
+          "name": "CATNAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "포수 이름 (EUC-KR)"
+        },
+        {
+          "name": "CATCHER",
+          "type": "varchar",
+          "pk": "",
+          "desc": "포수 선수 코드"
+        },
+        {
+          "name": "BCNT",
+          "type": "char",
+          "pk": "",
+          "desc": "볼카운트 (S-B 형식)"
+        },
+        {
+          "name": "TSCORE",
+          "type": "smallint",
+          "pk": "",
+          "desc": "원정팀 누적 득점"
+        },
+        {
+          "name": "BSCORE",
+          "type": "smallint",
+          "pk": "",
+          "desc": "홈팀 누적 득점"
+        },
+        {
+          "name": "BASE1B",
+          "type": "char",
+          "pk": "",
+          "desc": "1루 주자 타순 (플레이 전)"
+        },
+        {
+          "name": "BASE2B",
+          "type": "char",
+          "pk": "",
+          "desc": "2루 주자 타순 (플레이 전)"
+        },
+        {
+          "name": "BASE3B",
+          "type": "char",
+          "pk": "",
+          "desc": "3루 주자 타순 (플레이 전)"
+        },
+        {
+          "name": "BASE1A",
+          "type": "char",
+          "pk": "",
+          "desc": "1루 주자 타순 (플레이 후)"
+        },
+        {
+          "name": "BASE2A",
+          "type": "char",
+          "pk": "",
+          "desc": "2루 주자 타순 (플레이 후)"
+        },
+        {
+          "name": "BASE3A",
+          "type": "char",
+          "pk": "",
+          "desc": "3루 주자 타순 (플레이 후)"
+        }
+      ]
+    },
+    {
+      "domain": "경기 기록",
+      "domain_key": "game",
+      "table_name": "GAMEINFO",
+      "table_std_name": "GAME_INFO",
+      "column_count": 27,
+      "row_count": 23579,
+      "pk_columns": "GMKEY, GDAY",
+      "schema_gen": "legacy",
+      "tier": "Tier 1",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "경기 기본 정보",
+      "table_doc_url": "dictionary/game/GAMEINFO/",
+      "columns": [
+        {
+          "name": "GMKEY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 고유키 (YYYYMMDDVVHH#, 유효 13자리; 현행 DB char(15), 표준 char(13) 전환 대상)"
+        },
+        {
+          "name": "GDAY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 일자 (YYYYMMDD)"
+        },
+        {
+          "name": "DBHD",
+          "type": "char",
+          "pk": "",
+          "desc": "더블헤더 번호 (0=일반, 1=1차, 2=2차)"
+        },
+        {
+          "name": "STADIUM",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "구장"
+        },
+        {
+          "name": "VTEAM",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "원정팀 코드"
+        },
+        {
+          "name": "HTEAM",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "홈팀 코드"
+        },
+        {
+          "name": "STTM",
+          "type": "char",
+          "pk": "",
+          "desc": "경기 시작 시각 (HHMM)"
+        },
+        {
+          "name": "ENTM",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "경기 종료 시각 (HHMM)"
+        },
+        {
+          "name": "DLTM",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "지연 시간 (분)"
+        },
+        {
+          "name": "GMTM",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "경기 소요 시간 (분)"
+        },
+        {
+          "name": "STAD",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "구장 코드"
+        },
+        {
+          "name": "UMPC",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "주심 이름"
+        },
+        {
+          "name": "UMP1",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "1루심 이름"
+        },
+        {
+          "name": "UMP2",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "2루심 이름"
+        },
+        {
+          "name": "UMP3",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "3루심 이름"
+        },
+        {
+          "name": "UMPL",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "좌측 외야심 이름"
+        },
+        {
+          "name": "UMPR",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "우측 외야심 이름"
+        },
+        {
+          "name": "SCOA",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "기록원 A 이름"
+        },
+        {
+          "name": "SCOB",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "기록원 B 이름"
+        },
+        {
+          "name": "TEMP",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "기온 (×10, 예: 270=27.0℃)"
+        },
+        {
+          "name": "MOIS",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "습도 (%)"
+        },
+        {
+          "name": "WEATH",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "날씨 코드 (F=맑음, C=흐림, R=비)"
+        },
+        {
+          "name": "WIND",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "풍향 (16방위)"
+        },
+        {
+          "name": "WINS",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "풍속 (m/s)"
+        },
+        {
+          "name": "GWEEK",
+          "type": "varchar",
+          "pk": "",
+          "desc": "요일 (EUC-KR 인코딩)"
+        },
+        {
+          "name": "CROWD",
+          "type": "int",
+          "pk": "",
+          "desc": "관중수"
+        },
+        {
+          "name": "CHAJUN",
+          "type": "char",
+          "pk": "",
+          "desc": "차전 (라운드 번호)"
+        }
+      ]
+    },
+    {
+      "domain": "경기 기록",
+      "domain_key": "game",
+      "table_name": "GAMEINFO_WEATHER",
+      "table_std_name": "GAME_INFO_WEATHER",
+      "column_count": 12,
+      "row_count": 1680,
+      "pk_columns": "code, tm",
+      "schema_gen": "unknown",
+      "tier": "Tier 3",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "기상청 상세 날씨",
+      "table_doc_url": "dictionary/game/GAMEINFO_WEATHER/",
+      "columns": [
+        {
+          "name": "code",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "관측 지점 코드"
+        },
+        {
+          "name": "area_wide",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "광역 지역명"
+        },
+        {
+          "name": "area_city",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "시/군 지역명"
+        },
+        {
+          "name": "area_dong",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "동/읍/면 지역명"
+        },
+        {
+          "name": "tm",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "관측 시각"
+        },
+        {
+          "name": "icon40",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "날씨 아이콘 코드"
+        },
+        {
+          "name": "temp",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "기온 (℃)"
+        },
+        {
+          "name": "humi",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "습도 (%)"
+        },
+        {
+          "name": "rain",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "강수량"
+        },
+        {
+          "name": "snow",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "적설량"
+        },
+        {
+          "name": "wdirk",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "풍향"
+        },
+        {
+          "name": "wspeed",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "풍속 (m/s)"
+        }
+      ]
+    },
+    {
+      "domain": "경기 기록",
+      "domain_key": "game",
+      "table_name": "GAME_HR",
+      "table_std_name": "GAME_HR",
+      "column_count": 15,
+      "row_count": 7784,
+      "pk_columns": "LE_ID, SR_ID, G_ID, SEQ_NO",
+      "schema_gen": "new",
+      "tier": "Tier 2",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "홈런 기록 상세",
+      "table_doc_url": "dictionary/game/GAME_HR/",
+      "columns": [
+        {
+          "name": "LE_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "리그 ID (1=1군)"
+        },
+        {
+          "name": "SR_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시리즈 ID (0=정규시즌)"
+        },
+        {
+          "name": "SEASON_ID",
+          "type": "smallint",
+          "pk": "",
+          "desc": "시즌 ID (연도)"
+        },
+        {
+          "name": "G_ID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 ID (YYYYMMDDVVHH# 형식)"
+        },
+        {
+          "name": "INN_NO",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "이닝 번호"
+        },
+        {
+          "name": "TB_SC",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 구분 코드 (T=원정, B=홈)"
+        },
+        {
+          "name": "BAT_P_ID",
+          "type": "int",
+          "pk": "",
+          "desc": "타자 선수 ID"
+        },
+        {
+          "name": "PIT_P_ID",
+          "type": "int",
+          "pk": "",
+          "desc": "투수 선수 ID"
+        },
+        {
+          "name": "PLACE_SC",
+          "type": "char",
+          "pk": "",
+          "desc": "PLACE 상태코드"
+        },
+        {
+          "name": "HR_DISTANCE_VA",
+          "type": "smallint",
+          "pk": "",
+          "desc": "HR_DISTANCE 값"
+        },
+        {
+          "name": "DIREC_SC",
+          "type": "varchar",
+          "pk": "",
+          "desc": "DIREC 상태코드"
+        },
+        {
+          "name": "SCORE_CN",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "SCORE 건수"
+        },
+        {
+          "name": "RECORD_DT",
+          "type": "varchar",
+          "pk": "",
+          "desc": "RECORD 일시"
+        },
+        {
+          "name": "SEQ_NO",
+          "type": "int",
+          "pk": "PK",
+          "desc": "순번"
+        },
+        {
+          "name": "REG_DT",
+          "type": "datetime",
+          "pk": "",
+          "desc": "등록 일시"
+        }
+      ]
+    },
+    {
+      "domain": "경기 기록",
+      "domain_key": "game",
+      "table_name": "GAME_MEMO",
+      "table_std_name": "GAME_MEMO",
+      "column_count": 20,
+      "row_count": 54544,
+      "pk_columns": "LE_ID, SR_ID, G_ID, INN_NO, BAT_ORDER_NO, BAT_AROUND_NO, TB_SC, PA_PIT_NO, ORDER_NO",
+      "schema_gen": "new",
+      "tier": "Tier 2",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "투구 단위 기록 메모",
+      "table_doc_url": "dictionary/game/GAME_MEMO/",
+      "columns": [
+        {
+          "name": "LE_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "리그 ID (1=1군)"
+        },
+        {
+          "name": "SR_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시리즈 ID (0=정규시즌)"
+        },
+        {
+          "name": "SEASON_ID",
+          "type": "smallint",
+          "pk": "",
+          "desc": "시즌 ID (연도)"
+        },
+        {
+          "name": "G_ID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 ID (YYYYMMDDVVHH# 형식)"
+        },
+        {
+          "name": "INN_NO",
+          "type": "tinyint",
+          "pk": "PK",
+          "desc": "이닝 번호"
+        },
+        {
+          "name": "BAT_ORDER_NO",
+          "type": "tinyint",
+          "pk": "PK",
+          "desc": "BAT_ORDER 번호"
+        },
+        {
+          "name": "BAT_AROUND_NO",
+          "type": "tinyint",
+          "pk": "PK",
+          "desc": "BAT_AROUND 번호"
+        },
+        {
+          "name": "TB_SC",
+          "type": "char",
+          "pk": "PK",
+          "desc": "팀 구분 코드 (T=원정, B=홈)"
+        },
+        {
+          "name": "PA_PIT_NO",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "PA_PIT 번호"
+        },
+        {
+          "name": "GAME_PIT_NO",
+          "type": "smallint",
+          "pk": "",
+          "desc": "GAME_PIT 번호"
+        },
+        {
+          "name": "P_ID",
+          "type": "int",
+          "pk": "",
+          "desc": "선수 ID (정수)"
+        },
+        {
+          "name": "REQ_T_ID",
+          "type": "char",
+          "pk": "",
+          "desc": "요청 팀 코드"
+        },
+        {
+          "name": "START_TM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "START 시각"
+        },
+        {
+          "name": "END_TM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "END 시각"
+        },
+        {
+          "name": "USE_TM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "USE 시각"
+        },
+        {
+          "name": "FIRST_IF",
+          "type": "varchar",
+          "pk": "",
+          "desc": "첫 여부 플래그"
+        },
+        {
+          "name": "LAST_IF",
+          "type": "varchar",
+          "pk": "",
+          "desc": "마지막 여부 플래그"
+        },
+        {
+          "name": "ETC_ME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "ETC 메모"
+        },
+        {
+          "name": "ORDER_NO",
+          "type": "int",
+          "pk": "PK",
+          "desc": "ORDER 번호"
+        },
+        {
+          "name": "REG_DT",
+          "type": "datetime",
+          "pk": "",
+          "desc": "등록 일시"
+        }
+      ]
+    },
+    {
+      "domain": "경기 기록",
+      "domain_key": "game",
+      "table_name": "GAME_MEMO_PITCHCLOCK",
+      "table_std_name": "GAME_MEMO_PITCHCLOCK",
+      "column_count": 16,
+      "row_count": 237,
+      "pk_columns": "LE_ID, SR_ID, G_ID, SEQ_NO",
+      "schema_gen": "new",
+      "tier": "Tier 3",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "피치클럭 위반 기록",
+      "table_doc_url": "dictionary/game/GAME_MEMO_PITCHCLOCK/",
+      "columns": [
+        {
+          "name": "LE_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "리그 ID (1=1군)"
+        },
+        {
+          "name": "SR_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시리즈 ID (0=정규시즌)"
+        },
+        {
+          "name": "SEASON_ID",
+          "type": "smallint",
+          "pk": "",
+          "desc": "시즌 ID (연도)"
+        },
+        {
+          "name": "G_ID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 ID (YYYYMMDDVVHH# 형식)"
+        },
+        {
+          "name": "INN_NO",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "이닝 번호"
+        },
+        {
+          "name": "BAT_ORDER_NO",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "BAT_ORDER 번호"
+        },
+        {
+          "name": "BAT_AROUND_NO",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "BAT_AROUND 번호"
+        },
+        {
+          "name": "TB_SC",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 구분 코드 (T=원정, B=홈)"
+        },
+        {
+          "name": "PA_PIT_NO",
+          "type": "smallint",
+          "pk": "",
+          "desc": "PA_PIT 번호"
+        },
+        {
+          "name": "GAME_PIT_NO",
+          "type": "smallint",
+          "pk": "",
+          "desc": "GAME_PIT 번호"
+        },
+        {
+          "name": "T_ID",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 코드 (2자리)"
+        },
+        {
+          "name": "P_ID",
+          "type": "int",
+          "pk": "",
+          "desc": "선수 ID (정수)"
+        },
+        {
+          "name": "PIT_RESULT_SC",
+          "type": "varchar",
+          "pk": "",
+          "desc": "PIT_RESULT 상태코드"
+        },
+        {
+          "name": "ETC_ME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "ETC 메모"
+        },
+        {
+          "name": "SEQ_NO",
+          "type": "int",
+          "pk": "PK",
+          "desc": "순번"
+        },
+        {
+          "name": "REG_DT",
+          "type": "datetime",
+          "pk": "",
+          "desc": "등록 일시"
+        }
+      ]
+    },
+    {
+      "domain": "경기 기록",
+      "domain_key": "game",
+      "table_name": "Hitter",
+      "table_std_name": "HITTER",
+      "column_count": 26,
+      "row_count": 648248,
+      "pk_columns": "GMKEY, GDAY, PCODE",
+      "schema_gen": "legacy",
+      "tier": "Tier 1",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "경기별 타자 기록",
+      "table_doc_url": "dictionary/game/Hitter/",
+      "columns": [
+        {
+          "name": "GMKEY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 고유키 (YYYYMMDDVVHH#, 13자리)"
+        },
+        {
+          "name": "GDAY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 일자 (YYYYMMDD)"
+        },
+        {
+          "name": "TB",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 구분 (T=원정/Top, B=홈/Bottom)"
+        },
+        {
+          "name": "NAME",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "선수명 (varchar=EUC-KR 깨짐 가능)"
+        },
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "TURN",
+          "type": "char",
+          "pk": "",
+          "desc": "타순"
+        },
+        {
+          "name": "ONETURN",
+          "type": "char",
+          "pk": "",
+          "desc": "타순 (1~9)"
+        },
+        {
+          "name": "PA",
+          "type": "int",
+          "pk": "",
+          "desc": "타석 (Plate Appearance)"
+        },
+        {
+          "name": "AB",
+          "type": "int",
+          "pk": "",
+          "desc": "타수 (At Bat)"
+        },
+        {
+          "name": "RBI",
+          "type": "int",
+          "pk": "",
+          "desc": "타점"
+        },
+        {
+          "name": "RUN",
+          "type": "int",
+          "pk": "",
+          "desc": "득점"
+        },
+        {
+          "name": "HIT",
+          "type": "int",
+          "pk": "",
+          "desc": "안타"
+        },
+        {
+          "name": "H2",
+          "type": "int",
+          "pk": "",
+          "desc": "2루타"
+        },
+        {
+          "name": "H3",
+          "type": "int",
+          "pk": "",
+          "desc": "3루타"
+        },
+        {
+          "name": "HR",
+          "type": "int",
+          "pk": "",
+          "desc": "홈런"
+        },
+        {
+          "name": "SB",
+          "type": "int",
+          "pk": "",
+          "desc": "도루"
+        },
+        {
+          "name": "CS",
+          "type": "int",
+          "pk": "",
+          "desc": "도루실패"
+        },
+        {
+          "name": "SH",
+          "type": "int",
+          "pk": "",
+          "desc": "희생번트"
+        },
+        {
+          "name": "SF",
+          "type": "int",
+          "pk": "",
+          "desc": "희생플라이"
+        },
+        {
+          "name": "BB",
+          "type": "int",
+          "pk": "",
+          "desc": "볼넷"
+        },
+        {
+          "name": "IB",
+          "type": "int",
+          "pk": "",
+          "desc": "고의사구 (Intentional BB)"
+        },
+        {
+          "name": "HP",
+          "type": "int",
+          "pk": "",
+          "desc": "사구 (Hit by Pitch)"
+        },
+        {
+          "name": "KK",
+          "type": "int",
+          "pk": "",
+          "desc": "삼진"
+        },
+        {
+          "name": "GD",
+          "type": "int",
+          "pk": "",
+          "desc": "병살타"
+        },
+        {
+          "name": "ERR",
+          "type": "int",
+          "pk": "",
+          "desc": "실책"
+        },
+        {
+          "name": "LOB",
+          "type": "int",
+          "pk": "",
+          "desc": "잔루"
+        }
+      ]
+    },
+    {
+      "domain": "경기 기록",
+      "domain_key": "game",
+      "table_name": "PITCHCLOCK",
+      "table_std_name": "PITCHCLOCK",
+      "column_count": 19,
+      "row_count": 215,
+      "pk_columns": "GMKEY, GYEAR, GDAY, LIVETEXT",
+      "schema_gen": "legacy",
+      "tier": "Tier 3",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "피치클럭 이벤트",
+      "table_doc_url": "dictionary/game/PITCHCLOCK/",
+      "columns": [
+        {
+          "name": "GMKEY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 고유키 (YYYYMMDDVVHH#, 13자리)"
+        },
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "GDAY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 일자 (YYYYMMDD)"
+        },
+        {
+          "name": "STADIUM",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "구장"
+        },
+        {
+          "name": "VTEAM",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "원정팀 코드"
+        },
+        {
+          "name": "HTEAM",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "홈팀 코드"
+        },
+        {
+          "name": "HITNAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "타자 이름 (EUC-KR)"
+        },
+        {
+          "name": "HITTER",
+          "type": "varchar",
+          "pk": "",
+          "desc": "타자 선수 코드"
+        },
+        {
+          "name": "PITNAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "투수 이름 (EUC-KR)"
+        },
+        {
+          "name": "PITCHER",
+          "type": "varchar",
+          "pk": "",
+          "desc": "투수 선수 코드"
+        },
+        {
+          "name": "CATNAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "포수 이름 (EUC-KR)"
+        },
+        {
+          "name": "CATCHER",
+          "type": "varchar",
+          "pk": "",
+          "desc": "포수 선수 코드"
+        },
+        {
+          "name": "TEAM",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "팀 코드 (2자리, HH=키움, HT=KIA 등)"
+        },
+        {
+          "name": "NAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "선수명 (varchar=EUC-KR 깨짐 가능)"
+        },
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "PITCHCLOCK",
+          "type": "varchar",
+          "pk": "",
+          "desc": "피치클락 위반 코드"
+        },
+        {
+          "name": "LIVETEXT",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "실시간 문자 중계 텍스트"
+        },
+        {
+          "name": "RUNNER",
+          "type": "varchar",
+          "pk": "",
+          "desc": "주자 상태 코드"
+        },
+        {
+          "name": "DETAIL",
+          "type": "varchar",
+          "pk": "",
+          "desc": "상세 내용"
+        }
+      ]
+    },
+    {
+      "domain": "경기 기록",
+      "domain_key": "game",
+      "table_name": "Pitcher",
+      "table_std_name": "PITCHER",
+      "column_count": 36,
+      "row_count": 223624,
+      "pk_columns": "GMKEY, GDAY, PCODE",
+      "schema_gen": "legacy",
+      "tier": "Tier 1",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "경기별 투수 기록",
+      "table_doc_url": "dictionary/game/Pitcher/",
+      "columns": [
+        {
+          "name": "GMKEY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 고유키 (YYYYMMDDVVHH#, 13자리)"
+        },
+        {
+          "name": "GDAY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 일자 (YYYYMMDD)"
+        },
+        {
+          "name": "TB",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 구분 (T=원정/Top, B=홈/Bottom)"
+        },
+        {
+          "name": "NAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "선수명 (varchar=EUC-KR 깨짐 가능)"
+        },
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "POS",
+          "type": "varchar",
+          "pk": "",
+          "desc": "등판 순서 (S=선발, R=구원)"
+        },
+        {
+          "name": "START",
+          "type": "char",
+          "pk": "",
+          "desc": "선발 여부"
+        },
+        {
+          "name": "QUIT",
+          "type": "char",
+          "pk": "",
+          "desc": "종료 여부"
+        },
+        {
+          "name": "CG",
+          "type": "int",
+          "pk": "",
+          "desc": "완투"
+        },
+        {
+          "name": "SHO",
+          "type": "int",
+          "pk": "",
+          "desc": "완봉"
+        },
+        {
+          "name": "WLS",
+          "type": "char",
+          "pk": "",
+          "desc": "승패세 (W=승, L=패, S=세이브)"
+        },
+        {
+          "name": "HOLD",
+          "type": "smallint",
+          "pk": "",
+          "desc": "홀드"
+        },
+        {
+          "name": "INN",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 번호"
+        },
+        {
+          "name": "INN2",
+          "type": "int",
+          "pk": "",
+          "desc": "이닝 세부 (아웃수 환산 또는 연장 구분)"
+        },
+        {
+          "name": "BF",
+          "type": "int",
+          "pk": "",
+          "desc": "상대타자수"
+        },
+        {
+          "name": "PA",
+          "type": "int",
+          "pk": "",
+          "desc": "타석 (Plate Appearance)"
+        },
+        {
+          "name": "AB",
+          "type": "int",
+          "pk": "",
+          "desc": "타수 (At Bat)"
+        },
+        {
+          "name": "HIT",
+          "type": "int",
+          "pk": "",
+          "desc": "안타"
+        },
+        {
+          "name": "H2",
+          "type": "int",
+          "pk": "",
+          "desc": "2루타"
+        },
+        {
+          "name": "H3",
+          "type": "int",
+          "pk": "",
+          "desc": "3루타"
+        },
+        {
+          "name": "HR",
+          "type": "int",
+          "pk": "",
+          "desc": "홈런"
+        },
+        {
+          "name": "SB",
+          "type": "int",
+          "pk": "",
+          "desc": "도루"
+        },
+        {
+          "name": "CS",
+          "type": "int",
+          "pk": "",
+          "desc": "도루실패"
+        },
+        {
+          "name": "SH",
+          "type": "int",
+          "pk": "",
+          "desc": "희생번트"
+        },
+        {
+          "name": "SF",
+          "type": "int",
+          "pk": "",
+          "desc": "희생플라이"
+        },
+        {
+          "name": "BB",
+          "type": "int",
+          "pk": "",
+          "desc": "볼넷"
+        },
+        {
+          "name": "IB",
+          "type": "int",
+          "pk": "",
+          "desc": "고의사구 (Intentional BB)"
+        },
+        {
+          "name": "HP",
+          "type": "int",
+          "pk": "",
+          "desc": "사구 (Hit by Pitch)"
+        },
+        {
+          "name": "KK",
+          "type": "int",
+          "pk": "",
+          "desc": "삼진"
+        },
+        {
+          "name": "GD",
+          "type": "int",
+          "pk": "",
+          "desc": "병살타"
+        },
+        {
+          "name": "WP",
+          "type": "int",
+          "pk": "",
+          "desc": "폭투"
+        },
+        {
+          "name": "BK",
+          "type": "int",
+          "pk": "",
+          "desc": "보크"
+        },
+        {
+          "name": "ERR",
+          "type": "int",
+          "pk": "",
+          "desc": "실책"
+        },
+        {
+          "name": "R",
+          "type": "int",
+          "pk": "",
+          "desc": "실점"
+        },
+        {
+          "name": "ER",
+          "type": "int",
+          "pk": "",
+          "desc": "자책점"
+        },
+        {
+          "name": "BS",
+          "type": "int",
+          "pk": "",
+          "desc": "블론세이브 (Blown Save)"
+        }
+      ]
+    },
+    {
+      "domain": "경기 기록",
+      "domain_key": "game",
+      "table_name": "Score",
+      "table_std_name": "SCORE",
+      "column_count": 60,
+      "row_count": 23579,
+      "pk_columns": "GMKEY, GDAY",
+      "schema_gen": "legacy",
+      "tier": "Tier 1",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "이닝별 스코어",
+      "table_doc_url": "dictionary/game/Score/",
+      "columns": [
+        {
+          "name": "GMKEY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 고유키 (YYYYMMDDVVHH#, 13자리)"
+        },
+        {
+          "name": "GDAY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 일자 (YYYYMMDD)"
+        },
+        {
+          "name": "1T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "1회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "1B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "1회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "2T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "2회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "2B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "2회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "3T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "3회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "3B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "3회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "4T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "4회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "4B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "4회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "5T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "5회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "5B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "5회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "6T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "6회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "6B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "6회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "7T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "7회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "7B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "7회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "8T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "8회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "8B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "8회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "9T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "9회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "9B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "9회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "10T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "10회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "10B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "10회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "11T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "11회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "11B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "11회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "12T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "12회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "12B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "12회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "13T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "13회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "13B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "13회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "14T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "14회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "14B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "14회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "15T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "15회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "15B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "15회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "16T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "16회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "16B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "16회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "17T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "17회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "17B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "17회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "18T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "18회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "18B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "18회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "19T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "19회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "19B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "19회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "20T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "20회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "20B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "20회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "21T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "21회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "21B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "21회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "22T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "22회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "22B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "22회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "23T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "23회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "23B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "23회 말 득점 (-1=미진행)"
+        },
+        {
+          "name": "24T",
+          "type": "smallint",
+          "pk": "",
+          "desc": "24회 초 득점 (-1=미진행)"
+        },
+        {
+          "name": "24B",
+          "type": "smallint",
+          "pk": "",
+          "desc": "24회 말 득점 (-1=미진행)"
+        }
+      ]
+    },
+    {
+      "domain": "통계",
+      "domain_key": "stats",
+      "table_name": "BatTotal",
+      "table_std_name": "BAT_TOTAL",
+      "column_count": 23,
+      "row_count": 13616,
+      "pk_columns": "PCODE, GYEAR, SEC",
+      "schema_gen": "legacy",
+      "tier": "Tier 2",
+      "owner": "통계분석팀",
+      "refresh": "D+1",
+      "description": "타격 시즌/통산 합산",
+      "table_doc_url": "dictionary/stats/BatTotal/",
+      "columns": [
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "GYEAR",
+          "type": "char",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "SEC",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "구간 (시즌연도 또는 \"9999\"=통산)"
+        },
+        {
+          "name": "TEAM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "팀 코드 (2자리, HH=키움, HT=KIA 등)"
+        },
+        {
+          "name": "HRA",
+          "type": "float",
+          "pk": "",
+          "desc": "타율"
+        },
+        {
+          "name": "GAMENUM",
+          "type": "int",
+          "pk": "",
+          "desc": "경기 수"
+        },
+        {
+          "name": "AB",
+          "type": "int",
+          "pk": "",
+          "desc": "타수 (At Bat)"
+        },
+        {
+          "name": "RUN",
+          "type": "int",
+          "pk": "",
+          "desc": "득점"
+        },
+        {
+          "name": "HIT",
+          "type": "int",
+          "pk": "",
+          "desc": "안타"
+        },
+        {
+          "name": "H2",
+          "type": "int",
+          "pk": "",
+          "desc": "2루타"
+        },
+        {
+          "name": "H3",
+          "type": "int",
+          "pk": "",
+          "desc": "3루타"
+        },
+        {
+          "name": "HR",
+          "type": "int",
+          "pk": "",
+          "desc": "홈런"
+        },
+        {
+          "name": "TB",
+          "type": "int",
+          "pk": "",
+          "desc": "루타 (Total Bases) — 안타로 획득한 총 루수"
+        },
+        {
+          "name": "RBI",
+          "type": "int",
+          "pk": "",
+          "desc": "타점"
+        },
+        {
+          "name": "SB",
+          "type": "int",
+          "pk": "",
+          "desc": "도루"
+        },
+        {
+          "name": "CS",
+          "type": "int",
+          "pk": "",
+          "desc": "도루실패"
+        },
+        {
+          "name": "SH",
+          "type": "int",
+          "pk": "",
+          "desc": "희생번트"
+        },
+        {
+          "name": "SF",
+          "type": "int",
+          "pk": "",
+          "desc": "희생플라이"
+        },
+        {
+          "name": "BB",
+          "type": "int",
+          "pk": "",
+          "desc": "볼넷"
+        },
+        {
+          "name": "HP",
+          "type": "int",
+          "pk": "",
+          "desc": "사구 (Hit by Pitch)"
+        },
+        {
+          "name": "KK",
+          "type": "int",
+          "pk": "",
+          "desc": "삼진"
+        },
+        {
+          "name": "GD",
+          "type": "int",
+          "pk": "",
+          "desc": "병살타"
+        },
+        {
+          "name": "ERR",
+          "type": "int",
+          "pk": "",
+          "desc": "실책"
+        }
+      ]
+    },
+    {
+      "domain": "통계",
+      "domain_key": "stats",
+      "table_name": "KBO_BATRESULT",
+      "table_std_name": "KBO_BAT_RESULT",
+      "column_count": 90,
+      "row_count": 424921,
+      "pk_columns": "GMKEY, GDAY, PCODE",
+      "schema_gen": "legacy",
+      "tier": "Tier 2",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "이닝별 타격 결과",
+      "table_doc_url": "dictionary/stats/KBO_BATRESULT/",
+      "columns": [
+        {
+          "name": "GMKEY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 고유키 (YYYYMMDDVVHH#, 13자리)"
+        },
+        {
+          "name": "GDAY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 일자 (YYYYMMDD)"
+        },
+        {
+          "name": "TB",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 구분 (T=원정/Top, B=홈/Bottom)"
+        },
+        {
+          "name": "NAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "선수명 (varchar=EUC-KR 깨짐 가능)"
+        },
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "TURN",
+          "type": "char",
+          "pk": "",
+          "desc": "타순"
+        },
+        {
+          "name": "ONETURN",
+          "type": "char",
+          "pk": "",
+          "desc": "타순 (1~9)"
+        },
+        {
+          "name": "POSITION",
+          "type": "varchar",
+          "pk": "",
+          "desc": "포지션"
+        },
+        {
+          "name": "CHANGEINN",
+          "type": "varchar",
+          "pk": "",
+          "desc": "교체 이닝"
+        },
+        {
+          "name": "INN1",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL1",
+          "type": "varchar",
+          "pk": "",
+          "desc": "1회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN1_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN2",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 세부 (아웃수 환산 또는 연장 구분)"
+        },
+        {
+          "name": "IL2",
+          "type": "varchar",
+          "pk": "",
+          "desc": "2회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN2_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "3회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN3_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN4",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL4",
+          "type": "varchar",
+          "pk": "",
+          "desc": "4회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN4_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN5",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL5",
+          "type": "varchar",
+          "pk": "",
+          "desc": "5회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN5_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN6",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL6",
+          "type": "varchar",
+          "pk": "",
+          "desc": "6회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN6_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN7",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL7",
+          "type": "varchar",
+          "pk": "",
+          "desc": "7회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN7_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN8",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL8",
+          "type": "varchar",
+          "pk": "",
+          "desc": "8회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN8_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN9",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL9",
+          "type": "varchar",
+          "pk": "",
+          "desc": "9회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN9_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN10",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL10",
+          "type": "varchar",
+          "pk": "",
+          "desc": "10회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN10_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN11",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL11",
+          "type": "varchar",
+          "pk": "",
+          "desc": "11회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN11_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN12",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL12",
+          "type": "varchar",
+          "pk": "",
+          "desc": "12회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN12_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN13",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL13",
+          "type": "varchar",
+          "pk": "",
+          "desc": "13회 교체타자 타격 결과"
+        },
+        {
+          "name": "INN13_3",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "INN14",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "IL14",
+          "type": "varchar",
+          "pk": "",
+          "desc": "14회 교체타자 타격 결과"
+        }
+      ]
+    },
+    {
+      "domain": "통계",
+      "domain_key": "stats",
+      "table_name": "KBO_ETCGAME",
+      "table_std_name": "KBO_ETC_GAME",
+      "column_count": 5,
+      "row_count": 122762,
+      "pk_columns": "GMKEY, GDAY, SEQ",
+      "schema_gen": "legacy",
+      "tier": "Tier 3",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "기타 경기 이벤트",
+      "table_doc_url": "dictionary/stats/KBO_ETCGAME/",
+      "columns": [
+        {
+          "name": "GMKEY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 고유키 (YYYYMMDDVVHH#, 13자리)"
+        },
+        {
+          "name": "GDAY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 일자 (YYYYMMDD)"
+        },
+        {
+          "name": "SEQ",
+          "type": "tinyint",
+          "pk": "PK",
+          "desc": "순번"
+        },
+        {
+          "name": "HOW",
+          "type": "varchar",
+          "pk": "",
+          "desc": "플레이 결과 코드 (H1=안타, HR=홈런, KK=삼진 등 49종)"
+        },
+        {
+          "name": "RESULT",
+          "type": "varchar",
+          "pk": "",
+          "desc": "결과"
+        }
+      ]
+    },
+    {
+      "domain": "통계",
+      "domain_key": "stats",
+      "table_name": "KBO_PITRESULT",
+      "table_std_name": "KBO_PIT_RESULT",
+      "column_count": 23,
+      "row_count": 134292,
+      "pk_columns": "GMKEY, GDAY, PCODE",
+      "schema_gen": "legacy",
+      "tier": "Tier 2",
+      "owner": "기록위원회",
+      "refresh": "경기 당일",
+      "description": "투수 경기 결과 상세",
+      "table_doc_url": "dictionary/stats/KBO_PITRESULT/",
+      "columns": [
+        {
+          "name": "GMKEY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 고유키 (YYYYMMDDVVHH#, 13자리)"
+        },
+        {
+          "name": "GDAY",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 일자 (YYYYMMDD)"
+        },
+        {
+          "name": "TB",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 구분 (T=원정/Top, B=홈/Bottom)"
+        },
+        {
+          "name": "NAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "선수명 (varchar=EUC-KR 깨짐 가능)"
+        },
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "POS",
+          "type": "char",
+          "pk": "",
+          "desc": "등판 순서 (S=선발, R=구원)"
+        },
+        {
+          "name": "WLS",
+          "type": "varchar",
+          "pk": "",
+          "desc": "승패세 (W=승, L=패, S=세이브)"
+        },
+        {
+          "name": "CHANGEINN",
+          "type": "varchar",
+          "pk": "",
+          "desc": "교체 이닝"
+        },
+        {
+          "name": "GAME",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "경기 수"
+        },
+        {
+          "name": "W",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "승"
+        },
+        {
+          "name": "L",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "패"
+        },
+        {
+          "name": "S",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "피안타"
+        },
+        {
+          "name": "INN",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 번호"
+        },
+        {
+          "name": "PA",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "타석 (Plate Appearance)"
+        },
+        {
+          "name": "BF",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "상대타자수"
+        },
+        {
+          "name": "AB",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "타수 (At Bat)"
+        },
+        {
+          "name": "HIT",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "안타"
+        },
+        {
+          "name": "HR",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "홈런"
+        },
+        {
+          "name": "BBHP",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "볼넷+사구 합계"
+        },
+        {
+          "name": "KK",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "삼진"
+        },
+        {
+          "name": "R",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "실점"
+        },
+        {
+          "name": "ER",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "자책점"
+        },
+        {
+          "name": "ERA",
+          "type": "varchar",
+          "pk": "",
+          "desc": "평균자책점"
+        }
+      ]
+    },
+    {
+      "domain": "통계",
+      "domain_key": "stats",
+      "table_name": "PitTotal",
+      "table_std_name": "PIT_TOTAL",
+      "column_count": 22,
+      "row_count": 9377,
+      "pk_columns": "PCODE, GYEAR, SEC",
+      "schema_gen": "legacy",
+      "tier": "Tier 2",
+      "owner": "통계분석팀",
+      "refresh": "D+1",
+      "description": "투구 시즌/통산 합산",
+      "table_doc_url": "dictionary/stats/PitTotal/",
+      "columns": [
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "GYEAR",
+          "type": "char",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "SEC",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "구간 (시즌연도 또는 \"9999\"=통산)"
+        },
+        {
+          "name": "Team",
+          "type": "varchar",
+          "pk": "",
+          "desc": "팀 코드"
+        },
+        {
+          "name": "ERA",
+          "type": "float",
+          "pk": "",
+          "desc": "평균자책점"
+        },
+        {
+          "name": "GAMENUM",
+          "type": "smallint",
+          "pk": "",
+          "desc": "경기 수"
+        },
+        {
+          "name": "CG",
+          "type": "smallint",
+          "pk": "",
+          "desc": "완투"
+        },
+        {
+          "name": "SHO",
+          "type": "smallint",
+          "pk": "",
+          "desc": "완봉"
+        },
+        {
+          "name": "W",
+          "type": "smallint",
+          "pk": "",
+          "desc": "승"
+        },
+        {
+          "name": "L",
+          "type": "smallint",
+          "pk": "",
+          "desc": "패"
+        },
+        {
+          "name": "SV",
+          "type": "smallint",
+          "pk": "",
+          "desc": "세이브"
+        },
+        {
+          "name": "Hold",
+          "type": "smallint",
+          "pk": "",
+          "desc": "홀드"
+        },
+        {
+          "name": "BF",
+          "type": "smallint",
+          "pk": "",
+          "desc": "상대타자수"
+        },
+        {
+          "name": "INN",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 번호"
+        },
+        {
+          "name": "INN2",
+          "type": "smallint",
+          "pk": "",
+          "desc": "이닝 세부 (아웃수 환산 또는 연장 구분)"
+        },
+        {
+          "name": "HIT",
+          "type": "smallint",
+          "pk": "",
+          "desc": "안타"
+        },
+        {
+          "name": "HR",
+          "type": "smallint",
+          "pk": "",
+          "desc": "홈런"
+        },
+        {
+          "name": "BB",
+          "type": "smallint",
+          "pk": "",
+          "desc": "볼넷"
+        },
+        {
+          "name": "HP",
+          "type": "smallint",
+          "pk": "",
+          "desc": "사구 (Hit by Pitch)"
+        },
+        {
+          "name": "KK",
+          "type": "smallint",
+          "pk": "",
+          "desc": "삼진"
+        },
+        {
+          "name": "R",
+          "type": "smallint",
+          "pk": "",
+          "desc": "실점"
+        },
+        {
+          "name": "ER",
+          "type": "smallint",
+          "pk": "",
+          "desc": "자책점"
+        }
+      ]
+    },
+    {
+      "domain": "통계",
+      "domain_key": "stats",
+      "table_name": "SEASON_PLAYER_HITTER",
+      "table_std_name": "SEASON_PLAYER_HITTER",
+      "column_count": 43,
+      "row_count": 19747,
+      "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
+      "schema_gen": "new",
+      "tier": "Tier 2",
+      "owner": "통계분석팀",
+      "refresh": "D+1",
+      "description": "시즌별 타자 통계",
+      "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER/",
+      "columns": [
+        {
+          "name": "SEASON_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 ID (연도)"
+        },
+        {
+          "name": "P_ID",
+          "type": "int",
+          "pk": "PK",
+          "desc": "선수 ID (정수)"
+        },
+        {
+          "name": "SECTION_CD",
+          "type": "int",
+          "pk": "PK",
+          "desc": "구간 코드"
+        },
+        {
+          "name": "GROUP_IF",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "그룹 여부"
+        },
+        {
+          "name": "HRA_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "HRA 비율"
+        },
+        {
+          "name": "GAME_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "GAME 건수"
+        },
+        {
+          "name": "PA_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "PA 건수"
+        },
+        {
+          "name": "AB_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "AB 건수"
+        },
+        {
+          "name": "RUN_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "RUN 건수"
+        },
+        {
+          "name": "HIT_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HIT 건수"
+        },
+        {
+          "name": "H2_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "H2 건수"
+        },
+        {
+          "name": "H3_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "H3 건수"
+        },
+        {
+          "name": "HR_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HR 건수"
+        },
+        {
+          "name": "XBH_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "XBH 건수"
+        },
+        {
+          "name": "TB_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "TB 건수"
+        },
+        {
+          "name": "MH_HITTER_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "MH_HITTER 건수"
+        },
+        {
+          "name": "RBI_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "RBI 건수"
+        },
+        {
+          "name": "SB_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "SB 건수"
+        },
+        {
+          "name": "CS_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "CS 건수"
+        },
+        {
+          "name": "SB_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "SB 비율"
+        },
+        {
+          "name": "RO_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "RO 건수"
+        },
+        {
+          "name": "POFF_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "POFF 건수"
+        },
+        {
+          "name": "SH_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "SH 건수"
+        },
+        {
+          "name": "SF_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "SF 건수"
+        },
+        {
+          "name": "BB_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "BB 건수"
+        },
+        {
+          "name": "IB_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "IB 건수"
+        },
+        {
+          "name": "HP_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HP 건수"
+        },
+        {
+          "name": "BBHP_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "BBHP 건수"
+        },
+        {
+          "name": "KK_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "KK 건수"
+        },
+        {
+          "name": "GD_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "GD 건수"
+        },
+        {
+          "name": "ERR_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "ERR 건수"
+        },
+        {
+          "name": "WIN_HIT_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "WIN_HIT 건수"
+        },
+        {
+          "name": "GO_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "GO 건수"
+        },
+        {
+          "name": "FO_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "FO 건수"
+        },
+        {
+          "name": "FOGO_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "FOGO 비율"
+        },
+        {
+          "name": "PA_PIT_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "PA_PIT 비율"
+        },
+        {
+          "name": "KK_BB_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "KK_BB 비율"
+        },
+        {
+          "name": "SP_HRA_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "SP_HRA 비율"
+        },
+        {
+          "name": "PH_HRA_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "PH_HRA 비율"
+        },
+        {
+          "name": "OBP_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "OBP 비율"
+        },
+        {
+          "name": "SLG_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "SLG 비율"
+        },
+        {
+          "name": "ISO_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "ISO 비율"
+        },
+        {
+          "name": "OPS_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "OPS 비율"
+        }
+      ]
+    },
+    {
+      "domain": "통계",
+      "domain_key": "stats",
+      "table_name": "SEASON_PLAYER_HITTER_SITUATION",
+      "table_std_name": "SEASON_PLAYER_HITTER_SITUATION",
+      "column_count": 14,
+      "row_count": 360625,
+      "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
+      "schema_gen": "new",
+      "tier": "Tier 2",
+      "owner": "통계분석팀",
+      "refresh": "D+1",
+      "description": "시즌 타자 상황별 통계",
+      "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER_SITUATION/",
+      "columns": [
+        {
+          "name": "SEASON_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 ID (연도)"
+        },
+        {
+          "name": "P_ID",
+          "type": "int",
+          "pk": "PK",
+          "desc": "선수 ID (정수)"
+        },
+        {
+          "name": "SECTION_CD",
+          "type": "int",
+          "pk": "PK",
+          "desc": "구간 코드"
+        },
+        {
+          "name": "SITUATION_IF",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "상황 구분"
+        },
+        {
+          "name": "AB_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "AB 건수"
+        },
+        {
+          "name": "HIT_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HIT 건수"
+        },
+        {
+          "name": "H2_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "H2 건수"
+        },
+        {
+          "name": "H3_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "H3 건수"
+        },
+        {
+          "name": "HR_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HR 건수"
+        },
+        {
+          "name": "RBI_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "RBI 건수"
+        },
+        {
+          "name": "BB_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "BB 건수"
+        },
+        {
+          "name": "HP_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HP 건수"
+        },
+        {
+          "name": "KK_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "KK 건수"
+        },
+        {
+          "name": "GD_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "GD 건수"
+        }
+      ]
+    },
+    {
+      "domain": "통계",
+      "domain_key": "stats",
+      "table_name": "SEASON_PLAYER_PITCHER",
+      "table_std_name": "SEASON_PLAYER_PITCHER",
+      "column_count": 54,
+      "row_count": 13306,
+      "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
+      "schema_gen": "new",
+      "tier": "Tier 2",
+      "owner": "통계분석팀",
+      "refresh": "D+1",
+      "description": "시즌별 투수 통계",
+      "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER/",
+      "columns": [
+        {
+          "name": "SEASON_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 ID (연도)"
+        },
+        {
+          "name": "P_ID",
+          "type": "int",
+          "pk": "PK",
+          "desc": "선수 ID (정수)"
+        },
+        {
+          "name": "SECTION_CD",
+          "type": "int",
+          "pk": "PK",
+          "desc": "구간 코드"
+        },
+        {
+          "name": "GROUP_IF",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "그룹 여부"
+        },
+        {
+          "name": "ERA_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "ERA 비율"
+        },
+        {
+          "name": "GAME_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "GAME 건수"
+        },
+        {
+          "name": "START_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "START 건수"
+        },
+        {
+          "name": "QUIT_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "QUIT 건수"
+        },
+        {
+          "name": "W_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "W 건수"
+        },
+        {
+          "name": "START_W_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "START_W 건수"
+        },
+        {
+          "name": "RELIEF_W_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "RELIEF_W 건수"
+        },
+        {
+          "name": "L_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "L 건수"
+        },
+        {
+          "name": "D_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "D 건수"
+        },
+        {
+          "name": "HOLD_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HOLD 건수"
+        },
+        {
+          "name": "SV_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "SV 건수"
+        },
+        {
+          "name": "SHO_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "SHO 건수"
+        },
+        {
+          "name": "CG_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "CG 건수"
+        },
+        {
+          "name": "INN2_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "이닝 점수 컬럼"
+        },
+        {
+          "name": "WRA_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "WRA 비율"
+        },
+        {
+          "name": "PA_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "PA 건수"
+        },
+        {
+          "name": "AB_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "AB 건수"
+        },
+        {
+          "name": "PIT_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "PIT 건수"
+        },
+        {
+          "name": "R_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "R 건수"
+        },
+        {
+          "name": "ER_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "ER 건수"
+        },
+        {
+          "name": "HIT_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HIT 건수"
+        },
+        {
+          "name": "H2_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "H2 건수"
+        },
+        {
+          "name": "H3_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "H3 건수"
+        },
+        {
+          "name": "HR_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HR 건수"
+        },
+        {
+          "name": "SH_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "SH 건수"
+        },
+        {
+          "name": "SF_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "SF 건수"
+        },
+        {
+          "name": "BB_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "BB 건수"
+        },
+        {
+          "name": "IB_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "IB 건수"
+        },
+        {
+          "name": "HP_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HP 건수"
+        },
+        {
+          "name": "BBHP_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "BBHP 건수"
+        },
+        {
+          "name": "KK_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "KK 건수"
+        },
+        {
+          "name": "GD_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "GD 건수"
+        },
+        {
+          "name": "BK_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "BK 건수"
+        },
+        {
+          "name": "WP_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "WP 건수"
+        },
+        {
+          "name": "GO_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "GO 건수"
+        },
+        {
+          "name": "FO_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "FO 건수"
+        },
+        {
+          "name": "FOGO_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "FOGO 비율"
+        },
+        {
+          "name": "BS_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "BS 건수"
+        },
+        {
+          "name": "QS_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "QS 건수"
+        },
+        {
+          "name": "WHIP_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "WHIP 비율"
+        },
+        {
+          "name": "OAVG_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "OAVG 비율"
+        },
+        {
+          "name": "OOBP_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "OOBP 비율"
+        },
+        {
+          "name": "OSLG_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "OSLG 비율"
+        },
+        {
+          "name": "OOPS_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "OOPS 비율"
+        },
+        {
+          "name": "BABIP_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "BABIP 비율"
+        },
+        {
+          "name": "GAME_KK_RT",
+          "type": "float",
+          "pk": "",
+          "desc": "GAME_KK 비율"
+        }
+      ]
+    },
+    {
+      "domain": "통계",
+      "domain_key": "stats",
+      "table_name": "SEASON_PLAYER_PITCHER_SITUATION",
+      "table_std_name": "SEASON_PLAYER_PITCHER_SITUATION",
+      "column_count": 14,
+      "row_count": 301375,
+      "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
+      "schema_gen": "new",
+      "tier": "Tier 2",
+      "owner": "통계분석팀",
+      "refresh": "D+1",
+      "description": "시즌 투수 상황별 통계",
+      "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER_SITUATION/",
+      "columns": [
+        {
+          "name": "SEASON_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 ID (연도)"
+        },
+        {
+          "name": "P_ID",
+          "type": "int",
+          "pk": "PK",
+          "desc": "선수 ID (정수)"
+        },
+        {
+          "name": "SECTION_CD",
+          "type": "int",
+          "pk": "PK",
+          "desc": "구간 코드"
+        },
+        {
+          "name": "SITUATION_IF",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "상황 구분"
+        },
+        {
+          "name": "AB_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "AB 건수"
+        },
+        {
+          "name": "HIT_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HIT 건수"
+        },
+        {
+          "name": "H2_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "H2 건수"
+        },
+        {
+          "name": "H3_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "H3 건수"
+        },
+        {
+          "name": "HR_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HR 건수"
+        },
+        {
+          "name": "BB_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "BB 건수"
+        },
+        {
+          "name": "HP_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "HP 건수"
+        },
+        {
+          "name": "KK_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "KK 건수"
+        },
+        {
+          "name": "WP_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "WP 건수"
+        },
+        {
+          "name": "BK_CN",
+          "type": "int",
+          "pk": "",
+          "desc": "BK 건수"
+        }
+      ]
+    },
+    {
+      "domain": "통계",
+      "domain_key": "stats",
+      "table_name": "TeamRank",
+      "table_std_name": "TEAM_RANK",
+      "column_count": 30,
+      "row_count": 373,
+      "pk_columns": "GYEAR, SEC, TEAM",
+      "schema_gen": "unknown",
+      "tier": "Tier 2",
+      "owner": "통계분석팀",
+      "refresh": "D+1",
+      "description": "팀 순위 (시즌별)",
+      "table_doc_url": "dictionary/stats/TeamRank/",
+      "columns": [
+        {
+          "name": "GYEAR",
+          "type": "nvarchar",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "SEC",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "구간 (시즌연도 또는 \"9999\"=통산)"
+        },
+        {
+          "name": "RANK",
+          "type": "int",
+          "pk": "",
+          "desc": "순위"
+        },
+        {
+          "name": "LEAGUE",
+          "type": "char",
+          "pk": "",
+          "desc": "리그"
+        },
+        {
+          "name": "TEAM",
+          "type": "nvarchar",
+          "pk": "PK",
+          "desc": "팀 코드 (2자리, HH=키움, HT=KIA 등)"
+        },
+        {
+          "name": "GAME",
+          "type": "int",
+          "pk": "",
+          "desc": "경기 수"
+        },
+        {
+          "name": "WIN",
+          "type": "int",
+          "pk": "",
+          "desc": "승"
+        },
+        {
+          "name": "LOSE",
+          "type": "int",
+          "pk": "",
+          "desc": "패"
+        },
+        {
+          "name": "SAME",
+          "type": "int",
+          "pk": "",
+          "desc": "무승부"
+        },
+        {
+          "name": "WRA",
+          "type": "real",
+          "pk": "",
+          "desc": "승률"
+        },
+        {
+          "name": "AB",
+          "type": "int",
+          "pk": "",
+          "desc": "타수 (At Bat)"
+        },
+        {
+          "name": "HIT",
+          "type": "int",
+          "pk": "",
+          "desc": "안타"
+        },
+        {
+          "name": "HR",
+          "type": "int",
+          "pk": "",
+          "desc": "홈런"
+        },
+        {
+          "name": "SB",
+          "type": "int",
+          "pk": "",
+          "desc": "도루"
+        },
+        {
+          "name": "RUN",
+          "type": "int",
+          "pk": "",
+          "desc": "득점"
+        },
+        {
+          "name": "INN",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝 번호"
+        },
+        {
+          "name": "INN2",
+          "type": "int",
+          "pk": "",
+          "desc": "이닝 세부 (아웃수 환산 또는 연장 구분)"
+        },
+        {
+          "name": "R",
+          "type": "int",
+          "pk": "",
+          "desc": "실점"
+        },
+        {
+          "name": "ER",
+          "type": "int",
+          "pk": "",
+          "desc": "자책점"
+        },
+        {
+          "name": "ERR",
+          "type": "int",
+          "pk": "",
+          "desc": "실책"
+        },
+        {
+          "name": "HRA",
+          "type": "varchar",
+          "pk": "",
+          "desc": "타율"
+        },
+        {
+          "name": "LRA",
+          "type": "varchar",
+          "pk": "",
+          "desc": "좌타자 대 타율"
+        },
+        {
+          "name": "BRA",
+          "type": "varchar",
+          "pk": "",
+          "desc": "대타율 (Batting Avg Against)"
+        },
+        {
+          "name": "ERA",
+          "type": "varchar",
+          "pk": "",
+          "desc": "평균자책점"
+        },
+        {
+          "name": "continue",
+          "type": "varchar",
+          "pk": "",
+          "desc": "연속 기록"
+        },
+        {
+          "name": "H2",
+          "type": "int",
+          "pk": "",
+          "desc": "2루타"
+        },
+        {
+          "name": "H3",
+          "type": "int",
+          "pk": "",
+          "desc": "3루타"
+        },
+        {
+          "name": "BB",
+          "type": "int",
+          "pk": "",
+          "desc": "볼넷"
+        },
+        {
+          "name": "HP",
+          "type": "int",
+          "pk": "",
+          "desc": "사구 (Hit by Pitch)"
+        },
+        {
+          "name": "SF",
+          "type": "int",
+          "pk": "",
+          "desc": "희생플라이"
+        }
+      ]
+    },
+    {
+      "domain": "실시간",
+      "domain_key": "realtime",
+      "table_name": "IE_BallCount",
+      "table_std_name": "IE_BALL_COUNT",
+      "column_count": 11,
+      "row_count": 15482,
+      "pk_columns": "gameID, GYEAR",
+      "schema_gen": "unknown",
+      "tier": "Tier 1",
+      "owner": "S2i 운영",
+      "refresh": "실시간",
+      "description": "현재 볼카운트 상태",
+      "table_doc_url": "dictionary/realtime/IE_BallCount/",
+      "columns": [
+        {
+          "name": "gameID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 ID (GMKEY와 동일 형식)"
+        },
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "strike",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "스트라이크 카운트"
+        },
+        {
+          "name": "ball",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "볼 카운트"
+        },
+        {
+          "name": "out",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "아웃 카운트"
+        },
+        {
+          "name": "base1",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "1루 주자 여부"
+        },
+        {
+          "name": "base2",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "2루 주자 여부"
+        },
+        {
+          "name": "base3",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "3루 주자 여부"
+        },
+        {
+          "name": "pitcher",
+          "type": "varchar",
+          "pk": "",
+          "desc": "투수 선수 코드"
+        },
+        {
+          "name": "batter",
+          "type": "varchar",
+          "pk": "",
+          "desc": "타자 선수 코드"
+        },
+        {
+          "name": "batResult",
+          "type": "varchar",
+          "pk": "",
+          "desc": "타격 결과 텍스트"
+        }
+      ]
+    },
+    {
+      "domain": "실시간",
+      "domain_key": "realtime",
+      "table_name": "IE_BatterRecord",
+      "table_std_name": "IE_BATTER_RECORD",
+      "column_count": 25,
+      "row_count": 451166,
+      "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
+      "schema_gen": "unknown",
+      "tier": "Tier 2",
+      "owner": "S2i 운영",
+      "refresh": "실시간",
+      "description": "타자 실시간 기록",
+      "table_doc_url": "dictionary/realtime/IE_BatterRecord/",
+      "columns": [
+        {
+          "name": "gameID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 ID (GMKEY와 동일 형식)"
+        },
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "BatOrder",
+          "type": "tinyint",
+          "pk": "PK",
+          "desc": "타순"
+        },
+        {
+          "name": "Position",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "포지션 코드 (숫자)"
+        },
+        {
+          "name": "PositionName",
+          "type": "varchar",
+          "pk": "",
+          "desc": "포지션명 (EUC-KR)"
+        },
+        {
+          "name": "PlayerName",
+          "type": "varchar",
+          "pk": "",
+          "desc": "선수명 (EUC-KR)"
+        },
+        {
+          "name": "PlayerID",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수 코드"
+        },
+        {
+          "name": "SeqNO",
+          "type": "tinyint",
+          "pk": "PK",
+          "desc": "순번"
+        },
+        {
+          "name": "OAB",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "상대 타수"
+        },
+        {
+          "name": "Run",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "득점"
+        },
+        {
+          "name": "H1",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "단타"
+        },
+        {
+          "name": "H2",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "2루타"
+        },
+        {
+          "name": "H3",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "3루타"
+        },
+        {
+          "name": "HR",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "홈런"
+        },
+        {
+          "name": "RBI",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "타점"
+        },
+        {
+          "name": "Steal",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "도루"
+        },
+        {
+          "name": "CS",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "도루실패"
+        },
+        {
+          "name": "SH",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "희생번트"
+        },
+        {
+          "name": "SF",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "희생플라이"
+        },
+        {
+          "name": "BB",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "볼넷"
+        },
+        {
+          "name": "HBP",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "사구 (Hit by Pitch)"
+        },
+        {
+          "name": "SO",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "삼진"
+        },
+        {
+          "name": "DP",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "병살 (Double Play)"
+        },
+        {
+          "name": "TP",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "삼중살 (Triple Play)"
+        },
+        {
+          "name": "bHome",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "홈팀 여부"
+        }
+      ]
+    },
+    {
+      "domain": "실시간",
+      "domain_key": "realtime",
+      "table_name": "IE_GAMESTATE",
+      "table_std_name": "IE_GAME_STATE",
+      "column_count": 5,
+      "row_count": 15237,
+      "pk_columns": "GAMEID, GYEAR",
+      "schema_gen": "unknown",
+      "tier": "Tier 1",
+      "owner": "S2i 운영",
+      "refresh": "실시간",
+      "description": "경기 진행 상태",
+      "table_doc_url": "dictionary/realtime/IE_GAMESTATE/",
+      "columns": [
+        {
+          "name": "GAMEID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 ID"
+        },
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "STATUS_ID",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "경기 상태 코드"
+        },
+        {
+          "name": "INN_NO",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "이닝 번호"
+        },
+        {
+          "name": "TB_SC",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 구분 코드 (T=원정, B=홈)"
+        }
+      ]
+    },
+    {
+      "domain": "실시간",
+      "domain_key": "realtime",
+      "table_name": "IE_GameList",
+      "table_std_name": "IE_GAME_LIST",
+      "column_count": 6,
+      "row_count": 15908,
+      "pk_columns": "gameID, GYEAR",
+      "schema_gen": "unknown",
+      "tier": "Tier 3",
+      "owner": "S2i 운영",
+      "refresh": "실시간",
+      "description": "경기 목록 (일자별)",
+      "table_doc_url": "dictionary/realtime/IE_GameList/",
+      "columns": [
+        {
+          "name": "gameID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 ID (GMKEY와 동일 형식)"
+        },
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "HomeName",
+          "type": "varchar",
+          "pk": "",
+          "desc": "홈팀명"
+        },
+        {
+          "name": "HomeMascot",
+          "type": "varchar",
+          "pk": "",
+          "desc": "홈팀 마스코트명"
+        },
+        {
+          "name": "VisitName",
+          "type": "varchar",
+          "pk": "",
+          "desc": "원정팀명"
+        },
+        {
+          "name": "VisitMascot",
+          "type": "varchar",
+          "pk": "",
+          "desc": "원정팀 마스코트명"
+        }
+      ]
+    },
+    {
+      "domain": "실시간",
+      "domain_key": "realtime",
+      "table_name": "IE_LiveText",
+      "table_std_name": "IE_LIVE_TEXT",
+      "column_count": 7,
+      "row_count": 8005079,
+      "pk_columns": "gameID, GYEAR, SeqNO",
+      "schema_gen": "unknown",
+      "tier": "Tier 1",
+      "owner": "S2i 운영",
+      "refresh": "실시간",
+      "description": "실시간 문자 중계",
+      "table_doc_url": "dictionary/realtime/IE_LiveText/",
+      "columns": [
+        {
+          "name": "gameID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 ID (GMKEY와 동일 형식)"
+        },
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "LiveText",
+          "type": "varchar",
+          "pk": "",
+          "desc": "실시간 문자 중계 텍스트"
+        },
+        {
+          "name": "SeqNO",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "순번"
+        },
+        {
+          "name": "Inning",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "이닝"
+        },
+        {
+          "name": "bTop",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "초/말 구분 (1=초, 0=말)"
+        },
+        {
+          "name": "textStyle",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "텍스트 스타일 코드"
+        }
+      ]
+    },
+    {
+      "domain": "실시간",
+      "domain_key": "realtime",
+      "table_name": "IE_PitcherRecord",
+      "table_std_name": "IE_PITCHER_RECORD",
+      "column_count": 22,
+      "row_count": 134388,
+      "pk_columns": "gameID, GYEAR, PlayerID",
+      "schema_gen": "unknown",
+      "tier": "Tier 2",
+      "owner": "S2i 운영",
+      "refresh": "실시간",
+      "description": "투수 실시간 기록",
+      "table_doc_url": "dictionary/realtime/IE_PitcherRecord/",
+      "columns": [
+        {
+          "name": "gameID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 ID (GMKEY와 동일 형식)"
+        },
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "PlayerName",
+          "type": "varchar",
+          "pk": "",
+          "desc": "선수명 (EUC-KR)"
+        },
+        {
+          "name": "PlayerID",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수 코드"
+        },
+        {
+          "name": "SeqNO",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "순번"
+        },
+        {
+          "name": "Inning",
+          "type": "varchar",
+          "pk": "",
+          "desc": "이닝"
+        },
+        {
+          "name": "PA",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "타석 (Plate Appearance)"
+        },
+        {
+          "name": "PitchBallCnt",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "볼 투구 수"
+        },
+        {
+          "name": "PitchStrikeCnt",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "스트라이크 투구 수"
+        },
+        {
+          "name": "OAB",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "상대 타수"
+        },
+        {
+          "name": "Run",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "득점"
+        },
+        {
+          "name": "Hit",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "안타"
+        },
+        {
+          "name": "HR",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "홈런"
+        },
+        {
+          "name": "SH",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "희생번트"
+        },
+        {
+          "name": "SF",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "희생플라이"
+        },
+        {
+          "name": "BB",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "볼넷"
+        },
+        {
+          "name": "HBP",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "사구 (Hit by Pitch)"
+        },
+        {
+          "name": "SO",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "삼진"
+        },
+        {
+          "name": "BK",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "보크"
+        },
+        {
+          "name": "WP",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "폭투"
+        },
+        {
+          "name": "ER",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "자책점"
+        },
+        {
+          "name": "bHome",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "홈팀 여부"
+        }
+      ]
+    },
+    {
+      "domain": "실시간",
+      "domain_key": "realtime",
+      "table_name": "IE_ScoreRHEB",
+      "table_std_name": "IE_SCORE_RHEB",
+      "column_count": 7,
+      "row_count": 30860,
+      "pk_columns": "gameID, GYEAR, bHome",
+      "schema_gen": "unknown",
+      "tier": "Tier 1",
+      "owner": "S2i 운영",
+      "refresh": "실시간",
+      "description": "점수/안타/실책/볼넷 요약",
+      "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/",
+      "columns": [
+        {
+          "name": "gameID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 ID (GMKEY와 동일 형식)"
+        },
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "Run",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "득점"
+        },
+        {
+          "name": "Hit",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "안타"
+        },
+        {
+          "name": "Error",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "실책"
+        },
+        {
+          "name": "BallFour",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "볼넷 여부"
+        },
+        {
+          "name": "bHome",
+          "type": "tinyint",
+          "pk": "PK",
+          "desc": "홈팀 여부"
+        }
+      ]
+    },
+    {
+      "domain": "실시간",
+      "domain_key": "realtime",
+      "table_name": "IE_Scoreinning",
+      "table_std_name": "IE_SCORE_INNING",
+      "column_count": 5,
+      "row_count": 267166,
+      "pk_columns": "gameID, GYEAR, inning, bHome",
+      "schema_gen": "unknown",
+      "tier": "Tier 1",
+      "owner": "S2i 운영",
+      "refresh": "실시간",
+      "description": "이닝별 실시간 점수",
+      "table_doc_url": "dictionary/realtime/IE_Scoreinning/",
+      "columns": [
+        {
+          "name": "gameID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 ID (GMKEY와 동일 형식)"
+        },
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "inning",
+          "type": "tinyint",
+          "pk": "PK",
+          "desc": "이닝"
+        },
+        {
+          "name": "Score",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "득점"
+        },
+        {
+          "name": "bHome",
+          "type": "tinyint",
+          "pk": "PK",
+          "desc": "홈팀 여부"
+        }
+      ]
+    },
+    {
+      "domain": "실시간",
+      "domain_key": "realtime",
+      "table_name": "IE_log",
+      "table_std_name": "IE_LOG",
+      "column_count": 3,
+      "row_count": 785406,
+      "pk_columns": "",
+      "schema_gen": "unknown",
+      "tier": "Tier 3",
+      "owner": "S2i 운영",
+      "refresh": "실시간",
+      "description": "시스템 로그",
+      "table_doc_url": "dictionary/realtime/IE_log/",
+      "columns": [
+        {
+          "name": "gameID",
+          "type": "char",
+          "pk": "",
+          "desc": "경기 ID (GMKEY와 동일 형식)"
+        },
+        {
+          "name": "SeqNO",
+          "type": "smallint",
+          "pk": "",
+          "desc": "순번"
+        },
+        {
+          "name": "InsertedTime",
+          "type": "datetime",
+          "pk": "",
+          "desc": "데이터 입력 시각"
+        }
+      ]
+    },
+    {
+      "domain": "마스터",
+      "domain_key": "master",
+      "table_name": "CANCEL_GAME",
+      "table_std_name": "CANCEL_GAME",
+      "column_count": 6,
+      "row_count": 1290,
+      "pk_columns": "LE_ID, SR_ID, G_ID",
+      "schema_gen": "new",
+      "tier": "Tier 2",
+      "owner": "경기운영팀",
+      "refresh": "발생 즉시",
+      "description": "취소/우천중단 경기",
+      "table_doc_url": "dictionary/master/CANCEL_GAME/",
+      "columns": [
+        {
+          "name": "LE_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "리그 ID (1=1군)"
+        },
+        {
+          "name": "SR_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시리즈 ID (0=정규시즌)"
+        },
+        {
+          "name": "SEASON_ID",
+          "type": "smallint",
+          "pk": "",
+          "desc": "시즌 ID (연도)"
+        },
+        {
+          "name": "G_ID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 ID (YYYYMMDDVVHH# 형식)"
+        },
+        {
+          "name": "CANCEL_SC_NM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "CANCEL_SC 명칭"
+        },
+        {
+          "name": "REG_DT",
+          "type": "datetime",
+          "pk": "",
+          "desc": "등록 일시"
+        }
+      ]
+    },
+    {
+      "domain": "마스터",
+      "domain_key": "master",
+      "table_name": "KBO_schedule",
+      "table_std_name": "KBO_SCHEDULE",
+      "column_count": 22,
+      "row_count": 27340,
+      "pk_columns": "gmkey, gamedate",
+      "schema_gen": "legacy",
+      "tier": "Tier 2",
+      "owner": "경기운영팀",
+      "refresh": "시즌 전 일괄",
+      "description": "경기 일정",
+      "table_doc_url": "dictionary/master/KBO_schedule/",
+      "columns": [
+        {
+          "name": "gmkey",
+          "type": "char",
+          "pk": "PK",
+          "desc": "경기 고유키"
+        },
+        {
+          "name": "game_flag",
+          "type": "char",
+          "pk": "",
+          "desc": "경기 유형 코드 (0~9, 불리언 아님)"
+        },
+        {
+          "name": "end_flag",
+          "type": "char",
+          "pk": "",
+          "desc": "종료 여부 (0/1)"
+        },
+        {
+          "name": "gamedate",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "경기 일자"
+        },
+        {
+          "name": "gyear",
+          "type": "char",
+          "pk": "",
+          "desc": "연도"
+        },
+        {
+          "name": "gmonth",
+          "type": "char",
+          "pk": "",
+          "desc": "경기 월"
+        },
+        {
+          "name": "gday",
+          "type": "char",
+          "pk": "",
+          "desc": "경기 일"
+        },
+        {
+          "name": "gweek",
+          "type": "varchar",
+          "pk": "",
+          "desc": "요일"
+        },
+        {
+          "name": "home",
+          "type": "varchar",
+          "pk": "",
+          "desc": "홈팀명"
+        },
+        {
+          "name": "home_key",
+          "type": "char",
+          "pk": "",
+          "desc": "홈팀 코드"
+        },
+        {
+          "name": "visit",
+          "type": "varchar",
+          "pk": "",
+          "desc": "원정팀명"
+        },
+        {
+          "name": "visit_key",
+          "type": "char",
+          "pk": "",
+          "desc": "원정팀 코드"
+        },
+        {
+          "name": "stadium",
+          "type": "varchar",
+          "pk": "",
+          "desc": "구장 코드"
+        },
+        {
+          "name": "stadium_key",
+          "type": "char",
+          "pk": "",
+          "desc": "구장 코드"
+        },
+        {
+          "name": "dheader",
+          "type": "char",
+          "pk": "",
+          "desc": "더블헤더 번호"
+        },
+        {
+          "name": "hpcode",
+          "type": "char",
+          "pk": "",
+          "desc": "홈팀 선발투수 코드"
+        },
+        {
+          "name": "vpcode",
+          "type": "char",
+          "pk": "",
+          "desc": "원정팀 선발투수 코드"
+        },
+        {
+          "name": "gtime",
+          "type": "char",
+          "pk": "",
+          "desc": "경기 시작 시각"
+        },
+        {
+          "name": "hscore",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "홈팀 점수"
+        },
+        {
+          "name": "vscore",
+          "type": "tinyint",
+          "pk": "",
+          "desc": "원정팀 점수"
+        },
+        {
+          "name": "cancel_flag",
+          "type": "bit",
+          "pk": "",
+          "desc": "취소 여부 (0/1)"
+        },
+        {
+          "name": "suspended_flag",
+          "type": "bit",
+          "pk": "",
+          "desc": "서스펜디드 여부 (0/1)"
+        }
+      ]
+    },
+    {
+      "domain": "마스터",
+      "domain_key": "master",
+      "table_name": "PERSON",
+      "table_std_name": "PERSON",
+      "column_count": 16,
+      "row_count": 13902,
+      "pk_columns": "GYEAR, PCODE",
+      "schema_gen": "legacy",
+      "tier": "Tier 3",
+      "owner": "기록위원회",
+      "refresh": "시즌 전 갱신",
+      "description": "선수 마스터 (마이너)",
+      "table_doc_url": "dictionary/master/PERSON/",
+      "columns": [
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "NAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "선수명 (varchar=EUC-KR 깨짐 가능)"
+        },
+        {
+          "name": "TEAM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "팀 코드 (2자리, HH=키움, HT=KIA 등)"
+        },
+        {
+          "name": "POS",
+          "type": "char",
+          "pk": "",
+          "desc": "포지션 코드"
+        },
+        {
+          "name": "POSITION",
+          "type": "varchar",
+          "pk": "",
+          "desc": "포지션"
+        },
+        {
+          "name": "BACKNUM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "등번호"
+        },
+        {
+          "name": "CNAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "한자 이름"
+        },
+        {
+          "name": "HITTYPE",
+          "type": "varchar",
+          "pk": "",
+          "desc": "타석 방향"
+        },
+        {
+          "name": "BIRTH",
+          "type": "varchar",
+          "pk": "",
+          "desc": "생년월일"
+        },
+        {
+          "name": "HEIGHT",
+          "type": "varchar",
+          "pk": "",
+          "desc": "키"
+        },
+        {
+          "name": "WEIGHT",
+          "type": "varchar",
+          "pk": "",
+          "desc": "몸무게"
+        },
+        {
+          "name": "INDATE",
+          "type": "varchar",
+          "pk": "",
+          "desc": "입단일"
+        },
+        {
+          "name": "PROMISE",
+          "type": "varchar",
+          "pk": "",
+          "desc": "계약금"
+        },
+        {
+          "name": "MONEY",
+          "type": "varchar",
+          "pk": "",
+          "desc": "연봉"
+        },
+        {
+          "name": "CAREER",
+          "type": "varchar",
+          "pk": "",
+          "desc": "경력"
+        }
+      ]
+    },
+    {
+      "domain": "마스터",
+      "domain_key": "master",
+      "table_name": "PERSON_FA",
+      "table_std_name": "PERSON_FA",
+      "column_count": 4,
+      "row_count": 228,
+      "pk_columns": "",
+      "schema_gen": "legacy",
+      "tier": "Tier 3",
+      "owner": "기록위원회",
+      "refresh": "FA 발생 시 수시",
+      "description": "FA 선수 정보",
+      "table_doc_url": "dictionary/master/PERSON_FA/",
+      "columns": [
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "MONEY",
+          "type": "varchar",
+          "pk": "",
+          "desc": "연봉"
+        },
+        {
+          "name": "OPTION",
+          "type": "varchar",
+          "pk": "",
+          "desc": "FA 옵션"
+        }
+      ]
+    },
+    {
+      "domain": "마스터",
+      "domain_key": "master",
+      "table_name": "STADIUM",
+      "table_std_name": "STADIUM",
+      "column_count": 3,
+      "row_count": 487,
+      "pk_columns": "gyear, stadium",
+      "schema_gen": "unknown",
+      "tier": "Tier 3",
+      "owner": "데이터 관리자",
+      "refresh": "연 1회",
+      "description": "구장 마스터",
+      "table_doc_url": "dictionary/master/STADIUM/",
+      "columns": [
+        {
+          "name": "gyear",
+          "type": "char",
+          "pk": "PK",
+          "desc": "연도"
+        },
+        {
+          "name": "stadium",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "구장 코드"
+        },
+        {
+          "name": "stadium_key",
+          "type": "char",
+          "pk": "",
+          "desc": "구장 코드"
+        }
+      ]
+    },
+    {
+      "domain": "마스터",
+      "domain_key": "master",
+      "table_name": "TEAM",
+      "table_std_name": "TEAM",
+      "column_count": 7,
+      "row_count": 401,
+      "pk_columns": "SEASON_ID, T_ID",
+      "schema_gen": "unknown",
+      "tier": "Tier 3",
+      "owner": "데이터 관리자",
+      "refresh": "연 1회",
+      "description": "팀 마스터",
+      "table_doc_url": "dictionary/master/TEAM/",
+      "columns": [
+        {
+          "name": "SEASON_ID",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 ID (연도)"
+        },
+        {
+          "name": "T_ID",
+          "type": "char",
+          "pk": "PK",
+          "desc": "팀 코드 (2자리)"
+        },
+        {
+          "name": "FIRST_NM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "FIRST 명칭"
+        },
+        {
+          "name": "LAST_NM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "LAST 명칭"
+        },
+        {
+          "name": "FIRST_ENG_NM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "FIRST_ENG 명칭"
+        },
+        {
+          "name": "LAST_ENG_NM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "LAST_ENG 명칭"
+        },
+        {
+          "name": "GROUP_SC",
+          "type": "varchar",
+          "pk": "",
+          "desc": "GROUP 상태코드"
+        }
+      ]
+    },
+    {
+      "domain": "마스터",
+      "domain_key": "master",
+      "table_name": "person",
+      "table_std_name": "PERSON",
+      "column_count": 20,
+      "row_count": 100812,
+      "pk_columns": "GYEAR, PCODE",
+      "schema_gen": "legacy",
+      "tier": "Tier 1",
+      "owner": "기록위원회",
+      "refresh": "시즌 전 갱신",
+      "description": "선수 마스터",
+      "table_doc_url": "dictionary/master/person/",
+      "columns": [
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "NAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "선수명 (varchar=EUC-KR 깨짐 가능)"
+        },
+        {
+          "name": "TEAM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "팀 코드 (2자리, HH=키움, HT=KIA 등)"
+        },
+        {
+          "name": "T_ID",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 코드 (2자리)"
+        },
+        {
+          "name": "POS",
+          "type": "char",
+          "pk": "",
+          "desc": "포지션 코드"
+        },
+        {
+          "name": "POSITION",
+          "type": "varchar",
+          "pk": "",
+          "desc": "포지션"
+        },
+        {
+          "name": "BACKNUM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "등번호"
+        },
+        {
+          "name": "ENGNAME",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "영문 이름"
+        },
+        {
+          "name": "CNAME",
+          "type": "nvarchar",
+          "pk": "",
+          "desc": "한자 이름"
+        },
+        {
+          "name": "HITTYPE",
+          "type": "varchar",
+          "pk": "",
+          "desc": "타석 방향"
+        },
+        {
+          "name": "BIRTH",
+          "type": "varchar",
+          "pk": "",
+          "desc": "생년월일"
+        },
+        {
+          "name": "HEIGHT",
+          "type": "varchar",
+          "pk": "",
+          "desc": "키"
+        },
+        {
+          "name": "WEIGHT",
+          "type": "varchar",
+          "pk": "",
+          "desc": "몸무게"
+        },
+        {
+          "name": "INDATE",
+          "type": "varchar",
+          "pk": "",
+          "desc": "입단일"
+        },
+        {
+          "name": "PROMISE",
+          "type": "varchar",
+          "pk": "",
+          "desc": "계약금"
+        },
+        {
+          "name": "MONEY",
+          "type": "varchar",
+          "pk": "",
+          "desc": "연봉"
+        },
+        {
+          "name": "CAREER",
+          "type": "varchar",
+          "pk": "",
+          "desc": "경력"
+        },
+        {
+          "name": "DRAFT",
+          "type": "varchar",
+          "pk": "",
+          "desc": "드래프트 정보"
+        },
+        {
+          "name": "REG_DT",
+          "type": "datetime",
+          "pk": "",
+          "desc": "등록 일시"
+        }
+      ]
+    },
+    {
+      "domain": "마스터",
+      "domain_key": "master",
+      "table_name": "person2",
+      "table_std_name": "PERSON2",
+      "column_count": 17,
+      "row_count": 91891,
+      "pk_columns": "GYEAR, PCODE, NAME",
+      "schema_gen": "legacy",
+      "tier": "Tier 3",
+      "owner": "기록위원회",
+      "refresh": "시즌 전 갱신",
+      "description": "선수 마스터 2",
+      "table_doc_url": "dictionary/master/person2/",
+      "columns": [
+        {
+          "name": "GYEAR",
+          "type": "smallint",
+          "pk": "PK",
+          "desc": "시즌 연도 (4자리, \"9999\"=통산)"
+        },
+        {
+          "name": "PCODE",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수 코드 (5~6자리 숫자 문자열)"
+        },
+        {
+          "name": "NAME",
+          "type": "varchar",
+          "pk": "PK",
+          "desc": "선수명 (varchar=EUC-KR 깨짐 가능)"
+        },
+        {
+          "name": "TEAM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "팀 코드 (2자리, HH=키움, HT=KIA 등)"
+        },
+        {
+          "name": "T_ID",
+          "type": "char",
+          "pk": "",
+          "desc": "팀 코드 (2자리)"
+        },
+        {
+          "name": "POS",
+          "type": "char",
+          "pk": "",
+          "desc": "포지션 코드"
+        },
+        {
+          "name": "POSITION",
+          "type": "varchar",
+          "pk": "",
+          "desc": "포지션"
+        },
+        {
+          "name": "BACKNUM",
+          "type": "varchar",
+          "pk": "",
+          "desc": "등번호"
+        },
+        {
+          "name": "CNAME",
+          "type": "varchar",
+          "pk": "",
+          "desc": "한자 이름"
+        },
+        {
+          "name": "HITTYPE",
+          "type": "varchar",
+          "pk": "",
+          "desc": "타석 방향"
+        },
+        {
+          "name": "BIRTH",
+          "type": "varchar",
+          "pk": "",
+          "desc": "생년월일"
+        },
+        {
+          "name": "HEIGHT",
+          "type": "varchar",
+          "pk": "",
+          "desc": "키"
+        },
+        {
+          "name": "WEIGHT",
+          "type": "varchar",
+          "pk": "",
+          "desc": "몸무게"
+        },
+        {
+          "name": "INDATE",
+          "type": "varchar",
+          "pk": "",
+          "desc": "입단일"
+        },
+        {
+          "name": "PROMISE",
+          "type": "varchar",
+          "pk": "",
+          "desc": "계약금"
+        },
+        {
+          "name": "MONEY",
+          "type": "varchar",
+          "pk": "",
+          "desc": "연봉"
+        },
+        {
+          "name": "CAREER",
+          "type": "varchar",
+          "pk": "",
+          "desc": "경력"
+        }
+      ]
+    }
+  ]
+}

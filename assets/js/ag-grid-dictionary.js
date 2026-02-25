@@ -1,114 +1,78 @@
-/* AG Grid — 인스턴스 현황 (catalog/instances.md)
-   외부 필터 API (isExternalFilterPresent + doesExternalFilterPass) 사용
-   캐스케이딩 드롭다운: db_type, league, domain, schema_gen, table_name (5개) */
+/* AG Grid — 테이블 조감도 (dictionary/index.md)
+   39종 테이블 목록, 외부 필터 API 사용 */
 (function () {
   "use strict";
 
   var gridApi = null;
   var allRows = [];
 
-  /* ── 외부 필터 상태 ── */
   var extFilter = {
-    db_type: "",
-    league: "",
     domain: "",
     schema_gen: "",
-    table_name: "",
+    tier: "",
+    owner: "",
     search: "",
   };
 
-  /* ── 드롭다운 필드 목록 (순서 = 캐스케이딩 우선순위) ── */
-  var DROPDOWN_FIELDS = ["db_type", "league", "domain", "schema_gen", "table_name"];
+  var DROPDOWN_FIELDS = ["domain", "schema_gen", "tier", "owner"];
   var DROPDOWN_IDS = {
-    db_type: "sel-db_type",
-    league: "sel-league",
     domain: "sel-domain",
     schema_gen: "sel-schema_gen",
-    table_name: "sel-table_name",
+    tier: "sel-tier",
+    owner: "sel-owner",
   };
   var DROPDOWN_LABELS = {
-    db_type: "DB타입",
-    league: "리그",
     domain: "도메인",
     schema_gen: "세대",
-    table_name: "테이블",
+    tier: "티어",
+    owner: "오너",
   };
 
-  /* ── 세대 라벨 매핑 ── */
-  var GEN_LABELS = {
-    legacy: "구세대",
-    new: "신세대",
-    unknown: "미분류",
-  };
+  var GEN_LABELS = { legacy: "구세대", new: "신세대", unknown: "미분류" };
 
-  /* ── 갱신 주기 배지 CSS 클래스 매핑 ── */
   var REFRESH_CLASSES = {
     "실시간": "cell-refresh-realtime",
     "경기 당일": "cell-refresh-gameday",
     "경기당일": "cell-refresh-gameday",
     "D+1": "cell-refresh-d1",
     "시즌": "cell-refresh-season",
+    "시즌 전": "cell-refresh-season",
     "시즌 초": "cell-refresh-season",
     "연 1회": "cell-refresh-yearly",
     "연1회": "cell-refresh-yearly",
     "비정기": "cell-refresh-yearly",
+    "FA 발생 시": "cell-refresh-yearly",
+    "발생 즉시": "cell-refresh-realtime",
   };
 
   var COLUMN_DEFS = [
     {
-      headerName: "DB명",
-      field: "db_name",
-      width: 220,
+      headerName: "도메인",
+      field: "domain",
+      width: 100,
       filter: false,
       pinned: "left",
-      cellStyle: { fontFamily: "JetBrains Mono, monospace", fontSize: "12px" },
-    },
-    {
-      headerName: "DB타입",
-      field: "db_type",
-      width: 70,
-      filter: false,
-      cellRenderer: function (p) {
-        if (!p.value) return "";
-        var cls = p.value === "DB1" ? "cell-badge-db1" : "cell-badge-db2";
-        return '<span class="' + cls + '">' + p.value + "</span>";
-      },
-    },
-    {
-      headerName: "리그",
-      field: "league",
-      width: 90,
-      filter: false,
     },
     {
       headerName: "테이블 (물리명)",
       field: "table_name",
-      width: 180,
+      width: 210,
       filter: false,
+      pinned: "left",
       cellRenderer: function (p) {
         if (!p.value) return "";
         var url = p.data.table_doc_url;
         var style = "font-family:JetBrains Mono,monospace;font-weight:700;font-size:12px;";
         if (!url) return '<span style="' + style + '">' + p.value + "</span>";
-        return (
-          '<a href="' + getBaseUrl() + url +
-          '" style="' + style + 'color:var(--kbo-accent,#4A7BF7);text-decoration:none">' +
-          p.value + "</a>"
-        );
+        return '<a href="' + getBaseUrl() + url + '" style="' + style + 'color:var(--kbo-accent,#4A7BF7);text-decoration:none">' + p.value + "</a>";
       },
     },
     {
       headerName: "표준명(안)",
       field: "table_std_name",
-      width: 160,
+      width: 200,
       filter: false,
       cellStyle: { fontFamily: "JetBrains Mono, monospace", fontSize: "11px", color: "#888" },
-    },
-    {
-      headerName: "도메인",
-      field: "domain",
-      width: 90,
-      filter: false,
     },
     {
       headerName: "세대",
@@ -126,7 +90,7 @@
     {
       headerName: "PK",
       field: "pk_columns",
-      width: 160,
+      width: 200,
       filter: false,
       cellStyle: { fontFamily: "JetBrains Mono, monospace", fontSize: "11px" },
       tooltipField: "pk_columns",
@@ -186,10 +150,9 @@
     },
   ];
 
-  /* ── 유틸리티 ── */
   function getBaseUrl() {
     var loc = window.location.pathname;
-    var idx = loc.indexOf("/catalog/");
+    var idx = loc.indexOf("/dictionary/");
     return idx >= 0 ? loc.substring(0, idx + 1) : "/";
   }
 
@@ -211,14 +174,11 @@
     if (el) el.textContent = val;
   }
 
-  /* ── 검색 haystack 생성 ── */
   function buildHaystack(d) {
     return (
-      (d.db_name || "") + " " +
       (d.table_name || "") + " " +
       (d.table_std_name || "") + " " +
       (d.domain || "") + " " +
-      (d.league || "") + " " +
       (d.owner || "") + " " +
       (d.tier || "") + " " +
       (d.pk_columns || "") + " " +
@@ -226,56 +186,43 @@
     ).toLowerCase();
   }
 
-  /* ── 외부 필터 API ── */
   function isExternalFilterPresent() {
-    return extFilter.db_type !== "" ||
-           extFilter.league !== "" ||
-           extFilter.domain !== "" ||
+    return extFilter.domain !== "" ||
            extFilter.schema_gen !== "" ||
-           extFilter.table_name !== "" ||
+           extFilter.tier !== "" ||
+           extFilter.owner !== "" ||
            extFilter.search !== "";
   }
 
   function doesExternalFilterPass(node) {
     var d = node.data;
     if (!d) return false;
-    if (extFilter.db_type && d.db_type !== extFilter.db_type) return false;
-    if (extFilter.league && d.league !== extFilter.league) return false;
     if (extFilter.domain && d.domain !== extFilter.domain) return false;
     if (extFilter.schema_gen && d.schema_gen !== extFilter.schema_gen) return false;
-    if (extFilter.table_name && d.table_name !== extFilter.table_name) return false;
+    if (extFilter.tier && d.tier !== extFilter.tier) return false;
+    if (extFilter.owner && d.owner !== extFilter.owner) return false;
     if (extFilter.search) {
-      var q = extFilter.search.toLowerCase();
-      if (buildHaystack(d).indexOf(q) === -1) return false;
+      if (buildHaystack(d).indexOf(extFilter.search.toLowerCase()) === -1) return false;
     }
     return true;
   }
 
-  /* ── 캐스케이딩 드롭다운 옵션 갱신 ── */
   function updateCascadingDropdowns() {
     DROPDOWN_FIELDS.forEach(function (targetField) {
       var validValues = new Set();
       allRows.forEach(function (row) {
         var pass = true;
-        if (extFilter.search) {
-          var q = extFilter.search.toLowerCase();
-          if (buildHaystack(row).indexOf(q) === -1) pass = false;
-        }
+        if (extFilter.search && buildHaystack(row).indexOf(extFilter.search.toLowerCase()) === -1) pass = false;
         if (pass) {
           DROPDOWN_FIELDS.forEach(function (f) {
-            if (f !== targetField && extFilter[f] && row[f] !== extFilter[f]) {
-              pass = false;
-            }
+            if (f !== targetField && extFilter[f] && row[f] !== extFilter[f]) pass = false;
           });
         }
-        if (pass && row[targetField]) {
-          validValues.add(row[targetField]);
-        }
+        if (pass && row[targetField]) validValues.add(row[targetField]);
       });
 
       var sel = document.getElementById(DROPDOWN_IDS[targetField]);
       if (!sel) return;
-
       var currentVal = sel.value;
       while (sel.options.length > 1) sel.remove(1);
       Array.from(validValues).sort().forEach(function (v) {
@@ -284,7 +231,6 @@
         opt.textContent = targetField === "schema_gen" ? (GEN_LABELS[v] || v) : v;
         sel.appendChild(opt);
       });
-
       if (validValues.has(currentVal)) {
         sel.value = currentVal;
       } else {
@@ -294,7 +240,6 @@
     });
   }
 
-  /* ── 드롭다운 변경 핸들러 ── */
   function onDropdownChange() {
     DROPDOWN_FIELDS.forEach(function (f) {
       var sel = document.getElementById(DROPDOWN_IDS[f]);
@@ -304,20 +249,17 @@
     if (gridApi) gridApi.onFilterChanged();
   }
 
-  /* ── 검색 ── */
   function onSearchInput(e) {
     extFilter.search = e.target.value.trim();
     updateCascadingDropdowns();
     if (gridApi) gridApi.onFilterChanged();
   }
 
-  /* ── 초기화 ── */
   function resetAllFilters() {
-    extFilter.db_type = "";
-    extFilter.league = "";
     extFilter.domain = "";
     extFilter.schema_gen = "";
-    extFilter.table_name = "";
+    extFilter.tier = "";
+    extFilter.owner = "";
     extFilter.search = "";
     var si = document.getElementById("grid-search");
     if (si) si.value = "";
@@ -326,33 +268,29 @@
     if (gridApi) gridApi.onFilterChanged();
   }
 
-  /* ── Stats Cards ── */
   function updateStats() {
     if (!gridApi) return;
     var displayed = gridApi.getDisplayedRowCount();
     var total = allRows.length;
-    var tables = new Set();
-    var dbs = new Set();
+    var totalCols = 0;
     var totalRowCount = 0;
+    var domains = new Set();
 
     gridApi.forEachNodeAfterFilter(function (node) {
       var d = node.data;
       if (!d) return;
-      tables.add(d.table_name_ci);
-      dbs.add(d.db_name);
+      totalCols += d.column_count || 0;
       totalRowCount += d.row_count || 0;
+      domains.add(d.domain);
     });
 
-    setText("stat-instances", displayed === total ? formatNumber(total) : formatNumber(displayed) + " / " + formatNumber(total));
-    setText("stat-tables", tables.size);
-    setText("stat-dbs", dbs.size);
-    setText("stat-rows", (totalRowCount / 1e6).toFixed(1) + "M");
+    setText("stat-tables", displayed === total ? total : displayed + " / " + total);
+    setText("stat-columns", formatNumber(totalCols));
+    setText("stat-total-rows", (totalRowCount / 1e6).toFixed(1) + "M");
+    setText("stat-domains", domains.size);
     setText("status-count", formatNumber(displayed) + " / " + formatNumber(total) + "건");
-    setText("status-tables", tables.size + " 테이블");
-    setText("status-dbs", dbs.size + " DB");
   }
 
-  /* ── Filter Chips ── */
   function renderChips() {
     var container = document.getElementById("filter-chips");
     if (!container) return;
@@ -391,193 +329,27 @@
     }
   }
 
-  /* ── CSV ── */
   function exportCsv() {
     if (!gridApi) return;
     gridApi.exportDataAsCsv({
-      fileName: "KBO_인스턴스_현황.csv",
+      fileName: "KBO_테이블_조감도.csv",
       processCellCallback: function (p) { return p.value; },
     });
   }
 
-  /* ── 반응형 ── */
   function handleResponsive() {
     if (!gridApi) return;
     var w = window.innerWidth;
-    var narrow = w < 1200;
-    var veryNarrow = w < 900;
-    gridApi.setColumnsVisible(["owner", "column_count", "description", "table_std_name"], !narrow);
-    gridApi.setColumnsVisible(["pk_columns", "refresh", "schema_gen"], !veryNarrow);
+    gridApi.setColumnsVisible(["owner", "table_std_name", "pk_columns"], w >= 1200);
+    gridApi.setColumnsVisible(["refresh", "schema_gen"], w >= 900);
   }
 
-  /* ── 컬럼 데이터 캐시 (사이드패널용) ── */
-  var columnDataCache = null;
-  var dictDataCache = null;
-
-  function loadColumnData() {
-    if (columnDataCache) return Promise.resolve(columnDataCache);
-    return fetch(getBaseUrl() + "assets/data/catalog-columns.json")
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        columnDataCache = data.rows || [];
-        return columnDataCache;
-      });
-  }
-
-  function loadDictData() {
-    if (dictDataCache) return Promise.resolve(dictDataCache);
-    return fetch(getBaseUrl() + "assets/data/dictionary-tables.json")
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        dictDataCache = data.rows || [];
-        return dictDataCache;
-      });
-  }
-
-  /* ── 사이드 패널 ── */
-  function createPanelDOM() {
-    if (document.getElementById("sp-overlay")) return;
-
-    var overlay = document.createElement("div");
-    overlay.id = "sp-overlay";
-    overlay.className = "side-panel-overlay";
-    overlay.addEventListener("click", closePanel);
-
-    var panel = document.createElement("div");
-    panel.id = "sp-panel";
-    panel.className = "side-panel";
-    panel.innerHTML =
-      '<div class="side-panel-header">' +
-        '<div>' +
-          '<div class="side-panel-header-title" id="sp-title"></div>' +
-          '<div class="side-panel-header-sub" id="sp-subtitle"></div>' +
-        '</div>' +
-        '<button class="side-panel-close" id="sp-close">&times;</button>' +
-      '</div>' +
-      '<div class="side-panel-body" id="sp-body"></div>' +
-      '<div class="side-panel-footer">' +
-        '<a class="sp-link-detail" id="sp-detail-link" href="#">상세 보기 &rarr;</a>' +
-        '<span class="sp-instance-count" id="sp-instance-count"></span>' +
-      '</div>';
-
-    document.body.appendChild(overlay);
-    document.body.appendChild(panel);
-
-    document.getElementById("sp-close").addEventListener("click", closePanel);
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && panel.classList.contains("open")) {
-        closePanel();
-      }
-    });
-  }
-
-  function openPanel(rowData) {
-    createPanelDOM();
-    var overlay = document.getElementById("sp-overlay");
-    var panel = document.getElementById("sp-panel");
-
-    // 헤더
-    document.getElementById("sp-title").textContent = rowData.table_name;
-    document.getElementById("sp-subtitle").textContent =
-      (rowData.table_std_name ? rowData.table_std_name + " · " : "") +
-      rowData.domain + (rowData.tier ? " · " + rowData.tier : "");
-
-    // 상세 링크
-    var detailLink = document.getElementById("sp-detail-link");
-    if (rowData.table_doc_url) {
-      detailLink.href = getBaseUrl() + rowData.table_doc_url;
-      detailLink.style.display = "";
-    } else {
-      detailLink.style.display = "none";
-    }
-
-    // 인스턴스 수 계산
-    var instanceCount = 0;
-    allRows.forEach(function (r) {
-      if (r.table_name_ci === rowData.table_name_ci) instanceCount++;
-    });
-    document.getElementById("sp-instance-count").textContent = instanceCount + "개 인스턴스";
-
-    // 본문 구성
-    var body = document.getElementById("sp-body");
-    var html = '';
-
-    // 메타 정보
-    html += '<div class="sp-meta">';
-    html += metaItem("도메인", rowData.domain);
-    html += metaItem("세대", GEN_LABELS[rowData.schema_gen] || rowData.schema_gen || "-");
-    html += metaItem("티어", rowData.tier || "-");
-    html += metaItem("오너", rowData.owner || "-");
-    html += metaItem("갱신 주기", rowData.refresh || "-");
-    html += metaItem("컬럼 수", rowData.column_count || 0);
-    html += metaItem("행 수", formatNumber(rowData.row_count || 0));
-    html += metaItem("DB", rowData.db_name);
-    if (rowData.pk_columns) {
-      html += '<div class="sp-meta-item full"><div class="sp-meta-label">PK</div><div class="sp-meta-value mono">' + escHtml(rowData.pk_columns) + '</div></div>';
-    }
-    if (rowData.description) {
-      html += '<div class="sp-meta-item full"><div class="sp-meta-label">설명</div><div class="sp-meta-value">' + escHtml(rowData.description) + '</div></div>';
-    }
-    html += '</div>';
-
-    body.innerHTML = html + '<div class="sp-section"><div class="sp-section-title">컬럼 목록</div><div id="sp-col-loading" style="font-size:12px;color:#999;padding:8px 0">로딩 중...</div></div>';
-
-    // 패널 열기
-    requestAnimationFrame(function () {
-      overlay.classList.add("open");
-      panel.classList.add("open");
-    });
-
-    // 컬럼 데이터 로드
-    loadDictData().then(function (dictRows) {
-      var match = null;
-      for (var i = 0; i < dictRows.length; i++) {
-        if (dictRows[i].table_name.toLowerCase() === rowData.table_name.toLowerCase()) {
-          match = dictRows[i];
-          break;
-        }
-      }
-      var colSection = body.querySelector(".sp-section");
-      if (match && match.columns && match.columns.length > 0) {
-        var tbl = '<table class="sp-columns-table"><thead><tr><th>컬럼명</th><th>타입</th><th>설명</th></tr></thead><tbody>';
-        match.columns.forEach(function (c) {
-          tbl += '<tr><td><span class="col-name">' + escHtml(c.name) + '</span>';
-          if (c.pk === "PK") tbl += '<span class="col-pk">PK</span>';
-          tbl += '</td><td><span class="col-type">' + escHtml(c.type) + '</span></td>';
-          tbl += '<td><span class="col-desc">' + escHtml(c.desc || "") + '</span></td></tr>';
-        });
-        tbl += '</tbody></table>';
-        colSection.innerHTML = '<div class="sp-section-title">컬럼 목록 (' + match.columns.length + ')</div>' + tbl;
-      } else {
-        colSection.innerHTML = '<div class="sp-section-title">컬럼 목록</div><div style="font-size:12px;color:#999;padding:4px 0">컬럼 정보 없음</div>';
-      }
-    });
-  }
-
-  function closePanel() {
-    var overlay = document.getElementById("sp-overlay");
-    var panel = document.getElementById("sp-panel");
-    if (overlay) overlay.classList.remove("open");
-    if (panel) panel.classList.remove("open");
-  }
-
-  function metaItem(label, value) {
-    return '<div class="sp-meta-item"><div class="sp-meta-label">' + label + '</div><div class="sp-meta-value">' + escHtml(String(value)) + '</div></div>';
-  }
-
-  function escHtml(s) {
-    if (!s) return "";
-    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  }
-
-  /* ── 빈 상태 ── */
   var NO_ROWS =
     '<div style="padding:40px;text-align:center">' +
     '<div style="font-size:14px;color:#888;margin-bottom:12px">일치하는 항목이 없습니다</div>' +
     '<button onclick="document.getElementById(\'btn-reset\').click()" ' +
     'style="padding:6px 16px;border:1px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;font-size:12px">필터 초기화</button></div>';
 
-  /* ── 초기 드롭다운 채우기 ── */
   function populateDropdowns() {
     DROPDOWN_FIELDS.forEach(function (f) {
       var sel = document.getElementById(DROPDOWN_IDS[f]);
@@ -593,13 +365,12 @@
     });
   }
 
-  /* ── 메인 ── */
   function initGrid() {
-    var gridDiv = document.getElementById("instance-grid");
+    var gridDiv = document.getElementById("dictionary-grid");
     if (!gridDiv || gridDiv.dataset.initialized === "true") return;
     gridDiv.dataset.initialized = "true";
 
-    fetch(getBaseUrl() + "assets/data/catalog-instances.json")
+    fetch(getBaseUrl() + "assets/data/dictionary-tables.json")
       .then(function (r) { return r.json(); })
       .then(function (data) {
         allRows = data.rows || [];
@@ -622,8 +393,10 @@
             updateStats();
             renderChips();
           },
-          onRowClicked: function (e) {
-            if (e.data) openPanel(e.data);
+          onRowDoubleClicked: function (e) {
+            if (e.data && e.data.table_doc_url) {
+              window.location.href = getBaseUrl() + e.data.table_doc_url;
+            }
           },
           onGridReady: function (params) {
             gridApi = params.api;
@@ -634,13 +407,12 @@
         });
       })
       .catch(function (err) {
-        console.error("catalog-instances.json 로드 실패:", err);
+        console.error("dictionary-tables.json 로드 실패:", err);
         gridDiv.innerHTML =
           '<div style="padding:40px;text-align:center;color:#c62828">데이터 로드 실패</div>';
       });
   }
 
-  /* ── 이벤트 바인딩 ── */
   function bindEvents() {
     var si = document.getElementById("grid-search");
     if (si) si.addEventListener("input", debounce(onSearchInput, 200));
@@ -656,7 +428,7 @@
     if (bc) bc.addEventListener("click", exportCsv);
 
     document.addEventListener("keydown", function (e) {
-      if (!document.getElementById("instance-grid")) return;
+      if (!document.getElementById("dictionary-grid")) return;
       if ((e.ctrlKey || e.metaKey) && e.key === "f") {
         e.preventDefault();
         var s = document.getElementById("grid-search");
@@ -676,14 +448,13 @@
     window.addEventListener("resize", debounce(handleResponsive, 150));
   }
 
-  /* ── MkDocs Material instant loading ── */
   if (typeof document$ !== "undefined") {
     document$.subscribe(function () {
-      if (document.getElementById("instance-grid")) { initGrid(); bindEvents(); }
+      if (document.getElementById("dictionary-grid")) { initGrid(); bindEvents(); }
     });
   } else {
     document.addEventListener("DOMContentLoaded", function () {
-      if (document.getElementById("instance-grid")) { initGrid(); bindEvents(); }
+      if (document.getElementById("dictionary-grid")) { initGrid(); bindEvents(); }
     });
   }
 })();
