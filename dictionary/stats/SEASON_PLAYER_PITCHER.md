@@ -1,6 +1,6 @@
 # SEASON_PLAYER_PITCHER
 
-> 최종수정: 2026-02-24 | 출처: column-metadata.json
+> 최종수정: 2026-02-25 | 버전: 2 | 출처: column-metadata.json
 
 | 항목 | 값 |
 |------|-----|
@@ -9,6 +9,13 @@
 | 컬럼 수 | 54 |
 | PK | `SEASON_ID, P_ID, SECTION_CD, GROUP_IF` |
 | 스키마 세대 | new |
+| 데이터 티어 | Tier 2 — Standard |
+| 데이터 오너 | 통계분석팀 (R-04) |
+| 갱신 주기 | D+1 (시즌 중) |
+| 소비자 | 통계팀, 외부 API |
+| 데이터 프로덕트 | [시즌 통계](../products/season-stats.md) |
+| 접근 수준 | Internal |
+| 관련 표준 | [도메인 타입](../../standards/domain-types.md) |
 
 ## 컬럼 상세
 

@@ -99,7 +99,7 @@
 | 오너십 | R-01 (S2i) — S2i 운영DB 스키마에 따른 추가 |
 | 조치 | S2i에 컬럼명 확인 요청 → 수령 시 `dictionary/` 해당 파일에 반영 |
 
-→ 참고: [컬럼 차이 분석 §2](../analysis/column-diff.md#2-1-49)
+→ 참고: [컬럼 차이 분석 §2](../migration/column-diff.md#2-1-49)
 
 ---
 

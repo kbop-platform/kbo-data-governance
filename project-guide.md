@@ -10,12 +10,14 @@
 
 | 순서 | 문서 | 핵심 내용 |
 |:---:|------|----------|
-| 1 | [명명 규칙](standards/naming-rules.md) | DB/API/Kafka/WS 4계층 명명 |
-| 2 | [ID 체계](standards/id-system.md) | 식별자 6종, 복합 PK 표준 |
-| 3 | [도메인 타입](standards/domain-types.md) | 타입 표준, NULL/인코딩 정책 |
-| 4 | [코드 사전](standards/code-dictionary.md) | 코드값 전체 정의 |
-| 5 | [데이터 사전](dictionary/index.md) | 필요한 테이블만 참조 |
-| 6 | [업무 용어](glossary/business-terms.md) | 용어 불명확 시 참조 |
+| 1 | [데이터 프로덕트](dictionary/products/game-summary.md) | 비즈니스 단위별 데이터 구조 이해 |
+| 2 | [명명 규칙](standards/naming-rules.md) | DB/API/Kafka/WS 4계층 명명 |
+| 3 | [ID 체계](standards/id-system.md) | 식별자 6종, 복합 PK 표준 |
+| 4 | [도메인 타입](standards/domain-types.md) | 타입 표준, NULL/인코딩 정책 |
+| 5 | [코드 사전](standards/code-dictionary.md) | 코드값 전체 정의 |
+| 6 | [컬럼 매핑](migration/column-mapping.md) | AS-IS→TO-BE 컬럼 전수 매핑 |
+| 7 | [데이터 사전](dictionary/index.md) | 필요한 테이블만 참조 |
+| 8 | [업무 용어](glossary/business-terms.md) | 용어 불명확 시 참조 |
 
 ### 레거시 주의사항
 
@@ -23,12 +25,12 @@
 
 | 주의사항 | 설명 | 참조 |
 |----------|------|------|
-| **EUC-KR 깨짐** | `varchar`에 저장된 한글은 EUC-KR 인코딩 | [도메인 타입 §5](standards/domain-types.md#5) |
+| **EUC-KR 깨짐** | `varchar`에 저장된 한글은 EUC-KR 인코딩 | [도메인 타입 §4](standards/domain-types.md#4-인코딩-정책) |
 | **float 노이즈** | 타율 등 비율이 `float`로 저장 | [도메인 타입 §3.5](standards/domain-types.md#35-rate-_rt) |
 | **합계행 혼재** | `PCODE='T'/'B'` 팀 합계행이 개인 기록과 혼재 | [ID 체계 §5](standards/id-system.md#5) |
 | **9999 예약값** | `GYEAR=9999`는 통산 기록 (연도 아님) | [ID 체계 §5](standards/id-system.md#5) |
 | **-1 센티널** | Score 이닝 점수에서 `-1`은 미진행 이닝 | [품질 규칙 §7](governance/quality-rules.md#7) |
-| **ID 체계 혼재** | 구세대(`GMKEY`/`PCODE`) + 신세대(`G_ID`/`P_ID`) 공존 | [컬럼 차이](analysis/column-diff.md) |
+| **ID 체계 혼재** | 구세대(`GMKEY`/`PCODE`) + 신세대(`G_ID`/`P_ID`) 공존 | [컬럼 차이](migration/column-diff.md) |
 | **팀코드 불변** | OB=두산, SK=SSG — 구단명 변경에도 코드 유지 | [ID 체계 §6](standards/id-system.md#6) |
 
 ---
@@ -38,9 +40,11 @@
 | 순서 | 문서 | 핵심 내용 |
 |:---:|------|----------|
 | 1 | [데이터 오너십](governance/data-ownership.md) | 역할과 권한 |
-| 2 | [품질 규칙](governance/quality-rules.md) | 품질 기준과 KPI |
+| 2 | [품질 규칙](governance/quality-rules.md) | 품질 기준, KPI, SLA |
 | 3 | [변경 관리 절차](governance/change-process.md) | 코드/스키마 변경 절차 |
 | 4 | [테이블 설계 가이드](governance/table-design-guide.md) | 자체 테이블 설계 시 |
+| 5 | [데이터 보안](governance/data-security.md) | 보안 등급, PII 처리 |
+| 6 | [재해 복구](governance/disaster-recovery.md) | 백업, RTO/RPO |
 
 ---
 
@@ -49,14 +53,16 @@
 ```
 data-dict/
 ├── dictionary/              # 데이터 사전 — 39종 테이블 × 1파일
+│   ├── products/            #   데이터 프로덕트 정의 (6개)
+│   ├── lineage.md           #   데이터 리니지 (흐름 추적)
 │   ├── game/                #   경기 기록 (12)
 │   ├── stats/               #   통계 (10)
 │   ├── realtime/            #   실시간 (9)
 │   └── master/              #   마스터 (8)
 ├── standards/               # 표준 정의 — 5개 문서
 ├── glossary/                # 업무 용어 사전
-├── governance/              # 거버넌스 정책 — 4개 문서
-├── analysis/                # 현행 시스템 분석 — 7개 문서
+├── governance/              # 거버넌스 정책 — 6개 문서
+├── migration/               # 마이그레이션 — 설계 결정, 컬럼/테이블 매핑
 ├── raw/                     # 기계 추출 원본 데이터
 ├── references/              # 원본 참고 자료 (수정 금지)
 ├── exports/                 # Excel 산출물
@@ -89,8 +95,10 @@ cp .env.example .env                       # DB 접속 정보 설정
 | 6 | `upgrade-dictionary.py` | 버전태그 + 표준명 추가 | `dictionary/` 갱신 |
 | 7 | `fill-descriptions.py` | 빈 설명 일괄 채움 | `dictionary/` 갱신 |
 | 8 | `export-excel.py` | Excel 산출물 생성 | `exports/데이터사전.xlsx` |
+| 9 | `enrich-metadata.py` | 운영 메타데이터 추가 | `dictionary/` 갱신 |
+| 10 | `extract-mapping.py` | 컬럼 매핑 추출 | `migration/column-mapping.md` |
 
-> 1~4는 MSSQL 접속 필요. 5~8은 `raw/*.json`만 참조하므로 오프라인 실행 가능.
+> 1~4는 MSSQL 접속 필요. 5~10은 `raw/*.json` 또는 `dictionary/`만 참조하므로 오프라인 실행 가능.
 
 ---
 
@@ -117,7 +125,7 @@ pip install mkdocs-material
 
 | # | 항목 | 영향 문서 | 우선순위 |
 |---|------|----------|---------|
-| 1 | +1 컬럼명 확인 (49개 테이블) | `dictionary/`, `analysis/column-diff.md` | 높음 |
+| 1 | +1 컬럼명 확인 (49개 테이블) | `dictionary/`, `migration/column-diff.md` | 높음 |
 | 2 | DEFEN +6컬럼, ENTRY -1컬럼 상세 | `dictionary/game/DEFEN.md`, `ENTRY.md` | 높음 |
 | 3 | BH 코드 의미 (14,749건) | `standards/code-dictionary.md` §2.2 | 높음 |
 | 4 | place_cd 문자코드 (R, A~I) | `standards/code-dictionary.md` §2.3 | 중간 |

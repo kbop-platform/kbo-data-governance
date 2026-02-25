@@ -1,6 +1,6 @@
 # PitTotal
 
-> 최종수정: 2026-02-24 | 출처: column-metadata.json
+> 최종수정: 2026-02-25 | 버전: 2 | 출처: column-metadata.json
 
 | 항목 | 값 |
 |------|-----|
@@ -9,6 +9,13 @@
 | 컬럼 수 | 22 |
 | PK | `PCODE, GYEAR, SEC` |
 | 스키마 세대 | legacy |
+| 데이터 티어 | Tier 2 — Standard |
+| 데이터 오너 | 통계분석팀 (R-04) |
+| 갱신 주기 | D+1 (전일 경기 반영) |
+| 소비자 | 통계팀, 외부 API |
+| 데이터 프로덕트 | [시즌 통계](../products/season-stats.md) |
+| 접근 수준 | Internal |
+| 관련 표준 | [ID 체계](../../standards/id-system.md), [약어 사전](../../standards/abbreviations.md) |
 
 ## 컬럼 상세
 

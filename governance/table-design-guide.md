@@ -150,7 +150,7 @@
 | rate (`_rt`) | 선택 | NULL | NULL=분모 없음, 0.000=분모 있으나 분자 0 |
 | 감사 컬럼 | 필수 | `GETDATE()` / — | |
 
-→ 참고: [도메인 타입 §6](../standards/domain-types.md#6-null) — NULL 정책
+→ 참고: [도메인 타입 §5](../standards/domain-types.md#5-null-처리-정책) — NULL 정책
 
 ### 5.4 금지 사항
 

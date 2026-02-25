@@ -1,6 +1,6 @@
 # person2
 
-> 최종수정: 2026-02-24 | 출처: column-metadata.json
+> 최종수정: 2026-02-25 | 버전: 2 | 출처: column-metadata.json
 
 | 항목 | 값 |
 |------|-----|
@@ -9,6 +9,13 @@
 | 컬럼 수 | 17 |
 | PK | `GYEAR, PCODE, NAME` |
 | 스키마 세대 | legacy |
+| 데이터 티어 | Tier 3 — Reference |
+| 데이터 오너 | 기록위원회 (R-03) |
+| 갱신 주기 | 시즌 전 갱신 |
+| 소비자 | 기록팀 |
+| 데이터 프로덕트 | [선수 프로필](../products/player-profile.md) |
+| 접근 수준 | Restricted |
+| 관련 표준 | [도메인 타입](../../standards/domain-types.md) |
 
 > **관련 테이블**: person 계열 구버전. [person](./person.md)(20컬럼) 대비 ENGNAME, DRAFT, REG_DT 없고 PK에 NAME 포함.
 > 신규 시스템에서는 [person](./person.md) 기준으로 통합 권고.

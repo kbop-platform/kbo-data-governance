@@ -1,6 +1,6 @@
 # 도메인 타입 정의
 
-> 최종수정: 2026-02-24 | 출처: raw/column-metadata.json, analysis/naming-patterns.md
+> 최종수정: 2026-02-25 | 출처: raw/column-metadata.json, analysis/naming-patterns.md
 
 ## 1. 개요
 
@@ -242,26 +242,7 @@ Score/KBO_BATRESULT 테이블에서 이닝 1~25까지 최대 50개 피벗 컬럼
 
 ---
 
-## 4. 현행 → 표준 타입 전환 가이드
-
-| 현행 MSSQL 타입 | 현행 용도 | 표준 도메인 | 표준 MSSQL 타입 | 전환 필요 |
-|----------------|---------|-----------|---------------|----------|
-| varchar (한글) | 이름, 텍스트 | name / text | nvarchar | **Yes** — 인코딩 |
-| varchar (코드) | 코드값 | code | varchar | No |
-| char(13) | GMKEY | identifier | char(13) | No |
-| varchar(10) | PCODE | identifier | int | **Yes** — 타입 변경 |
-| smallint | 수량 | count | int | **Yes** — 확장 |
-| tinyint | 수량 | count | int | **Yes** — 확장 |
-| float | 비율 | rate | decimal(8,5) | **Yes** — 정밀도 |
-| real | 비율 | rate | decimal(8,5) | **Yes** — 정밀도 |
-| char(1) T/F | 플래그 | flag | bit | **Yes** — 표준화 |
-| datetime | 일시 | datetime | datetime2 | Minor |
-| int | 수량 | count | int | No |
-| nvarchar | 이름 | name | nvarchar | No |
-
----
-
-## 5. 인코딩 정책
+## 4. 인코딩 정책
 
 | 구분 | 표준 | 사유 |
 |------|------|------|
@@ -269,17 +250,12 @@ Score/KBO_BATRESULT 테이블에서 이닝 1~25까지 최대 50개 피벗 컬럼
 | 코드/ID 컬럼 | `varchar` (ASCII) | 영문/숫자만 사용 |
 | DB Collation | `Korean_Wansung_CI_AS` 또는 `Latin1_General_CI_AS` | MSSQL 기본 |
 
-**현행 문제 컬럼** (varchar + 한글):
-- `person.NAME`, `person.CAREER`, `person.PROMISE`, `person.MONEY`
-- `GAMEINFO.STADIUM`, `TeamRank.TEAM`
-- `GAMECONTAPP.HITNAME`, `GAMECONTAPP.PITNAME`, `GAMECONTAPP.CATNAME`
-- `CANCEL_GAME.CANCEL_SC_NM`
-
-→ 참고: [코드값 분석 Section 12](../analysis/code-analysis.md#12)
+> 현행 → 표준 타입 전환 가이드 및 인코딩 전환 대상 컬럼 상세는 마이그레이션 문서 참고.
+> → 참고: [마이그레이션 설계 결정 §1, §2](../migration/design-decisions.md)
 
 ---
 
-## 6. NULL 처리 정책
+## 5. NULL 처리 정책
 
 | 도메인 타입 | NOT NULL | 기본값 | 사유 |
 |------------|----------|--------|------|

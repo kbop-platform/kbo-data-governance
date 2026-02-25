@@ -10,7 +10,7 @@ ln -sfn ../dictionary docs/dictionary
 ln -sfn ../standards docs/standards
 ln -sfn ../glossary docs/glossary
 ln -sfn ../governance docs/governance
-ln -sfn ../analysis docs/analysis
+ln -sfn ../migration docs/migration
 ln -sfn ../assets docs/assets
 ln -sf ../README.md docs/index.md
 ln -sf ../project-guide.md docs/project-guide.md

@@ -1,6 +1,6 @@
 # person
 
-> 최종수정: 2026-02-24 | 출처: column-metadata.json
+> 최종수정: 2026-02-25 | 버전: 2 | 출처: column-metadata.json
 
 | 항목 | 값 |
 |------|-----|
@@ -9,6 +9,13 @@
 | 컬럼 수 | 20 |
 | PK | `GYEAR, PCODE` |
 | 스키마 세대 | legacy |
+| 데이터 티어 | Tier 1 — Critical |
+| 데이터 오너 | 기록위원회 (R-03) |
+| 갱신 주기 | 시즌 전 갱신 |
+| 소비자 | 전 시스템 |
+| 데이터 프로덕트 | [선수 프로필](../products/player-profile.md) |
+| 접근 수준 | Restricted |
+| 관련 표준 | [ID 체계](../../standards/id-system.md), [도메인 타입](../../standards/domain-types.md) |
 
 > **관련 테이블**: person 계열은 동일 스키마 패턴으로 DB별 분리 존재
 > - `person` (이 파일) — **1군 선수 마스터** (DB2_BASEBALL_NEW, 20컬럼). ENGNAME, DRAFT, REG_DT, T_ID 포함

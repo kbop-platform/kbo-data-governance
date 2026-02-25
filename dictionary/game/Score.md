@@ -1,6 +1,6 @@
 # Score
 
-> 최종수정: 2026-02-24 | 출처: column-metadata.json
+> 최종수정: 2026-02-25 | 버전: 2 | 출처: column-metadata.json
 
 | 항목 | 값 |
 |------|-----|
@@ -9,6 +9,13 @@
 | 컬럼 수 | 60 |
 | PK | `GMKEY, GDAY` |
 | 스키마 세대 | legacy |
+| 데이터 티어 | Tier 1 — Critical |
+| 데이터 오너 | 기록위원회 (R-03) |
+| 갱신 주기 | 경기 당일 (S2i 전송) |
+| 소비자 | 방송팀, 외부 API |
+| 데이터 프로덕트 | [경기 요약](../products/game-summary.md) |
+| 접근 수준 | Internal |
+| 관련 표준 | [ID 체계](../../standards/id-system.md) |
 
 ## 컬럼 상세
 

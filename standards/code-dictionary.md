@@ -1,6 +1,6 @@
 # 코드 사전
 
-> 최종수정: 2026-02-24 | 출처: analysis/code-analysis.md, raw/column-metadata.json
+> 최종수정: 2026-02-25 | 출처: analysis/code-analysis.md, raw/column-metadata.json
 
 ## 1. 개요
 
@@ -389,34 +389,9 @@ XY
 
 ## 9. 기록 상태 코드 (신규 정의)
 
-RFP DAR-006 요구사항에 따른 기록 상태 전이 코드. **현행 시스템에 미존재**, 신규 시스템에서 추가.
+신규 시스템에서 추가할 기록 상태 전이 코드. 현행 시스템에 미존재.
 
-### 상태 전이
-
-```
-DRAFT → REVIEW → CONFIRMED
-                      ↓
-                   REVISED → CONFIRMED
-```
-
-### 코드 정의
-
-| 코드 | 한글 | 영문 | 설명 |
-|------|------|------|------|
-| `DRAFT` | 입력 | Draft | 기록원이 경기 중 실시간 입력 |
-| `REVIEW` | 검증 | Under Review | 기록 위원이 정합성 검증 중 |
-| `CONFIRMED` | 확정 | Confirmed | 공식 기록으로 확정 |
-| `REVISED` | 정정 | Revised | 확정 후 오류 발견 시 정정 |
-
-### 적용 대상
-
-기록 상태 관리가 필요한 테이블:
-- HITTER, PITCHER (경기별 기록)
-- SCORE (경기 스코어)
-- GAME_CONT_APP (플레이 상세)
-
-> 컬럼명: `record_status_cd` (`varchar(10)`)
-> 변경 관리 절차는 Phase 5에서 상세 정의 예정 (`governance/change-process.md`).
+> → 참고: [마이그레이션 설계 결정 §4](../migration/design-decisions.md) — record_status_cd 상세 정의
 
 ---
 
@@ -469,13 +444,6 @@ DRAFT → REVIEW → CONFIRMED
 
 ## 부록 C: 미확인 코드 목록
 
-S2i 확인이 필요한 코드값:
+S2i 확인이 필요한 코드값 전체 목록은 마이그레이션 문서에서 관리한다.
 
-| 코드 분류 | 미확인 항목 | 우선순위 |
-|----------|-----------|---------|
-| how_cd | `BH` (14,749건), `IN`, `SD` | **높음** (BH) |
-| place_cd | `R` (1,192건), `A`~`I` | 중간 |
-| game_type_cd | 값 4, 7, 8, 9 | 중간 |
-| series_id | 값 1~9 각 의미 | 중간 |
-| cancel_sc_id | 0 이외 값 목록 | 낮음 |
-| game_sc_id | 70 이외 값 목록 | 낮음 |
+> → 참고: [마이그레이션 설계 결정 §5](../migration/design-decisions.md) — 미확인 코드 목록 및 확인 요청 상태

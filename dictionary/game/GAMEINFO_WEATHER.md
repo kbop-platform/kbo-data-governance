@@ -1,6 +1,6 @@
 # GAMEINFO_WEATHER
 
-> 최종수정: 2026-02-24 | 출처: column-metadata.json
+> 최종수정: 2026-02-25 | 버전: 2 | 출처: column-metadata.json
 
 | 항목 | 값 |
 |------|-----|
@@ -9,6 +9,13 @@
 | 컬럼 수 | 12 |
 | PK | `code, tm` |
 | 스키마 세대 | unknown |
+| 데이터 티어 | Tier 3 — Reference |
+| 데이터 오너 | 기록위원회 (R-03) |
+| 갱신 주기 | 경기 당일 (기상청) |
+| 소비자 | 방송팀 |
+| 데이터 프로덕트 | [일정 관리](../products/schedule.md) |
+| 접근 수준 | Internal |
+| 관련 표준 | [도메인 타입](../../standards/domain-types.md) |
 
 ## 컬럼 상세
 

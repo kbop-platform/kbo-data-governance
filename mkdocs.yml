@@ -1,5 +1,5 @@
-site_name: Data Standards
-site_description: KBO 데이터 표준 및 거버넌스 체계 (RFP DAR-001)
+site_name: KBO Data Catalog
+site_description: KBO 데이터 카탈로그 — 표준, 거버넌스, 마이그레이션 (DAR-001)
 docs_dir: docs
 site_dir: site
 
@@ -52,13 +52,21 @@ extra_javascript:
 extra:
   generator: false
 
-copyright: "&copy; 2026 KBOP Data Biz Team &mdash; Data Standards v1.0 &middot; Confidential"
+copyright: "&copy; 2026 KBOP Data Biz Team &mdash; Data Catalog v2.0 &middot; Confidential"
 
 nav:
   - Home: index.md
   - 프로젝트 가이드: project-guide.md
+  - 데이터 프로덕트:
+    - 경기 요약: dictionary/products/game-summary.md
+    - 실시간 경기: dictionary/products/live-game.md
+    - 선수 프로필: dictionary/products/player-profile.md
+    - 시즌 통계: dictionary/products/season-stats.md
+    - 일정 관리: dictionary/products/schedule.md
+    - 기준 데이터: dictionary/products/master-codes.md
   - 데이터 사전:
     - 테이블 조감도: dictionary/index.md
+    - 데이터 리니지: dictionary/lineage.md
     - 경기 기록:
       - dictionary/game/README.md
       - 01. 경기 정보: dictionary/game/GAMEINFO.md
@@ -119,11 +127,10 @@ nav:
     - 2. 품질 규칙: governance/quality-rules.md
     - 3. 변경 관리 절차: governance/change-process.md
     - 4. 테이블 설계 가이드: governance/table-design-guide.md
-  - 분석 결과:
-    - 1. 테이블 매핑: analysis/table-mapping.md
-    - 2. 컬럼 차이: analysis/column-diff.md
-    - 3. 코드 분석: analysis/code-analysis.md
-    - 4. ID 분석: analysis/id-analysis.md
-    - 5. 네이밍 패턴: analysis/naming-patterns.md
-    - 6. 컬럼 인벤토리: analysis/column-inventory.md
-    - 7. OPS 스키마 요약: analysis/ops-schema-summary.md
+    - 5. 데이터 보안: governance/data-security.md
+    - 6. 재해 복구: governance/disaster-recovery.md
+  - 마이그레이션:
+    - 설계 결정 사항: migration/design-decisions.md
+    - 컬럼 매핑: migration/column-mapping.md
+    - 테이블 매핑: migration/table-mapping.md
+    - 컬럼 차이: migration/column-diff.md

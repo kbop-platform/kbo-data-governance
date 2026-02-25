@@ -1,6 +1,6 @@
 # Pitcher
 
-> 최종수정: 2026-02-24 | 출처: column-metadata.json
+> 최종수정: 2026-02-25 | 버전: 2 | 출처: column-metadata.json
 
 | 항목 | 값 |
 |------|-----|
@@ -9,6 +9,13 @@
 | 컬럼 수 | 36 |
 | PK | `GMKEY, GDAY, PCODE` |
 | 스키마 세대 | legacy |
+| 데이터 티어 | Tier 1 — Critical |
+| 데이터 오너 | 기록위원회 (R-03) |
+| 갱신 주기 | 경기 당일 (S2i 전송) |
+| 소비자 | 기록팀, 통계팀, 외부 API |
+| 데이터 프로덕트 | [경기 요약](../products/game-summary.md) |
+| 접근 수준 | Internal |
+| 관련 표준 | [ID 체계](../../standards/id-system.md), [약어 사전](../../standards/abbreviations.md) |
 
 ## 컬럼 상세
 

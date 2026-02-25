@@ -1,6 +1,6 @@
 # KBO_BATRESULT
 
-> 최종수정: 2026-02-24 | 출처: column-metadata.json
+> 최종수정: 2026-02-25 | 버전: 2 | 출처: column-metadata.json
 
 | 항목 | 값 |
 |------|-----|
@@ -9,6 +9,13 @@
 | 컬럼 수 | 90 |
 | PK | `GMKEY, GDAY, PCODE` |
 | 스키마 세대 | legacy |
+| 데이터 티어 | Tier 2 — Standard |
+| 데이터 오너 | 기록위원회 (R-03) |
+| 갱신 주기 | 경기 당일 (S2i 전송) |
+| 소비자 | 분석팀 |
+| 데이터 프로덕트 | [시즌 통계](../products/season-stats.md) |
+| 접근 수준 | Internal |
+| 관련 표준 | [코드 사전](../../standards/code-dictionary.md) |
 
 ## 컬럼 상세
 

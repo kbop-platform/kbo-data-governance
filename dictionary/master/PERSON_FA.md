@@ -1,6 +1,6 @@
 # PERSON_FA (FA 계약)
 
-> 최종수정: 2026-02-24 | 출처: column-metadata.json
+> 최종수정: 2026-02-25 | 버전: 2 | 출처: column-metadata.json
 
 > **관련 테이블**: [person](./person.md)의 보조 테이블. FA(자유계약) 선수의 연봉·옵션 관리.
 
@@ -11,6 +11,13 @@
 | 컬럼 수 | 4 |
 | PK | `` |
 | 스키마 세대 | legacy |
+| 데이터 티어 | Tier 3 — Reference |
+| 데이터 오너 | 기록위원회 (R-03) |
+| 갱신 주기 | FA 발생 시 수시 |
+| 소비자 | 기록팀, 인사팀 |
+| 데이터 프로덕트 | [선수 프로필](../products/player-profile.md) |
+| 접근 수준 | Restricted |
+| 관련 표준 | [도메인 타입](../../standards/domain-types.md) |
 
 ## 컬럼 상세
 

@@ -1,6 +1,6 @@
 # CANCEL_GAME
 
-> 최종수정: 2026-02-24 | 출처: column-metadata.json
+> 최종수정: 2026-02-25 | 버전: 2 | 출처: column-metadata.json
 
 | 항목 | 값 |
 |------|-----|
@@ -9,6 +9,13 @@
 | 컬럼 수 | 6 |
 | PK | `LE_ID, SR_ID, G_ID` |
 | 스키마 세대 | new |
+| 데이터 티어 | Tier 2 — Standard |
+| 데이터 오너 | 경기운영팀 (R-05) |
+| 갱신 주기 | 발생 즉시 |
+| 소비자 | 운영팀, 방송팀 |
+| 데이터 프로덕트 | [일정 관리](../products/schedule.md) |
+| 접근 수준 | Public |
+| 관련 표준 | [도메인 타입](../../standards/domain-types.md) |
 
 ## 컬럼 상세
 

@@ -1,6 +1,6 @@
 # ID 체계 표준
 
-> 최종수정: 2026-02-24 | 출처: analysis/id-analysis.md, raw/column-metadata.json
+> 최종수정: 2026-02-25 | 출처: analysis/id-analysis.md, raw/column-metadata.json
 
 ## 1. 개요
 
@@ -216,26 +216,10 @@ Hitter, Pitcher 테이블에서 팀 합계행:
 - `PCODE = 'T'`: 원정팀(Top) 합계
 - `PCODE = 'B'`: 홈팀(Bottom) 합계
 
-**표준 처리 방안**:
+현행 시스템에서는 개인 기록과 팀 합계행이 동일 테이블에 혼재.
+마이그레이션 시 분리 방안(A: 별도 테이블 / B: 예약 ID)을 결정해야 한다.
 
-방안 A (**권고**) — 합계행 분리:
-- 합계행을 별도 뷰 또는 집계 테이블로 분리
-- 원본 테이블에는 실제 선수 행만 유지 (player_id NOT NULL)
-- 합계는 쿼리 시 `SUM()` 또는 별도 `GAME_TEAM_TOTAL` 테이블
-
-방안 B — 예약 player_id 사용 (레거시 호환):
-- `player_id`가 PK 구성요소이므로 NULL 불가
-- 예약 ID 할당: `player_id = -1` (원정팀 합계), `player_id = -2` (홈팀 합계)
-- 별도 컬럼 `is_team_total` (`bit`, 기본값 0) 추가
-- 원정/홈 구분은 기존 `top_bottom_cd` 컬럼 활용
-
-| 현행 | player_id | is_team_total | top_bottom_cd | 비고 |
-|------|-----------|---------------|---------------|------|
-| PCODE='T' | -1 | 1 | T | 원정팀 합계 |
-| PCODE='B' | -2 | 1 | B | 홈팀 합계 |
-| PCODE='75847' | 75847 | 0 | T 또는 B | 개인 기록 |
-
-> **방안 A 권고 사유**: 합계행이 개인 기록 테이블에 혼재하면 `AVG()`, `COUNT()` 등 집계 시 이중 집계 위험. 분리가 데이터 품질에 유리.
+> → 참고: [마이그레이션 설계 결정 §3](../migration/design-decisions.md) — 합계행 처리 방안 A/B 상세
 
 ### 5.2 통산 (GYEAR = 9999)
 
