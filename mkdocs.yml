@@ -50,6 +50,8 @@ extra_css:
   - assets/css/custom.css
   - assets/css/ag-grid-kbo.css
   - assets/css/side-panel.css
+  - assets/css/dict-detail.css
+  - assets/css/product-detail.css
   - assets/css/home.css
 
 extra_javascript:
@@ -61,7 +63,8 @@ extra_javascript:
   - assets/js/ag-grid-catalog.js
   - assets/js/ag-grid-instances.js
   - assets/js/ag-grid-glossary.js
-  - assets/js/ag-grid-dictionary.js
+  - assets/js/ag-grid-domain.js
+  - assets/js/ag-grid-codes.js
 
 extra:
   generator: false
@@ -73,9 +76,13 @@ nav:
     - index.md
     - 프로젝트 가이드: project-guide.md
   - Catalog:
-    - 테이블 목록: catalog/instances.md
+    - catalog/instances.md
     - 컬럼 검색: catalog/columns.md
     - 용어 사전: catalog/glossary.md
+    - 도메인 사전: catalog/domains.md
+    - 코드 사전: catalog/codes.md
+  - Dictionary:
+    - dictionary/index.md
     - 데이터 프로덕트:
       - 경기 요약: dictionary/products/game-summary.md
       - 실시간 경기: dictionary/products/live-game.md
@@ -84,8 +91,6 @@ nav:
       - 일정 관리: dictionary/products/schedule.md
       - 기준 데이터: dictionary/products/master-codes.md
     - 데이터 리니지: dictionary/lineage.md
-  - Dictionary:
-    - 테이블 조감도: dictionary/index.md
     - 경기 기록:
       - dictionary/game/README.md
       - 01. 경기 정보: dictionary/game/GAMEINFO.md

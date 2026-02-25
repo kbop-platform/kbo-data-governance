@@ -1,129 +1,213 @@
-# SEASON_PLAYER_PITCHER
+---
+title: SEASON_PLAYER_PITCHER
+---
 
-> 최종수정: 2026-02-25 | 버전: 2 | 출처: column-metadata.json
+<div class="dict-detail-page" markdown>
 
-| 항목 | 값 |
-|------|-----|
-| 대표 DB | `DB1_BASEBALL_2_220328` |
-| 행 수 | 13,306 |
-| 컬럼 수 | 54 |
-| PK | `SEASON_ID, P_ID, SECTION_CD, GROUP_IF` |
-| 스키마 세대 | new |
-| 데이터 티어 | Tier 2 — Standard |
-| 데이터 오너 | 통계분석팀 (R-04) |
-| 갱신 주기 | D+1 (시즌 중) |
-| 소비자 | 통계팀, 외부 API |
-| 데이터 프로덕트 | [시즌 통계](../products/season-stats.md) |
-| 접근 수준 | Internal |
-| 관련 표준 | [도메인 타입](../../standards/domain-types.md) |
+<div class="dict-hero">
+  <div class="dict-hero-badges">
+    <span class="dict-badge badge-domain">통계</span>
+    <span class="dict-badge badge-tier tier-2">Tier 2</span>
+    <span class="dict-badge badge-gen gen-new">신세대</span>
+    <span class="dict-badge badge-access">Internal</span>
+  </div>
+  <div class="dict-hero-title">SEASON_PLAYER_PITCHER</div>
+  <div class="dict-hero-sub">DB1_BASEBALL_2 &middot; PK: SEASON_ID, P_ID, SECTION_CD, GROUP_IF</div>
+</div>
 
-## 컬럼 상세
+<div class="dict-quick-stats">
+  <div class="dict-qs"><div class="dict-qs-val">13,306</div><div class="dict-qs-label">행 수</div></div>
+  <div class="dict-qs"><div class="dict-qs-val">54</div><div class="dict-qs-label">컬럼</div></div>
+  <div class="dict-qs"><div class="dict-qs-val">D+1</div><div class="dict-qs-label">갱신 주기</div></div>
+  <div class="dict-qs"><div class="dict-qs-val">통계분석팀</div><div class="dict-qs-label">오너</div></div>
+</div>
 
-| # | 컬럼명 | 타입 | 길이 | NULL | PK | 설명 | 표준명(안) |
-|---|--------|------|------|------|----|------|------|
-| 3 | `SEASON_ID` | smallint |  | NN | PK | 시즌 ID (연도) | `season_id` |
-| 4 | `P_ID` | int |  | NN | PK | 선수 ID (정수) | `player_id` |
-| 5 | `SECTION_CD` | int |  | NN | PK | 구간 코드 | `section_cd` |
-| 6 | `GROUP_IF` | varchar | 20 | NN | PK | 그룹 여부 | `group_if` |
-| 7 | `ERA_RT` | float |  | NN |  | ERA 비율 | `era_rt` |
-| 8 | `GAME_CN` | int |  | NN |  | GAME 건수 | `game_cn` |
-| 9 | `START_CN` | int |  | NN |  | START 건수 | `start_cn` |
-| 10 | `QUIT_CN` | int |  | NN |  | QUIT 건수 | `quit_cn` |
-| 11 | `W_CN` | int |  | NN |  | W 건수 | `win_cn` |
-| 12 | `START_W_CN` | int |  | NN |  | START_W 건수 | `start_win_cn` |
-| 13 | `RELIEF_W_CN` | int |  | NN |  | RELIEF_W 건수 | `relief_win_cn` |
-| 14 | `L_CN` | int |  | NN |  | L 건수 | `loss_cn` |
-| 15 | `D_CN` | int |  | NN |  | D 건수 | `double_cn` |
-| 16 | `HOLD_CN` | int |  | NN |  | HOLD 건수 | `hld_cn` |
-| 17 | `SV_CN` | int |  | NN |  | SV 건수 | `sv_cn` |
-| 18 | `SHO_CN` | int |  | NN |  | SHO 건수 | `sho_cn` |
-| 19 | `CG_CN` | int |  | NN |  | CG 건수 | `cg_cn` |
-| 20 | `INN2_CN` | int |  | NN |  | 이닝 점수 컬럼 | `ip_cn` |
-| 21 | `WRA_RT` | float |  | NN |  | WRA 비율 | `wrc_rt` |
-| 22 | `PA_CN` | int |  | NN |  | PA 건수 | `pa_cn` |
-| 23 | `AB_CN` | int |  | NN |  | AB 건수 | `ab_cn` |
-| 24 | `PIT_CN` | int |  | NN |  | PIT 건수 | `pitch_cn` |
-| 25 | `R_CN` | int |  | NN |  | R 건수 | `runs_cn` |
-| 26 | `ER_CN` | int |  | NN |  | ER 건수 | `er_cn` |
-| 27 | `HIT_CN` | int |  | NN |  | HIT 건수 | `hit_cn` |
-| 28 | `H2_CN` | int |  | NN |  | H2 건수 | `h2b_cn` |
-| 29 | `H3_CN` | int |  | NN |  | H3 건수 | `h3b_cn` |
-| 30 | `HR_CN` | int |  | NN |  | HR 건수 | `hr_cn` |
-| 31 | `SH_CN` | int |  | NN |  | SH 건수 | `sh_cn` |
-| 32 | `SF_CN` | int |  | NN |  | SF 건수 | `sf_cn` |
-| 33 | `BB_CN` | int |  | NN |  | BB 건수 | `bb_cn` |
-| 34 | `IB_CN` | int |  | NN |  | IB 건수 | `ibb_cn` |
-| 35 | `HP_CN` | int |  | NN |  | HP 건수 | `hbp_cn` |
-| 36 | `BBHP_CN` | int |  | NN |  | BBHP 건수 | `bb_hbp_cn` |
-| 37 | `KK_CN` | int |  | NN |  | KK 건수 | `so_cn` |
-| 38 | `GD_CN` | int |  | NN |  | GD 건수 | `gidp_cn` |
-| 39 | `BK_CN` | int |  | NN |  | BK 건수 | `bk_cn` |
-| 40 | `WP_CN` | int |  | NN |  | WP 건수 | `wp_cn` |
-| 41 | `GO_CN` | int |  | NN |  | GO 건수 | `go_cn` |
-| 42 | `FO_CN` | int |  | NN |  | FO 건수 | `fo_cn` |
-| 43 | `FOGO_RT` | float |  | NN |  | FOGO 비율 | `fo_go_rt` |
-| 46 | `BS_CN` | int |  | NN |  | BS 건수 | `bs_cn` |
-| 47 | `QS_CN` | int |  | NN |  | QS 건수 | `qs_cn` |
-| 48 | `WHIP_RT` | float |  | NN |  | WHIP 비율 | `whip_rt` |
-| 49 | `OAVG_RT` | float |  | NN |  | OAVG 비율 | `opp_avg_rt` |
-| 50 | `OOBP_RT` | float |  | NN |  | OOBP 비율 | `opp_obp_rt` |
-| 51 | `OSLG_RT` | float |  | NN |  | OSLG 비율 | `opp_slg_rt` |
-| 52 | `OOPS_RT` | float |  | NN |  | OOPS 비율 | `opp_ops_rt` |
-| 53 | `BABIP_RT` | float |  | NN |  | BABIP 비율 | `babip_rt` |
-| 54 | `GAME_KK_RT` | float |  | NN |  | GAME_KK 비율 | `game_so_rt` |
-| 55 | `GAME_BB_RT` | float |  | NN |  | GAME_BB 비율 | `game_bb_rt` |
-| 56 | `GAME_PIT_AVG_RT` | float |  | NN |  | GAME_PIT_AVG 비율 | `game_pitch_avg_rt` |
-| 57 | `INN_PIT_AVG_RT` | float |  | NN |  | 이닝 점수 컬럼 | `inn_pitch_avg_rt` |
-| 58 | `BB_KK_RT` | float |  | NN |  | BB_KK 비율 | `bb_so_rt` |
+<div class="dict-info-grid">
+  <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB1_BASEBALL_2_220328</code></span></div>
+  <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>SEASON_ID, P_ID, SECTION_CD, GROUP_IF</code></span></div>
+  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">new (신세대)</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 2 — Standard</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">통계분석팀 (R-04)</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">D+1 (시즌 중)</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">통계팀, 외부 API</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Internal</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[시즌 통계](../products/season-stats.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards/domain-types.md)</span></div>
+</div>
 
-## 코드값 / 고유값
+<div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">54개</span></div>
 
+<div style="overflow-x:auto">
+<table class="dict-col-table"><thead>
+<tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
+</thead><tbody>
+<tr><td class="col-num">3</td><td><span class="col-name">SEASON_ID</span></td><td><span class="col-std">season_id</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시즌 ID (연도)</span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">P_ID</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 ID (정수)</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">SECTION_CD</span></td><td><span class="col-std">section_cd</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">SECTION 코드</span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">GROUP_IF</span></td><td><span class="col-std">group_if</span></td><td><span class="col-type">varchar(20)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">GROUP 여부 (Y/N)</span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">ERA_RT</span></td><td><span class="col-std">era_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">ERA 비율</span></td></tr>
+<tr><td class="col-num">8</td><td><span class="col-name">GAME_CN</span></td><td><span class="col-std">game_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">GAME 건수</span></td></tr>
+<tr><td class="col-num">9</td><td><span class="col-name">START_CN</span></td><td><span class="col-std">start_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">START 건수</span></td></tr>
+<tr><td class="col-num">10</td><td><span class="col-name">QUIT_CN</span></td><td><span class="col-std">quit_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">QUIT 건수</span></td></tr>
+<tr><td class="col-num">11</td><td><span class="col-name">W_CN</span></td><td><span class="col-std">w_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">W 건수</span></td></tr>
+<tr><td class="col-num">12</td><td><span class="col-name">START_W_CN</span></td><td><span class="col-std">start_w_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">START_W 건수</span></td></tr>
+<tr><td class="col-num">13</td><td><span class="col-name">RELIEF_W_CN</span></td><td><span class="col-std">relief_w_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">RELIEF_W 건수</span></td></tr>
+<tr><td class="col-num">14</td><td><span class="col-name">L_CN</span></td><td><span class="col-std">l_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">L 건수</span></td></tr>
+<tr><td class="col-num">15</td><td><span class="col-name">D_CN</span></td><td><span class="col-std">d_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">D 건수</span></td></tr>
+<tr><td class="col-num">16</td><td><span class="col-name">HOLD_CN</span></td><td><span class="col-std">hold_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">HOLD 건수</span></td></tr>
+<tr><td class="col-num">17</td><td><span class="col-name">SV_CN</span></td><td><span class="col-std">sv_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">SV 건수</span></td></tr>
+<tr><td class="col-num">18</td><td><span class="col-name">SHO_CN</span></td><td><span class="col-std">sho_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">SHO 건수</span></td></tr>
+<tr><td class="col-num">19</td><td><span class="col-name">CG_CN</span></td><td><span class="col-std">cg_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">CG 건수</span></td></tr>
+<tr><td class="col-num">20</td><td><span class="col-name">INN2_CN</span></td><td><span class="col-std">inn2_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">INN2 건수</span></td></tr>
+<tr><td class="col-num">21</td><td><span class="col-name">WRA_RT</span></td><td><span class="col-std">wra_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">WRA 비율</span></td></tr>
+<tr><td class="col-num">22</td><td><span class="col-name">PA_CN</span></td><td><span class="col-std">pa_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">PA 건수</span></td></tr>
+<tr><td class="col-num">23</td><td><span class="col-name">AB_CN</span></td><td><span class="col-std">ab_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">AB 건수</span></td></tr>
+<tr><td class="col-num">24</td><td><span class="col-name">PIT_CN</span></td><td><span class="col-std">pit_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">PIT 건수</span></td></tr>
+<tr><td class="col-num">25</td><td><span class="col-name">R_CN</span></td><td><span class="col-std">r_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">R 건수</span></td></tr>
+<tr><td class="col-num">26</td><td><span class="col-name">ER_CN</span></td><td><span class="col-std">er_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">ER 건수</span></td></tr>
+<tr><td class="col-num">27</td><td><span class="col-name">HIT_CN</span></td><td><span class="col-std">hit_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">HIT 건수</span></td></tr>
+<tr><td class="col-num">28</td><td><span class="col-name">H2_CN</span></td><td><span class="col-std">h2_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">H2 건수</span></td></tr>
+<tr><td class="col-num">29</td><td><span class="col-name">H3_CN</span></td><td><span class="col-std">h3_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">H3 건수</span></td></tr>
+<tr><td class="col-num">30</td><td><span class="col-name">HR_CN</span></td><td><span class="col-std">hr_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">HR 건수</span></td></tr>
+<tr><td class="col-num">31</td><td><span class="col-name">SH_CN</span></td><td><span class="col-std">sh_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">SH 건수</span></td></tr>
+<tr><td class="col-num">32</td><td><span class="col-name">SF_CN</span></td><td><span class="col-std">sf_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">SF 건수</span></td></tr>
+<tr><td class="col-num">33</td><td><span class="col-name">BB_CN</span></td><td><span class="col-std">bb_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">BB 건수</span></td></tr>
+<tr><td class="col-num">34</td><td><span class="col-name">IB_CN</span></td><td><span class="col-std">ib_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">IB 건수</span></td></tr>
+<tr><td class="col-num">35</td><td><span class="col-name">HP_CN</span></td><td><span class="col-std">hp_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">HP 건수</span></td></tr>
+<tr><td class="col-num">36</td><td><span class="col-name">BBHP_CN</span></td><td><span class="col-std">bbhp_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">BBHP 건수</span></td></tr>
+<tr><td class="col-num">37</td><td><span class="col-name">KK_CN</span></td><td><span class="col-std">kk_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">KK 건수</span></td></tr>
+<tr><td class="col-num">38</td><td><span class="col-name">GD_CN</span></td><td><span class="col-std">gd_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">GD 건수</span></td></tr>
+<tr><td class="col-num">39</td><td><span class="col-name">BK_CN</span></td><td><span class="col-std">bk_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">BK 건수</span></td></tr>
+<tr><td class="col-num">40</td><td><span class="col-name">WP_CN</span></td><td><span class="col-std">wp_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">WP 건수</span></td></tr>
+<tr><td class="col-num">41</td><td><span class="col-name">GO_CN</span></td><td><span class="col-std">go_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">GO 건수</span></td></tr>
+<tr><td class="col-num">42</td><td><span class="col-name">FO_CN</span></td><td><span class="col-std">fo_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">FO 건수</span></td></tr>
+<tr><td class="col-num">43</td><td><span class="col-name">FOGO_RT</span></td><td><span class="col-std">fogo_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">FOGO 비율</span></td></tr>
+<tr><td class="col-num">46</td><td><span class="col-name">BS_CN</span></td><td><span class="col-std">bs_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">BS 건수</span></td></tr>
+<tr><td class="col-num">47</td><td><span class="col-name">QS_CN</span></td><td><span class="col-std">qs_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">QS 건수</span></td></tr>
+<tr><td class="col-num">48</td><td><span class="col-name">WHIP_RT</span></td><td><span class="col-std">whip_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">WHIP 비율</span></td></tr>
+<tr><td class="col-num">49</td><td><span class="col-name">OAVG_RT</span></td><td><span class="col-std">oavg_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">OAVG 비율</span></td></tr>
+<tr><td class="col-num">50</td><td><span class="col-name">OOBP_RT</span></td><td><span class="col-std">oobp_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">OOBP 비율</span></td></tr>
+<tr><td class="col-num">51</td><td><span class="col-name">OSLG_RT</span></td><td><span class="col-std">oslg_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">OSLG 비율</span></td></tr>
+<tr><td class="col-num">52</td><td><span class="col-name">OOPS_RT</span></td><td><span class="col-std">oops_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">OOPS 비율</span></td></tr>
+<tr><td class="col-num">53</td><td><span class="col-name">BABIP_RT</span></td><td><span class="col-std">babip_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">BABIP 비율</span></td></tr>
+<tr><td class="col-num">54</td><td><span class="col-name">GAME_KK_RT</span></td><td><span class="col-std">game_kk_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">GAME_KK 비율</span></td></tr>
+<tr><td class="col-num">55</td><td><span class="col-name">GAME_BB_RT</span></td><td><span class="col-std">game_bb_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">GAME_BB 비율</span></td></tr>
+<tr><td class="col-num">56</td><td><span class="col-name">GAME_PIT_AVG_RT</span></td><td><span class="col-std">game_pit_avg_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">GAME_PIT_AVG 비율</span></td></tr>
+<tr><td class="col-num">57</td><td><span class="col-name">INN_PIT_AVG_RT</span></td><td><span class="col-std">inn_pit_avg_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">INN_PIT_AVG 비율</span></td></tr>
+<tr><td class="col-num">58</td><td><span class="col-name">BB_KK_RT</span></td><td><span class="col-std">bb_kk_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">BB_KK 비율</span></td></tr>
+</tbody></table>
+</div>
 
-### `SEASON_ID`
+<div class="dict-section-hdr"><h2>코드값 / 고유값</h2><span class="dict-section-count">4개 컬럼</span></div>
 
-→ 고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조
+<div class="dict-codes-section">
+<details class="dict-code-group">
+<summary><code>SEASON_ID</code><span class="code-desc"> — 시즌 ID</span></summary>
+<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+</details>
+<details class="dict-code-group">
+<summary><code>P_ID</code><span class="code-desc"> — 선수 ID</span></summary>
+<div class="code-ref">선수 식별자 — [선수 마스터(person)](../master/person.md) 참조</div>
+</details>
+<details class="dict-code-group" open>
+<summary><code>SECTION_CD</code><span class="code-desc"> — SECTION 코드</span></summary>
+<div class="code-body">
+<table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
+<tr><td>1</td><td>7,675</td></tr>
+<tr><td>2</td><td>5,631</td></tr>
+</tbody></table>
+</div>
+</details>
+<details class="dict-code-group">
+<summary><code>GROUP_IF</code><span class="code-desc"> — GROUP 여부</span></summary>
+<div class="code-body">
+<table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
+<tr><td>LG</td><td>657</td></tr>
+<tr><td>HH</td><td>652</td></tr>
+<tr><td>HT</td><td>639</td></tr>
+<tr><td>SK</td><td>617</td></tr>
+<tr><td>LT</td><td>616</td></tr>
+<tr><td>OB</td><td>616</td></tr>
+<tr><td>SS</td><td>587</td></tr>
+<tr><td>WO</td><td>461</td></tr>
+<tr><td>NC</td><td>351</td></tr>
+<tr><td>2021</td><td>308</td></tr>
+<tr><td>2024</td><td>291</td></tr>
+<tr><td>KT</td><td>289</td></tr>
+<tr><td>2023</td><td>285</td></tr>
+<tr><td>2020</td><td>283</td></tr>
+<tr><td>2025</td><td>281</td></tr>
+<tr><td>2022</td><td>281</td></tr>
+<tr><td>2018</td><td>260</td></tr>
+<tr><td>2019</td><td>257</td></tr>
+<tr><td>2016</td><td>250</td></tr>
+<tr><td>2015</td><td>244</td></tr>
+</tbody></table>
+</div>
+</details>
+</div>
 
+<div class="dict-section-hdr"><h2>샘플 데이터</h2><span class="dict-section-count">상위 3건</span></div>
 
+<div class="dict-sample-section">
+<table class="dict-sample-table"><thead>
+<tr><th>컬럼</th><th>값 1</th><th>값 2</th><th>값 3</th></tr>
+</thead><tbody>
+<tr><td>SEASON_ID</td><td>1982</td><td>1982</td><td>1982</td></tr>
+<tr><td>P_ID</td><td>10082</td><td>80620</td><td>82003</td></tr>
+<tr><td>SECTION_CD</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>GROUP_IF</td><td>1982</td><td>1982</td><td>1982</td></tr>
+<tr><td>ERA_RT</td><td>3.85714</td><td>2.46927</td><td>3.3913</td></tr>
+<tr><td>GAME_CN</td><td>27</td><td>48</td><td>27</td></tr>
+<tr><td>START_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>QUIT_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>W_CN</td><td>6</td><td>15</td><td>7</td></tr>
+<tr><td>START_W_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>RELIEF_W_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>L_CN</td><td>5</td><td>11</td><td>6</td></tr>
+<tr><td>D_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>HOLD_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>SV_CN</td><td>3</td><td>11</td><td>0</td></tr>
+<tr><td>SHO_CN</td><td>0</td><td>2</td><td>1</td></tr>
+<tr><td>CG_CN</td><td>2</td><td>8</td><td>6</td></tr>
+<tr><td>INN2_CN</td><td>259</td><td>667</td><td>414</td></tr>
+<tr><td>WRA_RT</td><td>0.5454545454545454</td><td>0.5769230769230769</td><td>0.5384615384615384</td></tr>
+<tr><td>PA_CN</td><td>365</td><td>864</td><td>566</td></tr>
+<tr><td>AB_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>PIT_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>R_CN</td><td>43</td><td>78</td><td>64</td></tr>
+<tr><td>ER_CN</td><td>37</td><td>61</td><td>52</td></tr>
+<tr><td>HIT_CN</td><td>76</td><td>189</td><td>139</td></tr>
+<tr><td>H2_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>H3_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>HR_CN</td><td>12</td><td>11</td><td>8</td></tr>
+<tr><td>SH_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>SF_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>BB_CN</td><td>37</td><td>34</td><td>31</td></tr>
+<tr><td>IB_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>HP_CN</td><td>11</td><td>6</td><td>4</td></tr>
+<tr><td>BBHP_CN</td><td>48</td><td>40</td><td>35</td></tr>
+<tr><td>KK_CN</td><td>42</td><td>99</td><td>65</td></tr>
+<tr><td>GD_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>BK_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>WP_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>GO_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>FO_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>FOGO_RT</td><td>0.0</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>BS_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>QS_CN</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>WHIP_RT</td><td>0.0</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>OAVG_RT</td><td>0.0</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>OOBP_RT</td><td>0.0</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>OSLG_RT</td><td>0.0</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>OOPS_RT</td><td>0.0</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>BABIP_RT</td><td>0.0</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>GAME_KK_RT</td><td>0.0</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>GAME_BB_RT</td><td>0.0</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>GAME_PIT_AVG_RT</td><td>0.0</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>INN_PIT_AVG_RT</td><td>0.0</td><td>0.0</td><td>0.0</td></tr>
+<tr><td>BB_KK_RT</td><td>0.0</td><td>0.0</td><td>0.0</td></tr>
+</tbody></table>
+</div>
 
-### `P_ID`
-
-→ 선수 식별자 — [선수 마스터(person)](../master/person.md) 참조
-
-
-
-### `SECTION_CD`
-
-| 값 | 건수 |
-|-----|------|
-| `1` | 7,675 |
-| `2` | 5,631 |
-
-
-
-### `GROUP_IF`
-
-| 값 | 건수 |
-|-----|------|
-| `LG` | 657 |
-| `HH` | 652 |
-| `HT` | 639 |
-| `SK` | 617 |
-| `LT` | 616 |
-
-> 외 15건 — 전체 목록은 `raw/column-metadata.json` 참조
-
-
-## 샘플 데이터
-
-| 컬럼 | 샘플 |
-|------|------|
-| `SEASON_ID` | `1982`, `1982`, `1982` |
-| `P_ID` | `10082`, `80620`, `82003` |
-| `SECTION_CD` | `1`, `1`, `1` |
-| `GROUP_IF` | `1982`, `1982`, `1982` |
-| `ERA_RT` | `3.85714`, `2.46927`, `3.3913` |
-| `GAME_CN` | `27`, `48`, `27` |
-| `START_CN` | `0`, `0`, `0` |
-| `QUIT_CN` | `0`, `0`, `0` |
-| `W_CN` | `6`, `15`, `7` |
-| `START_W_CN` | `0`, `0`, `0` |
+</div>

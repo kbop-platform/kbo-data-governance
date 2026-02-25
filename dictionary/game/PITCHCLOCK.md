@@ -1,123 +1,167 @@
-# PITCHCLOCK
+---
+title: PITCHCLOCK
+---
 
-> 최종수정: 2026-02-25 | 버전: 2 | 출처: column-metadata.json
+<div class="dict-detail-page" markdown>
 
-| 항목 | 값 |
-|------|-----|
-| 대표 DB | `DB2_BASEBALL_220328` |
-| 행 수 | 215 |
-| 컬럼 수 | 19 |
-| PK | `GMKEY, GYEAR, GDAY, LIVETEXT` |
-| 스키마 세대 | legacy |
-| 데이터 티어 | Tier 3 — Reference |
-| 데이터 오너 | 기록위원회 (R-03) |
-| 갱신 주기 | 경기 당일 (S2i 전송) |
-| 소비자 | 기록팀 |
-| 데이터 프로덕트 | [경기 요약](../products/game-summary.md) |
-| 접근 수준 | Internal |
-| 관련 표준 | [도메인 타입](../../standards/domain-types.md) |
+<div class="dict-hero">
+  <div class="dict-hero-badges">
+    <span class="dict-badge badge-domain">경기 기록</span>
+    <span class="dict-badge badge-tier tier-3">Tier 3</span>
+    <span class="dict-badge badge-gen gen-legacy">구세대</span>
+    <span class="dict-badge badge-access">Internal</span>
+  </div>
+  <div class="dict-hero-title">PITCHCLOCK</div>
+  <div class="dict-hero-sub">DB2_BASEBALL &middot; PK: GMKEY, GYEAR, GDAY, LIVETEXT</div>
+</div>
 
-## 컬럼 상세
+<div class="dict-quick-stats">
+  <div class="dict-qs"><div class="dict-qs-val">215</div><div class="dict-qs-label">행 수</div></div>
+  <div class="dict-qs"><div class="dict-qs-val">19</div><div class="dict-qs-label">컬럼</div></div>
+  <div class="dict-qs"><div class="dict-qs-val">경기 당일</div><div class="dict-qs-label">갱신 주기</div></div>
+  <div class="dict-qs"><div class="dict-qs-val">기록위원회</div><div class="dict-qs-label">오너</div></div>
+</div>
 
-| # | 컬럼명 | 타입 | 길이 | NULL | PK | 설명 | 표준명(안) |
-|---|--------|------|------|------|----|------|------|
-| 1 | `GMKEY` | char | 13 | NN | PK | 경기 고유키 (YYYYMMDDVVHH#, 13자리) | `game_id` |
-| 2 | `GYEAR` | smallint |  | NN | PK | 시즌 연도 (4자리, "9999"=통산) | `season_yr` |
-| 3 | `GDAY` | char | 8 | NN | PK | 경기 일자 (YYYYMMDD) | `game_dt` |
-| 4 | `STADIUM` | nvarchar | 40 |  |  | 구장 | `stadium_nm` |
-| 5 | `VTEAM` | nvarchar | 4 | NN |  | 원정팀 코드 | `away_team_cd` |
-| 6 | `HTEAM` | nvarchar | 4 | NN |  | 홈팀 코드 | `home_team_cd` |
-| 7 | `HITNAME` | varchar | 15 |  |  | 타자 이름 (EUC-KR) | `hitter_nm` |
-| 8 | `HITTER` | varchar | 15 |  |  | 타자 선수 코드 | `hitter_nm` |
-| 9 | `PITNAME` | varchar | 15 |  |  | 투수 이름 (EUC-KR) | `pitcher_nm` |
-| 10 | `PITCHER` | varchar | 15 |  |  | 투수 선수 코드 | `pitcher_nm` |
-| 11 | `CATNAME` | varchar | 15 |  |  | 포수 이름 (EUC-KR) | `catcher_nm` |
-| 12 | `CATCHER` | varchar | 15 |  |  | 포수 선수 코드 | `catcher_id` |
-| 13 | `TEAM` | nvarchar | 4 | NN |  | 팀 코드 (2자리, HH=키움, HT=KIA 등) | `team_cd` |
-| 14 | `NAME` | varchar | 15 |  |  | 선수명 (varchar=EUC-KR 깨짐 가능) | `player_nm` |
-| 15 | `PCODE` | varchar | 15 |  |  | 선수 코드 (5~6자리 숫자 문자열) | `player_id` |
-| 16 | `PITCHCLOCK` | varchar | 15 |  |  | 피치클락 위반 코드 | `pitch_clock_cd` |
-| 17 | `LIVETEXT` | varchar | 200 | NN | PK | 실시간 문자 중계 텍스트 | `live_text` |
-| 18 | `RUNNER` | varchar | 10 |  |  | 주자 상태 코드 | `runner_cd` |
-| 19 | `DETAIL` | varchar | 20 |  |  | 상세 내용 | `detail_nm` |
+<div class="dict-info-grid">
+  <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB2_BASEBALL_220328</code></span></div>
+  <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>GMKEY, GYEAR, GDAY, LIVETEXT</code></span></div>
+  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">legacy (구세대)</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 — Reference</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">기록위원회 (R-03)</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">경기 당일 (S2i 전송)</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">기록팀</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Internal</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[경기 요약](../products/game-summary.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards/domain-types.md)</span></div>
+</div>
 
-## 코드값 / 고유값
+<div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">19개</span></div>
 
-> **EUC-KR 참고**: `RUNNER` 등 varchar 컬럼의 한글 데이터가 EUC-KR 인코딩으로 깨져 표시됨. nvarchar 전환은 마이그레이션 시 처리.
+<div class="dict-encoding-warn">`RUNNER` 등 varchar 컬럼의 한글 데이터가 EUC-KR 인코딩으로 깨져 표시됨. nvarchar 전환은 마이그레이션 시 처리.</div>
 
+<div style="overflow-x:auto">
+<table class="dict-col-table"><thead>
+<tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
+</thead><tbody>
+<tr><td class="col-num">1</td><td><span class="col-name">GMKEY</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 고유키 (YYYYMMDDVVHH#, 유효 13자리; 현행 DB char(15), 표준 char(13) 전환 대상)</span></td></tr>
+<tr><td class="col-num">2</td><td><span class="col-name">GYEAR</span></td><td><span class="col-std">season_yr</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시즌 연도 (4자리, &quot;9999&quot;=통산)</span></td></tr>
+<tr><td class="col-num">3</td><td><span class="col-name">GDAY</span></td><td><span class="col-std">game_dt</span></td><td><span class="col-type">char(8)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 일자 (YYYYMMDD)</span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">STADIUM</span></td><td><span class="col-std">stadium_nm</span></td><td><span class="col-type">nvarchar(40)</span></td><td></td><td></td><td><span class="col-desc">구장</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">VTEAM</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(4)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">HTEAM</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(4)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">HITNAME</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(15)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">8</td><td><span class="col-name">HITTER</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(15)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">9</td><td><span class="col-name">PITNAME</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(15)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">10</td><td><span class="col-name">PITCHER</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(15)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">11</td><td><span class="col-name">CATNAME</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(15)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">12</td><td><span class="col-name">CATCHER</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(15)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">13</td><td><span class="col-name">TEAM</span></td><td><span class="col-std">team_cd</span></td><td><span class="col-type">nvarchar(4)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">팀 코드 (2자리, HH=키움, HT=KIA 등)</span></td></tr>
+<tr><td class="col-num">14</td><td><span class="col-name">NAME</span></td><td><span class="col-std">player_nm</span></td><td><span class="col-type">varchar(15)</span></td><td></td><td></td><td><span class="col-desc">선수명 (varchar=EUC-KR 깨짐 가능)</span></td></tr>
+<tr><td class="col-num">15</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(15)</span></td><td></td><td></td><td><span class="col-desc">선수 코드 (5~6자리 숫자 문자열)</span></td></tr>
+<tr><td class="col-num">16</td><td><span class="col-name">PITCHCLOCK</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(15)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">17</td><td><span class="col-name">LIVETEXT</span></td><td><span class="col-std">live_text_nm</span></td><td><span class="col-type">varchar(200)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">실시간 문자 중계 텍스트</span></td></tr>
+<tr><td class="col-num">18</td><td><span class="col-name">RUNNER</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(10)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">19</td><td><span class="col-name">DETAIL</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(20)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+</tbody></table>
+</div>
 
-### `GYEAR`
+<div class="dict-section-hdr"><h2>코드값 / 고유값</h2><span class="dict-section-count">6개 컬럼</span></div>
 
-| 값 | 건수 |
-|-----|------|
-| `2025` | 215 |
+<div class="dict-codes-section">
+<details class="dict-code-group" open>
+<summary><code>GYEAR</code><span class="code-desc"> — 시즌 연도</span></summary>
+<div class="code-body">
+<table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
+<tr><td>2025</td><td>215</td></tr>
+</tbody></table>
+</div>
+</details>
+<details class="dict-code-group">
+<summary><code>GDAY</code><span class="code-desc"> — 경기 일자</span></summary>
+<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+</details>
+<details class="dict-code-group">
+<summary><code>VTEAM</code><span class="code-desc"> — </span></summary>
+<div class="code-body">
+<table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
+<tr><td>WO</td><td>31</td></tr>
+<tr><td>HT</td><td>28</td></tr>
+<tr><td>OB</td><td>26</td></tr>
+<tr><td>LT</td><td>26</td></tr>
+<tr><td>HH</td><td>25</td></tr>
+<tr><td>SS</td><td>17</td></tr>
+<tr><td>SK</td><td>17</td></tr>
+<tr><td>NC</td><td>16</td></tr>
+<tr><td>LG</td><td>14</td></tr>
+<tr><td>KT</td><td>14</td></tr>
+<tr><td>키움</td><td>1</td></tr>
+</tbody></table>
+</div>
+</details>
+<details class="dict-code-group" open>
+<summary><code>HTEAM</code><span class="code-desc"> — </span></summary>
+<div class="code-body">
+<table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
+<tr><td>SK</td><td>29</td></tr>
+<tr><td>HT</td><td>26</td></tr>
+<tr><td>LT</td><td>24</td></tr>
+<tr><td>OB</td><td>23</td></tr>
+<tr><td>WO</td><td>23</td></tr>
+<tr><td>SS</td><td>20</td></tr>
+<tr><td>KT</td><td>19</td></tr>
+<tr><td>HH</td><td>19</td></tr>
+<tr><td>NC</td><td>16</td></tr>
+<tr><td>LG</td><td>16</td></tr>
+</tbody></table>
+</div>
+</details>
+<details class="dict-code-group">
+<summary><code>TEAM</code><span class="code-desc"> — 팀 코드</span></summary>
+<div class="code-ref">팀 식별자 — [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
+</details>
+<details class="dict-code-group" open>
+<summary><code>RUNNER</code><span class="code-desc"> — </span></summary>
+<div class="code-body">
+<table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
+<tr><td>X</td><td>70</td></tr>
+<tr><td>1</td><td>48</td></tr>
+<tr><td>12</td><td>37</td></tr>
+<tr><td>2</td><td>27</td></tr>
+<tr><td>123</td><td>12</td></tr>
+<tr><td>3</td><td>11</td></tr>
+<tr><td>23</td><td>7</td></tr>
+<tr><td>13</td><td>3</td></tr>
+</tbody></table>
+</div>
+</details>
+</div>
 
+<div class="dict-section-hdr"><h2>샘플 데이터</h2><span class="dict-section-count">상위 3건</span></div>
 
+<div class="dict-sample-section">
+<table class="dict-sample-table"><thead>
+<tr><th>컬럼</th><th>값 1</th><th>값 2</th><th>값 3</th></tr>
+</thead><tbody>
+<tr><td>GMKEY</td><td>20250322HHKT0</td><td>20250323WOSS0</td><td>20250323WOSS0</td></tr>
+<tr><td>GYEAR</td><td>2025</td><td>2025</td><td>2025</td></tr>
+<tr><td>GDAY</td><td>20250322</td><td>20250323</td><td>20250323</td></tr>
+<tr><td>STADIUM</td><td>수원</td><td>대구</td><td>대구</td></tr>
+<tr><td>VTEAM</td><td>HH</td><td>WO</td><td>WO</td></tr>
+<tr><td>HTEAM</td><td>KT</td><td>SS</td><td>SS</td></tr>
+<tr><td>HITNAME</td><td>¹®»óÃ¶</td><td>±èÁöÂù</td><td>±è¿µ¿õ</td></tr>
+<tr><td>HITTER</td><td>64007</td><td>50458</td><td>52430</td></tr>
+<tr><td>PITNAME</td><td>Æù¼¼</td><td>ÇÏ¿µ¹Î</td><td>±è¼±±â</td></tr>
+<tr><td>PITCHER</td><td>55730</td><td>64350</td><td>66018</td></tr>
+<tr><td>CATNAME</td><td>ÃÖÀçÈÆ</td><td>±èµ¿Çå</td><td>±èµ¿Çå</td></tr>
+<tr><td>CATCHER</td><td>78288</td><td>53344</td><td>53344</td></tr>
+<tr><td>TEAM</td><td>HH</td><td>WO</td><td>WO</td></tr>
+<tr><td>NAME</td><td>Æù¼¼</td><td>ÇÏ¿µ¹Î</td><td>±è¼±±â</td></tr>
+<tr><td>PCODE</td><td>55730</td><td>64350</td><td>66018</td></tr>
+<tr><td>PITCHCLOCK</td><td>Åõ¼ö À§¹Ý</td><td>Åõ¼ö À§¹Ý</td><td>Åõ¼ö À§¹Ý</td></tr>
+<tr><td>LIVETEXT</td><td>3È¸¸» 6¹øÅ¸¼ø ÃÊ±¸ Àü ÇÇÄ¡Å¬¶ô Åõ¼öÀ§¹Ý : ÇÑÈ­ Æù¼¼</td><td>1È¸¸» 1¹øÅ¸¼ø 2±¸ ÈÄ ÇÇÄ¡Å¬¶ô Åõ¼öÀ§¹Ý : Å°¿ò ÇÏ¿µ¹Î</td><td>7È¸¸» 8¹øÅ¸¼ø 3±¸ ÈÄ ÇÇÄ¡Å¬¶ô Åõ¼öÀ§¹Ý : Å°¿ò ±è¼±±â</td></tr>
+<tr><td>RUNNER</td><td>12</td><td>X</td><td>X</td></tr>
+<tr><td>DETAIL</td><td>Å¸¼®°£ 33ÃÊ</td><td>Åõ±¸°£(ÁÖÀÚX) 20ÃÊ</td><td>Åõ±¸°£(ÁÖÀÚX) 20ÃÊ</td></tr>
+</tbody></table>
+</div>
 
-### `GDAY`
-
-→ 고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조
-
-
-
-### `VTEAM`
-
-| 값 | 건수 |
-|-----|------|
-| `WO` | 31 |
-| `HT` | 28 |
-| `OB` | 26 |
-| `LT` | 26 |
-| `HH` | 25 |
-
-> 외 6건 — 전체 목록은 `raw/column-metadata.json` 참조
-
-
-
-### `HTEAM`
-
-| 값 | 건수 |
-|-----|------|
-| `SK` | 29 |
-| `HT` | 26 |
-| `LT` | 24 |
-| `OB` | 23 |
-| `WO` | 23 |
-
-> 외 5건 — 전체 목록은 `raw/column-metadata.json` 참조
-
-
-
-### `TEAM`
-
-→ 팀 식별자 — [팀 마스터(TEAM)](../master/TEAM.md) 참조
-
-
-
-### `RUNNER`
-
-| 값 | 건수 |
-|-----|------|
-| `X` | 70 |
-| `1` | 48 |
-| `12` | 37 |
-| `2` | 27 |
-| `123` | 12 |
-
-> 외 3건 — 전체 목록은 `raw/column-metadata.json` 참조
-
-
-## 샘플 데이터
-
-| 컬럼 | 샘플 |
-|------|------|
-| `GMKEY` | `20250322HHKT0`, `20250323WOSS0`, `20250323WOSS0` |
-| `GYEAR` | `2025`, `2025`, `2025` |
-| `GDAY` | `20250322`, `20250323`, `20250323` |
-| `STADIUM` | `수원`, `대구`, `대구` |
-| `VTEAM` | `HH`, `WO`, `WO` |
-| `HTEAM` | `KT`, `SS`, `SS` |
-| `HITNAME` | `¹®»óÃ¶`, `±èÁöÂù`, `±è¿µ¿õ` |
-| `HITTER` | `64007`, `50458`, `52430` |
-| `PITNAME` | `Æù¼¼`, `ÇÏ¿µ¹Î`, `±è¼±±â` |
-| `PITCHER` | `55730`, `64350`, `66018` |
+</div>

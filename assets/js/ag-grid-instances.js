@@ -426,12 +426,21 @@
 
   function loadDictData() {
     if (dictDataCache) return Promise.resolve(dictDataCache);
-    return fetch(getBaseUrl() + "assets/data/dictionary-tables.json")
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        dictDataCache = data.rows || [];
-        return dictDataCache;
+    return loadColumnData().then(function (cols) {
+      var map = {};
+      cols.forEach(function (c) {
+        var key = c.table_name;
+        if (!map[key]) map[key] = { table_name: key, columns: [] };
+        map[key].columns.push({
+          name: c.column_name,
+          type: c.data_type,
+          pk: c.is_pk === "PK" ? "PK" : "",
+          desc: c.description || ""
+        });
       });
+      dictDataCache = Object.values(map);
+      return dictDataCache;
+    });
   }
 
   /* ── 사이드 패널 ── */

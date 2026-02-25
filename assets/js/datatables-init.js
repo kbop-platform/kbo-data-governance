@@ -8,6 +8,13 @@ document$.subscribe(function () {
     // 이미 초기화된 테이블 스킵
     if ($.fn.dataTable.isDataTable(table)) return;
 
+    // Dictionary·Product·Lineage 전용 테이블 스킵
+    if (table.closest(".dict-detail-page, .product-page, .lineage-page")) return;
+    if (table.classList.contains("dict-col-table") ||
+        table.classList.contains("dict-code-table") ||
+        table.classList.contains("dict-sample-table") ||
+        table.classList.contains("product-table")) return;
+
     // 행 5개 미만이면 스킵 (thead 제외)
     var bodyRows = table.querySelectorAll("tbody tr");
     if (bodyRows.length < 5) return;

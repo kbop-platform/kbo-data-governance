@@ -1,0 +1,281 @@
+/* ══════════════════════════════════════════
+   Data Product & Lineage Pages
+   실무 스타일 — 간결, 밀도, 가독성
+   ══════════════════════════════════════════ */
+
+.product-page h1,
+.lineage-page h1 { display: none; }
+
+/* ── 히어로 ── */
+.product-hero {
+  background: #1a2332;
+  color: #fff;
+  padding: 20px 24px 18px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+.product-hero-badges { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+.p-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+}
+.p-badge-product { background: rgba(255,255,255,0.15); color: #ccc; }
+.product-hero-title { font-size: 24px; font-weight: 700; margin: 0; }
+.product-hero-sub {
+  font-size: 13px;
+  font-family: "JetBrains Mono", monospace;
+  color: rgba(255,255,255,0.35);
+  margin-top: 2px;
+}
+.product-hero-desc {
+  font-size: 14px; color: rgba(255,255,255,0.6);
+  margin-top: 8px; line-height: 1.5;
+}
+
+/* ── 퀵 스탯 ── */
+.product-stats {
+  display: flex; gap: 8px;
+  margin-bottom: 20px; flex-wrap: wrap;
+}
+.product-stat {
+  flex: 1 1 100px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px 12px;
+  text-align: center;
+  min-width: 80px;
+}
+.product-stat-val {
+  font-size: 17px; font-weight: 700;
+  color: #222;
+  font-family: "JetBrains Mono", monospace;
+}
+.product-stat-label {
+  font-size: 11px; color: #888;
+  font-weight: 500; margin-top: 2px;
+}
+
+/* ── 섹션 ── */
+.product-section { margin-bottom: 24px; }
+.product-section-hdr {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ccc;
+}
+.product-section-hdr h2 {
+  font-size: 16px; font-weight: 700;
+  color: #222; margin: 0;
+}
+.product-section-count {
+  font-size: 12px; font-weight: 600;
+  color: #888;
+}
+
+/* ── 테이블 공통 ── */
+.product-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 14px;
+  border: 1px solid #ddd;
+}
+.product-table th {
+  background: #f5f5f5; color: #333;
+  font-size: 13px; font-weight: 700;
+  padding: 8px 12px; text-align: left;
+  border-bottom: 2px solid #ccc;
+}
+.product-table td {
+  padding: 7px 12px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+.product-table tbody tr:hover { background: #fafafa; }
+.product-table tbody tr:last-child td { border-bottom: none; }
+.product-table .tbl-name {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px; font-weight: 700;
+}
+.product-table .tbl-name a { color: #2563eb; text-decoration: none; }
+.product-table .tbl-name a:hover { text-decoration: underline; }
+.tier-badge {
+  display: inline-block;
+  font-size: 11px; font-weight: 700;
+  padding: 1px 6px; border-radius: 3px;
+}
+.tier-badge.t1 { background: #fee2e2; color: #991b1b; }
+.tier-badge.t2 { background: #fef3c7; color: #92400e; }
+.tier-badge.t3 { background: #ecfccb; color: #3f6212; }
+
+/* ── 조인 관계 ── */
+.product-join {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 14px 18px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-x: auto;
+  color: #333;
+  white-space: pre;
+}
+.product-join .join-root { font-weight: 700; color: #1a2332; }
+.product-join .join-key { color: #888; font-size: 12px; }
+
+/* ── 소비자 ── */
+.product-consumers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+@media (max-width: 600px) {
+  .product-consumers { grid-template-columns: 1fr; }
+}
+.product-consumer {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px 14px;
+  background: #fff;
+}
+.product-consumer-icon { display: none; }
+.product-consumer-name { font-weight: 700; font-size: 14px; color: #222; }
+.product-consumer-use { font-size: 13px; color: #666; margin-top: 2px; }
+
+/* ── SLA ── */
+.product-sla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+}
+.product-sla-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px 14px;
+  background: #fff;
+}
+.product-sla-metric { font-size: 11px; color: #888; font-weight: 700; margin-bottom: 4px; }
+.product-sla-target { font-size: 14px; font-weight: 600; color: #222; line-height: 1.4; }
+
+/* ── 데이터 흐름 ── */
+.product-flow {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 16px;
+  overflow-x: auto;
+}
+
+/* ── 관련 표준 ── */
+.product-refs { display: flex; flex-direction: column; gap: 6px; }
+.product-ref {
+  display: block;
+  padding: 8px 14px;
+  border-left: 3px solid #2563eb;
+  background: #f8f9fb;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+.product-ref:hover { background: #eff3ff; }
+.product-ref-icon { display: none; }
+.product-ref-body { }
+.product-ref-title { font-weight: 700; font-size: 14px; color: #2563eb; }
+.product-ref-desc { font-size: 13px; color: #666; margin-top: 1px; }
+
+/* ── 경고/보안 ── */
+.product-warn {
+  background: #fffbeb;
+  border-left: 3px solid #d97706;
+  padding: 10px 14px;
+  font-size: 14px; color: #92400e;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  border-radius: 0 4px 4px 0;
+}
+.product-warn::before { content: none; }
+.product-warn strong { color: #78350f; }
+
+.product-security {
+  background: #fef2f2;
+  border-left: 3px solid #dc2626;
+  padding: 10px 14px;
+  font-size: 14px; color: #991b1b;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  border-radius: 0 4px 4px 0;
+}
+.product-security::before { content: none; }
+.product-security strong { color: #7f1d1d; }
+
+/* ── 리니지 전용 ── */
+.lineage-page .product-flow { margin-bottom: 8px; }
+.lineage-note {
+  font-size: 13px; color: #666;
+  margin-bottom: 16px;
+}
+.lineage-note a { color: #2563eb; text-decoration: none; }
+.lineage-note a:hover { text-decoration: underline; }
+.impact-critical { background: #fee2e2; color: #991b1b; font-weight: 700; padding: 1px 6px; border-radius: 3px; font-size: 12px; }
+.impact-high     { background: #fef3c7; color: #92400e; font-weight: 700; padding: 1px 6px; border-radius: 3px; font-size: 12px; }
+.impact-medium   { background: #e0f2fe; color: #0c4a6e; font-weight: 700; padding: 1px 6px; border-radius: 3px; font-size: 12px; }
+.impact-low      { background: #ecfccb; color: #3f6212; font-weight: 700; padding: 1px 6px; border-radius: 3px; font-size: 12px; }
+
+.lifecycle-table td:last-child {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* ══════════════════════════════════════════
+   다크 모드
+   ══════════════════════════════════════════ */
+[data-md-color-scheme="slate"] .product-hero { background: #111820; }
+[data-md-color-scheme="slate"] .product-stat { background: #1a1a24; border-color: #2a2a34; }
+[data-md-color-scheme="slate"] .product-stat-val { color: #e0e0e8; }
+[data-md-color-scheme="slate"] .product-section-hdr { border-bottom-color: #333; }
+[data-md-color-scheme="slate"] .product-section-hdr h2 { color: #e0e0e8; }
+[data-md-color-scheme="slate"] .product-table { border-color: #2a2a34; }
+[data-md-color-scheme="slate"] .product-table th { background: #1a1a24; color: #ccc; border-bottom-color: #333; }
+[data-md-color-scheme="slate"] .product-table td { color: #ccc; border-bottom-color: #252530; }
+[data-md-color-scheme="slate"] .product-table tbody tr:hover { background: #20202a; }
+[data-md-color-scheme="slate"] .product-table .tbl-name a { color: #6fa0ff; }
+[data-md-color-scheme="slate"] .tier-badge.t1 { background: rgba(255,100,100,0.15); color: #ff8a80; }
+[data-md-color-scheme="slate"] .tier-badge.t2 { background: rgba(255,193,7,0.12); color: #ffd54f; }
+[data-md-color-scheme="slate"] .tier-badge.t3 { background: rgba(139,195,74,0.12); color: #aed581; }
+[data-md-color-scheme="slate"] .product-join { background: #151520; border-color: #2a2a34; color: #ccc; }
+[data-md-color-scheme="slate"] .product-join .join-root { color: #8ab4f8; }
+[data-md-color-scheme="slate"] .product-consumer { background: #1a1a24; border-color: #2a2a34; }
+[data-md-color-scheme="slate"] .product-consumer-name { color: #e0e0e8; }
+[data-md-color-scheme="slate"] .product-consumer-use { color: #888; }
+[data-md-color-scheme="slate"] .product-sla-card { background: #1a1a24; border-color: #2a2a34; }
+[data-md-color-scheme="slate"] .product-sla-target { color: #e0e0e8; }
+[data-md-color-scheme="slate"] .product-flow { background: #151520; border-color: #2a2a34; }
+[data-md-color-scheme="slate"] .product-ref { background: #151520; border-left-color: #4A7BF7; }
+[data-md-color-scheme="slate"] .product-ref:hover { background: #1a1a2a; }
+[data-md-color-scheme="slate"] .product-ref-title { color: #6fa0ff; }
+[data-md-color-scheme="slate"] .product-ref-desc { color: #666; }
+[data-md-color-scheme="slate"] .product-warn { background: rgba(217,119,6,0.08); border-left-color: #d97706; color: #d4a04a; }
+[data-md-color-scheme="slate"] .product-warn strong { color: #e8b44a; }
+[data-md-color-scheme="slate"] .product-security { background: rgba(220,38,38,0.08); border-left-color: #dc2626; color: #e57373; }
+[data-md-color-scheme="slate"] .product-security strong { color: #ef5350; }
+[data-md-color-scheme="slate"] .lineage-note { color: #888; }
+[data-md-color-scheme="slate"] .lineage-note a { color: #6fa0ff; }
+[data-md-color-scheme="slate"] .impact-critical { background: rgba(255,100,100,0.15); color: #ff8a80; }
+[data-md-color-scheme="slate"] .impact-high { background: rgba(255,193,7,0.12); color: #ffd54f; }
+[data-md-color-scheme="slate"] .impact-medium { background: rgba(56,189,248,0.12); color: #7dd3fc; }
+[data-md-color-scheme="slate"] .impact-low { background: rgba(139,195,74,0.12); color: #aed581; }
+
+/* ── 반응형 ── */
+@media (max-width: 768px) {
+  .product-hero { padding: 16px 18px 14px; }
+  .product-hero-title { font-size: 20px; }
+  .product-stats { gap: 6px; }
+  .product-stat { padding: 8px 6px; }
+  .product-consumers { grid-template-columns: 1fr; }
+  .product-sla { grid-template-columns: 1fr; }
+}

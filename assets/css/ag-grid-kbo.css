@@ -461,17 +461,22 @@
    ══════════════════════════════════════════ */
 .catalog-tabs {
   display: flex;
-  gap: 4px;
+  gap: 2px;
   margin-bottom: 16px;
   border-bottom: 1px solid #e2e6ed;
   padding-bottom: 0;
+  overflow-x: auto;
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE/Edge */
 }
+.catalog-tabs::-webkit-scrollbar { display: none; }  /* Chrome/Safari */
 .catalog-tabs a {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  font-size: 14.5px;
+  gap: 5px;
+  padding: 10px 14px;
+  font-size: 13px;
+  white-space: nowrap;
   font-weight: 500;
   color: #777;
   text-decoration: none;
@@ -480,6 +485,7 @@
   border-radius: 6px 6px 0 0;
   transition: color 0.15s, background 0.15s, border-color 0.15s;
   letter-spacing: -0.01em;
+  flex-shrink: 0;
 }
 .catalog-tabs a:hover {
   color: var(--kbo-navy, #1B2A5B);
@@ -496,13 +502,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  font-size: 13px;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
   line-height: 1;
-  border-radius: 5px;
+  border-radius: 4px;
   background: #eef0f4;
   color: #888;
+  flex-shrink: 0;
 }
 .catalog-tabs a.active .tab-icon {
   background: var(--kbo-accent, #4A7BF7);
@@ -517,13 +524,13 @@
   color: #fff;
 }
 .catalog-tabs .tab-count {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   background: #eef0f4;
   color: #888;
-  padding: 2px 8px;
+  padding: 1px 6px;
   border-radius: 10px;
-  margin-left: 2px;
+  margin-left: 1px;
 }
 .catalog-tabs a.active .tab-count {
   background: rgba(74, 123, 247, 0.10);
@@ -645,6 +652,14 @@
 }
 
 @media (max-width: 768px) {
+  .catalog-tabs a {
+    padding: 8px 10px;
+    font-size: 12px;
+    gap: 4px;
+  }
+  .catalog-tabs .tab-count {
+    display: none;
+  }
   .grid-stats {
     gap: 6px;
   }

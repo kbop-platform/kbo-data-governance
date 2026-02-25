@@ -495,7 +495,302 @@ def parse_index_meta():
                 mapping[tname.lower()] = {"tier": tier, "owner": owner}
     return mapping
 
-# ── 7. 딕셔너리 테이블 요약 JSON 생성 ─────────────────────────
+# ── 7. 도메인 사전 JSON 생성 (실제 컬럼 데이터 기반 1:1) ──────
+SUFFIX_LIST = ['_id', '_nm', '_cd', '_sc', '_cn', '_rt', '_dt', '_tm', '_if', '_va', '_no']
+SUFFIX_LABEL = {
+    '_id': '식별자', '_nm': '명칭', '_cd': '코드', '_sc': '구분코드',
+    '_cn': '건수', '_rt': '비율', '_dt': '일시', '_tm': '시간',
+    '_if': '플래그', '_va': '측정값', '_no': '순번',
+}
+# domain-types.md 에서 접미사별 표준 목표 타입
+STD_TARGET = {
+    '_id': 'char(13) / int / char(2) / smallint',
+    '_nm': 'nvarchar(100)',
+    '_cd': 'char(2) / varchar(10)',
+    '_sc': 'char(2) / varchar(10)',
+    '_cn': 'int',
+    '_rt': 'decimal(8,5)',
+    '_dt': 'char(8) / datetime2',
+    '_tm': 'char(4) / int',
+    '_if': 'bit',
+    '_va': 'int / decimal(10,2)',
+    '_no': 'int',
+}
+
+def _get_suffix(name):
+    lower = name.lower()
+    for s in SUFFIX_LIST:
+        if lower.endswith(s):
+            return s
+    return ''
+
+def _full_type(dtype, maxlen):
+    dtype = dtype.strip().lower()
+    maxlen = str(maxlen).strip()
+    if maxlen and maxlen not in ('-1', '0', ''):
+        return f"{dtype}({maxlen})"
+    elif maxlen == '-1':
+        return f"{dtype}(max)"
+    return dtype
+
+def build_domain_types():
+    """실제 컬럼 메타데이터 기반 1:1 도메인 사전 생성"""
+    from collections import defaultdict
+
+    # catalog-columns.json 로드
+    cat_path = BASE / "assets" / "data" / "catalog-columns.json"
+    with open(cat_path, encoding="utf-8") as f:
+        all_cols = json.load(f)["rows"]
+
+    # 컬럼별 (suffix, full_type) 그룹핑
+    groups = defaultdict(lambda: {
+        "columns": [], "tables": set(),
+        "nullable_cnt": 0, "pk_cnt": 0, "total": 0,
+    })
+
+    for c in all_cols:
+        name = c.get("std_name") or c.get("column_name", "")
+        if not name:
+            continue
+        suffix = _get_suffix(name)
+        if not suffix:
+            continue
+
+        ft = _full_type(c.get("data_type", ""), c.get("max_length", ""))
+        key = (suffix, ft)
+        g = groups[key]
+        g["columns"].append(c.get("column_name", ""))
+        g["tables"].add(c.get("table_name", ""))
+        g["total"] += 1
+        if c.get("is_nullable") not in ("", "NN", "NO"):
+            g["nullable_cnt"] += 1
+        if c.get("is_pk") in ("PK", "YES"):
+            g["pk_cnt"] += 1
+
+    # 도메인 행 생성
+    rows = []
+    for (suffix, ft), g in sorted(groups.items(), key=lambda x: (-x[1]["total"], x[0])):
+        total = g["total"]
+        nullable_pct = round(g["nullable_cnt"] / total * 100) if total else 0
+        pk_pct = round(g["pk_cnt"] / total * 100) if total else 0
+
+        # 대표 컬럼 (중복 제거, 최대 4개)
+        seen = set()
+        examples = []
+        for col in g["columns"]:
+            if col not in seen and len(examples) < 4:
+                seen.add(col)
+                examples.append(col)
+
+        # 도메인 ID: suffix + type (e.g. "id_char13", "cn_int")
+        sfx_short = suffix.lstrip("_")
+        type_short = re.sub(r"[() ]", "", ft)
+        domain_id = f"{sfx_short}_{type_short}"
+
+        # 한글명: 접미사 한글 + 물리타입
+        label = SUFFIX_LABEL.get(suffix, suffix)
+
+        # 표준 목표 타입과 비교
+        std = STD_TARGET.get(suffix, "")
+        # ft가 표준 목표에 포함되면 "일치", 아니면 "전환 필요"
+        std_types_raw = [t.strip().lower() for t in std.split("/")]
+        gap = "일치" if ft in std_types_raw else "전환 필요"
+
+        rows.append({
+            "domain_id": domain_id,
+            "suffix": suffix,
+            "label": label,
+            "physical_type": ft,
+            "column_count": total,
+            "table_count": len(g["tables"]),
+            "nullable_pct": f"{nullable_pct}%",
+            "pk_pct": f"{pk_pct}%",
+            "example_columns": ", ".join(examples),
+            "std_target": std,
+            "gap": gap,
+        })
+
+    return rows
+
+# ── 8. 코드 사전 JSON 생성 ─────────────────────────────────────
+def build_code_dictionary():
+    """standards/code-dictionary.md 파싱 → code-dictionary.json"""
+    p = BASE / "docs" / "standards" / "code-dictionary.md"
+    with open(p, encoding="utf-8") as f:
+        text = f.read()
+
+    rows = []
+    cur_section = ""       # ## 레벨 (예: "경기 이벤트 코드")
+    cur_code_group = ""    # ### 레벨 (예: "how_cd")
+    cur_group_name = ""    # 한글명 (예: "플레이 결과")
+    cur_subcategory = ""   # #### 레벨 (예: "타격 결과")
+    cur_used_tables = ""   # "사용 테이블:" 라인
+    header_cols = []       # 현재 테이블 헤더
+    in_table = False
+
+    # 코드 그룹 → 섹션 매핑을 위한 section number
+    section_map = {
+        "2": "경기 이벤트 코드",
+        "3": "포지션/라인업 코드",
+        "4": "팀 코드",
+        "5": "구장 코드",
+        "6": "날씨/환경 코드",
+        "7": "방송 코드",
+        "8": "경기 상태 코드",
+        "9": "기록 상태 코드",
+        "10": "시즌/리그/시리즈 코드",
+    }
+
+    for line in text.split("\n"):
+        stripped = line.strip()
+
+        # 부록 이후 중단
+        if stripped.startswith("## 부록"):
+            break
+
+        # ## 섹션 헤더 (예: ## 2. 경기 이벤트 코드)
+        hm2 = re.match(r"^##\s+(\d+)\.\s+(.+)", stripped)
+        if hm2:
+            sec_num = hm2.group(1)
+            cur_section = hm2.group(2).strip()
+            cur_code_group = ""
+            cur_group_name = ""
+            cur_subcategory = ""
+            cur_used_tables = ""
+            in_table = False
+            # 섹션 5 (구장)는 ### 없이 바로 테이블
+            if sec_num == "5":
+                cur_code_group = "stadium_id"
+                cur_group_name = "구장 코드"
+            continue
+
+        # ### 코드 그룹 헤더
+        hm3 = re.match(r"^###\s+(?:(\d+\.\d+)\s+)?(.+)", stripped)
+        if hm3:
+            section_num = hm3.group(1) or ""
+            rest = hm3.group(2).strip()
+            cur_subcategory = ""
+            in_table = False
+
+            # "code_name / alias — 한글명" 또는 "code_name — 한글명" 또는 "한글명"
+            gm = re.match(r"([\w_]+(?:\s*/\s*[\w_]+)*)\s*[—\-]\s*(.+)", rest)
+            if gm:
+                cur_code_group = gm.group(1).split("/")[0].strip()
+                cur_group_name = re.sub(r"\s*\(.+?\)\s*$", "", gm.group(2).strip())
+            else:
+                # "현행 10개 팀", "역사적 팀 코드" 등
+                cur_group_name = rest
+                if "팀" in rest or "국제" in rest:
+                    cur_code_group = "team_id"
+                elif "구장" in rest:
+                    cur_code_group = "stadium_id"
+                else:
+                    cur_code_group = rest
+            cur_used_tables = ""
+            continue
+
+        # #### 서브카테고리 (예: #### 타격 결과 (7종))
+        hm4 = re.match(r"^####\s+(.+)", stripped)
+        if hm4:
+            cur_subcategory = re.sub(r"\s*\(.+?\)\s*$", "", hm4.group(1).strip())
+            in_table = False
+            continue
+
+        # "사용 테이블:" 라인
+        if stripped.startswith("사용 테이블:") or stripped.startswith("사용 테이블："):
+            cur_used_tables = stripped.split(":", 1)[-1].split("：", 1)[-1].strip()
+            continue
+
+        # 테이블 파싱
+        if not stripped.startswith("|"):
+            if in_table and stripped:
+                in_table = False
+            continue
+
+        cols = [c.strip() for c in stripped.split("|")]
+        # 최소 3개 실질 컬럼 (빈 첫/끝 포함 최소 4)
+        if len(cols) < 4:
+            continue
+
+        real_cols = cols[1:-1] if cols[-1] == "" else cols[1:]
+
+        # 구분선 스킵
+        if all(re.match(r"^-+$", c) or c == "" for c in real_cols):
+            continue
+
+        # 헤더 행 감지 (한글/영문 키워드 포함)
+        header_keywords = {"코드", "한글", "영문", "설명", "건수", "비고", "team_id",
+                           "stadium_id", "구단명", "구장명", "Y", "방송사", "포지션",
+                           "의미", "값", "팀명", "도시", "코드 (표준안)", "연고지",
+                           "사용팀", "상태", "데이터 확인", "2025 건수", "사용 기간",
+                           "구단 변천", "팀명", "창단"}
+        first_col = real_cols[0].strip() if real_cols else ""
+        if first_col in header_keywords or "건수" in first_col:
+            header_cols = [c.strip() for c in real_cols]
+            in_table = True
+            continue
+
+        if not in_table and not header_cols:
+            # 헤더 없는 테이블도 처리 시도
+            # first col이 backtick으로 시작하면 코드 데이터행으로 간주
+            if first_col.startswith("`") or (len(first_col) <= 4 and first_col):
+                in_table = True
+                header_cols = []
+            else:
+                continue
+
+        # 데이터 행 파싱
+        code_val = real_cols[0] if len(real_cols) > 0 else ""
+        code_val = re.sub(r"`", "", code_val).strip()
+        if not code_val:
+            continue
+
+        # 동적 컬럼 매핑
+        name_ko = ""
+        name_en = ""
+        count_str = ""
+        note = ""
+
+        for i, hdr in enumerate(header_cols):
+            if i == 0:
+                continue  # 첫 번째는 코드
+            val = real_cols[i].strip() if i < len(real_cols) else ""
+            val = re.sub(r"`", "", val).strip()
+
+            if hdr in ("한글", "구단명", "구장명", "방송사", "포지션",
+                        "의미", "한글 (추정)", "구단 변천"):
+                name_ko = val
+            elif hdr in ("영문", "팀명"):
+                name_en = val
+            elif "건수" in hdr:
+                count_str = val
+            elif hdr in ("설명", "비고", "상태", "사용팀", "연고지",
+                          "데이터 확인", "도시", "사용 기간", "창단"):
+                note = (note + " " + val).strip() if note else val
+
+        # 헤더가 없을 때 위치 기반 fallback
+        if not header_cols:
+            name_ko = real_cols[1].strip() if len(real_cols) > 1 else ""
+            name_ko = re.sub(r"`", "", name_ko).strip()
+            name_en = real_cols[2].strip() if len(real_cols) > 2 else ""
+            name_en = re.sub(r"`", "", name_en).strip()
+
+        rows.append({
+            "section": cur_section,
+            "code_group": cur_code_group,
+            "code_group_name": cur_group_name,
+            "subcategory": cur_subcategory,
+            "code": code_val,
+            "name_ko": name_ko,
+            "name_en": name_en,
+            "count": count_str,
+            "used_tables": cur_used_tables,
+            "note": note,
+        })
+
+    return rows
+
+# ── 9. 딕셔너리 테이블 요약 JSON 생성 ─────────────────────────
 def build_dictionary_tables():
     """39종 테이블 요약 JSON 생성 (Dictionary AG Grid용)"""
     col_meta = load_column_metadata()
@@ -595,6 +890,20 @@ def main():
     with open(inst_path, "w", encoding="utf-8") as f:
         json.dump({"generated": "2026-02-25", "rows": inst_rows}, f, ensure_ascii=False, indent=2)
     print(f"catalog-instances.json: {len(inst_rows)} rows")
+
+    # 도메인 타입
+    dom_rows = build_domain_types()
+    dom_path = out_dir / "domain-types.json"
+    with open(dom_path, "w", encoding="utf-8") as f:
+        json.dump({"generated": "2026-02-25", "rows": dom_rows}, f, ensure_ascii=False, indent=2)
+    print(f"domain-types.json: {len(dom_rows)} rows")
+
+    # 코드 사전
+    code_rows = build_code_dictionary()
+    code_path = out_dir / "code-dictionary.json"
+    with open(code_path, "w", encoding="utf-8") as f:
+        json.dump({"generated": "2026-02-25", "rows": code_rows}, f, ensure_ascii=False, indent=2)
+    print(f"code-dictionary.json: {len(code_rows)} rows")
 
     # 딕셔너리 테이블 요약
     dict_rows = build_dictionary_tables()

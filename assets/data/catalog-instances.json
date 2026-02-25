@@ -7,7 +7,7 @@
       "league": "KBO",
       "table_name": "SEASON_PLAYER_HITTER",
       "table_name_ci": "season_player_hitter",
-      "table_std_name": "SEASON_PLAYER_HITTER",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 43,
       "row_count": 19747,
@@ -17,7 +17,7 @@
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "시즌별 타자 통계",
+      "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER/"
     },
     {
@@ -26,7 +26,7 @@
       "league": "KBO",
       "table_name": "SEASON_PLAYER_HITTER_SITUATION",
       "table_name_ci": "season_player_hitter_situation",
-      "table_std_name": "SEASON_PLAYER_HITTER_SITUATION",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 14,
       "row_count": 360625,
@@ -36,7 +36,7 @@
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "시즌 타자 상황별 통계",
+      "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER_SITUATION/"
     },
     {
@@ -45,7 +45,7 @@
       "league": "KBO",
       "table_name": "SEASON_PLAYER_PITCHER",
       "table_name_ci": "season_player_pitcher",
-      "table_std_name": "SEASON_PLAYER_PITCHER",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 54,
       "row_count": 13306,
@@ -55,7 +55,7 @@
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "시즌별 투수 통계",
+      "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER/"
     },
     {
@@ -64,7 +64,7 @@
       "league": "KBO",
       "table_name": "SEASON_PLAYER_PITCHER_SITUATION",
       "table_name_ci": "season_player_pitcher_situation",
-      "table_std_name": "SEASON_PLAYER_PITCHER_SITUATION",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 14,
       "row_count": 301375,
@@ -74,7 +74,7 @@
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "시즌 투수 상황별 통계",
+      "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER_SITUATION/"
     },
     {
@@ -83,7 +83,7 @@
       "league": "KBO",
       "table_name": "BatTotal",
       "table_name_ci": "battotal",
-      "table_std_name": "BAT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 23,
       "row_count": 13616,
@@ -93,7 +93,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "타격 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
     },
     {
@@ -102,7 +102,7 @@
       "league": "KBO",
       "table_name": "DEFEN",
       "table_name_ci": "defen",
-      "table_std_name": "DEFEN",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 846736,
@@ -112,7 +112,7 @@
       "pk_columns": "",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "수비 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/DEFEN/"
     },
     {
@@ -121,7 +121,7 @@
       "league": "KBO",
       "table_name": "ENTRY",
       "table_name_ci": "entry",
-      "table_std_name": "ENTRY",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 11,
       "row_count": 854280,
@@ -131,7 +131,7 @@
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "출전 엔트리",
+      "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
     },
     {
@@ -140,7 +140,7 @@
       "league": "KBO",
       "table_name": "GAME_HR",
       "table_name_ci": "game_hr",
-      "table_std_name": "GAME_HR",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 15,
       "row_count": 7784,
@@ -150,7 +150,7 @@
       "pk_columns": "LE_ID, SR_ID, G_ID, SEQ_NO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "홈런 기록 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAME_HR/"
     },
     {
@@ -159,7 +159,7 @@
       "league": "KBO",
       "table_name": "GAME_MEMO",
       "table_name_ci": "game_memo",
-      "table_std_name": "GAME_MEMO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 20,
       "row_count": 54544,
@@ -169,7 +169,7 @@
       "pk_columns": "LE_ID, SR_ID, G_ID, INN_NO, BAT_ORDER_NO, BAT_AROUND_NO, TB_SC, PA_PIT_NO, ORDER_NO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "투구 단위 기록 메모",
+      "description": "",
       "table_doc_url": "dictionary/game/GAME_MEMO/"
     },
     {
@@ -178,7 +178,7 @@
       "league": "KBO",
       "table_name": "GAME_MEMO_PITCHCLOCK",
       "table_name_ci": "game_memo_pitchclock",
-      "table_std_name": "GAME_MEMO_PITCHCLOCK",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 16,
       "row_count": 237,
@@ -188,7 +188,7 @@
       "pk_columns": "LE_ID, SR_ID, G_ID, SEQ_NO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "피치클럭 위반 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/GAME_MEMO_PITCHCLOCK/"
     },
     {
@@ -197,7 +197,7 @@
       "league": "KBO",
       "table_name": "GAMECONTAPP",
       "table_name_ci": "gamecontapp",
-      "table_std_name": "GAME_CONT_APP",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 29,
       "row_count": 2531702,
@@ -207,7 +207,7 @@
       "pk_columns": "GMKEY, GYEAR, SERNO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 이벤트 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
     },
     {
@@ -216,7 +216,7 @@
       "league": "KBO",
       "table_name": "GAMEINFO",
       "table_name_ci": "gameinfo",
-      "table_std_name": "GAME_INFO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 27,
       "row_count": 23579,
@@ -226,7 +226,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 기본 정보",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
     },
     {
@@ -235,7 +235,7 @@
       "league": "KBO",
       "table_name": "Hitter",
       "table_name_ci": "hitter",
-      "table_std_name": "HITTER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 26,
       "row_count": 648248,
@@ -245,7 +245,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 타자 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
     },
     {
@@ -254,7 +254,7 @@
       "league": "KBO",
       "table_name": "Pitcher",
       "table_name_ci": "pitcher",
-      "table_std_name": "PITCHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 36,
       "row_count": 223624,
@@ -264,7 +264,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 투수 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
     },
     {
@@ -273,7 +273,7 @@
       "league": "KBO",
       "table_name": "PitTotal",
       "table_name_ci": "pittotal",
-      "table_std_name": "PIT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 22,
       "row_count": 9377,
@@ -283,7 +283,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "투구 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
     },
     {
@@ -292,7 +292,7 @@
       "league": "KBO",
       "table_name": "Score",
       "table_name_ci": "score",
-      "table_std_name": "SCORE",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 60,
       "row_count": 23579,
@@ -302,7 +302,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 스코어",
+      "description": "",
       "table_doc_url": "dictionary/game/Score/"
     },
     {
@@ -311,7 +311,7 @@
       "league": "KBO",
       "table_name": "TeamRank",
       "table_name_ci": "teamrank",
-      "table_std_name": "TEAM_RANK",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 30,
       "row_count": 373,
@@ -321,7 +321,7 @@
       "pk_columns": "GYEAR, SEC, TEAM",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "팀 순위 (시즌별)",
+      "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
     },
     {
@@ -330,7 +330,7 @@
       "league": "마이너",
       "table_name": "BATTOTAL",
       "table_name_ci": "battotal",
-      "table_std_name": "BAT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 22,
       "row_count": 9535,
@@ -340,7 +340,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "타격 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
     },
     {
@@ -349,7 +349,7 @@
       "league": "마이너",
       "table_name": "ENTRY",
       "table_name_ci": "entry",
-      "table_std_name": "ENTRY",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 334439,
@@ -359,7 +359,7 @@
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "출전 엔트리",
+      "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
     },
     {
@@ -368,7 +368,7 @@
       "league": "마이너",
       "table_name": "GAMECONTAPP",
       "table_name_ci": "gamecontapp",
-      "table_std_name": "GAME_CONT_APP",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 29,
       "row_count": 975096,
@@ -378,7 +378,7 @@
       "pk_columns": "GMKEY, GYEAR, SERNO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 이벤트 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
     },
     {
@@ -387,7 +387,7 @@
       "league": "마이너",
       "table_name": "GAMEINFO",
       "table_name_ci": "gameinfo",
-      "table_std_name": "GAME_INFO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 27,
       "row_count": 8531,
@@ -397,7 +397,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 기본 정보",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
     },
     {
@@ -406,7 +406,7 @@
       "league": "마이너",
       "table_name": "HITTER",
       "table_name_ci": "hitter",
-      "table_std_name": "HITTER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 26,
       "row_count": 239888,
@@ -416,7 +416,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 타자 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
     },
     {
@@ -425,7 +425,7 @@
       "league": "마이너",
       "table_name": "PITCHER",
       "table_name_ci": "pitcher",
-      "table_std_name": "PITCHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 36,
       "row_count": 92915,
@@ -435,7 +435,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 투수 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
     },
     {
@@ -444,7 +444,7 @@
       "league": "마이너",
       "table_name": "PITTOTAL",
       "table_name_ci": "pittotal",
-      "table_std_name": "PIT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 21,
       "row_count": 6910,
@@ -454,7 +454,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "투구 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
     },
     {
@@ -463,7 +463,7 @@
       "league": "마이너",
       "table_name": "SCORE",
       "table_name_ci": "score",
-      "table_std_name": "SCORE",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 60,
       "row_count": 8531,
@@ -473,7 +473,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 스코어",
+      "description": "",
       "table_doc_url": "dictionary/game/Score/"
     },
     {
@@ -482,7 +482,7 @@
       "league": "마이너",
       "table_name": "TEAMRANK",
       "table_name_ci": "teamrank",
-      "table_std_name": "TEAM_RANK",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 29,
       "row_count": 179,
@@ -492,7 +492,7 @@
       "pk_columns": "GYEAR, SEC, TEAM",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "팀 순위 (시즌별)",
+      "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
     },
     {
@@ -501,7 +501,7 @@
       "league": "마이너",
       "table_name": "BATTOTAL",
       "table_name_ci": "battotal",
-      "table_std_name": "BAT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 22,
       "row_count": 1946,
@@ -511,7 +511,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "타격 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
     },
     {
@@ -520,7 +520,7 @@
       "league": "마이너",
       "table_name": "ENTRY",
       "table_name_ci": "entry",
-      "table_std_name": "ENTRY",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 4516,
@@ -530,7 +530,7 @@
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "출전 엔트리",
+      "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
     },
     {
@@ -539,7 +539,7 @@
       "league": "마이너",
       "table_name": "GAMECONTAPP",
       "table_name_ci": "gamecontapp",
-      "table_std_name": "GAME_CONT_APP",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 29,
       "row_count": 13309,
@@ -549,7 +549,7 @@
       "pk_columns": "GMKEY, GYEAR, SERNO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 이벤트 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
     },
     {
@@ -558,7 +558,7 @@
       "league": "마이너",
       "table_name": "GAMEINFO",
       "table_name_ci": "gameinfo",
-      "table_std_name": "GAME_INFO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 27,
       "row_count": 124,
@@ -568,7 +568,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 기본 정보",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
     },
     {
@@ -577,7 +577,7 @@
       "league": "마이너",
       "table_name": "HITTER",
       "table_name_ci": "hitter",
-      "table_std_name": "HITTER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 26,
       "row_count": 3303,
@@ -587,7 +587,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 타자 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
     },
     {
@@ -596,7 +596,7 @@
       "league": "마이너",
       "table_name": "PITCHER",
       "table_name_ci": "pitcher",
-      "table_std_name": "PITCHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 36,
       "row_count": 1265,
@@ -606,7 +606,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 투수 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
     },
     {
@@ -615,7 +615,7 @@
       "league": "마이너",
       "table_name": "PITTOTAL",
       "table_name_ci": "pittotal",
-      "table_std_name": "PIT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 21,
       "row_count": 1142,
@@ -625,7 +625,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "투구 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
     },
     {
@@ -634,7 +634,7 @@
       "league": "마이너",
       "table_name": "SCORE",
       "table_name_ci": "score",
-      "table_std_name": "SCORE",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 60,
       "row_count": 124,
@@ -644,7 +644,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 스코어",
+      "description": "",
       "table_doc_url": "dictionary/game/Score/"
     },
     {
@@ -653,7 +653,7 @@
       "league": "마이너",
       "table_name": "TEAMRANK",
       "table_name_ci": "teamrank",
-      "table_std_name": "TEAM_RANK",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 29,
       "row_count": 67,
@@ -663,7 +663,7 @@
       "pk_columns": "GYEAR, SEC, TEAM",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "팀 순위 (시즌별)",
+      "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
     },
     {
@@ -672,7 +672,7 @@
       "league": "올스타",
       "table_name": "BatTotal",
       "table_name_ci": "battotal",
-      "table_std_name": "BAT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 22,
       "row_count": 0,
@@ -682,7 +682,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "타격 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
     },
     {
@@ -691,7 +691,7 @@
       "league": "올스타",
       "table_name": "ENTRY",
       "table_name_ci": "entry",
-      "table_std_name": "ENTRY",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 2560,
@@ -701,7 +701,7 @@
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "출전 엔트리",
+      "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
     },
     {
@@ -710,7 +710,7 @@
       "league": "올스타",
       "table_name": "GAMECONTAPP",
       "table_name_ci": "gamecontapp",
-      "table_std_name": "GAME_CONT_APP",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 29,
       "row_count": 5683,
@@ -720,7 +720,7 @@
       "pk_columns": "GMKEY, GYEAR, SERNO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 이벤트 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
     },
     {
@@ -729,7 +729,7 @@
       "league": "올스타",
       "table_name": "GAMEINFO",
       "table_name_ci": "gameinfo",
-      "table_std_name": "GAME_INFO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 27,
       "row_count": 56,
@@ -739,7 +739,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 기본 정보",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
     },
     {
@@ -748,7 +748,7 @@
       "league": "올스타",
       "table_name": "Hitter",
       "table_name_ci": "hitter",
-      "table_std_name": "HITTER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 26,
       "row_count": 1713,
@@ -758,7 +758,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 타자 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
     },
     {
@@ -767,7 +767,7 @@
       "league": "올스타",
       "table_name": "IE_BallCount",
       "table_name_ci": "ie_ballcount",
-      "table_std_name": "IE_BALL_COUNT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 11,
       "row_count": 25,
@@ -777,7 +777,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "현재 볼카운트 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
     },
     {
@@ -786,7 +786,7 @@
       "league": "올스타",
       "table_name": "IE_BatterRecord",
       "table_name_ci": "ie_batterrecord",
-      "table_std_name": "IE_BATTER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 25,
       "row_count": 858,
@@ -796,7 +796,7 @@
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "타자 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
     },
     {
@@ -805,7 +805,7 @@
       "league": "올스타",
       "table_name": "IE_GameList",
       "table_name_ci": "ie_gamelist",
-      "table_std_name": "IE_GAME_LIST",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 6,
       "row_count": 21,
@@ -815,7 +815,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 목록 (일자별)",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
     },
     {
@@ -824,7 +824,7 @@
       "league": "올스타",
       "table_name": "IE_GAMESTATE",
       "table_name_ci": "ie_gamestate",
-      "table_std_name": "IE_GAME_STATE",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 25,
@@ -834,7 +834,7 @@
       "pk_columns": "GAMEID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 진행 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
     },
     {
@@ -843,7 +843,7 @@
       "league": "올스타",
       "table_name": "IE_LiveText",
       "table_name_ci": "ie_livetext",
-      "table_std_name": "IE_LIVE_TEXT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 11461,
@@ -853,7 +853,7 @@
       "pk_columns": "gameID, GYEAR, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "실시간 문자 중계",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
     },
     {
@@ -862,7 +862,7 @@
       "league": "올스타",
       "table_name": "IE_PitcherRecord",
       "table_name_ci": "ie_pitcherrecord",
-      "table_std_name": "IE_PITCHER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 22,
       "row_count": 379,
@@ -872,7 +872,7 @@
       "pk_columns": "gameID, GYEAR, PlayerID",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "투수 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
     },
     {
@@ -881,7 +881,7 @@
       "league": "올스타",
       "table_name": "IE_Scoreinning",
       "table_name_ci": "ie_scoreinning",
-      "table_std_name": "IE_SCORE_INNING",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 418,
@@ -891,7 +891,7 @@
       "pk_columns": "gameID, GYEAR, inning, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "이닝별 실시간 점수",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
     },
     {
@@ -900,7 +900,7 @@
       "league": "올스타",
       "table_name": "IE_ScoreRHEB",
       "table_name_ci": "ie_scorerheb",
-      "table_std_name": "IE_SCORE_RHEB",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 48,
@@ -910,7 +910,7 @@
       "pk_columns": "gameID, GYEAR, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "점수/안타/실책/볼넷 요약",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
     },
     {
@@ -919,7 +919,7 @@
       "league": "올스타",
       "table_name": "KBO_BATRESULT",
       "table_name_ci": "kbo_batresult",
-      "table_std_name": "KBO_BAT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 90,
       "row_count": 548,
@@ -929,7 +929,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 타격 결과",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
     },
     {
@@ -938,7 +938,7 @@
       "league": "올스타",
       "table_name": "KBO_ETCGAME",
       "table_name_ci": "kbo_etcgame",
-      "table_std_name": "KBO_ETC_GAME",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 5,
       "row_count": 135,
@@ -948,7 +948,7 @@
       "pk_columns": "GMKEY, GDAY, SEQ",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "기타 경기 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
     },
     {
@@ -957,7 +957,7 @@
       "league": "올스타",
       "table_name": "KBO_PITRESULT",
       "table_name_ci": "kbo_pitresult",
-      "table_std_name": "KBO_PIT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 23,
       "row_count": 300,
@@ -967,7 +967,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "투수 경기 결과 상세",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
     },
     {
@@ -976,7 +976,7 @@
       "league": "올스타",
       "table_name": "Pitcher",
       "table_name_ci": "pitcher",
-      "table_std_name": "PITCHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 36,
       "row_count": 833,
@@ -986,7 +986,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 투수 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
     },
     {
@@ -995,7 +995,7 @@
       "league": "올스타",
       "table_name": "PitTotal",
       "table_name_ci": "pittotal",
-      "table_std_name": "PIT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 21,
       "row_count": 0,
@@ -1005,7 +1005,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "투구 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
     },
     {
@@ -1014,7 +1014,7 @@
       "league": "올스타",
       "table_name": "Score",
       "table_name_ci": "score",
-      "table_std_name": "SCORE",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 60,
       "row_count": 56,
@@ -1024,7 +1024,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 스코어",
+      "description": "",
       "table_doc_url": "dictionary/game/Score/"
     },
     {
@@ -1033,7 +1033,7 @@
       "league": "올스타",
       "table_name": "TeamRank",
       "table_name_ci": "teamrank",
-      "table_std_name": "TEAM_RANK",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 29,
       "row_count": 0,
@@ -1043,7 +1043,7 @@
       "pk_columns": "GYEAR, SEC, TEAM",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "팀 순위 (시즌별)",
+      "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
     },
     {
@@ -1052,7 +1052,7 @@
       "league": "KBO",
       "table_name": "SEASON_PLAYER_HITTER",
       "table_name_ci": "season_player_hitter",
-      "table_std_name": "SEASON_PLAYER_HITTER",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 43,
       "row_count": 16099,
@@ -1062,7 +1062,7 @@
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "시즌별 타자 통계",
+      "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER/"
     },
     {
@@ -1071,7 +1071,7 @@
       "league": "KBO",
       "table_name": "SEASON_PLAYER_HITTER_SITUATION",
       "table_name_ci": "season_player_hitter_situation",
-      "table_std_name": "SEASON_PLAYER_HITTER_SITUATION",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 14,
       "row_count": 228487,
@@ -1081,7 +1081,7 @@
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "시즌 타자 상황별 통계",
+      "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER_SITUATION/"
     },
     {
@@ -1090,7 +1090,7 @@
       "league": "KBO",
       "table_name": "SEASON_PLAYER_PITCHER",
       "table_name_ci": "season_player_pitcher",
-      "table_std_name": "SEASON_PLAYER_PITCHER",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 54,
       "row_count": 11173,
@@ -1100,7 +1100,7 @@
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "시즌별 투수 통계",
+      "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER/"
     },
     {
@@ -1109,7 +1109,7 @@
       "league": "KBO",
       "table_name": "SEASON_PLAYER_PITCHER_SITUATION",
       "table_name_ci": "season_player_pitcher_situation",
-      "table_std_name": "SEASON_PLAYER_PITCHER_SITUATION",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 14,
       "row_count": 214288,
@@ -1119,7 +1119,7 @@
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "시즌 투수 상황별 통계",
+      "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER_SITUATION/"
     },
     {
@@ -1128,7 +1128,7 @@
       "league": "KBO",
       "table_name": "TEAM",
       "table_name_ci": "team",
-      "table_std_name": "TEAM",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 7,
       "row_count": 401,
@@ -1138,7 +1138,7 @@
       "pk_columns": "SEASON_ID, T_ID",
       "refresh": "연 1회",
       "access": "Public",
-      "description": "팀 마스터",
+      "description": "",
       "table_doc_url": "dictionary/master/TEAM/"
     },
     {
@@ -1147,7 +1147,7 @@
       "league": "KBO",
       "table_name": "BatTotal",
       "table_name_ci": "battotal",
-      "table_std_name": "BAT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 23,
       "row_count": 796,
@@ -1157,7 +1157,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "타격 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
     },
     {
@@ -1166,7 +1166,7 @@
       "league": "KBO",
       "table_name": "DEFEN",
       "table_name_ci": "defen",
-      "table_std_name": "DEFEN",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 28243,
@@ -1176,7 +1176,7 @@
       "pk_columns": "",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "수비 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/DEFEN/"
     },
     {
@@ -1185,7 +1185,7 @@
       "league": "KBO",
       "table_name": "ENTRY",
       "table_name_ci": "entry",
-      "table_std_name": "ENTRY",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 28058,
@@ -1195,7 +1195,7 @@
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "출전 엔트리",
+      "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
     },
     {
@@ -1204,7 +1204,7 @@
       "league": "KBO",
       "table_name": "GAME_HR",
       "table_name_ci": "game_hr",
-      "table_std_name": "GAME_HR",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 15,
       "row_count": 1280,
@@ -1214,7 +1214,7 @@
       "pk_columns": "LE_ID, SR_ID, G_ID, SEQ_NO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "홈런 기록 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAME_HR/"
     },
     {
@@ -1223,7 +1223,7 @@
       "league": "KBO",
       "table_name": "GAME_MEMO",
       "table_name_ci": "game_memo",
-      "table_std_name": "GAME_MEMO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 20,
       "row_count": 23978,
@@ -1233,7 +1233,7 @@
       "pk_columns": "LE_ID, SR_ID, G_ID, INN_NO, BAT_ORDER_NO, BAT_AROUND_NO, TB_SC, PA_PIT_NO, ORDER_NO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "투구 단위 기록 메모",
+      "description": "",
       "table_doc_url": "dictionary/game/GAME_MEMO/"
     },
     {
@@ -1242,7 +1242,7 @@
       "league": "KBO",
       "table_name": "GAME_MEMO_PITCHCLOCK",
       "table_name_ci": "game_memo_pitchclock",
-      "table_std_name": "GAME_MEMO_PITCHCLOCK",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 16,
       "row_count": 237,
@@ -1252,7 +1252,7 @@
       "pk_columns": "LE_ID, SR_ID, G_ID, SEQ_NO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "피치클럭 위반 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/GAME_MEMO_PITCHCLOCK/"
     },
     {
@@ -1261,7 +1261,7 @@
       "league": "KBO",
       "table_name": "GAMECONTAPP",
       "table_name_ci": "gamecontapp",
-      "table_std_name": "GAME_CONT_APP",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 29,
       "row_count": 77280,
@@ -1271,7 +1271,7 @@
       "pk_columns": "GMKEY, GYEAR, SERNO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 이벤트 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
     },
     {
@@ -1280,7 +1280,7 @@
       "league": "KBO",
       "table_name": "GAMEINFO",
       "table_name_ci": "gameinfo",
-      "table_std_name": "GAME_INFO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 27,
       "row_count": 720,
@@ -1290,7 +1290,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 기본 정보",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
     },
     {
@@ -1299,7 +1299,7 @@
       "league": "KBO",
       "table_name": "GAMEINFO_WEATHER",
       "table_name_ci": "gameinfo_weather",
-      "table_std_name": "GAME_INFO_WEATHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 1680,
@@ -1309,7 +1309,7 @@
       "pk_columns": "code, tm",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "기상청 상세 날씨",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO_WEATHER/"
     },
     {
@@ -1318,7 +1318,7 @@
       "league": "KBO",
       "table_name": "Hitter",
       "table_name_ci": "hitter",
-      "table_std_name": "HITTER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 26,
       "row_count": 19946,
@@ -1328,7 +1328,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 타자 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
     },
     {
@@ -1337,7 +1337,7 @@
       "league": "KBO",
       "table_name": "KBO_BATRESULT",
       "table_name_ci": "kbo_batresult",
-      "table_std_name": "KBO_BAT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 90,
       "row_count": 424921,
@@ -1347,7 +1347,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 타격 결과",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
     },
     {
@@ -1356,7 +1356,7 @@
       "league": "KBO",
       "table_name": "KBO_ETCGAME",
       "table_name_ci": "kbo_etcgame",
-      "table_std_name": "KBO_ETC_GAME",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 5,
       "row_count": 122762,
@@ -1366,7 +1366,7 @@
       "pk_columns": "GMKEY, GDAY, SEQ",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "기타 경기 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
     },
     {
@@ -1375,7 +1375,7 @@
       "league": "KBO",
       "table_name": "KBO_PITRESULT",
       "table_name_ci": "kbo_pitresult",
-      "table_std_name": "KBO_PIT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 23,
       "row_count": 134292,
@@ -1385,7 +1385,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "투수 경기 결과 상세",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
     },
     {
@@ -1394,7 +1394,7 @@
       "league": "KBO",
       "table_name": "PITCHCLOCK",
       "table_name_ci": "pitchclock",
-      "table_std_name": "PITCHCLOCK",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 19,
       "row_count": 215,
@@ -1404,7 +1404,7 @@
       "pk_columns": "GMKEY, GYEAR, GDAY, LIVETEXT",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "피치클럭 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/game/PITCHCLOCK/"
     },
     {
@@ -1413,7 +1413,7 @@
       "league": "KBO",
       "table_name": "Pitcher",
       "table_name_ci": "pitcher",
-      "table_std_name": "PITCHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 36,
       "row_count": 8466,
@@ -1423,7 +1423,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 투수 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
     },
     {
@@ -1432,7 +1432,7 @@
       "league": "KBO",
       "table_name": "PitTotal",
       "table_name_ci": "pittotal",
-      "table_std_name": "PIT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 22,
       "row_count": 562,
@@ -1442,7 +1442,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "투구 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
     },
     {
@@ -1451,7 +1451,7 @@
       "league": "KBO",
       "table_name": "Score",
       "table_name_ci": "score",
-      "table_std_name": "SCORE",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 60,
       "row_count": 720,
@@ -1461,7 +1461,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 스코어",
+      "description": "",
       "table_doc_url": "dictionary/game/Score/"
     },
     {
@@ -1470,7 +1470,7 @@
       "league": "KBO",
       "table_name": "TeamRank",
       "table_name_ci": "teamrank",
-      "table_std_name": "TEAM_RANK",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 30,
       "row_count": 10,
@@ -1480,7 +1480,7 @@
       "pk_columns": "GYEAR, SEC, TEAM",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "팀 순위 (시즌별)",
+      "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
     },
     {
@@ -1489,7 +1489,7 @@
       "league": "KBO",
       "table_name": "CANCEL_GAME",
       "table_name_ci": "cancel_game",
-      "table_std_name": "CANCEL_GAME",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 6,
       "row_count": 1290,
@@ -1499,7 +1499,7 @@
       "pk_columns": "LE_ID, SR_ID, G_ID",
       "refresh": "발생 즉시",
       "access": "Public",
-      "description": "취소/우천중단 경기",
+      "description": "",
       "table_doc_url": "dictionary/master/CANCEL_GAME/"
     },
     {
@@ -1508,7 +1508,7 @@
       "league": "KBO",
       "table_name": "IE_BallCount",
       "table_name_ci": "ie_ballcount",
-      "table_std_name": "IE_BALL_COUNT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 11,
       "row_count": 15482,
@@ -1518,7 +1518,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "현재 볼카운트 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
     },
     {
@@ -1527,7 +1527,7 @@
       "league": "KBO",
       "table_name": "IE_BatterRecord",
       "table_name_ci": "ie_batterrecord",
-      "table_std_name": "IE_BATTER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 25,
       "row_count": 451166,
@@ -1537,7 +1537,7 @@
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "타자 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
     },
     {
@@ -1546,7 +1546,7 @@
       "league": "KBO",
       "table_name": "IE_GameList",
       "table_name_ci": "ie_gamelist",
-      "table_std_name": "IE_GAME_LIST",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 6,
       "row_count": 15908,
@@ -1556,7 +1556,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 목록 (일자별)",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
     },
     {
@@ -1565,7 +1565,7 @@
       "league": "KBO",
       "table_name": "IE_GAMESTATE",
       "table_name_ci": "ie_gamestate",
-      "table_std_name": "IE_GAME_STATE",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 15237,
@@ -1575,7 +1575,7 @@
       "pk_columns": "GAMEID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 진행 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
     },
     {
@@ -1584,7 +1584,7 @@
       "league": "KBO",
       "table_name": "IE_LiveText",
       "table_name_ci": "ie_livetext",
-      "table_std_name": "IE_LIVE_TEXT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 8005079,
@@ -1594,7 +1594,7 @@
       "pk_columns": "gameID, GYEAR, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "실시간 문자 중계",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
     },
     {
@@ -1603,7 +1603,7 @@
       "league": "KBO",
       "table_name": "IE_log",
       "table_name_ci": "ie_log",
-      "table_std_name": "IE_LOG",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 3,
       "row_count": 785406,
@@ -1613,7 +1613,7 @@
       "pk_columns": "",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "시스템 로그",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_log/"
     },
     {
@@ -1622,7 +1622,7 @@
       "league": "KBO",
       "table_name": "IE_PitcherRecord",
       "table_name_ci": "ie_pitcherrecord",
-      "table_std_name": "IE_PITCHER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 22,
       "row_count": 134388,
@@ -1632,7 +1632,7 @@
       "pk_columns": "gameID, GYEAR, PlayerID",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "투수 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
     },
     {
@@ -1641,7 +1641,7 @@
       "league": "KBO",
       "table_name": "IE_Scoreinning",
       "table_name_ci": "ie_scoreinning",
-      "table_std_name": "IE_SCORE_INNING",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 267166,
@@ -1651,7 +1651,7 @@
       "pk_columns": "gameID, GYEAR, inning, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "이닝별 실시간 점수",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
     },
     {
@@ -1660,7 +1660,7 @@
       "league": "KBO",
       "table_name": "IE_ScoreRHEB",
       "table_name_ci": "ie_scorerheb",
-      "table_std_name": "IE_SCORE_RHEB",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 30860,
@@ -1670,7 +1670,7 @@
       "pk_columns": "gameID, GYEAR, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "점수/안타/실책/볼넷 요약",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
     },
     {
@@ -1679,7 +1679,7 @@
       "league": "KBO",
       "table_name": "KBO_schedule",
       "table_name_ci": "kbo_schedule",
-      "table_std_name": "KBO_SCHEDULE",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 22,
       "row_count": 27340,
@@ -1689,7 +1689,7 @@
       "pk_columns": "gmkey, gamedate",
       "refresh": "시즌 전 일괄",
       "access": "Public",
-      "description": "경기 일정",
+      "description": "",
       "table_doc_url": "dictionary/master/KBO_schedule/"
     },
     {
@@ -1698,7 +1698,7 @@
       "league": "KBO",
       "table_name": "person",
       "table_name_ci": "person",
-      "table_std_name": "PERSON",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 20,
       "row_count": 100812,
@@ -1708,7 +1708,7 @@
       "pk_columns": "GYEAR, PCODE",
       "refresh": "시즌 전 갱신",
       "access": "Restricted",
-      "description": "선수 마스터",
+      "description": "",
       "table_doc_url": "dictionary/master/person/"
     },
     {
@@ -1717,7 +1717,7 @@
       "league": "KBO",
       "table_name": "PERSON_FA",
       "table_name_ci": "person_fa",
-      "table_std_name": "PERSON_FA",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 4,
       "row_count": 228,
@@ -1727,7 +1727,7 @@
       "pk_columns": "",
       "refresh": "FA 발생 시 수시",
       "access": "Restricted",
-      "description": "FA 선수 정보",
+      "description": "",
       "table_doc_url": "dictionary/master/PERSON_FA/"
     },
     {
@@ -1736,7 +1736,7 @@
       "league": "KBO",
       "table_name": "person2",
       "table_name_ci": "person2",
-      "table_std_name": "PERSON2",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 17,
       "row_count": 91891,
@@ -1746,7 +1746,7 @@
       "pk_columns": "GYEAR, PCODE, NAME",
       "refresh": "시즌 전 갱신",
       "access": "Restricted",
-      "description": "선수 마스터 2",
+      "description": "",
       "table_doc_url": "dictionary/master/person2/"
     },
     {
@@ -1755,7 +1755,7 @@
       "league": "KBO",
       "table_name": "STADIUM",
       "table_name_ci": "stadium",
-      "table_std_name": "STADIUM",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 3,
       "row_count": 487,
@@ -1765,7 +1765,7 @@
       "pk_columns": "gyear, stadium",
       "refresh": "연 1회",
       "access": "Public",
-      "description": "구장 마스터",
+      "description": "",
       "table_doc_url": "dictionary/master/STADIUM/"
     },
     {
@@ -1774,7 +1774,7 @@
       "league": "시범경기",
       "table_name": "BatTotal",
       "table_name_ci": "battotal",
-      "table_std_name": "BAT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 22,
       "row_count": 5127,
@@ -1784,7 +1784,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "타격 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
     },
     {
@@ -1793,7 +1793,7 @@
       "league": "시범경기",
       "table_name": "ENTRY",
       "table_name_ci": "entry",
-      "table_std_name": "ENTRY",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 57411,
@@ -1803,7 +1803,7 @@
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "출전 엔트리",
+      "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
     },
     {
@@ -1812,7 +1812,7 @@
       "league": "시범경기",
       "table_name": "GAMECONTAPP",
       "table_name_ci": "gamecontapp",
-      "table_std_name": "GAME_CONT_APP",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 29,
       "row_count": 124637,
@@ -1822,7 +1822,7 @@
       "pk_columns": "GMKEY, GYEAR, SERNO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 이벤트 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
     },
     {
@@ -1831,7 +1831,7 @@
       "league": "시범경기",
       "table_name": "GAMEINFO",
       "table_name_ci": "gameinfo",
-      "table_std_name": "GAME_INFO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 27,
       "row_count": 1205,
@@ -1841,7 +1841,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 기본 정보",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
     },
     {
@@ -1850,7 +1850,7 @@
       "league": "시범경기",
       "table_name": "Hitter",
       "table_name_ci": "hitter",
-      "table_std_name": "HITTER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 26,
       "row_count": 40728,
@@ -1860,7 +1860,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 타자 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
     },
     {
@@ -1869,7 +1869,7 @@
       "league": "시범경기",
       "table_name": "IE_BallCount",
       "table_name_ci": "ie_ballcount",
-      "table_std_name": "IE_BALL_COUNT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 11,
       "row_count": 916,
@@ -1879,7 +1879,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "현재 볼카운트 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
     },
     {
@@ -1888,7 +1888,7 @@
       "league": "시범경기",
       "table_name": "IE_BatterRecord",
       "table_name_ci": "ie_batterrecord",
-      "table_std_name": "IE_BATTER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 25,
       "row_count": 35601,
@@ -1898,7 +1898,7 @@
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "타자 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
     },
     {
@@ -1907,7 +1907,7 @@
       "league": "시범경기",
       "table_name": "IE_GameList",
       "table_name_ci": "ie_gamelist",
-      "table_std_name": "IE_GAME_LIST",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 6,
       "row_count": 916,
@@ -1917,7 +1917,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 목록 (일자별)",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
     },
     {
@@ -1926,7 +1926,7 @@
       "league": "시범경기",
       "table_name": "IE_GAMESTATE",
       "table_name_ci": "ie_gamestate",
-      "table_std_name": "IE_GAME_STATE",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 969,
@@ -1936,7 +1936,7 @@
       "pk_columns": "GAMEID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 진행 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
     },
     {
@@ -1945,7 +1945,7 @@
       "league": "시범경기",
       "table_name": "IE_LiveText",
       "table_name_ci": "ie_livetext",
-      "table_std_name": "IE_LIVE_TEXT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 480083,
@@ -1955,7 +1955,7 @@
       "pk_columns": "gameID, GYEAR, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "실시간 문자 중계",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
     },
     {
@@ -1964,7 +1964,7 @@
       "league": "시범경기",
       "table_name": "IE_PitcherRecord",
       "table_name_ci": "ie_pitcherrecord",
-      "table_std_name": "IE_PITCHER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 22,
       "row_count": 9672,
@@ -1974,7 +1974,7 @@
       "pk_columns": "gameID, GYEAR, PlayerID",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "투수 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
     },
     {
@@ -1983,7 +1983,7 @@
       "league": "시범경기",
       "table_name": "IE_Scoreinning",
       "table_name_ci": "ie_scoreinning",
-      "table_std_name": "IE_SCORE_INNING",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 16114,
@@ -1993,7 +1993,7 @@
       "pk_columns": "gameID, GYEAR, inning, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "이닝별 실시간 점수",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
     },
     {
@@ -2002,7 +2002,7 @@
       "league": "시범경기",
       "table_name": "IE_ScoreRHEB",
       "table_name_ci": "ie_scorerheb",
-      "table_std_name": "IE_SCORE_RHEB",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 2022,
@@ -2012,7 +2012,7 @@
       "pk_columns": "gameID, GYEAR, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "점수/안타/실책/볼넷 요약",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
     },
     {
@@ -2021,7 +2021,7 @@
       "league": "시범경기",
       "table_name": "KBO_BATRESULT",
       "table_name_ci": "kbo_batresult",
-      "table_std_name": "KBO_BAT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 90,
       "row_count": 29217,
@@ -2031,7 +2031,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 타격 결과",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
     },
     {
@@ -2040,7 +2040,7 @@
       "league": "시범경기",
       "table_name": "KBO_ETCGAME",
       "table_name_ci": "kbo_etcgame",
-      "table_std_name": "KBO_ETC_GAME",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 5,
       "row_count": 7092,
@@ -2050,7 +2050,7 @@
       "pk_columns": "GMKEY, GDAY, SEQ",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "기타 경기 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
     },
     {
@@ -2059,7 +2059,7 @@
       "league": "시범경기",
       "table_name": "KBO_PITRESULT",
       "table_name_ci": "kbo_pitresult",
-      "table_std_name": "KBO_PIT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 23,
       "row_count": 8942,
@@ -2069,7 +2069,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "투수 경기 결과 상세",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
     },
     {
@@ -2078,7 +2078,7 @@
       "league": "시범경기",
       "table_name": "Pitcher",
       "table_name_ci": "pitcher",
-      "table_std_name": "PITCHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 36,
       "row_count": 14756,
@@ -2088,7 +2088,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 투수 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
     },
     {
@@ -2097,7 +2097,7 @@
       "league": "시범경기",
       "table_name": "PitTotal",
       "table_name_ci": "pittotal",
-      "table_std_name": "PIT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 21,
       "row_count": 3904,
@@ -2107,7 +2107,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "투구 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
     },
     {
@@ -2116,7 +2116,7 @@
       "league": "시범경기",
       "table_name": "Score",
       "table_name_ci": "score",
-      "table_std_name": "SCORE",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 60,
       "row_count": 1205,
@@ -2126,7 +2126,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 스코어",
+      "description": "",
       "table_doc_url": "dictionary/game/Score/"
     },
     {
@@ -2135,7 +2135,7 @@
       "league": "시범경기",
       "table_name": "SEASON_PLAYER_HITTER",
       "table_name_ci": "season_player_hitter",
-      "table_std_name": "SEASON_PLAYER_HITTER",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 43,
       "row_count": 466,
@@ -2145,7 +2145,7 @@
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "시즌별 타자 통계",
+      "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER/"
     },
     {
@@ -2154,7 +2154,7 @@
       "league": "시범경기",
       "table_name": "SEASON_PLAYER_HITTER_SITUATION",
       "table_name_ci": "season_player_hitter_situation",
-      "table_std_name": "SEASON_PLAYER_HITTER_SITUATION",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 14,
       "row_count": 5700,
@@ -2164,7 +2164,7 @@
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "시즌 타자 상황별 통계",
+      "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER_SITUATION/"
     },
     {
@@ -2173,7 +2173,7 @@
       "league": "시범경기",
       "table_name": "SEASON_PLAYER_PITCHER",
       "table_name_ci": "season_player_pitcher",
-      "table_std_name": "SEASON_PLAYER_PITCHER",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 54,
       "row_count": 394,
@@ -2183,7 +2183,7 @@
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "시즌별 투수 통계",
+      "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER/"
     },
     {
@@ -2192,7 +2192,7 @@
       "league": "시범경기",
       "table_name": "SEASON_PLAYER_PITCHER_SITUATION",
       "table_name_ci": "season_player_pitcher_situation",
-      "table_std_name": "SEASON_PLAYER_PITCHER_SITUATION",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 14,
       "row_count": 5460,
@@ -2202,7 +2202,7 @@
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "시즌 투수 상황별 통계",
+      "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER_SITUATION/"
     },
     {
@@ -2211,7 +2211,7 @@
       "league": "시범경기",
       "table_name": "TeamRank",
       "table_name_ci": "teamrank",
-      "table_std_name": "TEAM_RANK",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 29,
       "row_count": 214,
@@ -2221,7 +2221,7 @@
       "pk_columns": "GYEAR, SEC, TEAM",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "팀 순위 (시즌별)",
+      "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
     },
     {
@@ -2230,7 +2230,7 @@
       "league": "국제대회",
       "table_name": "BatTotal",
       "table_name_ci": "battotal",
-      "table_std_name": "BAT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 22,
       "row_count": 0,
@@ -2240,7 +2240,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "타격 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
     },
     {
@@ -2249,7 +2249,7 @@
       "league": "국제대회",
       "table_name": "ENTRY",
       "table_name_ci": "entry",
-      "table_std_name": "ENTRY",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 2073,
@@ -2259,7 +2259,7 @@
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "출전 엔트리",
+      "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
     },
     {
@@ -2268,7 +2268,7 @@
       "league": "국제대회",
       "table_name": "GAMECONTAPP",
       "table_name_ci": "gamecontapp",
-      "table_std_name": "GAME_CONT_APP",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 29,
       "row_count": 4586,
@@ -2278,7 +2278,7 @@
       "pk_columns": "GMKEY, GYEAR, SERNO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 이벤트 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
     },
     {
@@ -2287,7 +2287,7 @@
       "league": "국제대회",
       "table_name": "GAMEINFO",
       "table_name_ci": "gameinfo",
-      "table_std_name": "GAME_INFO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 27,
       "row_count": 43,
@@ -2297,7 +2297,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 기본 정보",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
     },
     {
@@ -2306,7 +2306,7 @@
       "league": "국제대회",
       "table_name": "Hitter",
       "table_name_ci": "hitter",
-      "table_std_name": "HITTER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 26,
       "row_count": 116,
@@ -2316,7 +2316,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 타자 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
     },
     {
@@ -2325,7 +2325,7 @@
       "league": "국제대회",
       "table_name": "IE_BallCount",
       "table_name_ci": "ie_ballcount",
-      "table_std_name": "IE_BALL_COUNT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 11,
       "row_count": 34,
@@ -2335,7 +2335,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "현재 볼카운트 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
     },
     {
@@ -2344,7 +2344,7 @@
       "league": "국제대회",
       "table_name": "IE_BatterRecord",
       "table_name_ci": "ie_batterrecord",
-      "table_std_name": "IE_BATTER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 25,
       "row_count": 1364,
@@ -2354,7 +2354,7 @@
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "타자 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
     },
     {
@@ -2363,7 +2363,7 @@
       "league": "국제대회",
       "table_name": "IE_GameList",
       "table_name_ci": "ie_gamelist",
-      "table_std_name": "IE_GAME_LIST",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 6,
       "row_count": 34,
@@ -2373,7 +2373,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 목록 (일자별)",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
     },
     {
@@ -2382,7 +2382,7 @@
       "league": "국제대회",
       "table_name": "IE_GAMESTATE",
       "table_name_ci": "ie_gamestate",
-      "table_std_name": "IE_GAME_STATE",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 34,
@@ -2392,7 +2392,7 @@
       "pk_columns": "GAMEID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 진행 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
     },
     {
@@ -2401,7 +2401,7 @@
       "league": "국제대회",
       "table_name": "IE_LiveText",
       "table_name_ci": "ie_livetext",
-      "table_std_name": "IE_LIVE_TEXT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 18535,
@@ -2411,7 +2411,7 @@
       "pk_columns": "gameID, GYEAR, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "실시간 문자 중계",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
     },
     {
@@ -2420,7 +2420,7 @@
       "league": "국제대회",
       "table_name": "IE_PitcherRecord",
       "table_name_ci": "ie_pitcherrecord",
-      "table_std_name": "IE_PITCHER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 22,
       "row_count": 394,
@@ -2430,7 +2430,7 @@
       "pk_columns": "gameID, GYEAR, PlayerID",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "투수 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
     },
     {
@@ -2439,7 +2439,7 @@
       "league": "국제대회",
       "table_name": "IE_Scoreinning",
       "table_name_ci": "ie_scoreinning",
-      "table_std_name": "IE_SCORE_INNING",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 595,
@@ -2449,7 +2449,7 @@
       "pk_columns": "gameID, GYEAR, inning, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "이닝별 실시간 점수",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
     },
     {
@@ -2458,7 +2458,7 @@
       "league": "국제대회",
       "table_name": "IE_ScoreRHEB",
       "table_name_ci": "ie_scorerheb",
-      "table_std_name": "IE_SCORE_RHEB",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 68,
@@ -2468,7 +2468,7 @@
       "pk_columns": "gameID, GYEAR, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "점수/안타/실책/볼넷 요약",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
     },
     {
@@ -2477,7 +2477,7 @@
       "league": "국제대회",
       "table_name": "KBO_BATRESULT",
       "table_name_ci": "kbo_batresult",
-      "table_std_name": "KBO_BAT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 90,
       "row_count": 1324,
@@ -2487,7 +2487,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 타격 결과",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
     },
     {
@@ -2496,7 +2496,7 @@
       "league": "국제대회",
       "table_name": "KBO_ETCGAME",
       "table_name_ci": "kbo_etcgame",
-      "table_std_name": "KBO_ETC_GAME",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 5,
       "row_count": 323,
@@ -2506,7 +2506,7 @@
       "pk_columns": "GMKEY, GDAY, SEQ",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "기타 경기 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
     },
     {
@@ -2515,7 +2515,7 @@
       "league": "국제대회",
       "table_name": "KBO_PITRESULT",
       "table_name_ci": "kbo_pitresult",
-      "table_std_name": "KBO_PIT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 23,
       "row_count": 452,
@@ -2525,7 +2525,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "투수 경기 결과 상세",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
     },
     {
@@ -2534,7 +2534,7 @@
       "league": "국제대회",
       "table_name": "person",
       "table_name_ci": "person",
-      "table_std_name": "PERSON",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 20,
       "row_count": 87,
@@ -2544,7 +2544,7 @@
       "pk_columns": "GYEAR, PCODE",
       "refresh": "시즌 전 갱신",
       "access": "Restricted",
-      "description": "선수 마스터",
+      "description": "",
       "table_doc_url": "dictionary/master/person/"
     },
     {
@@ -2553,7 +2553,7 @@
       "league": "국제대회",
       "table_name": "Pitcher",
       "table_name_ci": "pitcher",
-      "table_std_name": "PITCHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 36,
       "row_count": 592,
@@ -2563,7 +2563,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 투수 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
     },
     {
@@ -2572,7 +2572,7 @@
       "league": "국제대회",
       "table_name": "PitTotal",
       "table_name_ci": "pittotal",
-      "table_std_name": "PIT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 21,
       "row_count": 0,
@@ -2582,7 +2582,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "투구 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
     },
     {
@@ -2591,7 +2591,7 @@
       "league": "국제대회",
       "table_name": "Score",
       "table_name_ci": "score",
-      "table_std_name": "SCORE",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 60,
       "row_count": 43,
@@ -2601,7 +2601,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 스코어",
+      "description": "",
       "table_doc_url": "dictionary/game/Score/"
     },
     {
@@ -2610,7 +2610,7 @@
       "league": "국제대회",
       "table_name": "TeamRank",
       "table_name_ci": "teamrank",
-      "table_std_name": "TEAM_RANK",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 29,
       "row_count": 0,
@@ -2620,7 +2620,7 @@
       "pk_columns": "GYEAR, SEC, TEAM",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "팀 순위 (시즌별)",
+      "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
     },
     {
@@ -2629,7 +2629,7 @@
       "league": "마이너",
       "table_name": "BATTOTAL",
       "table_name_ci": "battotal",
-      "table_std_name": "BAT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 22,
       "row_count": 958,
@@ -2639,7 +2639,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "타격 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
     },
     {
@@ -2648,7 +2648,7 @@
       "league": "마이너",
       "table_name": "ENTRY",
       "table_name_ci": "entry",
-      "table_std_name": "ENTRY",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 22098,
@@ -2658,7 +2658,7 @@
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "출전 엔트리",
+      "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
     },
     {
@@ -2667,7 +2667,7 @@
       "league": "마이너",
       "table_name": "GAMECONTAPP",
       "table_name_ci": "gamecontapp",
-      "table_std_name": "GAME_CONT_APP",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 29,
       "row_count": 63928,
@@ -2677,7 +2677,7 @@
       "pk_columns": "GMKEY, GYEAR, SERNO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 이벤트 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
     },
     {
@@ -2686,7 +2686,7 @@
       "league": "마이너",
       "table_name": "GAMEINFO",
       "table_name_ci": "gameinfo",
-      "table_std_name": "GAME_INFO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 27,
       "row_count": 539,
@@ -2696,7 +2696,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 기본 정보",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
     },
     {
@@ -2705,7 +2705,7 @@
       "league": "마이너",
       "table_name": "HITTER",
       "table_name_ci": "hitter",
-      "table_std_name": "HITTER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 26,
       "row_count": 15083,
@@ -2715,7 +2715,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 타자 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
     },
     {
@@ -2724,7 +2724,7 @@
       "league": "마이너",
       "table_name": "KBO_BATRESULT",
       "table_name_ci": "kbo_batresult",
-      "table_std_name": "KBO_BAT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 65,
       "row_count": 221839,
@@ -2734,7 +2734,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 타격 결과",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
     },
     {
@@ -2743,7 +2743,7 @@
       "league": "마이너",
       "table_name": "KBO_ETCGAME",
       "table_name_ci": "kbo_etcgame",
-      "table_std_name": "KBO_ETC_GAME",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 5,
       "row_count": 70096,
@@ -2753,7 +2753,7 @@
       "pk_columns": "GMKEY, GDAY, SEQ",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "기타 경기 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
     },
     {
@@ -2762,7 +2762,7 @@
       "league": "마이너",
       "table_name": "KBO_PITRESULT",
       "table_name_ci": "kbo_pitresult",
-      "table_std_name": "KBO_PIT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 23,
       "row_count": 70729,
@@ -2772,7 +2772,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "투수 경기 결과 상세",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
     },
     {
@@ -2781,7 +2781,7 @@
       "league": "마이너",
       "table_name": "KBO_SCHEDULE",
       "table_name_ci": "kbo_schedule",
-      "table_std_name": "KBO_SCHEDULE",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 15,
       "row_count": 4023,
@@ -2791,7 +2791,7 @@
       "pk_columns": "gmkey, gamedate",
       "refresh": "시즌 전 일괄",
       "access": "Public",
-      "description": "경기 일정",
+      "description": "",
       "table_doc_url": "dictionary/master/KBO_schedule/"
     },
     {
@@ -2800,7 +2800,7 @@
       "league": "마이너",
       "table_name": "PERSON",
       "table_name_ci": "person",
-      "table_std_name": "PERSON",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 16,
       "row_count": 13902,
@@ -2810,7 +2810,7 @@
       "pk_columns": "GYEAR, PCODE",
       "refresh": "시즌 전 갱신",
       "access": "Restricted",
-      "description": "선수 마스터 (마이너)",
+      "description": "",
       "table_doc_url": "dictionary/master/PERSON/"
     },
     {
@@ -2819,7 +2819,7 @@
       "league": "마이너",
       "table_name": "PITCHCLOCK",
       "table_name_ci": "pitchclock",
-      "table_std_name": "PITCHCLOCK",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 19,
       "row_count": 168,
@@ -2829,7 +2829,7 @@
       "pk_columns": "GMKEY, GYEAR, GDAY, LIVETEXT",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "피치클럭 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/game/PITCHCLOCK/"
     },
     {
@@ -2838,7 +2838,7 @@
       "league": "마이너",
       "table_name": "PITCHER",
       "table_name_ci": "pitcher",
-      "table_std_name": "PITCHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 36,
       "row_count": 6743,
@@ -2848,7 +2848,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 투수 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
     },
     {
@@ -2857,7 +2857,7 @@
       "league": "마이너",
       "table_name": "PITTOTAL",
       "table_name_ci": "pittotal",
-      "table_std_name": "PIT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 21,
       "row_count": 804,
@@ -2867,7 +2867,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "투구 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
     },
     {
@@ -2876,7 +2876,7 @@
       "league": "마이너",
       "table_name": "SCORE",
       "table_name_ci": "score",
-      "table_std_name": "SCORE",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 60,
       "row_count": 539,
@@ -2886,7 +2886,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 스코어",
+      "description": "",
       "table_doc_url": "dictionary/game/Score/"
     },
     {
@@ -2895,7 +2895,7 @@
       "league": "마이너",
       "table_name": "STADIUM",
       "table_name_ci": "stadium",
-      "table_std_name": "STADIUM",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 3,
       "row_count": 284,
@@ -2905,7 +2905,7 @@
       "pk_columns": "gyear, stadium",
       "refresh": "연 1회",
       "access": "Public",
-      "description": "구장 마스터",
+      "description": "",
       "table_doc_url": "dictionary/master/STADIUM/"
     },
     {
@@ -2914,7 +2914,7 @@
       "league": "마이너",
       "table_name": "TEAM",
       "table_name_ci": "team",
-      "table_std_name": "TEAM",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 7,
       "row_count": 210,
@@ -2924,7 +2924,7 @@
       "pk_columns": "SEASON_ID, T_ID",
       "refresh": "연 1회",
       "access": "Public",
-      "description": "팀 마스터",
+      "description": "",
       "table_doc_url": "dictionary/master/TEAM/"
     },
     {
@@ -2933,7 +2933,7 @@
       "league": "마이너",
       "table_name": "TEAMRANK",
       "table_name_ci": "teamrank",
-      "table_std_name": "TEAM_RANK",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 29,
       "row_count": 11,
@@ -2943,7 +2943,7 @@
       "pk_columns": "GYEAR, SEC, TEAM",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "팀 순위 (시즌별)",
+      "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
     },
     {
@@ -2952,7 +2952,7 @@
       "league": "마이너",
       "table_name": "IE_BALLCOUNT",
       "table_name_ci": "ie_ballcount",
-      "table_std_name": "IE_BALL_COUNT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 11,
       "row_count": 8651,
@@ -2962,7 +2962,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "현재 볼카운트 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
     },
     {
@@ -2971,7 +2971,7 @@
       "league": "마이너",
       "table_name": "IE_BATTERRECORD",
       "table_name_ci": "ie_batterrecord",
-      "table_std_name": "IE_BATTER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 25,
       "row_count": 263107,
@@ -2981,7 +2981,7 @@
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "타자 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
     },
     {
@@ -2990,7 +2990,7 @@
       "league": "마이너",
       "table_name": "IE_GAMELIST",
       "table_name_ci": "ie_gamelist",
-      "table_std_name": "IE_GAME_LIST",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 6,
       "row_count": 8362,
@@ -3000,7 +3000,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 목록 (일자별)",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
     },
     {
@@ -3009,7 +3009,7 @@
       "league": "마이너",
       "table_name": "IE_GAMESTATE",
       "table_name_ci": "ie_gamestate",
-      "table_std_name": "IE_GAME_STATE",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 6978,
@@ -3019,7 +3019,7 @@
       "pk_columns": "GAMEID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 진행 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
     },
     {
@@ -3028,7 +3028,7 @@
       "league": "마이너",
       "table_name": "IE_LIVETEXT",
       "table_name_ci": "ie_livetext",
-      "table_std_name": "IE_LIVE_TEXT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 4506413,
@@ -3038,7 +3038,7 @@
       "pk_columns": "gameID, GYEAR, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "실시간 문자 중계",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
     },
     {
@@ -3047,7 +3047,7 @@
       "league": "마이너",
       "table_name": "IE_PITCHERRECORD",
       "table_name_ci": "ie_pitcherrecord",
-      "table_std_name": "IE_PITCHER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 22,
       "row_count": 75646,
@@ -3057,7 +3057,7 @@
       "pk_columns": "gameID, GYEAR, PlayerID",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "투수 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
     },
     {
@@ -3066,7 +3066,7 @@
       "league": "마이너",
       "table_name": "IE_SCOREINNING",
       "table_name_ci": "ie_scoreinning",
-      "table_std_name": "IE_SCORE_INNING",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 147846,
@@ -3076,7 +3076,7 @@
       "pk_columns": "gameID, GYEAR, inning, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "이닝별 실시간 점수",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
     },
     {
@@ -3085,7 +3085,7 @@
       "league": "마이너",
       "table_name": "IE_SCORERHEB",
       "table_name_ci": "ie_scorerheb",
-      "table_std_name": "IE_SCORE_RHEB",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 17302,
@@ -3095,7 +3095,7 @@
       "pk_columns": "gameID, GYEAR, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "점수/안타/실책/볼넷 요약",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
     },
     {
@@ -3104,7 +3104,7 @@
       "league": "포스트시즌",
       "table_name": "BatTotal",
       "table_name_ci": "battotal",
-      "table_std_name": "BAT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 22,
       "row_count": 0,
@@ -3114,7 +3114,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "타격 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
     },
     {
@@ -3123,7 +3123,7 @@
       "league": "포스트시즌",
       "table_name": "ENTRY",
       "table_name_ci": "entry",
-      "table_std_name": "ENTRY",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 111,
@@ -3133,7 +3133,7 @@
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "출전 엔트리",
+      "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
     },
     {
@@ -3142,7 +3142,7 @@
       "league": "포스트시즌",
       "table_name": "GAMECONTAPP",
       "table_name_ci": "gamecontapp",
-      "table_std_name": "GAME_CONT_APP",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 29,
       "row_count": 347,
@@ -3152,7 +3152,7 @@
       "pk_columns": "GMKEY, GYEAR, SERNO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 이벤트 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
     },
     {
@@ -3161,7 +3161,7 @@
       "league": "포스트시즌",
       "table_name": "GAMEINFO",
       "table_name_ci": "gameinfo",
-      "table_std_name": "GAME_INFO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 27,
       "row_count": 3,
@@ -3171,7 +3171,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 기본 정보",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
     },
     {
@@ -3180,7 +3180,7 @@
       "league": "포스트시즌",
       "table_name": "Hitter",
       "table_name_ci": "hitter",
-      "table_std_name": "HITTER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 26,
       "row_count": 77,
@@ -3190,7 +3190,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 타자 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
     },
     {
@@ -3199,7 +3199,7 @@
       "league": "포스트시즌",
       "table_name": "IE_BallCount",
       "table_name_ci": "ie_ballcount",
-      "table_std_name": "IE_BALL_COUNT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 11,
       "row_count": 3,
@@ -3209,7 +3209,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "현재 볼카운트 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
     },
     {
@@ -3218,7 +3218,7 @@
       "league": "포스트시즌",
       "table_name": "IE_BatterRecord",
       "table_name_ci": "ie_batterrecord",
-      "table_std_name": "IE_BATTER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 25,
       "row_count": 77,
@@ -3228,7 +3228,7 @@
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "타자 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
     },
     {
@@ -3237,7 +3237,7 @@
       "league": "포스트시즌",
       "table_name": "IE_GameList",
       "table_name_ci": "ie_gamelist",
-      "table_std_name": "IE_GAME_LIST",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 6,
       "row_count": 0,
@@ -3247,7 +3247,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 목록 (일자별)",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
     },
     {
@@ -3256,7 +3256,7 @@
       "league": "포스트시즌",
       "table_name": "IE_GAMESTATE",
       "table_name_ci": "ie_gamestate",
-      "table_std_name": "IE_GAME_STATE",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 3,
@@ -3266,7 +3266,7 @@
       "pk_columns": "GAMEID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 진행 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
     },
     {
@@ -3275,7 +3275,7 @@
       "league": "포스트시즌",
       "table_name": "IE_LiveText",
       "table_name_ci": "ie_livetext",
-      "table_std_name": "IE_LIVE_TEXT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 1672,
@@ -3285,7 +3285,7 @@
       "pk_columns": "gameID, GYEAR, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "실시간 문자 중계",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
     },
     {
@@ -3294,7 +3294,7 @@
       "league": "포스트시즌",
       "table_name": "IE_PitcherRecord",
       "table_name_ci": "ie_pitcherrecord",
-      "table_std_name": "IE_PITCHER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 22,
       "row_count": 36,
@@ -3304,7 +3304,7 @@
       "pk_columns": "gameID, GYEAR, PlayerID",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "투수 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
     },
     {
@@ -3313,7 +3313,7 @@
       "league": "포스트시즌",
       "table_name": "IE_Scoreinning",
       "table_name_ci": "ie_scoreinning",
-      "table_std_name": "IE_SCORE_INNING",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 53,
@@ -3323,7 +3323,7 @@
       "pk_columns": "gameID, GYEAR, inning, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "이닝별 실시간 점수",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
     },
     {
@@ -3332,7 +3332,7 @@
       "league": "포스트시즌",
       "table_name": "IE_ScoreRHEB",
       "table_name_ci": "ie_scorerheb",
-      "table_std_name": "IE_SCORE_RHEB",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 6,
@@ -3342,7 +3342,7 @@
       "pk_columns": "gameID, GYEAR, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "점수/안타/실책/볼넷 요약",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
     },
     {
@@ -3351,7 +3351,7 @@
       "league": "포스트시즌",
       "table_name": "KBO_BATRESULT",
       "table_name_ci": "kbo_batresult",
-      "table_std_name": "KBO_BAT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 90,
       "row_count": 77,
@@ -3361,7 +3361,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 타격 결과",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
     },
     {
@@ -3370,7 +3370,7 @@
       "league": "포스트시즌",
       "table_name": "KBO_ETCGAME",
       "table_name_ci": "kbo_etcgame",
-      "table_std_name": "KBO_ETC_GAME",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 5,
       "row_count": 21,
@@ -3380,7 +3380,7 @@
       "pk_columns": "GMKEY, GDAY, SEQ",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "기타 경기 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
     },
     {
@@ -3389,7 +3389,7 @@
       "league": "포스트시즌",
       "table_name": "KBO_PITRESULT",
       "table_name_ci": "kbo_pitresult",
-      "table_std_name": "KBO_PIT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 23,
       "row_count": 36,
@@ -3399,7 +3399,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "투수 경기 결과 상세",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
     },
     {
@@ -3408,7 +3408,7 @@
       "league": "포스트시즌",
       "table_name": "PITCHCLOCK",
       "table_name_ci": "pitchclock",
-      "table_std_name": "PITCHCLOCK",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 19,
       "row_count": 1,
@@ -3418,7 +3418,7 @@
       "pk_columns": "GMKEY, GYEAR, GDAY, LIVETEXT",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "피치클럭 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/game/PITCHCLOCK/"
     },
     {
@@ -3427,7 +3427,7 @@
       "league": "포스트시즌",
       "table_name": "Pitcher",
       "table_name_ci": "pitcher",
-      "table_std_name": "PITCHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 36,
       "row_count": 42,
@@ -3437,7 +3437,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 투수 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
     },
     {
@@ -3446,7 +3446,7 @@
       "league": "포스트시즌",
       "table_name": "PitTotal",
       "table_name_ci": "pittotal",
-      "table_std_name": "PIT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 21,
       "row_count": 0,
@@ -3456,7 +3456,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "투구 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
     },
     {
@@ -3465,7 +3465,7 @@
       "league": "포스트시즌",
       "table_name": "Score",
       "table_name_ci": "score",
-      "table_std_name": "SCORE",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 60,
       "row_count": 3,
@@ -3475,7 +3475,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 스코어",
+      "description": "",
       "table_doc_url": "dictionary/game/Score/"
     },
     {
@@ -3484,7 +3484,7 @@
       "league": "포스트시즌",
       "table_name": "TeamRank",
       "table_name_ci": "teamrank",
-      "table_std_name": "TEAM_RANK",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 29,
       "row_count": 0,
@@ -3494,7 +3494,7 @@
       "pk_columns": "GYEAR, SEC, TEAM",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "팀 순위 (시즌별)",
+      "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
     },
     {
@@ -3503,7 +3503,7 @@
       "league": "마이너",
       "table_name": "BATTOTAL",
       "table_name_ci": "battotal",
-      "table_std_name": "BAT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 22,
       "row_count": 144,
@@ -3513,7 +3513,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "타격 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
     },
     {
@@ -3522,7 +3522,7 @@
       "league": "마이너",
       "table_name": "ENTRY",
       "table_name_ci": "entry",
-      "table_std_name": "ENTRY",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 346,
@@ -3532,7 +3532,7 @@
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "출전 엔트리",
+      "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
     },
     {
@@ -3541,7 +3541,7 @@
       "league": "마이너",
       "table_name": "GAMECONTAPP",
       "table_name_ci": "gamecontapp",
-      "table_std_name": "GAME_CONT_APP",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 29,
       "row_count": 954,
@@ -3551,7 +3551,7 @@
       "pk_columns": "GMKEY, GYEAR, SERNO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 이벤트 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
     },
     {
@@ -3560,7 +3560,7 @@
       "league": "마이너",
       "table_name": "GAMEINFO",
       "table_name_ci": "gameinfo",
-      "table_std_name": "GAME_INFO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 27,
       "row_count": 9,
@@ -3570,7 +3570,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 기본 정보",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
     },
     {
@@ -3579,7 +3579,7 @@
       "league": "마이너",
       "table_name": "HITTER",
       "table_name_ci": "hitter",
-      "table_std_name": "HITTER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 26,
       "row_count": 246,
@@ -3589,7 +3589,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 타자 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
     },
     {
@@ -3598,7 +3598,7 @@
       "league": "마이너",
       "table_name": "KBO_BATRESULT",
       "table_name_ci": "kbo_batresult",
-      "table_std_name": "KBO_BAT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 65,
       "row_count": 3303,
@@ -3608,7 +3608,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 타격 결과",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
     },
     {
@@ -3617,7 +3617,7 @@
       "league": "마이너",
       "table_name": "KBO_ETCGAME",
       "table_name_ci": "kbo_etcgame",
-      "table_std_name": "KBO_ETC_GAME",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 5,
       "row_count": 1119,
@@ -3627,7 +3627,7 @@
       "pk_columns": "GMKEY, GDAY, SEQ",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "기타 경기 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
     },
     {
@@ -3636,7 +3636,7 @@
       "league": "마이너",
       "table_name": "KBO_PITRESULT",
       "table_name_ci": "kbo_pitresult",
-      "table_std_name": "KBO_PIT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 23,
       "row_count": 1099,
@@ -3646,7 +3646,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "투수 경기 결과 상세",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
     },
     {
@@ -3655,7 +3655,7 @@
       "league": "마이너",
       "table_name": "KBO_SCHEDULE",
       "table_name_ci": "kbo_schedule",
-      "table_std_name": "KBO_SCHEDULE",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 15,
       "row_count": 146,
@@ -3665,7 +3665,7 @@
       "pk_columns": "gmkey, gamedate",
       "refresh": "시즌 전 일괄",
       "access": "Public",
-      "description": "경기 일정",
+      "description": "",
       "table_doc_url": "dictionary/master/KBO_schedule/"
     },
     {
@@ -3674,7 +3674,7 @@
       "league": "마이너",
       "table_name": "PERSON",
       "table_name_ci": "person",
-      "table_std_name": "PERSON",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 16,
       "row_count": 8249,
@@ -3684,7 +3684,7 @@
       "pk_columns": "GYEAR, PCODE",
       "refresh": "시즌 전 갱신",
       "access": "Restricted",
-      "description": "선수 마스터 (마이너)",
+      "description": "",
       "table_doc_url": "dictionary/master/PERSON/"
     },
     {
@@ -3693,7 +3693,7 @@
       "league": "마이너",
       "table_name": "PITCHER",
       "table_name_ci": "pitcher",
-      "table_std_name": "PITCHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 36,
       "row_count": 103,
@@ -3703,7 +3703,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 투수 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
     },
     {
@@ -3712,7 +3712,7 @@
       "league": "마이너",
       "table_name": "PITTOTAL",
       "table_name_ci": "pittotal",
-      "table_std_name": "PIT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 21,
       "row_count": 116,
@@ -3722,7 +3722,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "투구 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
     },
     {
@@ -3731,7 +3731,7 @@
       "league": "마이너",
       "table_name": "SCORE",
       "table_name_ci": "score",
-      "table_std_name": "SCORE",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 60,
       "row_count": 9,
@@ -3741,7 +3741,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 스코어",
+      "description": "",
       "table_doc_url": "dictionary/game/Score/"
     },
     {
@@ -3750,7 +3750,7 @@
       "league": "마이너",
       "table_name": "TEAM",
       "table_name_ci": "team",
-      "table_std_name": "TEAM",
+      "table_std_name": "",
       "domain": "마스터",
       "column_count": 7,
       "row_count": 178,
@@ -3760,7 +3760,7 @@
       "pk_columns": "SEASON_ID, T_ID",
       "refresh": "연 1회",
       "access": "Public",
-      "description": "팀 마스터",
+      "description": "",
       "table_doc_url": "dictionary/master/TEAM/"
     },
     {
@@ -3769,7 +3769,7 @@
       "league": "마이너",
       "table_name": "TEAMRANK",
       "table_name_ci": "teamrank",
-      "table_std_name": "TEAM_RANK",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 29,
       "row_count": 4,
@@ -3779,7 +3779,7 @@
       "pk_columns": "GYEAR, SEC, TEAM",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "팀 순위 (시즌별)",
+      "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
     },
     {
@@ -3788,7 +3788,7 @@
       "league": "마이너",
       "table_name": "IE_BALLCOUNT",
       "table_name_ci": "ie_ballcount",
-      "table_std_name": "IE_BALL_COUNT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 11,
       "row_count": 16,
@@ -3798,7 +3798,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "현재 볼카운트 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
     },
     {
@@ -3807,7 +3807,7 @@
       "league": "마이너",
       "table_name": "IE_BATTERRECORD",
       "table_name_ci": "ie_batterrecord",
-      "table_std_name": "IE_BATTER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 25,
       "row_count": 449,
@@ -3817,7 +3817,7 @@
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "타자 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
     },
     {
@@ -3826,7 +3826,7 @@
       "league": "마이너",
       "table_name": "IE_GAMELIST",
       "table_name_ci": "ie_gamelist",
-      "table_std_name": "IE_GAME_LIST",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 6,
       "row_count": 0,
@@ -3836,7 +3836,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 목록 (일자별)",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
     },
     {
@@ -3845,7 +3845,7 @@
       "league": "마이너",
       "table_name": "IE_GAMESTATE",
       "table_name_ci": "ie_gamestate",
-      "table_std_name": "IE_GAME_STATE",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 16,
@@ -3855,7 +3855,7 @@
       "pk_columns": "GAMEID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 진행 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
     },
     {
@@ -3864,7 +3864,7 @@
       "league": "마이너",
       "table_name": "IE_LIVETEXT",
       "table_name_ci": "ie_livetext",
-      "table_std_name": "IE_LIVE_TEXT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 7813,
@@ -3874,7 +3874,7 @@
       "pk_columns": "gameID, GYEAR, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "실시간 문자 중계",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
     },
     {
@@ -3883,7 +3883,7 @@
       "league": "마이너",
       "table_name": "IE_PITCHERRECORD",
       "table_name_ci": "ie_pitcherrecord",
-      "table_std_name": "IE_PITCHER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 22,
       "row_count": 141,
@@ -3893,7 +3893,7 @@
       "pk_columns": "gameID, GYEAR, PlayerID",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "투수 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
     },
     {
@@ -3902,7 +3902,7 @@
       "league": "마이너",
       "table_name": "IE_SCOREINNING",
       "table_name_ci": "ie_scoreinning",
-      "table_std_name": "IE_SCORE_INNING",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 279,
@@ -3912,7 +3912,7 @@
       "pk_columns": "gameID, GYEAR, inning, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "이닝별 실시간 점수",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
     },
     {
@@ -3921,7 +3921,7 @@
       "league": "마이너",
       "table_name": "IE_SCORERHEB",
       "table_name_ci": "ie_scorerheb",
-      "table_std_name": "IE_SCORE_RHEB",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 32,
@@ -3931,7 +3931,7 @@
       "pk_columns": "gameID, GYEAR, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "점수/안타/실책/볼넷 요약",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
     },
     {
@@ -3940,7 +3940,7 @@
       "league": "기타",
       "table_name": "BatTotal",
       "table_name_ci": "battotal",
-      "table_std_name": "BAT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 22,
       "row_count": 207,
@@ -3950,7 +3950,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "타격 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
     },
     {
@@ -3959,7 +3959,7 @@
       "league": "기타",
       "table_name": "ENTRY",
       "table_name_ci": "entry",
-      "table_std_name": "ENTRY",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 1614,
@@ -3969,7 +3969,7 @@
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "출전 엔트리",
+      "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
     },
     {
@@ -3978,7 +3978,7 @@
       "league": "기타",
       "table_name": "GAMECONTAPP",
       "table_name_ci": "gamecontapp",
-      "table_std_name": "GAME_CONT_APP",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 29,
       "row_count": 3307,
@@ -3988,7 +3988,7 @@
       "pk_columns": "GMKEY, GYEAR, SERNO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 이벤트 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
     },
     {
@@ -3997,7 +3997,7 @@
       "league": "기타",
       "table_name": "GAMEINFO",
       "table_name_ci": "gameinfo",
-      "table_std_name": "GAME_INFO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 27,
       "row_count": 32,
@@ -4007,7 +4007,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 기본 정보",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
     },
     {
@@ -4016,7 +4016,7 @@
       "league": "기타",
       "table_name": "Hitter",
       "table_name_ci": "hitter",
-      "table_std_name": "HITTER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 26,
       "row_count": 1131,
@@ -4026,7 +4026,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 타자 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
     },
     {
@@ -4035,7 +4035,7 @@
       "league": "기타",
       "table_name": "IE_BallCount",
       "table_name_ci": "ie_ballcount",
-      "table_std_name": "IE_BALL_COUNT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 11,
       "row_count": 2,
@@ -4045,7 +4045,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "현재 볼카운트 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
     },
     {
@@ -4054,7 +4054,7 @@
       "league": "기타",
       "table_name": "IE_BatterRecord",
       "table_name_ci": "ie_batterrecord",
-      "table_std_name": "IE_BATTER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 25,
       "row_count": 46,
@@ -4064,7 +4064,7 @@
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "타자 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
     },
     {
@@ -4073,7 +4073,7 @@
       "league": "기타",
       "table_name": "IE_GameList",
       "table_name_ci": "ie_gamelist",
-      "table_std_name": "IE_GAME_LIST",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 6,
       "row_count": 2,
@@ -4083,7 +4083,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 목록 (일자별)",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
     },
     {
@@ -4092,7 +4092,7 @@
       "league": "기타",
       "table_name": "IE_GAMESTATE",
       "table_name_ci": "ie_gamestate",
-      "table_std_name": "IE_GAME_STATE",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 2,
@@ -4102,7 +4102,7 @@
       "pk_columns": "GAMEID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 진행 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
     },
     {
@@ -4111,7 +4111,7 @@
       "league": "기타",
       "table_name": "IE_LiveText",
       "table_name_ci": "ie_livetext",
-      "table_std_name": "IE_LIVE_TEXT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 894,
@@ -4121,7 +4121,7 @@
       "pk_columns": "gameID, GYEAR, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "실시간 문자 중계",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
     },
     {
@@ -4130,7 +4130,7 @@
       "league": "기타",
       "table_name": "IE_PitcherRecord",
       "table_name_ci": "ie_pitcherrecord",
-      "table_std_name": "IE_PITCHER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 22,
       "row_count": 14,
@@ -4140,7 +4140,7 @@
       "pk_columns": "gameID, GYEAR, PlayerID",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "투수 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
     },
     {
@@ -4149,7 +4149,7 @@
       "league": "기타",
       "table_name": "IE_Scoreinning",
       "table_name_ci": "ie_scoreinning",
-      "table_std_name": "IE_SCORE_INNING",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 35,
@@ -4159,7 +4159,7 @@
       "pk_columns": "gameID, GYEAR, inning, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "이닝별 실시간 점수",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
     },
     {
@@ -4168,7 +4168,7 @@
       "league": "기타",
       "table_name": "IE_ScoreRHEB",
       "table_name_ci": "ie_scorerheb",
-      "table_std_name": "IE_SCORE_RHEB",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 4,
@@ -4178,7 +4178,7 @@
       "pk_columns": "gameID, GYEAR, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "점수/안타/실책/볼넷 요약",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
     },
     {
@@ -4187,7 +4187,7 @@
       "league": "기타",
       "table_name": "KBO_BATRESULT",
       "table_name_ci": "kbo_batresult",
-      "table_std_name": "KBO_BAT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 90,
       "row_count": 1131,
@@ -4197,7 +4197,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 타격 결과",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
     },
     {
@@ -4206,7 +4206,7 @@
       "league": "기타",
       "table_name": "KBO_ETCGAME",
       "table_name_ci": "kbo_etcgame",
-      "table_std_name": "KBO_ETC_GAME",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 5,
       "row_count": 260,
@@ -4216,7 +4216,7 @@
       "pk_columns": "GMKEY, GDAY, SEQ",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "기타 경기 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
     },
     {
@@ -4225,7 +4225,7 @@
       "league": "기타",
       "table_name": "KBO_PITRESULT",
       "table_name_ci": "kbo_pitresult",
-      "table_std_name": "KBO_PIT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 23,
       "row_count": 355,
@@ -4235,7 +4235,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "투수 경기 결과 상세",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
     },
     {
@@ -4244,7 +4244,7 @@
       "league": "기타",
       "table_name": "Pitcher",
       "table_name_ci": "pitcher",
-      "table_std_name": "PITCHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 36,
       "row_count": 419,
@@ -4254,7 +4254,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 투수 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
     },
     {
@@ -4263,7 +4263,7 @@
       "league": "기타",
       "table_name": "PitTotal",
       "table_name_ci": "pittotal",
-      "table_std_name": "PIT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 21,
       "row_count": 161,
@@ -4273,7 +4273,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "투구 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
     },
     {
@@ -4282,7 +4282,7 @@
       "league": "기타",
       "table_name": "Score",
       "table_name_ci": "score",
-      "table_std_name": "SCORE",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 60,
       "row_count": 32,
@@ -4292,7 +4292,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 스코어",
+      "description": "",
       "table_doc_url": "dictionary/game/Score/"
     },
     {
@@ -4301,7 +4301,7 @@
       "league": "기타",
       "table_name": "TeamRank",
       "table_name_ci": "teamrank",
-      "table_std_name": "TEAM_RANK",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 29,
       "row_count": 10,
@@ -4311,7 +4311,7 @@
       "pk_columns": "GYEAR, SEC, TEAM",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "팀 순위 (시즌별)",
+      "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
     },
     {
@@ -4320,7 +4320,7 @@
       "league": "포스트시즌",
       "table_name": "BatTotal",
       "table_name_ci": "battotal",
-      "table_std_name": "BAT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 23,
       "row_count": 2615,
@@ -4330,7 +4330,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "타격 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
     },
     {
@@ -4339,7 +4339,7 @@
       "league": "포스트시즌",
       "table_name": "ENTRY",
       "table_name_ci": "entry",
-      "table_std_name": "ENTRY",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 12,
       "row_count": 19482,
@@ -4349,7 +4349,7 @@
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "출전 엔트리",
+      "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
     },
     {
@@ -4358,7 +4358,7 @@
       "league": "포스트시즌",
       "table_name": "GAMECONTAPP",
       "table_name_ci": "gamecontapp",
-      "table_std_name": "GAME_CONT_APP",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 29,
       "row_count": 57975,
@@ -4368,7 +4368,7 @@
       "pk_columns": "GMKEY, GYEAR, SERNO",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 이벤트 상세",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
     },
     {
@@ -4377,7 +4377,7 @@
       "league": "포스트시즌",
       "table_name": "GAMEINFO",
       "table_name_ci": "gameinfo",
-      "table_std_name": "GAME_INFO",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 27,
       "row_count": 551,
@@ -4387,7 +4387,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기 기본 정보",
+      "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
     },
     {
@@ -4396,7 +4396,7 @@
       "league": "포스트시즌",
       "table_name": "Hitter",
       "table_name_ci": "hitter",
-      "table_std_name": "HITTER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 26,
       "row_count": 14604,
@@ -4406,7 +4406,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 타자 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
     },
     {
@@ -4415,7 +4415,7 @@
       "league": "포스트시즌",
       "table_name": "IE_BallCount",
       "table_name_ci": "ie_ballcount",
-      "table_std_name": "IE_BALL_COUNT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 11,
       "row_count": 310,
@@ -4425,7 +4425,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "현재 볼카운트 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
     },
     {
@@ -4434,7 +4434,7 @@
       "league": "포스트시즌",
       "table_name": "IE_BatterRecord",
       "table_name_ci": "ie_batterrecord",
-      "table_std_name": "IE_BATTER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 25,
       "row_count": 8507,
@@ -4444,7 +4444,7 @@
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "타자 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
     },
     {
@@ -4453,7 +4453,7 @@
       "league": "포스트시즌",
       "table_name": "IE_GameList",
       "table_name_ci": "ie_gamelist",
-      "table_std_name": "IE_GAME_LIST",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 6,
       "row_count": 296,
@@ -4463,7 +4463,7 @@
       "pk_columns": "gameID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 목록 (일자별)",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
     },
     {
@@ -4472,7 +4472,7 @@
       "league": "포스트시즌",
       "table_name": "IE_GAMESTATE",
       "table_name_ci": "ie_gamestate",
-      "table_std_name": "IE_GAME_STATE",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 294,
@@ -4482,7 +4482,7 @@
       "pk_columns": "GAMEID, GYEAR",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "경기 진행 상태",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
     },
     {
@@ -4491,7 +4491,7 @@
       "league": "포스트시즌",
       "table_name": "IE_LiveText",
       "table_name_ci": "ie_livetext",
-      "table_std_name": "IE_LIVE_TEXT",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 164791,
@@ -4501,7 +4501,7 @@
       "pk_columns": "gameID, GYEAR, SeqNO",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "실시간 문자 중계",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
     },
     {
@@ -4510,7 +4510,7 @@
       "league": "포스트시즌",
       "table_name": "IE_PitcherRecord",
       "table_name_ci": "ie_pitcherrecord",
-      "table_std_name": "IE_PITCHER_RECORD",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 22,
       "row_count": 3015,
@@ -4520,7 +4520,7 @@
       "pk_columns": "gameID, GYEAR, PlayerID",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "투수 실시간 기록",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
     },
     {
@@ -4529,7 +4529,7 @@
       "league": "포스트시즌",
       "table_name": "IE_Scoreinning",
       "table_name_ci": "ie_scoreinning",
-      "table_std_name": "IE_SCORE_INNING",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 5,
       "row_count": 5605,
@@ -4539,7 +4539,7 @@
       "pk_columns": "gameID, GYEAR, inning, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "이닝별 실시간 점수",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
     },
     {
@@ -4548,7 +4548,7 @@
       "league": "포스트시즌",
       "table_name": "IE_ScoreRHEB",
       "table_name_ci": "ie_scorerheb",
-      "table_std_name": "IE_SCORE_RHEB",
+      "table_std_name": "",
       "domain": "실시간",
       "column_count": 7,
       "row_count": 622,
@@ -4558,7 +4558,7 @@
       "pk_columns": "gameID, GYEAR, bHome",
       "refresh": "실시간",
       "access": "Internal",
-      "description": "점수/안타/실책/볼넷 요약",
+      "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
     },
     {
@@ -4567,7 +4567,7 @@
       "league": "포스트시즌",
       "table_name": "KBO_BATRESULT",
       "table_name_ci": "kbo_batresult",
-      "table_std_name": "KBO_BAT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 90,
       "row_count": 6573,
@@ -4577,7 +4577,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 타격 결과",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
     },
     {
@@ -4586,7 +4586,7 @@
       "league": "포스트시즌",
       "table_name": "KBO_ETCGAME",
       "table_name_ci": "kbo_etcgame",
-      "table_std_name": "KBO_ETC_GAME",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 5,
       "row_count": 1957,
@@ -4596,7 +4596,7 @@
       "pk_columns": "GMKEY, GDAY, SEQ",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "기타 경기 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
     },
     {
@@ -4605,7 +4605,7 @@
       "league": "포스트시즌",
       "table_name": "KBO_PITRESULT",
       "table_name_ci": "kbo_pitresult",
-      "table_std_name": "KBO_PIT_RESULT",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 23,
       "row_count": 2463,
@@ -4615,7 +4615,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "투수 경기 결과 상세",
+      "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
     },
     {
@@ -4624,7 +4624,7 @@
       "league": "포스트시즌",
       "table_name": "PITCHCLOCK",
       "table_name_ci": "pitchclock",
-      "table_std_name": "PITCHCLOCK",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 19,
       "row_count": 2,
@@ -4634,7 +4634,7 @@
       "pk_columns": "GMKEY, GYEAR, GDAY, LIVETEXT",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "피치클럭 이벤트",
+      "description": "",
       "table_doc_url": "dictionary/game/PITCHCLOCK/"
     },
     {
@@ -4643,7 +4643,7 @@
       "league": "포스트시즌",
       "table_name": "Pitcher",
       "table_name_ci": "pitcher",
-      "table_std_name": "PITCHER",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 36,
       "row_count": 5706,
@@ -4653,7 +4653,7 @@
       "pk_columns": "GMKEY, GDAY, PCODE",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "경기별 투수 기록",
+      "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
     },
     {
@@ -4662,7 +4662,7 @@
       "league": "포스트시즌",
       "table_name": "PitTotal",
       "table_name_ci": "pittotal",
-      "table_std_name": "PIT_TOTAL",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 22,
       "row_count": 1892,
@@ -4672,7 +4672,7 @@
       "pk_columns": "PCODE, GYEAR, SEC",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "투구 시즌/통산 합산",
+      "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
     },
     {
@@ -4681,7 +4681,7 @@
       "league": "포스트시즌",
       "table_name": "Score",
       "table_name_ci": "score",
-      "table_std_name": "SCORE",
+      "table_std_name": "",
       "domain": "경기 기록",
       "column_count": 60,
       "row_count": 551,
@@ -4691,7 +4691,7 @@
       "pk_columns": "GMKEY, GDAY",
       "refresh": "경기 당일",
       "access": "Internal",
-      "description": "이닝별 스코어",
+      "description": "",
       "table_doc_url": "dictionary/game/Score/"
     },
     {
@@ -4700,7 +4700,7 @@
       "league": "포스트시즌",
       "table_name": "TeamRank",
       "table_name_ci": "teamrank",
-      "table_std_name": "TEAM_RANK",
+      "table_std_name": "",
       "domain": "통계",
       "column_count": 30,
       "row_count": 165,
@@ -4710,7 +4710,7 @@
       "pk_columns": "GYEAR, SEC, TEAM",
       "refresh": "D+1",
       "access": "Internal",
-      "description": "팀 순위 (시즌별)",
+      "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
     }
   ]
