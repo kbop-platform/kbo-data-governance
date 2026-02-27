@@ -71,7 +71,7 @@ extra_javascript:
 extra:
   generator: false
 
-copyright: "&copy; 2026 KBOP Data Biz Team &mdash; KBO DataHub v2.0 &middot; Confidential"
+copyright: "&copy; 2026 KBOP Data Biz Team - KBO DataHub v2.0 &middot; Confidential"
 
 nav:
   - Home:
@@ -80,13 +80,6 @@ nav:
   - Catalog:
     - catalog/instances.md
     - 컬럼 검색: catalog/columns.md
-  - Dictionary:
-    - standards-dict/glossary.md
-    - 약어 사전: standards-dict/abbreviations.md
-    - 도메인 사전: standards-dict/domains.md
-    - 코드 사전: standards-dict/codes.md
-    - 사전 상세:
-      - dictionary/index.md
     - 데이터 프로덕트:
       - 경기 요약: dictionary/products/game-summary.md
       - 실시간 경기: dictionary/products/live-game.md
@@ -142,6 +135,11 @@ nav:
       - 06. 구장: dictionary/master/STADIUM.md
       - 07. 경기 일정: dictionary/master/KBO_schedule.md
       - 08. 취소 경기: dictionary/master/CANCEL_GAME.md
+  - Dictionary:
+    - standards-dict/glossary.md
+    - 약어 사전: standards-dict/abbreviations.md
+    - 도메인 사전: standards-dict/domains.md
+    - 코드 사전: standards-dict/codes.md
   - Governance:
     - standards/index.md
     - 표준 정의:
