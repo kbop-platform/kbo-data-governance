@@ -79,7 +79,7 @@ nav:
     - 프로젝트 가이드: project-guide.md
   - Catalog:
     - catalog/instances.md
-    - 컬럼 검색: catalog/columns.md
+    - 컬럼: catalog/columns.md
     - 데이터 프로덕트:
       - 경기 요약: dictionary/products/game-summary.md
       - 실시간 경기: dictionary/products/live-game.md

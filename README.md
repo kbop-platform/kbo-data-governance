@@ -8,16 +8,15 @@ title: ""
 <div id="home-dashboard">
 
 <div class="home-hero">
-  <div class="home-hero-badge">KBO Data Biz Team</div>
   <div class="home-hero-title">DataHub</div>
-  <div class="home-hero-desc">프로야구 데이터 표준 &middot; 카탈로그 &middot; 거버넌스</div>
+  <div class="home-hero-desc">KBO 데이터 표준 &middot; 카탈로그 &middot; 거버넌스</div>
   <div class="home-hero-stats" id="hero-stats">
     <div class="home-hero-stat"><div class="stat-num">&#8203;</div><div class="stat-label">데이터베이스</div></div>
     <div class="home-hero-stat"><div class="stat-num">&#8203;</div><div class="stat-label">테이블</div></div>
     <div class="home-hero-stat"><div class="stat-num">&#8203;</div><div class="stat-label">컬럼</div></div>
     <div class="home-hero-stat"><div class="stat-num">&#8203;</div><div class="stat-label">총 행수</div></div>
     <div class="home-hero-stat"><div class="stat-num">&#8203;</div><div class="stat-label">인스턴스</div></div>
-    <div class="home-hero-stat home-hero-stat--date"><div class="stat-num">&#8203;</div><div class="stat-label">최근 갱신</div></div>
+    <div class="home-hero-stat home-hero-stat--date"><div class="stat-num">&#8203;</div><div class="stat-label">갱신일자</div></div>
   </div>
 </div>
 

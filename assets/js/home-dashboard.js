@@ -102,7 +102,7 @@
 
     html += '<div class="home-hero-stat home-hero-stat--date">'
       + '<div class="stat-num">' + date + '</div>'
-      + '<div class="stat-label">최근 갱신</div>'
+      + '<div class="stat-label">갱신일자</div>'
       + '</div>';
 
     el.innerHTML = html;

@@ -8,16 +8,18 @@ hide:
 
 <!-- Catalog Sub-Tabs -->
 <div class="catalog-tabs">
-  <a href="../instances/"><span class="tab-icon"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm2 .5v3h5v-3H2zm0 5v3h5v-3H2zm0 5v2.5h5v-2.5H2zm7-10v3h5v-3H9zm0 5v3h5v-3H9zm0 5v2.5h5V12.5H9z"/></svg></span> 테이블 목록 <span class="tab-count">248</span></a>
-  <a href="../columns/" class="active"><span class="tab-icon"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 4.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1zm0 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1zm0 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1z"/></svg></span> 컬럼 검색 <span class="tab-count">787</span></a>
+  <a href="../instances/"><span class="tab-icon"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm2 .5v3h5v-3H2zm0 5v3h5v-3H2zm0 5v2.5h5v-2.5H2zm7-10v3h5v-3H9zm0 5v3h5v-3H9zm0 5v2.5h5V12.5H9z"/></svg></span> 테이블 <span class="tab-count">248</span></a>
+  <a href="../columns/" class="active"><span class="tab-icon"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 4.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1zm0 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1zm0 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1z"/></svg></span> 컬럼 <span class="tab-count">787</span></a>
 </div>
-
-<div class="grid-stats-inline">
-  <span class="stat-inline"><strong id="stat-columns">787</strong> 컬럼</span>
-  <span class="stat-inline"><strong id="stat-tables">39</strong> 테이블</span>
-  <span class="stat-inline"><strong id="stat-domains">4</strong> 도메인</span>
-  <span class="stat-inline"><strong id="stat-rows">25.7M</strong> 총 행수</span>
-  <span class="stat-inline"><strong id="stat-tier1">12</strong> Tier 1</span>
+<div class="grid-page-info">
+  <div class="grid-page-desc">컬럼별 타입, 설명, 표준명, 코드값 등 상세 메타데이터</div>
+  <div class="grid-stats-inline">
+    <span class="stat-inline"><strong id="stat-columns">787</strong> 컬럼</span>
+    <span class="stat-inline"><strong id="stat-tables">39</strong> 테이블</span>
+    <span class="stat-inline"><strong id="stat-domains">4</strong> 도메인</span>
+    <span class="stat-inline"><strong id="stat-rows">25.7M</strong> 총 행수</span>
+    <span class="stat-inline"><strong id="stat-tier1">12</strong> Tier 1</span>
+  </div>
 </div>
 
 <!-- Filter Bar -->
