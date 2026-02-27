@@ -28,8 +28,10 @@ jobs:
       - name: Setup docs symlinks
         run: |
           mkdir -p docs
+          ln -sfn ../catalog docs/catalog
           ln -sfn ../dictionary docs/dictionary
           ln -sfn ../standards docs/standards
+          ln -sfn ../standards-dict docs/standards-dict
           ln -sfn ../glossary docs/glossary
           ln -sfn ../governance docs/governance
           ln -sfn ../migration docs/migration
