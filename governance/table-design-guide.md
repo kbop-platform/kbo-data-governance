@@ -1,6 +1,7 @@
 # KBO 자체 테이블 설계 가이드
 
 > 최종수정: 2026-02-24 | KBO 데이터 표준 정의서 (RFP DAR-001)
+> 📋 문서 성격: 신규 시스템 테이블 설계 가이드(안)
 
 ## 1. 개요
 
@@ -13,10 +14,10 @@
 - 표준 명명 규칙 준수
 - 향후 확장을 고려한 설계
 
-→ 참고: [ID 체계 §7](../standards/id-system.md#7-id) — 신규 ID 설계 원칙
-→ 참고: [명명 규칙 §3](../standards/naming-rules.md#3-db) — DB 계층 명명 규칙
-→ 참고: [도메인 타입 §2](../standards/domain-types.md#2) — 표준 타입 정의
-→ 참고: [데이터 오너십 §4.1](./data-ownership.md#41) — KBO 자체 오너십
+→ 참고: [ID 체계 §7](../standards/id-system.md#7-id) - 신규 ID 설계 원칙
+→ 참고: [명명 규칙 §3](../standards/naming-rules.md#3-db) - DB 계층 명명 규칙
+→ 참고: [도메인 타입 §2](../standards-dict/domains.md) - 표준 타입 정의
+→ 참고: [데이터 오너십 §4.1](./data-ownership.md#41) - KBO 자체 오너십
 
 ---
 
@@ -56,7 +57,7 @@
 | 30자 초과 | 가독성 저하 | 약어 사용 (abbreviations.md 참조) |
 
 → 참고: [명명 규칙 §3.1](../standards/naming-rules.md#31)
-→ 참고: [약어 사전](../standards/abbreviations.md)
+→ 참고: [약어 사전](../standards-dict/abbreviations.md)
 
 ---
 
@@ -105,7 +106,7 @@
 나쁜 예: seq_no → game_id → series_id → league_id
 ```
 
-→ 참고: [ID 체계 §3](../standards/id-system.md#3-pk) — 복합 PK 기준
+→ 참고: [ID 체계 §3](../standards/id-system.md#3-pk) - 복합 PK 기준
 
 ---
 
@@ -119,9 +120,9 @@
 |--------|------|----------|--------|------|
 | `reg_dt` | `datetime2` | 필수 | `DEFAULT GETDATE()` | 행 최초 등록 일시 |
 | `upd_dt` | `datetime2` | 필수 | `DEFAULT GETDATE()` | 행 최종 수정 일시 (트리거 갱신) |
-| `reg_user_id` | `varchar(50)` | 필수 | — | 등록자 ID |
+| `reg_user_id` | `varchar(50)` | 필수 | - | 등록자 ID |
 
-> 신규 테이블만 적용. 기존 테이블 소급은 본 정의서 범위 외 — DAR-009 마이그레이션 시 판단.
+> 신규 테이블만 적용. 기존 테이블 소급은 본 정의서 범위 외 - DAR-009 마이그레이션 시 판단.
 
 ### 5.2 타입 표준
 
@@ -138,19 +139,19 @@
 | 날짜 | `char(8)` (YYYYMMDD) 또는 `datetime2` | |
 | 대용량 텍스트 | `nvarchar(max)` | |
 
-→ 참고: [도메인 타입 §2](../standards/domain-types.md#2) — 타입별 상세 정의
+→ 참고: [도메인 타입 §2](../standards-dict/domains.md) - 타입별 상세 정의
 
 ### 5.3 NULL 정책
 
 | 도메인 | NOT NULL | 기본값 | 비고 |
 |--------|----------|--------|------|
-| PK 컬럼 | 필수 | — | |
+| PK 컬럼 | 필수 | - | |
 | count (`_cn`) | 필수 | `0` | 0건과 미집계 구분 불필요 |
 | flag (`_if`) | 필수 | `0` | false 기본 |
 | rate (`_rt`) | 선택 | NULL | NULL=분모 없음, 0.000=분모 있으나 분자 0 |
-| 감사 컬럼 | 필수 | `GETDATE()` / — | |
+| 감사 컬럼 | 필수 | `GETDATE()` / - | |
 
-→ 참고: [도메인 타입 §4](../standards/domain-types.md#4-null) — NULL 정책
+→ 참고: [도메인 타입 §4](../standards-dict/domains.md) - NULL 정책
 
 ### 5.4 금지 사항
 
@@ -164,7 +165,7 @@
 | `text`, `ntext` | 레거시 타입 (MSSQL 권장 안 함) | `nvarchar(max)` |
 | `money` | 화폐 연산 부정확 | `decimal` |
 
-→ 참고: [컬럼 매핑](../migration/column-mapping.md) — 현행 타입 분포 및 문제점
+→ 참고: [컬럼 매핑](../migration/column-mapping.md) - 현행 타입 분포 및 문제점
 
 ---
 
@@ -197,7 +198,7 @@ CREATE INDEX IX_SABER_HITTER_SEASON_WAR ON SABER_HITTER_SEASON (season_yr, war_v
 
 ### 7.1 대상 지표
 
-본 정의서 범위 외 — KBO 분석팀 협의 후 우선순위 확정. 아래는 후보 지표 목록.
+본 정의서 범위 외 - KBO 분석팀 협의 후 우선순위 확정. 아래는 후보 지표 목록.
 
 | 범주 | 지표 | 약어 | 용도 |
 |------|------|------|------|
@@ -418,7 +419,7 @@ CREATE INDEX IX_PBP_INNING ON PITCH_BY_PITCH (game_id, inning_no, top_bottom_cd)
 
 ### 8.3 구종 코드 정의
 
-본 정의서 범위 외 — MLBam 기준 초안이며, 기록위원회 확정 후 최종 적용.
+본 정의서 범위 외 - MLBam 기준 초안이며, 기록위원회 확정 후 최종 적용.
 
 | pitch_type_cd | 한글 | 영문 | 약어 |
 |---------------|------|------|------|
@@ -441,14 +442,14 @@ CREATE INDEX IX_PBP_INNING ON PITCH_BY_PITCH (game_id, inning_no, top_bottom_cd)
 
 | 단계 | 행위자 | 산출물 | 기한 |
 |------|--------|--------|------|
-| 1. 설계 초안 | R-06 (데이터팀) | DDL 스크립트 + 컬럼 설명서 | — |
+| 1. 설계 초안 | R-06 (데이터팀) | DDL 스크립트 + 컬럼 설명서 | - |
 | 2. 체크리스트 검증 | R-06 (데이터팀) | §2 체크리스트 + §10 검증 결과 | 2영업일 |
 | 3. 영향 분석 | R-06 (데이터팀) | FK 관계도, API 설계(안), 용량 산정 | 3영업일 |
 | 4. 리뷰 | R-05 (거버넌스 위원회) | 리뷰 코멘트, 승인/반려/수정요청 | 5영업일 |
 | 5. DB 생성 | R-04 (DBA) | 실제 테이블 생성, 인덱스, 권한 설정 | 2영업일 |
 | 6. 문서 반영 | R-06 (데이터팀) | `dictionary/` 파일 추가, CLAUDE.md 갱신 | 2영업일 |
 
-→ 참고: [변경 절차 §5](./change-process.md#5) — 스키마 변경 일반 절차
+→ 참고: [변경 절차 §5](./change-process.md#5) - 스키마 변경 일반 절차
 
 ---
 

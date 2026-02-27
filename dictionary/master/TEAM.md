@@ -5,10 +5,10 @@ title: TEAM
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">마스터</span>
     <span class="dict-badge badge-tier tier-3">Tier 3</span>
-    <span class="dict-badge badge-gen gen-unknown">미분류</span>
     <span class="dict-badge badge-access">Public</span>
   </div>
   <div class="dict-hero-title">TEAM</div>
@@ -25,14 +25,13 @@ title: TEAM
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB2_BASEBALL_2_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>SEASON_ID, T_ID</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">unknown (미분류)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 — Reference</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 - Reference</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">데이터 관리자 (R-01)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">연 1회 (시즌 전)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">전 시스템</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Public</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[기준 데이터](../products/master-codes.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[ID 체계](../../standards/id-system.md), [코드 사전](../../standards/code-dictionary.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[ID 체계](../../standards/id-system.md), [코드 사전](../../standards-dict/codes.md)</span></div>
 </div>
 
 <div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">7개</span></div>
@@ -45,11 +44,11 @@ title: TEAM
 </thead><tbody>
 <tr><td class="col-num">2</td><td><span class="col-name">SEASON_ID</span></td><td><span class="col-std">season_id</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시즌 ID (연도)</span></td></tr>
 <tr><td class="col-num">3</td><td><span class="col-name">T_ID</span></td><td><span class="col-std">team_id</span></td><td><span class="col-type">char(2)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">팀 코드 (2자리)</span></td></tr>
-<tr><td class="col-num">4</td><td><span class="col-name">FIRST_NM</span></td><td><span class="col-std">first_nm</span></td><td><span class="col-type">varchar(50)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">FIRST 명칭</span></td></tr>
-<tr><td class="col-num">5</td><td><span class="col-name">LAST_NM</span></td><td><span class="col-std">last_nm</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">LAST 명칭</span></td></tr>
-<tr><td class="col-num">6</td><td><span class="col-name">FIRST_ENG_NM</span></td><td><span class="col-std">first_eng_nm</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">FIRST_ENG 명칭</span></td></tr>
-<tr><td class="col-num">7</td><td><span class="col-name">LAST_ENG_NM</span></td><td><span class="col-std">last_eng_nm</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">LAST_ENG 명칭</span></td></tr>
-<tr><td class="col-num">8</td><td><span class="col-name">GROUP_SC</span></td><td><span class="col-std">group_sc</span></td><td><span class="col-type">varchar(10)</span></td><td></td><td></td><td><span class="col-desc">GROUP 상태코드</span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">FIRST_NM</span></td><td><span class="col-std">first_nm</span></td><td><span class="col-type">varchar(50)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">팀 한글명 앞부분 (모기업/지역)</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">LAST_NM</span></td><td><span class="col-std">last_nm</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">팀 한글명 뒷부분 (마스코트)</span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">FIRST_ENG_NM</span></td><td><span class="col-std">first_eng_nm</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">팀 영문명 앞부분 (모기업/지역)</span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">LAST_ENG_NM</span></td><td><span class="col-std">last_eng_nm</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">팀 영문명 뒷부분 (마스코트)</span></td></tr>
+<tr><td class="col-num">8</td><td><span class="col-name">GROUP_SC</span></td><td><span class="col-std">group_sc</span></td><td><span class="col-type">varchar(10)</span></td><td></td><td></td><td><span class="col-desc">조 구분 코드 (DREAM=드림리그, MAGIC=매직리그)</span></td></tr>
 </tbody></table>
 </div>
 
@@ -57,11 +56,11 @@ title: TEAM
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>SEASON_ID</code><span class="code-desc"> — 시즌 ID</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>SEASON_ID</code><span class="code-desc"> &mdash; 시즌 ID</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>T_ID</code><span class="code-desc"> — 팀 코드</span></summary>
+<summary><code>T_ID</code><span class="code-desc"> &mdash; 팀 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>SS</td><td>45</td></tr>
@@ -82,7 +81,7 @@ title: TEAM
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>GROUP_SC</code><span class="code-desc"> — GROUP 상태코드</span></summary>
+<summary><code>GROUP_SC</code><span class="code-desc"> &mdash; 조 구분 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>ALLSTAR</td><td>28</td></tr>

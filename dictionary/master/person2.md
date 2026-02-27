@@ -5,10 +5,10 @@ title: person2
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">마스터</span>
     <span class="dict-badge badge-tier tier-3">Tier 3</span>
-    <span class="dict-badge badge-gen gen-legacy">구세대</span>
     <span class="dict-badge badge-access">Restricted</span>
   </div>
   <div class="dict-hero-title">person2</div>
@@ -25,14 +25,13 @@ title: person2
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB2_BASEBALL_NEW_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>GYEAR, PCODE, NAME</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">legacy (구세대)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 — Reference</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 - Reference</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">기록위원회 (R-03)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">시즌 전 갱신</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">기록팀</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Restricted</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[선수 프로필](../products/player-profile.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards/domain-types.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards-dict/domains.md)</span></div>
 </div>
 
 <div class="dict-note">
@@ -49,18 +48,18 @@ title: person2
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
 <tr><td class="col-num">1</td><td><span class="col-name">GYEAR</span></td><td><span class="col-std">season_yr</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시즌 연도 (4자리, &quot;9999&quot;=통산)</span></td></tr>
-<tr><td class="col-num">2</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 코드 (5~6자리 숫자 문자열)</span></td></tr>
-<tr><td class="col-num">3</td><td><span class="col-name">NAME</span></td><td><span class="col-std">player_nm</span></td><td><span class="col-type">varchar(20)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수명 (varchar=EUC-KR 깨짐 가능)</span></td></tr>
-<tr><td class="col-num">4</td><td><span class="col-name">TEAM</span></td><td><span class="col-std">team_cd</span></td><td><span class="col-type">varchar(8)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">팀 코드 (2자리, HH=키움, HT=KIA 등)</span></td></tr>
+<tr><td class="col-num">2</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 코드 (5~6자리 숫자)</span></td></tr>
+<tr><td class="col-num">3</td><td><span class="col-name">NAME</span></td><td><span class="col-std">player_nm</span></td><td><span class="col-type">varchar(20)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수명</span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">TEAM</span></td><td><span class="col-std">team_cd</span></td><td><span class="col-type">varchar(8)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">팀 코드 (HH=한화, LG, SK, HT=KIA, LT=롯데, OB=두산, SS=삼성, WO=키움, NC, KT 등 2자리)</span></td></tr>
 <tr><td class="col-num">5</td><td><span class="col-name">T_ID</span></td><td><span class="col-std">team_id</span></td><td><span class="col-type">char(2)</span></td><td></td><td></td><td><span class="col-desc">팀 코드 (2자리)</span></td></tr>
-<tr><td class="col-num">6</td><td><span class="col-name">POS</span></td><td><span class="col-std">position_cd</span></td><td><span class="col-type">char(1)</span></td><td></td><td></td><td><span class="col-desc">포지션 코드</span></td></tr>
-<tr><td class="col-num">7</td><td><span class="col-name">POSITION</span></td><td><span class="col-std">position_nm</span></td><td><span class="col-type">varchar(4)</span></td><td></td><td></td><td><span class="col-desc">포지션</span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">POS</span></td><td><span class="col-std">position_cd</span></td><td><span class="col-type">char(1)</span></td><td></td><td></td><td><span class="col-desc">포지션 코드 (1=투수, 2=포수, 3=1루, 4=2루, 5=3루, 6=유격, 7=좌익, 8=중견, 9=우익, 0=미분류)</span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">POSITION</span></td><td><span class="col-std">position_nm</span></td><td><span class="col-type">varchar(4)</span></td><td></td><td></td><td><span class="col-desc">포지션명 (EUC-KR: 투수/포수/1루수/2루수/3루수/유격수/좌익수/중견수/우익수/지명타자 등)</span></td></tr>
 <tr><td class="col-num">8</td><td><span class="col-name">BACKNUM</span></td><td><span class="col-std">back_no</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">등번호</span></td></tr>
 <tr><td class="col-num">9</td><td><span class="col-name">CNAME</span></td><td><span class="col-std">player_hanja_nm</span></td><td><span class="col-type">varchar(30)</span></td><td></td><td></td><td><span class="col-desc">한자 이름</span></td></tr>
-<tr><td class="col-num">10</td><td><span class="col-name">HITTYPE</span></td><td><span class="col-std">bat_throw_cd</span></td><td><span class="col-type">varchar(8)</span></td><td></td><td></td><td><span class="col-desc">타석 방향</span></td></tr>
+<tr><td class="col-num">10</td><td><span class="col-name">HITTYPE</span></td><td><span class="col-std">bat_throw_cd</span></td><td><span class="col-type">varchar(8)</span></td><td></td><td></td><td><span class="col-desc">투타 유형 (우투우타/좌투좌타/우투좌타/우언우타/우투양타 등, EUC-KR)</span></td></tr>
 <tr><td class="col-num">11</td><td><span class="col-name">BIRTH</span></td><td><span class="col-std">birth_dt</span></td><td><span class="col-type">varchar(8)</span></td><td></td><td></td><td><span class="col-desc">생년월일</span></td></tr>
-<tr><td class="col-num">12</td><td><span class="col-name">HEIGHT</span></td><td><span class="col-std">height_va</span></td><td><span class="col-type">varchar(3)</span></td><td></td><td></td><td><span class="col-desc">키</span></td></tr>
-<tr><td class="col-num">13</td><td><span class="col-name">WEIGHT</span></td><td><span class="col-std">weight_va</span></td><td><span class="col-type">varchar(3)</span></td><td></td><td></td><td><span class="col-desc">몸무게</span></td></tr>
+<tr><td class="col-num">12</td><td><span class="col-name">HEIGHT</span></td><td><span class="col-std">height_va</span></td><td><span class="col-type">varchar(3)</span></td><td></td><td></td><td><span class="col-desc">키 (cm)</span></td></tr>
+<tr><td class="col-num">13</td><td><span class="col-name">WEIGHT</span></td><td><span class="col-std">weight_va</span></td><td><span class="col-type">varchar(3)</span></td><td></td><td></td><td><span class="col-desc">몸무게 (kg)</span></td></tr>
 <tr><td class="col-num">14</td><td><span class="col-name">INDATE</span></td><td><span class="col-std">join_dt</span></td><td><span class="col-type">varchar(8)</span></td><td></td><td></td><td><span class="col-desc">입단일</span></td></tr>
 <tr><td class="col-num">15</td><td><span class="col-name">PROMISE</span></td><td><span class="col-std">signing_bonus_va</span></td><td><span class="col-type">varchar(12)</span></td><td></td><td></td><td><span class="col-desc">계약금</span></td></tr>
 <tr><td class="col-num">16</td><td><span class="col-name">MONEY</span></td><td><span class="col-std">salary_va</span></td><td><span class="col-type">varchar(12)</span></td><td></td><td></td><td><span class="col-desc">연봉</span></td></tr>
@@ -72,23 +71,23 @@ title: person2
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>GYEAR</code><span class="code-desc"> — 시즌 연도</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GYEAR</code><span class="code-desc"> &mdash; 시즌 연도</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>PCODE</code><span class="code-desc"> — 선수 코드</span></summary>
-<div class="code-ref">선수 식별자 — [선수 마스터(person)](../master/person.md) 참조</div>
+<summary><code>PCODE</code><span class="code-desc"> &mdash; 선수 코드</span></summary>
+<div class="code-ref">선수 식별자 - [선수 마스터(person)](../master/person.md) 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>TEAM</code><span class="code-desc"> — 팀 코드</span></summary>
-<div class="code-ref">팀 식별자 — [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
+<summary><code>TEAM</code><span class="code-desc"> &mdash; 팀 코드</span></summary>
+<div class="code-ref">팀 식별자 - [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>T_ID</code><span class="code-desc"> — 팀 코드</span></summary>
-<div class="code-ref">팀 식별자 — [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
+<summary><code>T_ID</code><span class="code-desc"> &mdash; 팀 코드</span></summary>
+<div class="code-ref">팀 식별자 - [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>POS</code><span class="code-desc"> — 포지션 코드</span></summary>
+<summary><code>POS</code><span class="code-desc"> &mdash; 포지션 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>1</td><td>31,012</td></tr>
@@ -106,7 +105,7 @@ title: person2
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>POSITION</code><span class="code-desc"> — 포지션</span></summary>
+<summary><code>POSITION</code><span class="code-desc"> &mdash; 포지션명</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>Åõ</td><td>33,509</td></tr>
@@ -122,7 +121,7 @@ title: person2
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>HITTYPE</code><span class="code-desc"> — 타석 방향</span></summary>
+<summary><code>HITTYPE</code><span class="code-desc"> &mdash; 투타 유형</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>¿ìÅõ¿ìÅ¸</td><td>57,810</td></tr>
@@ -141,20 +140,20 @@ title: person2
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>BIRTH</code><span class="code-desc"> — 생년월일</span></summary>
-<div class="code-ref">연속값 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>BIRTH</code><span class="code-desc"> &mdash; 생년월일</span></summary>
+<div class="code-ref">연속값 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>HEIGHT</code><span class="code-desc"> — 키</span></summary>
-<div class="code-ref">연속값 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>HEIGHT</code><span class="code-desc"> &mdash; 키</span></summary>
+<div class="code-ref">연속값 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>WEIGHT</code><span class="code-desc"> — 몸무게</span></summary>
-<div class="code-ref">연속값 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>WEIGHT</code><span class="code-desc"> &mdash; 몸무게</span></summary>
+<div class="code-ref">연속값 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>INDATE</code><span class="code-desc"> — 입단일</span></summary>
-<div class="code-ref">연속값 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>INDATE</code><span class="code-desc"> &mdash; 입단일</span></summary>
+<div class="code-ref">연속값 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 </div>
 

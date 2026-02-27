@@ -5,10 +5,10 @@ title: Pitcher
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">경기 기록</span>
     <span class="dict-badge badge-tier tier-1">Tier 1</span>
-    <span class="dict-badge badge-gen gen-legacy">구세대</span>
     <span class="dict-badge badge-access">Internal</span>
   </div>
   <div class="dict-hero-title">Pitcher</div>
@@ -25,14 +25,13 @@ title: Pitcher
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB1_BASEBALL_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>GMKEY, GDAY, PCODE</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">legacy (구세대)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 1 — Critical</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 1 - Critical</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">기록위원회 (R-03)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">경기 당일 (S2i 전송)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">기록팀, 통계팀, 외부 API</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Internal</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[경기 요약](../products/game-summary.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[ID 체계](../../standards/id-system.md), [약어 사전](../../standards/abbreviations.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[ID 체계](../../standards/id-system.md), [약어 사전](../../standards-dict/abbreviations.md)</span></div>
 </div>
 
 <div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">36개</span></div>
@@ -41,20 +40,20 @@ title: Pitcher
 <table class="dict-col-table"><thead>
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
-<tr><td class="col-num">1</td><td><span class="col-name">GMKEY</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 고유키 (YYYYMMDDVVHH#, 유효 13자리; 현행 DB char(15), 표준 char(13) 전환 대상)</span></td></tr>
+<tr><td class="col-num">1</td><td><span class="col-name">GMKEY</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 고유키 (YYYYMMDDVVHH#)</span></td></tr>
 <tr><td class="col-num">2</td><td><span class="col-name">GDAY</span></td><td><span class="col-std">game_dt</span></td><td><span class="col-type">char(8)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 일자 (YYYYMMDD)</span></td></tr>
-<tr><td class="col-num">3</td><td><span class="col-name">TB</span></td><td><span class="col-std">top_bottom_cd</span></td><td><span class="col-type">char(1)</span></td><td></td><td></td><td><span class="col-desc">팀 구분 (T=원정/Top, B=홈/Bottom)</span></td></tr>
-<tr><td class="col-num">4</td><td><span class="col-name">NAME</span></td><td><span class="col-std">player_nm</span></td><td><span class="col-type">varchar(20)</span></td><td></td><td></td><td><span class="col-desc">선수명 (varchar=EUC-KR 깨짐 가능)</span></td></tr>
-<tr><td class="col-num">5</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 코드 (5~6자리 숫자 문자열)</span></td></tr>
-<tr><td class="col-num">6</td><td><span class="col-name">POS</span></td><td><span class="col-std">position_cd</span></td><td><span class="col-type">varchar(10)</span></td><td></td><td></td><td><span class="col-desc">포지션 코드</span></td></tr>
-<tr><td class="col-num">7</td><td><span class="col-name">START</span></td><td><span class="col-std">start_if</span></td><td><span class="col-type">char(1)</span></td><td></td><td></td><td><span class="col-desc">선발 여부</span></td></tr>
-<tr><td class="col-num">8</td><td><span class="col-name">QUIT</span></td><td><span class="col-std">quit_if</span></td><td><span class="col-type">char(1)</span></td><td></td><td></td><td><span class="col-desc">종료 여부</span></td></tr>
+<tr><td class="col-num">3</td><td><span class="col-name">TB</span></td><td><span class="col-std">top_bottom_cd</span></td><td><span class="col-type">char(1)</span></td><td></td><td></td><td><span class="col-desc">팀 구분 (T=원정, B=홈)</span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">NAME</span></td><td><span class="col-std">player_nm</span></td><td><span class="col-type">varchar(20)</span></td><td></td><td></td><td><span class="col-desc">선수명</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 코드 (5~6자리 숫자)</span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">POS</span></td><td><span class="col-std">appear_order_pos_cd</span></td><td><span class="col-type">varchar(10)</span></td><td></td><td></td><td><span class="col-desc">등판 순서·포지션 코드 (11=선발, 21=2번째, 31=3번째, ..., A1=10번째, B1=11번째, C1=12번째)</span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">START</span></td><td><span class="col-std">start_if</span></td><td><span class="col-type">char(1)</span></td><td></td><td></td><td><span class="col-desc">선발 여부 (1=선발등판, NULL=비선발)</span></td></tr>
+<tr><td class="col-num">8</td><td><span class="col-name">QUIT</span></td><td><span class="col-std">quit</span></td><td><span class="col-type">char(1)</span></td><td></td><td></td><td><span class="col-desc">강판 여부 (1=이닝완료 후 교체, 0=이닝중 교체, NULL=해당없음)</span></td></tr>
 <tr><td class="col-num">9</td><td><span class="col-name">CG</span></td><td><span class="col-std">cg</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">완투</span></td></tr>
 <tr><td class="col-num">10</td><td><span class="col-name">SHO</span></td><td><span class="col-std">sho</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">완봉</span></td></tr>
-<tr><td class="col-num">11</td><td><span class="col-name">WLS</span></td><td><span class="col-std">wls_cd</span></td><td><span class="col-type">char(1)</span></td><td></td><td></td><td><span class="col-desc">승패세 (W=승, L=패, S=세이브)</span></td></tr>
-<tr><td class="col-num">12</td><td><span class="col-name">HOLD</span></td><td><span class="col-std">hold_cn</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홀드</span></td></tr>
-<tr><td class="col-num">13</td><td><span class="col-name">INN</span></td><td><span class="col-std">inn_no</span></td><td><span class="col-type">varchar(10)</span></td><td></td><td></td><td><span class="col-desc">이닝 번호</span></td></tr>
-<tr><td class="col-num">14</td><td><span class="col-name">INN2</span></td><td><span class="col-std">inn_detail_no</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">이닝 세부 (아웃수 환산 또는 연장 구분)</span></td></tr>
+<tr><td class="col-num">11</td><td><span class="col-name">WLS</span></td><td><span class="col-std">wls_cd</span></td><td><span class="col-type">char(1)</span></td><td></td><td></td><td><span class="col-desc">승패세홀 (W=승, L=패, S=세이브, H=홀드, D=무승부, 0=미결정, 공백=해당없음)</span></td></tr>
+<tr><td class="col-num">12</td><td><span class="col-name">HOLD</span></td><td><span class="col-std">hld</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홀드</span></td></tr>
+<tr><td class="col-num">13</td><td><span class="col-name">INN</span></td><td><span class="col-std">ip</span></td><td><span class="col-type">varchar(10)</span></td><td></td><td></td><td><span class="col-desc">이닝</span></td></tr>
+<tr><td class="col-num">14</td><td><span class="col-name">INN2</span></td><td><span class="col-std">inn_2_score</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">2회 타격 결과 (HOW 코드, EUC-KR)</span></td></tr>
 <tr><td class="col-num">15</td><td><span class="col-name">BF</span></td><td><span class="col-std">bf</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">상대타자수</span></td></tr>
 <tr><td class="col-num">16</td><td><span class="col-name">PA</span></td><td><span class="col-std">pa</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타석 (Plate Appearance)</span></td></tr>
 <tr><td class="col-num">17</td><td><span class="col-name">AB</span></td><td><span class="col-std">ab</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타수 (At Bat)</span></td></tr>
@@ -74,9 +73,9 @@ title: Pitcher
 <tr><td class="col-num">31</td><td><span class="col-name">WP</span></td><td><span class="col-std">wp</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">폭투</span></td></tr>
 <tr><td class="col-num">32</td><td><span class="col-name">BK</span></td><td><span class="col-std">bk</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">보크</span></td></tr>
 <tr><td class="col-num">33</td><td><span class="col-name">ERR</span></td><td><span class="col-std">err</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">실책</span></td></tr>
-<tr><td class="col-num">34</td><td><span class="col-name">R</span></td><td><span class="col-std">r</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">실점</span></td></tr>
+<tr><td class="col-num">34</td><td><span class="col-name">R</span></td><td><span class="col-std">runs_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">실점</span></td></tr>
 <tr><td class="col-num">35</td><td><span class="col-name">ER</span></td><td><span class="col-std">er</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">자책점</span></td></tr>
-<tr><td class="col-num">36</td><td><span class="col-name">BS</span></td><td><span class="col-std"></span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">36</td><td><span class="col-name">BS</span></td><td><span class="col-std">bs</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">블론세이브 (Blown Save)</span></td></tr>
 </tbody></table>
 </div>
 
@@ -84,11 +83,11 @@ title: Pitcher
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>GDAY</code><span class="code-desc"> — 경기 일자</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GDAY</code><span class="code-desc"> &mdash; 경기 일자</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>TB</code><span class="code-desc"> — 팀 구분</span></summary>
+<summary><code>TB</code><span class="code-desc"> &mdash; 팀 구분</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>B</td><td>113,318</td></tr>
@@ -97,11 +96,11 @@ title: Pitcher
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>PCODE</code><span class="code-desc"> — 선수 코드</span></summary>
-<div class="code-ref">선수 식별자 — [선수 마스터(person)](../master/person.md) 참조</div>
+<summary><code>PCODE</code><span class="code-desc"> &mdash; 선수 코드</span></summary>
+<div class="code-ref">선수 식별자 - [선수 마스터(person)](../master/person.md) 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>POS</code><span class="code-desc"> — 포지션 코드</span></summary>
+<summary><code>POS</code><span class="code-desc"> &mdash; 등판 순서·포지션 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>11</td><td>47,158</td></tr>
@@ -121,7 +120,7 @@ title: Pitcher
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>START</code><span class="code-desc"> — 선발 여부</span></summary>
+<summary><code>START</code><span class="code-desc"> &mdash; 선발 여부</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>1</td><td>47,158</td></tr>
@@ -129,7 +128,7 @@ title: Pitcher
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>QUIT</code><span class="code-desc"> — 종료 여부</span></summary>
+<summary><code>QUIT</code><span class="code-desc"> &mdash; 강판 여부</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>1</td><td>47,158</td></tr>
@@ -138,7 +137,7 @@ title: Pitcher
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>WLS</code><span class="code-desc"> — 승패세</span></summary>
+<summary><code>WLS</code><span class="code-desc"> &mdash; 승패세홀</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td></td><td>116,107</td></tr>
@@ -151,7 +150,7 @@ title: Pitcher
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>HOLD</code><span class="code-desc"> — 홀드</span></summary>
+<summary><code>HOLD</code><span class="code-desc"> &mdash; 홀드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>203,351</td></tr>
@@ -165,7 +164,7 @@ title: Pitcher
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>INN</code><span class="code-desc"> — 이닝 번호</span></summary>
+<summary><code>INN</code><span class="code-desc"> &mdash; 이닝</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>1</td><td>41,256</td></tr>

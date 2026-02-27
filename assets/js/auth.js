@@ -1,4 +1,4 @@
-/* === KBO DataHub — Login Gate === */
+/* === KBO DataHub - Login Gate === */
 /* 계정 변경: python3 -c "import hashlib; print(hashlib.sha256(b'아이디:비밀번호').hexdigest())" */
 
 (function () {
@@ -6,8 +6,8 @@
   var KEY = 'kbo-ds-auth';
   var authenticated = sessionStorage.getItem(KEY) === HASH;
 
-  if (!authenticated) {
-    document.documentElement.style.visibility = 'hidden';
+  if (authenticated) {
+    document.documentElement.setAttribute('data-authed', '');
   }
 
   async function sha256(msg) {
@@ -29,6 +29,16 @@
     var header = document.querySelector('.md-header__inner');
     if (!header) return;
 
+    /* DataHub 타이틀 클릭 → 홈 이동 */
+    var titleEl = document.querySelector('.md-header__title');
+    if (titleEl) {
+      titleEl.style.cursor = 'pointer';
+      titleEl.addEventListener('click', function () {
+        window.location.href = getBaseUrl();
+      });
+    }
+
+    /* 로그아웃 버튼 */
     var btn = document.createElement('button');
     btn.className = 'md-header__button logout-btn';
     btn.title = 'Logout';
@@ -38,30 +48,41 @@
       location.reload();
     });
 
+    /* 팔레트 토글(다크/라이트)을 검색과 로그아웃 사이에 배치 */
+    var paletteForm = document.querySelector('[data-md-component="palette"]');
+    if (paletteForm) {
+      header.appendChild(paletteForm);
+    }
     header.appendChild(btn);
   }
 
   function showLogin() {
     var overlay = document.createElement('div');
     overlay.id = 'auth-overlay';
+    var personIcon = '<svg class="auth-field-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>';
+    var lockIcon = '<svg class="auth-field-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>';
+
     overlay.innerHTML = [
       '<div class="auth-card">',
-      '  <div class="auth-logo">',
-      '    <img src="' + getBaseUrl() + 'assets/images/kbo-logo.png" alt="KBO">',
-      '  </div>',
+      '  <img class="auth-logo-img" src="' + getBaseUrl() + 'assets/images/kbo-logo.png" alt="KBO">',
       '  <h1 class="auth-title">KBO DataHub</h1>',
-      '  <p class="auth-desc">문서 열람을 위해 로그인하세요.</p>',
+      '  <p class="auth-subtitle">Data Catalog &amp; Governance Platform</p>',
       '  <form id="auth-form">',
-      '    <div class="auth-input-wrap">',
+      '    <div class="auth-field">',
       '      <input type="text" id="auth-id" placeholder="ID" autocomplete="off" autofocus>',
+      '      ' + personIcon,
       '    </div>',
-      '    <div class="auth-input-wrap">',
+      '    <div class="auth-field">',
       '      <input type="password" id="auth-pw" placeholder="Password" autocomplete="off">',
+      '      ' + lockIcon,
       '    </div>',
-      '    <button type="submit" class="auth-btn">Login</button>',
+      '    <button type="submit" class="auth-btn">Sign In</button>',
       '    <p id="auth-error" class="auth-error"></p>',
       '  </form>',
-      '  <p class="auth-footer">&copy; 2026 KBOP Data Biz Team</p>',
+      '  <div class="auth-footer">',
+      '    <p class="auth-footer-label">Authorized personnel only</p>',
+      '    <p class="auth-footer-copy">&copy; 2026 KBOP Data Biz Team</p>',
+      '  </div>',
       '</div>'
     ].join('\n');
 

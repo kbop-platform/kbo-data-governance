@@ -5,10 +5,10 @@ title: STADIUM
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">마스터</span>
     <span class="dict-badge badge-tier tier-3">Tier 3</span>
-    <span class="dict-badge badge-gen gen-unknown">미분류</span>
     <span class="dict-badge badge-access">Public</span>
   </div>
   <div class="dict-hero-title">STADIUM</div>
@@ -25,14 +25,13 @@ title: STADIUM
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB2_BASEBALL_NEW_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>gyear, stadium</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">unknown (미분류)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 — Reference</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 - Reference</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">데이터 관리자 (R-01)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">연 1회 (시즌 전)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">전 시스템</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Public</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[기준 데이터](../products/master-codes.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[ID 체계](../../standards/id-system.md), [코드 사전](../../standards/code-dictionary.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[ID 체계](../../standards/id-system.md), [코드 사전](../../standards-dict/codes.md)</span></div>
 </div>
 
 <div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">3개</span></div>
@@ -42,8 +41,8 @@ title: STADIUM
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
 <tr><td class="col-num">1</td><td><span class="col-name">gyear</span></td><td><span class="col-std">season_yr</span></td><td><span class="col-type">char(4)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">연도</span></td></tr>
-<tr><td class="col-num">2</td><td><span class="col-name">stadium</span></td><td><span class="col-std">stadium_cd</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">구장 코드</span></td></tr>
-<tr><td class="col-num">3</td><td><span class="col-name">stadium_key</span></td><td><span class="col-std"></span></td><td><span class="col-type">char(2)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">2</td><td><span class="col-name">stadium</span></td><td><span class="col-std">stadium_nm</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">구장 코드 (JS=잠실, SJ=사직, DJ=대전, DG=대구, KC=고척, IC=인천 등)</span></td></tr>
+<tr><td class="col-num">3</td><td><span class="col-name">stadium_key</span></td><td><span class="col-std">stadium_id</span></td><td><span class="col-type">char(2)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">구장 코드 (JS=잠실, SJ=사직, DJ=대전, DG=대구, MH=목동, SW=수원, KJ=광주, KC=고척, IC=인천 등 30개)</span></td></tr>
 </tbody></table>
 </div>
 
@@ -51,11 +50,11 @@ title: STADIUM
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>gyear</code><span class="code-desc"> — 연도</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>gyear</code><span class="code-desc"> &mdash; 연도</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>stadium</code><span class="code-desc"> — 구장 코드</span></summary>
+<summary><code>stadium</code><span class="code-desc"> &mdash; 구장 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>Àá½Ç</td><td>45</td></tr>
@@ -82,7 +81,7 @@ title: STADIUM
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>stadium_key</code><span class="code-desc"> — </span></summary>
+<summary><code>stadium_key</code><span class="code-desc"> &mdash; 구장 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>JS</td><td>45</td></tr>

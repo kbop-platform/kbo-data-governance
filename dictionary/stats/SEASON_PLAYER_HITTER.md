@@ -5,10 +5,10 @@ title: SEASON_PLAYER_HITTER
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">통계</span>
     <span class="dict-badge badge-tier tier-2">Tier 2</span>
-    <span class="dict-badge badge-gen gen-new">신세대</span>
     <span class="dict-badge badge-access">Internal</span>
   </div>
   <div class="dict-hero-title">SEASON_PLAYER_HITTER</div>
@@ -25,14 +25,13 @@ title: SEASON_PLAYER_HITTER
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB1_BASEBALL_2_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>SEASON_ID, P_ID, SECTION_CD, GROUP_IF</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">new (신세대)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 2 — Standard</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 2 - Standard</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">통계분석팀 (R-04)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">D+1 (시즌 중)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">통계팀, 외부 API</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Internal</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[시즌 통계](../products/season-stats.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards/domain-types.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards-dict/domains.md)</span></div>
 </div>
 
 <div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">43개</span></div>
@@ -43,47 +42,47 @@ title: SEASON_PLAYER_HITTER
 </thead><tbody>
 <tr><td class="col-num">3</td><td><span class="col-name">SEASON_ID</span></td><td><span class="col-std">season_id</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시즌 ID (연도)</span></td></tr>
 <tr><td class="col-num">4</td><td><span class="col-name">P_ID</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 ID (정수)</span></td></tr>
-<tr><td class="col-num">5</td><td><span class="col-name">SECTION_CD</span></td><td><span class="col-std">section_cd</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">SECTION 코드</span></td></tr>
-<tr><td class="col-num">6</td><td><span class="col-name">GROUP_IF</span></td><td><span class="col-std">group_if</span></td><td><span class="col-type">varchar(20)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">GROUP 여부 (Y/N)</span></td></tr>
-<tr><td class="col-num">7</td><td><span class="col-name">HRA_RT</span></td><td><span class="col-std">hra_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">HRA 비율</span></td></tr>
-<tr><td class="col-num">8</td><td><span class="col-name">GAME_CN</span></td><td><span class="col-std">game_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">GAME 건수</span></td></tr>
-<tr><td class="col-num">9</td><td><span class="col-name">PA_CN</span></td><td><span class="col-std">pa_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">PA 건수</span></td></tr>
-<tr><td class="col-num">10</td><td><span class="col-name">AB_CN</span></td><td><span class="col-std">ab_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">AB 건수</span></td></tr>
-<tr><td class="col-num">11</td><td><span class="col-name">RUN_CN</span></td><td><span class="col-std">run_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">RUN 건수</span></td></tr>
-<tr><td class="col-num">12</td><td><span class="col-name">HIT_CN</span></td><td><span class="col-std">hit_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">HIT 건수</span></td></tr>
-<tr><td class="col-num">13</td><td><span class="col-name">H2_CN</span></td><td><span class="col-std">h2_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">H2 건수</span></td></tr>
-<tr><td class="col-num">14</td><td><span class="col-name">H3_CN</span></td><td><span class="col-std">h3_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">H3 건수</span></td></tr>
-<tr><td class="col-num">15</td><td><span class="col-name">HR_CN</span></td><td><span class="col-std">hr_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">HR 건수</span></td></tr>
-<tr><td class="col-num">16</td><td><span class="col-name">XBH_CN</span></td><td><span class="col-std">xbh_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">XBH 건수</span></td></tr>
-<tr><td class="col-num">17</td><td><span class="col-name">TB_CN</span></td><td><span class="col-std">tb_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">TB 건수</span></td></tr>
-<tr><td class="col-num">18</td><td><span class="col-name">MH_HITTER_CN</span></td><td><span class="col-std">mh_hitter_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">MH_HITTER 건수</span></td></tr>
-<tr><td class="col-num">19</td><td><span class="col-name">RBI_CN</span></td><td><span class="col-std">rbi_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">RBI 건수</span></td></tr>
-<tr><td class="col-num">20</td><td><span class="col-name">SB_CN</span></td><td><span class="col-std">sb_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">SB 건수</span></td></tr>
-<tr><td class="col-num">21</td><td><span class="col-name">CS_CN</span></td><td><span class="col-std">cs_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">CS 건수</span></td></tr>
-<tr><td class="col-num">22</td><td><span class="col-name">SB_RT</span></td><td><span class="col-std">sb_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">SB 비율</span></td></tr>
-<tr><td class="col-num">23</td><td><span class="col-name">RO_CN</span></td><td><span class="col-std">ro_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">RO 건수</span></td></tr>
-<tr><td class="col-num">24</td><td><span class="col-name">POFF_CN</span></td><td><span class="col-std">poff_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">POFF 건수</span></td></tr>
-<tr><td class="col-num">25</td><td><span class="col-name">SH_CN</span></td><td><span class="col-std">sh_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">SH 건수</span></td></tr>
-<tr><td class="col-num">26</td><td><span class="col-name">SF_CN</span></td><td><span class="col-std">sf_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">SF 건수</span></td></tr>
-<tr><td class="col-num">27</td><td><span class="col-name">BB_CN</span></td><td><span class="col-std">bb_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">BB 건수</span></td></tr>
-<tr><td class="col-num">28</td><td><span class="col-name">IB_CN</span></td><td><span class="col-std">ib_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">IB 건수</span></td></tr>
-<tr><td class="col-num">29</td><td><span class="col-name">HP_CN</span></td><td><span class="col-std">hp_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">HP 건수</span></td></tr>
-<tr><td class="col-num">30</td><td><span class="col-name">BBHP_CN</span></td><td><span class="col-std">bbhp_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">BBHP 건수</span></td></tr>
-<tr><td class="col-num">31</td><td><span class="col-name">KK_CN</span></td><td><span class="col-std">kk_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">KK 건수</span></td></tr>
-<tr><td class="col-num">32</td><td><span class="col-name">GD_CN</span></td><td><span class="col-std">gd_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">GD 건수</span></td></tr>
-<tr><td class="col-num">33</td><td><span class="col-name">ERR_CN</span></td><td><span class="col-std">err_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">ERR 건수</span></td></tr>
-<tr><td class="col-num">34</td><td><span class="col-name">WIN_HIT_CN</span></td><td><span class="col-std">win_hit_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">WIN_HIT 건수</span></td></tr>
-<tr><td class="col-num">35</td><td><span class="col-name">GO_CN</span></td><td><span class="col-std">go_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">GO 건수</span></td></tr>
-<tr><td class="col-num">36</td><td><span class="col-name">FO_CN</span></td><td><span class="col-std">fo_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">FO 건수</span></td></tr>
-<tr><td class="col-num">37</td><td><span class="col-name">FOGO_RT</span></td><td><span class="col-std">fogo_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">FOGO 비율</span></td></tr>
-<tr><td class="col-num">38</td><td><span class="col-name">PA_PIT_RT</span></td><td><span class="col-std">pa_pit_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">PA_PIT 비율</span></td></tr>
-<tr><td class="col-num">39</td><td><span class="col-name">KK_BB_RT</span></td><td><span class="col-std">kk_bb_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">KK_BB 비율</span></td></tr>
-<tr><td class="col-num">40</td><td><span class="col-name">SP_HRA_RT</span></td><td><span class="col-std">sp_hra_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">SP_HRA 비율</span></td></tr>
-<tr><td class="col-num">41</td><td><span class="col-name">PH_HRA_RT</span></td><td><span class="col-std">ph_hra_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">PH_HRA 비율</span></td></tr>
-<tr><td class="col-num">42</td><td><span class="col-name">OBP_RT</span></td><td><span class="col-std">obp_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">OBP 비율</span></td></tr>
-<tr><td class="col-num">43</td><td><span class="col-name">SLG_RT</span></td><td><span class="col-std">slg_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">SLG 비율</span></td></tr>
-<tr><td class="col-num">44</td><td><span class="col-name">ISO_RT</span></td><td><span class="col-std">iso_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">ISO 비율</span></td></tr>
-<tr><td class="col-num">45</td><td><span class="col-name">OPS_RT</span></td><td><span class="col-std">ops_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">OPS 비율</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">SECTION_CD</span></td><td><span class="col-std">section_cd</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">구간 코드 (SEASON: 1=정규시즌, 2=포스트시즌 / SITUATION: 1=타자투타, 2=투수피투타, 3=아웃수별, 4=이닝별, 5=주자상황별, 6=카운트별, 7=상대투타별)</span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">GROUP_IF</span></td><td><span class="col-std">group_if</span></td><td><span class="col-type">varchar(20)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">그룹 구분 (팀코드(HH/LG/SK 등) 또는 시즌연도(2015~2025))</span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">HRA_RT</span></td><td><span class="col-std">avg_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타율</span></td></tr>
+<tr><td class="col-num">8</td><td><span class="col-name">GAME_CN</span></td><td><span class="col-std">game_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">출장 경기 수</span></td></tr>
+<tr><td class="col-num">9</td><td><span class="col-name">PA_CN</span></td><td><span class="col-std">pa_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타석 수</span></td></tr>
+<tr><td class="col-num">10</td><td><span class="col-name">AB_CN</span></td><td><span class="col-std">ab_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타수</span></td></tr>
+<tr><td class="col-num">11</td><td><span class="col-name">RUN_CN</span></td><td><span class="col-std">run_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">득점 수</span></td></tr>
+<tr><td class="col-num">12</td><td><span class="col-name">HIT_CN</span></td><td><span class="col-std">hit_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">안타 수</span></td></tr>
+<tr><td class="col-num">13</td><td><span class="col-name">H2_CN</span></td><td><span class="col-std">h2b_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">2루타 수</span></td></tr>
+<tr><td class="col-num">14</td><td><span class="col-name">H3_CN</span></td><td><span class="col-std">h3b_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">3루타 수</span></td></tr>
+<tr><td class="col-num">15</td><td><span class="col-name">HR_CN</span></td><td><span class="col-std">hr_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홈런 수</span></td></tr>
+<tr><td class="col-num">16</td><td><span class="col-name">XBH_CN</span></td><td><span class="col-std">xbh_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">장타 수 (2루타+3루타+홈런)</span></td></tr>
+<tr><td class="col-num">17</td><td><span class="col-name">TB_CN</span></td><td><span class="col-std">tb_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">총루타 수</span></td></tr>
+<tr><td class="col-num">18</td><td><span class="col-name">MH_HITTER_CN</span></td><td><span class="col-std">mh_hitter_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">멀티히트 경기 수</span></td></tr>
+<tr><td class="col-num">19</td><td><span class="col-name">RBI_CN</span></td><td><span class="col-std">rbi_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타점</span></td></tr>
+<tr><td class="col-num">20</td><td><span class="col-name">SB_CN</span></td><td><span class="col-std">sb_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">도루 수</span></td></tr>
+<tr><td class="col-num">21</td><td><span class="col-name">CS_CN</span></td><td><span class="col-std">cs_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">도루실패 수</span></td></tr>
+<tr><td class="col-num">22</td><td><span class="col-name">SB_RT</span></td><td><span class="col-std">sb_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">도루 성공률</span></td></tr>
+<tr><td class="col-num">23</td><td><span class="col-name">RO_CN</span></td><td><span class="col-std">ro_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">견제아웃/주루사 수</span></td></tr>
+<tr><td class="col-num">24</td><td><span class="col-name">POFF_CN</span></td><td><span class="col-std">poff_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">파울플라이아웃 수</span></td></tr>
+<tr><td class="col-num">25</td><td><span class="col-name">SH_CN</span></td><td><span class="col-std">sh_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">희생번트 수</span></td></tr>
+<tr><td class="col-num">26</td><td><span class="col-name">SF_CN</span></td><td><span class="col-std">sf_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">희생플라이 수</span></td></tr>
+<tr><td class="col-num">27</td><td><span class="col-name">BB_CN</span></td><td><span class="col-std">bb_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">볼넷 수</span></td></tr>
+<tr><td class="col-num">28</td><td><span class="col-name">IB_CN</span></td><td><span class="col-std">ibb_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">고의사구 수</span></td></tr>
+<tr><td class="col-num">29</td><td><span class="col-name">HP_CN</span></td><td><span class="col-std">hbp_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">사구 수</span></td></tr>
+<tr><td class="col-num">30</td><td><span class="col-name">BBHP_CN</span></td><td><span class="col-std">bb_hbp_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">볼넷+사구 합계</span></td></tr>
+<tr><td class="col-num">31</td><td><span class="col-name">KK_CN</span></td><td><span class="col-std">so_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">삼진 수</span></td></tr>
+<tr><td class="col-num">32</td><td><span class="col-name">GD_CN</span></td><td><span class="col-std">gidp_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">병살타 수</span></td></tr>
+<tr><td class="col-num">33</td><td><span class="col-name">ERR_CN</span></td><td><span class="col-std">err_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">실책 수</span></td></tr>
+<tr><td class="col-num">34</td><td><span class="col-name">WIN_HIT_CN</span></td><td><span class="col-std">win_hit_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">결승타 수</span></td></tr>
+<tr><td class="col-num">35</td><td><span class="col-name">GO_CN</span></td><td><span class="col-std">go_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">땅볼아웃 수</span></td></tr>
+<tr><td class="col-num">36</td><td><span class="col-name">FO_CN</span></td><td><span class="col-std">fo_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">플라이아웃 수</span></td></tr>
+<tr><td class="col-num">37</td><td><span class="col-name">FOGO_RT</span></td><td><span class="col-std">fo_go_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">플라이/땅볼 비율 (FO/GO)</span></td></tr>
+<tr><td class="col-num">38</td><td><span class="col-name">PA_PIT_RT</span></td><td><span class="col-std">pa_pitch_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타석당 투구수</span></td></tr>
+<tr><td class="col-num">39</td><td><span class="col-name">KK_BB_RT</span></td><td><span class="col-std">so_bb_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">삼진/볼넷 비율 (K/BB)</span></td></tr>
+<tr><td class="col-num">40</td><td><span class="col-name">SP_HRA_RT</span></td><td><span class="col-std">vs_sp_avg_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">선발투수 상대 타율</span></td></tr>
+<tr><td class="col-num">41</td><td><span class="col-name">PH_HRA_RT</span></td><td><span class="col-std">pinch_avg_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">대타 타율</span></td></tr>
+<tr><td class="col-num">42</td><td><span class="col-name">OBP_RT</span></td><td><span class="col-std">obp_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">출루율 (OBP)</span></td></tr>
+<tr><td class="col-num">43</td><td><span class="col-name">SLG_RT</span></td><td><span class="col-std">slg_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">장타율 (SLG)</span></td></tr>
+<tr><td class="col-num">44</td><td><span class="col-name">ISO_RT</span></td><td><span class="col-std">iso_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">순장타율 (ISO)</span></td></tr>
+<tr><td class="col-num">45</td><td><span class="col-name">OPS_RT</span></td><td><span class="col-std">ops_rt</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">OPS (출루율+장타율)</span></td></tr>
 </tbody></table>
 </div>
 
@@ -91,15 +90,15 @@ title: SEASON_PLAYER_HITTER
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>SEASON_ID</code><span class="code-desc"> — 시즌 ID</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>SEASON_ID</code><span class="code-desc"> &mdash; 시즌 ID</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>P_ID</code><span class="code-desc"> — 선수 ID</span></summary>
-<div class="code-ref">선수 식별자 — [선수 마스터(person)](../master/person.md) 참조</div>
+<summary><code>P_ID</code><span class="code-desc"> &mdash; 선수 ID</span></summary>
+<div class="code-ref">선수 식별자 - [선수 마스터(person)](../master/person.md) 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>SECTION_CD</code><span class="code-desc"> — SECTION 코드</span></summary>
+<summary><code>SECTION_CD</code><span class="code-desc"> &mdash; 구간 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>1</td><td>11,632</td></tr>
@@ -108,7 +107,7 @@ title: SEASON_PLAYER_HITTER
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>GROUP_IF</code><span class="code-desc"> — GROUP 여부</span></summary>
+<summary><code>GROUP_IF</code><span class="code-desc"> &mdash; 그룹 구분</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>LG</td><td>950</td></tr>

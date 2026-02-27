@@ -1,6 +1,7 @@
 # 변경 관리 절차
 
 > 최종수정: 2026-02-25 | KBO 데이터 표준 정의서 (RFP DAR-001)
+> 📋 문서 성격: 신규 시스템 변경 관리 절차(안)
 
 ## 1. 개요
 
@@ -8,7 +9,7 @@
 
 ### 1.1 적용 범위
 
-- 코드 사전(`standards/code-dictionary.md`)의 코드값 추가·변경·폐기
+- 코드 사전(코드 사전(카탈로그))의 코드값 추가·변경·폐기
 - DB 스키마 변경 (컬럼 추가/삭제, 테이블 신규/삭제, 타입 변경)
 - 표준 문서 개정 (`standards/`, `governance/`, `glossary/`)
 - 기록 상태 전이 (`record_status_cd`)
@@ -23,9 +24,9 @@
 | **최소 권한** | 변경은 해당 역할 권한 범위 내에서만 수행한다 |
 | **문서 동기화** | 데이터 변경 시 관련 문서(사전, 코드, 명세)를 반드시 함께 갱신한다 |
 
-→ 참고: [데이터 오너십 §3](./data-ownership.md#3) — 역할 R-01~R-06 정의
-→ 참고: [코드 사전](../standards/code-dictionary.md) — 코드값 정의
-→ 참고: [품질 규칙](./quality-rules.md) — 위반 시 처리 기준
+→ 참고: [데이터 오너십 §3](./data-ownership.md#3) - 역할 R-01~R-06 정의
+→ 참고: [코드 사전](../standards-dict/codes.md) - 코드값 정의
+→ 참고: [품질 규칙](./quality-rules.md) - 위반 시 처리 기준
 
 ---
 
@@ -70,7 +71,7 @@
 |------|--------|------|------|
 | → DRAFT | R-02 (기록원) | 경기 중 실시간 | 경기 시작 시 자동 생성 |
 | DRAFT → REVIEW | R-02 (기록원) | 경기 종료 후 30분 이내 | 기록원이 입력 완료 확인 |
-| REVIEW → CONFIRMED | R-03 (기록위원회) | 본 정의서 범위 외 — KBO 운영규정 기반 별도 확정 (익일 17시 추정) | 품질 규칙 §2~6 검증 통과 |
+| REVIEW → CONFIRMED | R-03 (기록위원회) | 본 정의서 범위 외 - KBO 운영규정 기반 별도 확정 (익일 17시 추정) | 품질 규칙 §2~6 검증 통과 |
 | CONFIRMED → REVISED | R-03 (기록위원회) | 오류 발견 즉시 | 정정 사유 필수 기재 |
 | REVISED → CONFIRMED | R-03 (기록위원회) | 정정 후 24시간 이내 | 정정 내역 검증 완료 |
 
@@ -88,7 +89,7 @@
 
 > REVISED 중인 경기 기록은 외부 API·방송 시스템에서 "정정 중" 표시 권고.
 
-→ 참고: [코드 사전 §9](../standards/code-dictionary.md#9) — record_status_cd 코드 정의
+→ 참고: [코드 사전 §9](../standards-dict/codes.md) - record_status_cd 코드 정의
 
 ---
 
@@ -103,7 +104,7 @@
 | 1. 변경 요청 | 요청자 (누구든) | 변경 요청서 (CR-YYYY-NNN) |
 | 2. 영향 분석 | R-06 (데이터팀) | 영향 테이블 목록, API 호환성 확인 |
 | 3. 코드값 결정 | R-05 (거버넌스 위원회) | 코드값, 한글명, 영문명 확정 |
-| 4. 코드 사전 갱신 | R-06 (데이터팀) | `standards/code-dictionary.md` 수정 |
+| 4. 코드 사전 갱신 | R-06 (데이터팀) | 코드 사전(카탈로그) 수정 |
 | 5. 관련 문서 갱신 | R-06 (데이터팀) | 필요 시 `glossary/business-terms.md`, `dictionary/` 갱신 |
 | 6. 배포 | R-04 (DBA) | DB 제약조건 갱신, API 허용값 갱신 |
 
@@ -137,27 +138,27 @@ S2i 확인 후 미확인 코드의 의미를 확정하는 절차:
 | game_type_cd | 4, 7, 8, 9 | 중간 |
 | series_id | 1~9 각 의미 | 중간 |
 
-→ 참고: [코드 사전 부록C](../standards/code-dictionary.md#c)
+→ 참고: [코드 사전 부록C](../standards-dict/codes.md)
 → 참고: [품질 규칙 §9](./quality-rules.md#9)
 
 ---
 
 ## 5. 스키마 변경 절차
 
-### 5.1 컬럼 추가 (유형 S1) — 7단계
+### 5.1 컬럼 추가 (유형 S1) - 7단계
 
 | 단계 | 행위자 | 내용 |
 |------|--------|------|
 | 1. 변경 요청 | 요청자 | CR 작성: 컬럼명, 타입, 용도, 대상 테이블 |
 | 2. 명명 규칙 검증 | R-06 (데이터팀) | `naming-rules.md` 준수 확인 (접미사, snake_case) |
-| 3. 타입 검증 | R-06 (데이터팀) | `domain-types.md` 준수 확인 (도메인 타입 매핑) |
+| 3. 타입 검증 | R-06 (데이터팀) | 도메인 사전(카탈로그) 준수 확인 (도메인 타입 매핑) |
 | 4. 영향 분석 | R-06 (데이터팀) | API 호환, Kafka 스키마, 기존 쿼리 영향 |
 | 5. 승인 | R-05 (거버넌스 위원회) | 변경 승인 또는 반려 |
 | 6. DB 반영 | R-04 (DBA) | ALTER TABLE, 인덱스 추가, 제약조건 |
 | 7. 문서 갱신 | R-06 (데이터팀) | `dictionary/`, `standards/`, `glossary/` 관련 문서 갱신 |
 
-→ 참고: [명명 규칙](../standards/naming-rules.md) — 컬럼 네이밍
-→ 참고: [도메인 타입](../standards/domain-types.md) — 타입 매핑
+→ 참고: [명명 규칙](../standards/naming-rules.md) - 컬럼 네이밍
+→ 참고: [도메인 타입](../standards-dict/domains.md) - 타입 매핑
 
 ### 5.2 컬럼 삭제 금지 원칙 (유형 S2)
 
@@ -220,10 +221,10 @@ S2i가 전송 스키마를 변경한 경우 (+1 컬럼 등):
 
 | 변경 문서 | 연쇄 확인 대상 |
 |----------|-------------|
-| `standards/naming-rules.md` | `standards/abbreviations.md`, `dictionary/` 전체 |
-| `standards/code-dictionary.md` | `standards/id-system.md`, `governance/change-process.md`, `glossary/business-terms.md` |
+| `standards/naming-rules.md` | `standards-dict/abbreviations.md`, `dictionary/` 전체 |
+| 코드 사전(카탈로그) | `standards/id-system.md`, `governance/change-process.md`, `glossary/business-terms.md` |
 | `standards/id-system.md` | `dictionary/` 전체, `governance/data-ownership.md` |
-| `standards/domain-types.md` | `dictionary/` 전체, `governance/quality-rules.md`, `governance/table-design-guide.md` |
+| `standards-dict/domains.md` | `dictionary/` 전체, `governance/quality-rules.md`, `governance/table-design-guide.md` |
 | `governance/data-ownership.md` | `governance/change-process.md`, `governance/quality-rules.md` |
 | `governance/quality-rules.md` | `governance/change-process.md` |
 | `glossary/business-terms.md` | `dictionary/` 해당 테이블 |
@@ -252,19 +253,19 @@ S2i가 전송 스키마를 변경한 경우 (+1 컬럼 등):
 | 1. 긴급 보고 | 발견자 → 팀 내 아무나 | 즉시 | 메신저/전화 통보 (3인 팀 단톡방) |
 | 2. 임시 조치 | 담당자 (DBA 또는 데이터팀) | 즉시 가능 | 임시 코드 추가, 스키마 패치, 데이터 수동 보정 등 |
 | 3. 비동기 승인 | 팀원 1인 (메신저/이메일) | 1영업일 내 | 메신저 또는 이메일로 비동기 승인 (위원회 소집 불필요) |
-| 4. 사후 CR 작성 | 조치 담당자 | 3영업일 이내 | 사후 변경 요청서(CR) 필수 작성 — 조치 내역·사유·영향 범위 기록 |
+| 4. 사후 CR 작성 | 조치 담당자 | 3영업일 이내 | 사후 변경 요청서(CR) 필수 작성 - 조치 내역·사유·영향 범위 기록 |
 | 5. 문서 갱신 | 조치 담당자 | 5영업일 이내 | 코드 사전, dictionary 등 관련 문서 갱신 |
 
 ### 7.3 Fast-Track 승인 규칙 (3인 팀 기준)
 
 | 항목 | 규칙 |
 |------|------|
-| **승인 방법** | 메신저(카카오톡/Slack 등) 또는 이메일 — 비동기 승인 허용 |
+| **승인 방법** | 메신저(카카오톡/Slack 등) 또는 이메일 - 비동기 승인 허용 |
 | **승인 권한** | 팀원 3인 중 조치자 본인 외 1인의 확인으로 충분 |
 | **위원회 소집** | 불필요 (사후 CR로 대체) |
 | **임시 조치 선행** | 승인 전 즉시 임시 조치 가능 (서비스 중단 방지 우선) |
 | **사후 CR 필수** | 임시 조치 후 **3영업일 이내** 정식 CR(변경 요청서) 작성 필수 |
-| **CR 미작성 시** | 주간 회의에서 반드시 소급 처리 — 미작성 건은 주간 리포트에 경고 표시 |
+| **CR 미작성 시** | 주간 회의에서 반드시 소급 처리 - 미작성 건은 주간 리포트에 경고 표시 |
 
 > **핵심 원칙**: 1영업일 내 비동기 승인 + 즉시 임시 조치 가능 (사후 CR 필수).
 > Fast-Track은 시즌 중 경기 운영에 직접 영향을 주는 경우에만 적용. 일반 개선 사항은 정규 절차를 따른다.
@@ -319,4 +320,4 @@ CR 번호: CR-YYYY-NNN
 
 | CR 번호 | 일자 | 유형 | 요약 | 승인 |
 |---------|------|------|------|------|
-| — | 2026-02-24 | D3 | Phase 5 거버넌스 문서 최초 작성 | R-06 (데이터팀) |
+| - | 2026-02-24 | D3 | Phase 5 거버넌스 문서 최초 작성 | R-06 (데이터팀) |

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-25",
+  "generated": "2026-02-26",
   "rows": [
     {
       "section": "경기 이벤트 코드",
@@ -1367,7 +1367,7 @@
       "name_en": "",
       "count": "",
       "used_tables": "",
-      "note": "울산 — 운영"
+      "note": "울산 - 운영"
     },
     {
       "section": "구장 코드",
@@ -1379,7 +1379,7 @@
       "name_en": "",
       "count": "",
       "used_tables": "",
-      "note": "포항 — 운영"
+      "note": "포항 - 운영"
     },
     {
       "section": "구장 코드",
@@ -1391,7 +1391,7 @@
       "name_en": "",
       "count": "",
       "used_tables": "",
-      "note": "청주 — 운영"
+      "note": "청주 - 운영"
     },
     {
       "section": "구장 코드",
@@ -1403,7 +1403,7 @@
       "name_en": "",
       "count": "",
       "used_tables": "",
-      "note": "춘천 — 운영"
+      "note": "춘천 - 운영"
     },
     {
       "section": "구장 코드",
@@ -1415,7 +1415,7 @@
       "name_en": "",
       "count": "",
       "used_tables": "",
-      "note": "전주 — 운영"
+      "note": "전주 - 운영"
     },
     {
       "section": "구장 코드",
@@ -1427,7 +1427,7 @@
       "name_en": "",
       "count": "",
       "used_tables": "",
-      "note": "제주 — 운영"
+      "note": "제주 - 운영"
     },
     {
       "section": "구장 코드",
@@ -1439,7 +1439,7 @@
       "name_en": "",
       "count": "",
       "used_tables": "",
-      "note": "마산 — 운영"
+      "note": "마산 - 운영"
     },
     {
       "section": "구장 코드",
@@ -1451,7 +1451,7 @@
       "name_en": "",
       "count": "",
       "used_tables": "",
-      "note": "서울 — **폐장**"
+      "note": "서울 - **폐장**"
     },
     {
       "section": "구장 코드",
@@ -1463,7 +1463,7 @@
       "name_en": "",
       "count": "",
       "used_tables": "",
-      "note": "부산 — **폐장**"
+      "note": "부산 - **폐장**"
     },
     {
       "section": "날씨/환경 코드",
@@ -2013,7 +2013,7 @@
       "code": "15",
       "name_ko": "가을리그",
       "name_en": "",
-      "count": "—",
+      "count": "-",
       "used_tables": "",
       "note": ""
     }

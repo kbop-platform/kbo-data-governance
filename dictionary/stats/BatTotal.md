@@ -5,10 +5,10 @@ title: BatTotal
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">통계</span>
     <span class="dict-badge badge-tier tier-2">Tier 2</span>
-    <span class="dict-badge badge-gen gen-legacy">구세대</span>
     <span class="dict-badge badge-access">Internal</span>
   </div>
   <div class="dict-hero-title">BatTotal</div>
@@ -25,14 +25,13 @@ title: BatTotal
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB1_BASEBALL_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>PCODE, GYEAR, SEC</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">legacy (구세대)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 2 — Standard</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 2 - Standard</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">통계분석팀 (R-04)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">D+1 (전일 경기 반영)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">통계팀, 외부 API</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Internal</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[시즌 통계](../products/season-stats.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[ID 체계](../../standards/id-system.md), [약어 사전](../../standards/abbreviations.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[ID 체계](../../standards/id-system.md), [약어 사전](../../standards-dict/abbreviations.md)</span></div>
 </div>
 
 <div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">23개</span></div>
@@ -43,10 +42,10 @@ title: BatTotal
 <table class="dict-col-table"><thead>
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
-<tr><td class="col-num">1</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 코드 (5~6자리 숫자 문자열)</span></td></tr>
+<tr><td class="col-num">1</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 코드 (5~6자리 숫자)</span></td></tr>
 <tr><td class="col-num">2</td><td><span class="col-name">GYEAR</span></td><td><span class="col-std">season_yr</span></td><td><span class="col-type">char(4)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시즌 연도 (4자리, &quot;9999&quot;=통산)</span></td></tr>
-<tr><td class="col-num">3</td><td><span class="col-name">SEC</span></td><td><span class="col-std">series_cd</span></td><td><span class="col-type">varchar(4)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">구간 (시즌연도 또는 &quot;9999&quot;=통산)</span></td></tr>
-<tr><td class="col-num">4</td><td><span class="col-name">TEAM</span></td><td><span class="col-std">team_cd</span></td><td><span class="col-type">varchar(6)</span></td><td></td><td></td><td><span class="col-desc">팀 코드 (2자리, HH=키움, HT=KIA 등)</span></td></tr>
+<tr><td class="col-num">3</td><td><span class="col-name">SEC</span></td><td><span class="col-std">series_cd</span></td><td><span class="col-type">varchar(4)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시즌 연도 (4자리, 9999=통산)</span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">TEAM</span></td><td><span class="col-std">team_cd</span></td><td><span class="col-type">varchar(6)</span></td><td></td><td></td><td><span class="col-desc">팀 코드 (HH=한화, LG, SK, HT=KIA, LT=롯데, OB=두산, SS=삼성, WO=키움, NC, KT 등 2자리)</span></td></tr>
 <tr><td class="col-num">5</td><td><span class="col-name">HRA</span></td><td><span class="col-std">avg</span></td><td><span class="col-type">float</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타율</span></td></tr>
 <tr><td class="col-num">6</td><td><span class="col-name">GAMENUM</span></td><td><span class="col-std">game_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">경기 수</span></td></tr>
 <tr><td class="col-num">7</td><td><span class="col-name">AB</span></td><td><span class="col-std">ab</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타수 (At Bat)</span></td></tr>
@@ -55,7 +54,7 @@ title: BatTotal
 <tr><td class="col-num">10</td><td><span class="col-name">H2</span></td><td><span class="col-std">h2b</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">2루타</span></td></tr>
 <tr><td class="col-num">11</td><td><span class="col-name">H3</span></td><td><span class="col-std">h3b</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">3루타</span></td></tr>
 <tr><td class="col-num">12</td><td><span class="col-name">HR</span></td><td><span class="col-std">hr</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홈런</span></td></tr>
-<tr><td class="col-num">13</td><td><span class="col-name">TB</span></td><td><span class="col-std">top_bottom_cd</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">팀 구분 (T=원정/Top, B=홈/Bottom)</span></td></tr>
+<tr><td class="col-num">13</td><td><span class="col-name">TB</span></td><td><span class="col-std">tb_cn</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">루타 (Total Bases)</span></td></tr>
 <tr><td class="col-num">14</td><td><span class="col-name">RBI</span></td><td><span class="col-std">rbi</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타점</span></td></tr>
 <tr><td class="col-num">15</td><td><span class="col-name">SB</span></td><td><span class="col-std">sb</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">도루</span></td></tr>
 <tr><td class="col-num">16</td><td><span class="col-name">CS</span></td><td><span class="col-std">cs</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">도루실패</span></td></tr>
@@ -73,24 +72,24 @@ title: BatTotal
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>PCODE</code><span class="code-desc"> — 선수 코드</span></summary>
-<div class="code-ref">선수 식별자 — [선수 마스터(person)](../master/person.md) 참조</div>
+<summary><code>PCODE</code><span class="code-desc"> &mdash; 선수 코드</span></summary>
+<div class="code-ref">선수 식별자 - [선수 마스터(person)](../master/person.md) 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>GYEAR</code><span class="code-desc"> — 시즌 연도</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GYEAR</code><span class="code-desc"> &mdash; 시즌 연도</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>SEC</code><span class="code-desc"> — 구간</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>SEC</code><span class="code-desc"> &mdash; 시즌 연도</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>TEAM</code><span class="code-desc"> — 팀 코드</span></summary>
-<div class="code-ref">팀 식별자 — [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
+<summary><code>TEAM</code><span class="code-desc"> &mdash; 팀 코드</span></summary>
+<div class="code-ref">팀 식별자 - [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>TB</code><span class="code-desc"> — 팀 구분</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>TB</code><span class="code-desc"> &mdash; 루타</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 </div>
 

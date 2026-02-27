@@ -1,6 +1,7 @@
 # ID 체계 표준
 
 > 최종수정: 2026-02-25 | 출처: analysis/id-analysis.md, raw/column-metadata.json
+> 📋 문서 성격: 신규 시스템 ID 표준(안) · 현행 레거시 매핑 포함
 
 ## 1. 개요
 
@@ -10,8 +11,8 @@ KBO 데이터 시스템의 식별자(ID) 체계를 정의한다.
 - 모든 ID는 **부여 후 변경 불가**(immutable).
 - 1982년부터의 과거 데이터에 대한 레거시 매핑 규칙을 포함한다 (DAR-009 마이그레이션용).
 
-→ 참고: [명명 규칙](./naming-rules.md) — ID 네이밍 컨벤션
-→ 참고: [도메인 타입 정의](./domain-types.md#21-identifier-_id) — ID 타입 정의
+→ 참고: [명명 규칙](./naming-rules.md) - ID 네이밍 컨벤션
+→ 참고: [도메인 사전](../standards-dict/domains.md) - ID 타입 정의
 
 ---
 
@@ -61,7 +62,7 @@ YYYYMMDDVVHH#
 
 현행 10개 팀: `HH`, `HT`, `KT`, `LG`, `LT`, `NC`, `OB`, `SK`, `SS`, `WO`. team_id는 역사적 코드를 유지한다 (OB=두산, SK=SSG 등 팀명이 바뀌어도 코드 불변).
 
-→ 참고: [코드 사전 Section 4](./code-dictionary.md#4) — 전체 팀 코드 목록
+→ 참고: [코드 사전](../standards-dict/codes.md) - 전체 팀 코드 목록
 
 ### 2.4 stadium_id (구장 ID)
 
@@ -74,7 +75,7 @@ YYYYMMDDVVHH#
 
 `GAMEINFO.STADIUM`은 한글 구장명(`nvarchar`)이며 ID가 아니다. 코드 참조에는 `stadium_id`를 사용한다.
 
-→ 참고: [코드 사전 Section 5](./code-dictionary.md#5) — 전체 구장 코드
+→ 참고: [코드 사전](../standards-dict/codes.md) - 전체 구장 코드
 
 ### 2.5 season_id (시즌 ID)
 
@@ -160,7 +161,7 @@ YYYYMMDDVVHH#
 | game_id `9999*` | GAME_INFO 등 | 올스타전/시범경기 등 특별 경기 | 유효한 game_id로 인정 |
 | SEC = 팀명(한글) | BatTotal | 비정상 데이터 | 정리 필요 |
 
-> → 참고: [마이그레이션 설계 결정 §3](../migration/design-decisions.md) — 합계행 처리 방안 A/B 상세
+> → 참고: [마이그레이션 설계 결정 §3](../migration/design-decisions.md) - 합계행 처리 방안 A/B 상세
 
 ---
 
@@ -181,7 +182,7 @@ team_id는 불변이지만 팀명은 변경된다. TEAM 마스터 테이블(401�
 
 > game_id 내부 팀코드와 이 테이블을 조인하면 해당 시점의 팀명을 조회할 수 있다.
 
-→ 참고: [코드 사전 Section 4](./code-dictionary.md#4) — 전체 팀 코드 목록
+→ 참고: [코드 사전](../standards-dict/codes.md) - 전체 팀 코드 목록
 
 ---
 

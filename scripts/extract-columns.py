@@ -4,78 +4,9 @@ import pymssql
 import json
 import os
 from pathlib import Path
+from config import TABLE_DB_MAP, CODE_NAMES, BASE_DIR
+from db_helper import get_connection
 
-BASE_DIR = str(Path(__file__).resolve().parent.parent)
-
-# Load credentials from .env
-_env_path = os.path.join(BASE_DIR, ".env")
-if os.path.exists(_env_path):
-    with open(_env_path) as _f:
-        for _line in _f:
-            _line = _line.strip()
-            if _line and not _line.startswith("#") and "=" in _line:
-                _k, _v = _line.split("=", 1)
-                os.environ.setdefault(_k.strip(), _v.strip())
-
-SERVER = os.environ.get("MSSQL_SERVER", "") + ":" + os.environ.get("MSSQL_PORT", "1433")
-USER = os.environ.get("MSSQL_USER", "")
-PASSWORD = os.environ.get("MSSQL_PASSWORD", "")
-
-# 테이블별 대표 DB 선정 (가장 데이터 많은 DB 우선)
-TABLE_DB_MAP = {
-    # 경기 기록 (DB1_BASEBALL 우선)
-    'Hitter': 'DB1_BASEBALL_220328',
-    'Pitcher': 'DB1_BASEBALL_220328',
-    'ENTRY': 'DB1_BASEBALL_220328',
-    'GAMECONTAPP': 'DB1_BASEBALL_220328',
-    'GAMEINFO': 'DB1_BASEBALL_220328',
-    'Score': 'DB1_BASEBALL_220328',
-    'BatTotal': 'DB1_BASEBALL_220328',
-    'PitTotal': 'DB1_BASEBALL_220328',
-    'TeamRank': 'DB1_BASEBALL_220328',
-    'DEFEN': 'DB1_BASEBALL_220328',
-    'GAME_HR': 'DB1_BASEBALL_220328',
-    'GAME_MEMO': 'DB1_BASEBALL_220328',
-    'GAME_MEMO_PITCHCLOCK': 'DB1_BASEBALL_220328',
-    # 집계/결과
-    'KBO_BATRESULT': 'DB2_BASEBALL_220328',
-    'KBO_PITRESULT': 'DB2_BASEBALL_220328',
-    'KBO_ETCGAME': 'DB2_BASEBALL_220328',
-    # 시즌 통계
-    'SEASON_PLAYER_HITTER': 'DB1_BASEBALL_2_220328',
-    'SEASON_PLAYER_PITCHER': 'DB1_BASEBALL_2_220328',
-    'SEASON_PLAYER_HITTER_SITUATION': 'DB1_BASEBALL_2_220328',
-    'SEASON_PLAYER_PITCHER_SITUATION': 'DB1_BASEBALL_2_220328',
-    # 실시간/IE
-    'IE_LiveText': 'DB2_BASEBALL_NEW_220328',
-    'IE_BatterRecord': 'DB2_BASEBALL_NEW_220328',
-    'IE_PitcherRecord': 'DB2_BASEBALL_NEW_220328',
-    'IE_BallCount': 'DB2_BASEBALL_NEW_220328',
-    'IE_Scoreinning': 'DB2_BASEBALL_NEW_220328',
-    'IE_ScoreRHEB': 'DB2_BASEBALL_NEW_220328',
-    'IE_GameList': 'DB2_BASEBALL_NEW_220328',
-    'IE_GAMESTATE': 'DB2_BASEBALL_NEW_220328',
-    'IE_log': 'DB2_BASEBALL_NEW_220328',
-    # 스케줄/마스터
-    'KBO_schedule': 'DB2_BASEBALL_NEW_220328',
-    'person': 'DB2_BASEBALL_NEW_220328',
-    'person2': 'DB2_BASEBALL_NEW_220328',
-    'PERSON': 'DB2_MINOR_BASEBALL_220328',
-    'PERSON_FA': 'DB2_BASEBALL_NEW_220328',
-    'TEAM': 'DB2_BASEBALL_2_220328',
-    'STADIUM': 'DB2_BASEBALL_NEW_220328',
-    'CANCEL_GAME': 'DB2_BASEBALL_NEW_220328',
-    # 기타
-    'GAMEINFO_WEATHER': 'DB2_BASEBALL_220328',
-    'PITCHCLOCK': 'DB2_BASEBALL_220328',
-}
-
-# 코드성 컬럼 판별
-CODE_NAMES = {'TB', 'HOW', 'PLACE', 'POSI', 'WLS', 'LEAGUE', 'TEAM', 'WEATH',
-              'START', 'QUIT', 'OCOUNT', 'ENDYN', 'CANCLE', 'DHEADER',
-              'TB_SC', 'PLACE_SC', 'DIREC_SC', 'PIT_RESULT_SC',
-              'STATUS_ID', 'LE_ID', 'SR_ID', 'SEASON_ID',
-              'SUSPENDED', 'game_flag', 'FIRST_IF', 'LAST_IF', 'RESULT'}
 
 def is_code_column(col_name, data_type, max_length):
     if col_name.upper() in {n.upper() for n in CODE_NAMES}:
@@ -89,17 +20,9 @@ def is_code_column(col_name, data_type, max_length):
         return True
     return False
 
-def get_schema_gen(columns):
-    names = {c['name'].upper() for c in columns}
-    if 'G_ID' in names or 'LE_ID' in names or 'P_ID' in names:
-        return 'new'
-    if 'GMKEY' in names or 'PCODE' in names:
-        return 'legacy'
-    return 'unknown'
-
 def main():
     result = {"tables": {}}
-    conn = pymssql.connect(SERVER, USER, PASSWORD)
+    conn = get_connection()
     cursor = conn.cursor()
 
     for table_name, db_name in sorted(TABLE_DB_MAP.items()):
@@ -189,19 +112,17 @@ def main():
 
             columns.append(col)
 
-        schema_gen = get_schema_gen(columns)
         pk_cols = [c['name'] for c in columns if c['is_pk']]
 
         result["tables"][table_name] = {
             "representative_db": db_name,
             "row_count": row_count,
-            "schema_generation": schema_gen,
             "pk_columns": pk_cols,
             "column_count": len(columns),
             "columns": columns
         }
 
-        print(f"  Columns: {len(columns)}, Rows: {row_count:,}, Schema: {schema_gen}")
+        print(f"  Columns: {len(columns)}, Rows: {row_count:,}")
         print(f"  PK: {pk_cols}")
         for c in columns:
             pk_mark = " [PK]" if c['is_pk'] else ""

@@ -1,12 +1,13 @@
 # 컬럼 매핑 매트릭스 (AS-IS → TO-BE)
 
 > 최종수정: 2026-02-25 | 자동 생성: scripts/extract-mapping.py
+> 📋 문서 성격: 컬럼 매핑 매트릭스 (As-Is → To-Be)
 
 본 문서는 현행 시스템(AS-IS)의 컬럼을 신규 시스템(TO-BE) 표준으로 매핑한 전수 목록이다.
 수행사 마이그레이션 핸드오프 문서로 활용한다.
 
-→ 참고: [도메인 타입 정의](../standards/domain-types.md) — 표준 타입 상세
-→ 참고: [ID 체계](../standards/id-system.md) — 식별자 형식
+→ 참고: [도메인 사전](../standards-dict/domains.md) - 표준 타입 상세
+→ 참고: [ID 체계](../standards/id-system.md) - 식별자 형식
 
 ## 요약
 

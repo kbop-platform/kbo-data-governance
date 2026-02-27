@@ -25,7 +25,7 @@ hide:
 </div>
 
 <div class="product-security">
-  <div><strong>Restricted 등급</strong> — person 테이블은 PII(개인식별정보)를 포함한다. 외부 제공 시 생년월일, 연봉 등 민감 필드의 비식별화가 필수이다.</div>
+  <div><strong>Restricted 등급</strong> - person 테이블은 PII(개인식별정보)를 포함한다. 외부 제공 시 생년월일, 연봉 등 민감 필드의 비식별화가 필수이다.</div>
 </div>
 
 <!-- ── 포함 테이블 ── -->

@@ -11,8 +11,8 @@ KBO 데이터 시스템에서 사용하는 업무 용어를 정의한다. 이 �
 - "관련 테이블"은 해당 용어가 사용되는 주요 테이블
 - 부록의 가나다순 색인으로 빠른 검색 가능
 
-→ 참고: [표준 약어 사전](../standards/abbreviations.md) — 약어 정의
-→ 참고: [코드 사전](../standards/code-dictionary.md) — 코드값 상세
+→ 참고: [약어 사전](../standards-dict/abbreviations.md) - 약어 정의
+→ 참고: [코드 사전](../standards-dict/codes.md) - 코드값 상세
 
 ---
 
@@ -164,7 +164,7 @@ KBO 데이터 시스템에서 사용하는 업무 용어를 정의한다. 이 �
 | 구간 코드 | section_cd | 시즌 통계 집계 구간 (전반기/후반기/전체 등) | 코드값 → 코드 사전 참조 | `section_cd` |
 | 그룹 구분 | group_sc | 그룹/조 구분 (가을리그 등) | 코드값 → 코드 사전 참조 | `group_sc` |
 
-→ 참고: [코드 사전](../standards/code-dictionary.md) — 각 코드의 전체 허용값 목록
+→ 참고: [코드 사전](../standards-dict/codes.md) - 각 코드의 전체 허용값 목록
 
 ---
 
@@ -203,7 +203,7 @@ KBO 데이터 시스템에서 사용하는 업무 용어를 정의한다. 이 �
 | 텍스트 스타일 | Text Style | 중계 텍스트의 표시 유형 코드 (득점·교체·일반 등) | `text_style_cd` (레거시: `textStyle`) | IE_LiveText |
 | 볼카운트 | Ball Count | 현재 타석의 볼-스트라이크-아웃 카운트 | `ball_count_cd` (레거시: `BCNT`) | IE_BallCount, GAMECONTAPP |
 | 주자 상태 | Base Runner | 각 루에 주자 존재 여부 또는 선수 코드 | `base1b`~`base3a` | GAMECONTAPP, IE_BallCount |
-| 피치클럭 | Pitch Clock | 투수의 투구 준비 시간 제한 (초) | — | PITCHCLOCK |
+| 피치클럭 | Pitch Clock | 투수의 투구 준비 시간 제한 (초) | - | PITCHCLOCK |
 | 경기 상태 | Game State | 현재 경기의 진행 상태 (예정/진행중/종료 등) | `game_sc_id` (레거시: `STATUS_ID`) | IE_GAMESTATE |
 
 ---

@@ -5,10 +5,10 @@ title: PERSON_FA
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">마스터</span>
     <span class="dict-badge badge-tier tier-3">Tier 3</span>
-    <span class="dict-badge badge-gen gen-legacy">구세대</span>
     <span class="dict-badge badge-access">Restricted</span>
   </div>
   <div class="dict-hero-title">PERSON_FA</div>
@@ -25,14 +25,13 @@ title: PERSON_FA
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB2_BASEBALL_NEW_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code></code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">legacy (구세대)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 — Reference</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 - Reference</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">기록위원회 (R-03)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">FA 발생 시 수시</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">기록팀, 인사팀</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Restricted</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[선수 프로필](../products/player-profile.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards/domain-types.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards-dict/domains.md)</span></div>
 </div>
 
 <div class="dict-note">
@@ -46,9 +45,9 @@ title: PERSON_FA
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
 <tr><td class="col-num">1</td><td><span class="col-name">GYEAR</span></td><td><span class="col-std">season_yr</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">시즌 연도 (4자리, &quot;9999&quot;=통산)</span></td></tr>
-<tr><td class="col-num">2</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">선수 코드 (5~6자리 숫자 문자열)</span></td></tr>
+<tr><td class="col-num">2</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">선수 코드 (5~6자리 숫자)</span></td></tr>
 <tr><td class="col-num">3</td><td><span class="col-name">MONEY</span></td><td><span class="col-std">salary_va</span></td><td><span class="col-type">varchar(12)</span></td><td></td><td></td><td><span class="col-desc">연봉</span></td></tr>
-<tr><td class="col-num">4</td><td><span class="col-name">OPTION</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(12)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">OPTION</span></td><td><span class="col-std">option_cd</span></td><td><span class="col-type">varchar(12)</span></td><td></td><td></td><td><span class="col-desc">FA 옵션</span></td></tr>
 </tbody></table>
 </div>
 
@@ -56,7 +55,7 @@ title: PERSON_FA
 
 <div class="dict-codes-section">
 <details class="dict-code-group" open>
-<summary><code>GYEAR</code><span class="code-desc"> — 시즌 연도</span></summary>
+<summary><code>GYEAR</code><span class="code-desc"> &mdash; 시즌 연도</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>2023</td><td>81</td></tr>
@@ -66,8 +65,8 @@ title: PERSON_FA
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>PCODE</code><span class="code-desc"> — 선수 코드</span></summary>
-<div class="code-ref">선수 식별자 — [선수 마스터(person)](../master/person.md) 참조</div>
+<summary><code>PCODE</code><span class="code-desc"> &mdash; 선수 코드</span></summary>
+<div class="code-ref">선수 식별자 - [선수 마스터(person)](../master/person.md) 참조</div>
 </details>
 </div>
 

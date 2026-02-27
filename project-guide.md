@@ -13,8 +13,8 @@
 | 1 | [데이터 프로덕트](dictionary/products/game-summary.md) | 비즈니스 단위별 데이터 구조 이해 |
 | 2 | [명명 규칙](standards/naming-rules.md) | DB/API/Kafka/WS 4계층 명명 |
 | 3 | [ID 체계](standards/id-system.md) | 식별자 6종, 복합 PK 표준 |
-| 4 | [도메인 타입](standards/domain-types.md) | 타입 표준, NULL/인코딩 정책 |
-| 5 | [코드 사전](standards/code-dictionary.md) | 코드값 전체 정의 |
+| 4 | [도메인 타입](standards-dict/domains.md) | 타입 표준, NULL/인코딩 정책 |
+| 5 | [코드 사전](standards-dict/codes.md) | 코드값 전체 정의 |
 | 6 | [컬럼 매핑](migration/column-mapping.md) | AS-IS→TO-BE 컬럼 전수 매핑 |
 | 7 | [데이터 사전](dictionary/index.md) | 필요한 테이블만 참조 |
 | 8 | [업무 용어](glossary/business-terms.md) | 용어 불명확 시 참조 |
@@ -25,13 +25,13 @@
 
 | 주의사항 | 설명 | 참조 |
 |----------|------|------|
-| **EUC-KR 깨짐** | `varchar`에 저장된 한글은 EUC-KR 인코딩 | [도메인 타입 §3](standards/domain-types.md#3) |
-| **float 노이즈** | 타율 등 비율이 `float`로 저장 | [도메인 타입 §2.5](standards/domain-types.md#25-rate-_rt) |
+| **EUC-KR 깨짐** | `varchar`에 저장된 한글은 EUC-KR 인코딩 | [도메인 타입 §3](standards-dict/domains.md) |
+| **float 노이즈** | 타율 등 비율이 `float`로 저장 | [도메인 타입 §2.5](standards-dict/domains.md) |
 | **합계행 혼재** | `PCODE='T'/'B'` 팀 합계행이 개인 기록과 혼재 | [ID 체계 §5](standards/id-system.md#5) |
 | **9999 예약값** | `GYEAR=9999`는 통산 기록 (연도 아님) | [ID 체계 §5](standards/id-system.md#5) |
 | **-1 센티널** | Score 이닝 점수에서 `-1`은 미진행 이닝 | [품질 규칙 §7](governance/quality-rules.md#7) |
 | **ID 체계 혼재** | 구세대(`GMKEY`/`PCODE`) + 신세대(`G_ID`/`P_ID`) 공존 | [컬럼 차이](migration/column-diff.md) |
-| **팀코드 불변** | OB=두산, SK=SSG — 구단명 변경에도 코드 유지 | [ID 체계 §6](standards/id-system.md#6) |
+| **팀코드 불변** | OB=두산, SK=SSG - 구단명 변경에도 코드 유지 | [ID 체계 §6](standards/id-system.md#6) |
 
 ---
 
@@ -52,17 +52,17 @@
 
 ```
 data-dict/
-├── dictionary/              # 데이터 사전 — 39종 테이블 × 1파일
+├── dictionary/              # 데이터 사전 - 39종 테이블 × 1파일
 │   ├── products/            #   데이터 프로덕트 정의 (6개)
 │   ├── lineage.md           #   데이터 리니지 (흐름 추적)
 │   ├── game/                #   경기 기록 (12)
 │   ├── stats/               #   통계 (10)
 │   ├── realtime/            #   실시간 (9)
 │   └── master/              #   마스터 (8)
-├── standards/               # 표준 정의 — 5개 문서
+├── standards/               # 표준 정의 - 5개 문서
 ├── glossary/                # 업무 용어 사전
-├── governance/              # 거버넌스 정책 — 6개 문서
-├── migration/               # 마이그레이션 — 설계 결정, 컬럼/테이블 매핑
+├── governance/              # 거버넌스 정책 - 6개 문서
+├── migration/               # 마이그레이션 - 설계 결정, 컬럼/테이블 매핑
 ├── raw/                     # 기계 추출 원본 데이터
 ├── references/              # 원본 참고 자료 (수정 금지)
 ├── exports/                 # Excel 산출물
@@ -127,10 +127,10 @@ pip install mkdocs-material
 |---|------|----------|---------|
 | 1 | +1 컬럼명 확인 (49개 테이블) | `dictionary/`, `migration/column-diff.md` | 높음 |
 | 2 | DEFEN +6컬럼, ENTRY -1컬럼 상세 | `dictionary/game/DEFEN.md`, `ENTRY.md` | 높음 |
-| 3 | BH 코드 의미 (14,749건) | `standards/code-dictionary.md` §2.2 | 높음 |
-| 4 | place_cd 문자코드 (R, A~I) | `standards/code-dictionary.md` §2.3 | 중간 |
-| 5 | game_flag 4,7,8,9 의미 | `standards/code-dictionary.md` §8.3 | 중간 |
-| 6 | series_id 1~9 의미 | `standards/code-dictionary.md` §10 | 중간 |
+| 3 | BH 코드 의미 (14,749건) | `standards-dict/codes.md` §2.2 | 높음 |
+| 4 | place_cd 문자코드 (R, A~I) | `standards-dict/codes.md` §2.3 | 중간 |
+| 5 | game_flag 4,7,8,9 의미 | `standards-dict/codes.md` §8.3 | 중간 |
+| 6 | series_id 1~9 의미 | `standards-dict/codes.md` §10 | 중간 |
 
 ### 거버넌스 결정 보류
 

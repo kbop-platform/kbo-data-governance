@@ -1,344 +1,350 @@
 #!/usr/bin/env python3
-"""column-metadata.json에서 도메인별 테이블 사전 마크다운 생성"""
-import json
-import os
+"""dictionary/{domain}/{table}.md HTML 생성 스크립트 (파이프라인 #5)
+
+.enriched-cache.json에서 메타데이터를 읽고,
+raw/column-metadata.json에서 컬럼/코드/샘플 데이터를 읽어
+Jinja2 템플릿으로 dictionary 상세 페이지를 생성합니다.
+"""
+
+import json, re, html
 from pathlib import Path
+from jinja2 import Environment, FileSystemLoader
+from config import DOMAIN_LABELS, COLUMN_DESC, STANDARD_MAP, TABLE_OVERRIDES
 
-BASE_DIR = str(Path(__file__).resolve().parent.parent)
-META_PATH = os.path.join(BASE_DIR, 'raw', 'column-metadata.json')
-DICT_DIR = os.path.join(BASE_DIR, 'dictionary')
+BASE = Path(__file__).resolve().parent.parent
+DOCS = BASE / "docs"
+META_PATH = BASE / "raw" / "column-metadata.json"
+TEMPLATE_DIR = Path(__file__).resolve().parent / "templates"
 
-# 도메인 분류
-DOMAINS = {
-    'game': {
-        'label': '경기 기록',
-        'tables': ['GAMEINFO', 'GAMECONTAPP', 'ENTRY', 'Hitter', 'Pitcher',
-                    'Score', 'DEFEN', 'GAME_HR', 'GAME_MEMO', 'GAME_MEMO_PITCHCLOCK',
-                    'GAMEINFO_WEATHER', 'PITCHCLOCK']
-    },
-    'stats': {
-        'label': '통계/집계',
-        'tables': ['BatTotal', 'PitTotal', 'TeamRank', 'KBO_BATRESULT',
-                    'KBO_PITRESULT', 'KBO_ETCGAME',
-                    'SEASON_PLAYER_HITTER', 'SEASON_PLAYER_PITCHER',
-                    'SEASON_PLAYER_HITTER_SITUATION', 'SEASON_PLAYER_PITCHER_SITUATION']
-    },
-    'realtime': {
-        'label': '실시간/인터페이스',
-        'tables': ['IE_LiveText', 'IE_BatterRecord', 'IE_PitcherRecord',
-                    'IE_BallCount', 'IE_Scoreinning', 'IE_ScoreRHEB',
-                    'IE_GameList', 'IE_GAMESTATE', 'IE_log']
-    },
-    'master': {
-        'label': '마스터/참조',
-        'tables': ['person', 'person2', 'PERSON', 'PERSON_FA',
-                    'TEAM', 'STADIUM', 'KBO_schedule', 'CANCEL_GAME']
-    }
-}
 
-# 컬럼 설명 매핑 (공통 컬럼)
-COLUMN_DESCRIPTIONS = {
-    # 식별자
-    'GMKEY': '경기 고유키 (YYYYMMDDVVHH#, 13자리)',
-    'G_ID': '경기 ID (YYYYMMDDVVHH# 형식)',
-    'GDAY': '경기 일자 (YYYYMMDD)',
-    'GYEAR': '시즌 연도 (4자리, "9999"=통산)',
-    'PCODE': '선수 코드 (5~6자리 숫자 문자열)',
-    'P_ID': '선수 ID (정수)',
-    'LE_ID': '리그 ID (1=1군)',
-    'SR_ID': '시리즈 ID (0=정규시즌)',
-    'SEASON_ID': '시즌 ID (연도)',
-    'T_ID': '팀 코드 (2자리)',
-    'SEQ_NO': '순번',
-    'SEQ': '순번',
-    'SERNO': '일련번호',
-    # 경기 정보
-    'TB': '팀 구분 (T=원정/Top, B=홈/Bottom)',
-    'TB_SC': '팀 구분 코드 (T=원정, B=홈)',
-    'INN': '이닝 번호',
-    'INN_NO': '이닝 번호',
-    'INN2': '이닝 세부 (아웃수 환산 또는 연장 구분)',
-    'OCOUNT': '아웃 카운트 (0,1,2,4=이닝종료)',
-    'HOW': '플레이 결과 코드 (H1=안타, HR=홈런, KK=삼진 등 49종)',
-    'PLACE': '타구 방향 (0~9=포지션번호, S=삼진 등)',
-    'POSI': '포지션 코드 (XY: X=교체순번, Y=포지션)',
-    # 타격
-    'AB': '타수 (At Bat)',
-    'PA': '타석 (Plate Appearance)',
-    'HIT': '안타',
-    'H2': '2루타',
-    'H3': '3루타',
-    'HR': '홈런',
-    'RBI': '타점',
-    'RUN': '득점',
-    'BB': '볼넷',
-    'HP': '사구 (Hit by Pitch)',
-    'IB': '고의사구 (Intentional BB)',
-    'KK': '삼진',
-    'GD': '병살타',
-    'SB': '도루',
-    'CS': '도루실패',
-    'SF': '희생플라이',
-    'SH': '희생번트',
-    'ERR': '실책',
-    'LOB': '잔루',
-    'HRA': '타율',
-    'TB_stat': '총루타 (Total Bases)',  # TB as stat vs TB as team
-    # 투수
-    'W': '승',
-    'L': '패',
-    'SV': '세이브',
-    'HOLD': '홀드',
-    'ERA': '평균자책점',
-    'ER': '자책점',
-    'R': '실점',
-    'BF': '상대타자수',
-    'NP': '투구수',
-    'CG': '완투',
-    'SHO': '완봉',
-    'WLS': '승패세 (W=승, L=패, S=세이브)',
-    'BK': '보크',
-    'WP': '폭투',
-    # 팀/기타
-    'TEAM': '팀 코드 (2자리, HH=키움, HT=KIA 등)',
-    'NAME': '선수명 (varchar=EUC-KR 깨짐 가능)',
-    'LEAGUE': '리그',
-    'RANK': '순위',
-    'GAME': '경기 수',
-    'GAMENUM': '경기 수',
-    'WIN': '승',
-    'LOSE': '패',
-    'SAME': '무승부',
-    'WRA': '승률',
-    'SEC': '구간 (시즌연도 또는 "9999"=통산)',
-    'TURN': '타순',
-    'ONETURN': '타순 (1~9)',
-    'START': '선발 여부',
-    'QUIT': '종료 여부',
-    'INPUTTIME': '입력 시각',
-    'REG_DT': '등록 일시',
-    # IE
-    'gameID': '경기 ID (GMKEY와 동일 형식)',
-    'GAMEID': '경기 ID',
-    'SeqNO': '순번',
-    'BatOrder': '타순',
-    'PlayerID': '선수 코드',
-    'bHome': '홈팀 여부',
-    'inning': '이닝',
-    'STATUS_ID': '경기 상태 코드',
-    'LIVETEXT': '실시간 문자 중계 텍스트',
-    # 스케줄
-    'HOME': '홈팀 코드',
-    'VISIT': '원정팀 코드',
-    'HSCORE': '홈팀 점수',
-    'VSCORE': '원정팀 점수',
-    'STADIUM': '구장',
-    'SNAME': '구장명',
-    'ENDYN': '종료 여부',
-    'CANCLE': '취소 여부',
-    'DHEADER': '더블헤더 번호',
-    'SUSPENDED': '서스펜디드 여부',
-    'GMONTH': '경기 월',
-    'GTIME': '경기 시간',
-    'Week': '요일',
-    'attendance': '관중수',
-    'game_flag': '경기 유형 플래그',
-    'BROADCAST1': '방송사1',
-    'BROADCAST2': '방송사2',
-    'broadcast3': '방송사3',
-    'broadcast4': '방송사4',
-    # 마스터
-    'stadium': '구장 코드',
-    'gyear': '연도',
-    'gmkey': '경기 고유키',
-    'gamedate': '경기 일자',
-    # 선수
-    'BIRTH': '생년월일',
-    'HEIGHT': '키',
-    'WEIGHT': '몸무게',
-    'CAREER': '경력',
-    'HAND': '투타 (좌/우)',
-    'HITTYPE': '타석 방향',
-    'POSITION': '포지션',
-    'INDATE': '입단일',
-    'NUM': '등번호',
-    # Score
-    'CONT': '연속 기록',
-    'CONTINUE': '연속 기록',
-    'continue': '연속 기록',
-    # 기타
-    'RESULT': '결과',
-    'BESSION': '세션',
-    'FIRST_IF': '첫 여부 플래그',
-    'LAST_IF': '마지막 여부 플래그',
-    'SECTION_CD': '구간 코드',
-    'GROUP_IF': '그룹 여부',
-    'SITUATION_IF': '상황 구분',
-}
+def _init_jinja():
+    """Jinja2 Environment 초기화"""
+    env = Environment(
+        loader=FileSystemLoader(str(TEMPLATE_DIR)),
+        trim_blocks=True,
+        lstrip_blocks=True,
+        keep_trailing_newline=True,
+    )
+    return env.get_template("detail-page.html.j2")
 
-def get_description(col_name, data_type, distinct_values):
-    """컬럼 설명 생성"""
-    # 직접 매핑
-    if col_name in COLUMN_DESCRIPTIONS:
-        return COLUMN_DESCRIPTIONS[col_name]
 
-    # TB는 맥락에 따라 다름 (타격 테이블에서는 총루타, 경기에서는 팀구분)
-    if col_name == 'TB' and data_type == 'int':
-        return '총루타 (Total Bases)'
+def esc(s):
+    """HTML 이스케이프"""
+    return html.escape(str(s)) if s else ""
 
-    # INN 이닝 관련
-    if col_name.startswith('INN') and col_name not in ('INN', 'INN2', 'INN_NO'):
-        return f'이닝 점수 컬럼'
 
-    # Score 이닝 컬럼
+def parse_enriched_md(md_path):
+    """기존 enriched .md 파일에서 메타 + 노트 파싱"""
+    with open(md_path, encoding="utf-8") as f:
+        text = f.read()
+
+    meta = {}
+
+    # 메타 테이블 파싱
+    for m in re.finditer(r"^\|\s*(.+?)\s*\|\s*(.+?)\s*\|", text, re.MULTILINE):
+        key = m.group(1).strip()
+        val = m.group(2).strip()
+        if key == "대표 DB":
+            meta["db"] = val.strip("`")
+        elif key == "행 수":
+            meta["row_count"] = val
+        elif key == "컬럼 수":
+            meta["column_count"] = val
+        elif key == "PK":
+            meta["pk"] = val.strip("`")
+        elif key == "데이터 티어":
+            meta["tier"] = val
+        elif key == "데이터 오너":
+            meta["owner"] = val
+        elif key == "소비자":
+            meta["consumers"] = val
+        elif key == "데이터 프로덕트":
+            meta["product"] = val
+        elif key == "접근 수준":
+            meta["access"] = val
+        elif key == "관련 표준":
+            meta["standards"] = val
+
+    # 최종수정 라인
+    hm = re.search(r"최종수정:\s*(\S+)\s*\|\s*버전:\s*(\S+)", text)
+    if hm:
+        meta["last_modified"] = hm.group(1)
+        meta["version"] = hm.group(2)
+
+    # 관련 테이블 노트 (> 로 시작하는 블록, 메타테이블 바로 뒤)
+    notes = []
+    meta_end = text.find("## 컬럼 상세")
+    if meta_end > 0:
+        between = text[:meta_end]
+        lines = between.split("\n")
+        in_note = False
+        note_lines = []
+        for line in lines:
+            stripped = line.strip()
+            if stripped.startswith("> **관련 테이블"):
+                in_note = True
+                note_lines.append(stripped[2:])
+            elif in_note and stripped.startswith(">"):
+                note_lines.append(stripped[2:] if len(stripped) > 2 else "")
+            elif in_note:
+                in_note = False
+                if note_lines:
+                    notes.append("\n".join(note_lines))
+                    note_lines = []
+        if note_lines:
+            notes.append("\n".join(note_lines))
+
+    meta["notes"] = notes
+
+    # EUC-KR 경고
+    euckr_match = re.search(r">\s*\*\*EUC-KR 참고\*\*:\s*(.+?)(?:\n(?!>)|\Z)", text, re.DOTALL)
+    if euckr_match:
+        meta["euckr_warn"] = euckr_match.group(1).strip()
+
+    # 코드값 섹션에서 참조 링크 파싱
+    code_refs = {}
+    for cm in re.finditer(r"### `(\w+)`\s*\n\s*\n\s*→\s*(.+)", text):
+        col_name = cm.group(1)
+        ref_text = cm.group(2).strip()
+        code_refs[col_name] = ref_text
+    meta["code_refs"] = code_refs
+
+    return meta
+
+
+def get_col_desc_and_std(col_name, data_type, table_name=''):
+    """컬럼 설명 + 표준명 반환 (TABLE_OVERRIDES 우선)"""
+    override_key = (table_name, col_name)
+    if override_key in TABLE_OVERRIDES:
+        return TABLE_OVERRIDES[override_key]
+
+    if col_name in COLUMN_DESC:
+        return COLUMN_DESC[col_name], STANDARD_MAP.get(col_name, '')
+
     for prefix in ('T', 'B'):
         for i in range(1, 26):
             if col_name == f'{prefix}{i}':
                 side = '원정' if prefix == 'T' else '홈'
-                return f'{i}회 {side}팀 점수'
+                sfx = 'away' if prefix == 'T' else 'home'
+                return f'{i}회 {side}팀 점수', f'inn{i}_{sfx}_sc'
 
-    # _CN, _RT, _IF, _SC 접미사
-    if col_name.endswith('_CN'):
-        return f'{col_name[:-3]} 건수'
-    if col_name.endswith('_RT'):
-        return f'{col_name[:-3]} 비율'
-    if col_name.endswith('_IF'):
-        return f'{col_name[:-3]} 여부 (Y/N)'
-    if col_name.endswith('_SC'):
-        return f'{col_name[:-3]} 상태코드'
-    if col_name.endswith('_CD'):
-        return f'{col_name[:-3]} 코드'
-    if col_name.endswith('_VA'):
-        return f'{col_name[:-3]} 값'
-    if col_name.endswith('_ME'):
-        return f'{col_name[:-3]} 메모'
-    if col_name.endswith('_NM'):
-        return f'{col_name[:-3]} 명칭'
-    if col_name.endswith('_DT'):
-        return f'{col_name[:-3]} 일시'
-    if col_name.endswith('_TM'):
-        return f'{col_name[:-3]} 시각'
-    if col_name.endswith('_NO'):
-        return f'{col_name[:-3]} 번호'
+    suffixes = {
+        '_CN': ('건수', '_cn'), '_RT': ('비율', '_rt'), '_IF': ('여부 (Y/N)', '_if'),
+        '_SC': ('상태코드', '_sc'), '_CD': ('코드', '_cd'), '_VA': ('값', '_va'),
+        '_ME': ('메모', '_nm'), '_NM': ('명칭', '_nm'), '_DT': ('일시', '_dt'),
+        '_TM': ('시각', '_tm'), '_NO': ('번호', '_no'),
+    }
+    upper = col_name.upper()
+    for sfx, (label, std_sfx) in suffixes.items():
+        if upper.endswith(sfx):
+            base = col_name[:-len(sfx)]
+            return f'{base} {label}', col_name.lower()
 
-    return ''
+    return '', ''
 
-def format_distinct(distinct_values, max_show=8):
-    """코드값 포맷"""
-    if not distinct_values:
-        return ''
-    items = []
-    for d in distinct_values[:max_show]:
-        v = d['value']
-        c = d['count']
-        items.append(f'`{v}`({c:,})')
-    rest = len(distinct_values) - max_show
-    result = ', '.join(items)
-    if rest > 0:
-        result += f' 외 {rest}건'
-    return result
 
-def generate_table_md(table_name, meta):
-    """하나의 테이블에 대한 마크다운 생성"""
-    lines = []
-    lines.append(f"# {table_name}")
-    lines.append("")
+def format_type(data_type, max_length):
+    """타입 포맷"""
+    dt = data_type.strip().lower()
+    ml = str(max_length).strip()
+    no_len_types = ('int', 'bigint', 'smallint', 'tinyint', 'bit', 'float',
+                    'real', 'datetime', 'datetime2', 'date', 'time')
+    if dt in no_len_types or not ml or ml in ('0', '-1', 'None', ''):
+        if ml == '-1':
+            return f"{dt}(max)"
+        return dt
+    return f"{dt}({ml})"
 
-    lines.append(f"| 항목 | 값 |")
-    lines.append(f"|------|-----|")
-    lines.append(f"| 대표 DB | `{meta['representative_db']}` |")
-    lines.append(f"| 행 수 | {meta['row_count']:,} |")
-    lines.append(f"| 컬럼 수 | {meta['column_count']} |")
-    lines.append(f"| PK | `{', '.join(meta['pk_columns'])}` |")
-    lines.append(f"| 스키마 세대 | {meta['schema_generation']} |")
-    lines.append("")
 
-    lines.append("## 컬럼 상세")
-    lines.append("")
-    lines.append("| # | 컬럼명 | 타입 | 길이 | NULL | PK | 설명 |")
-    lines.append("|---|--------|------|------|------|----|------|")
+def _build_context(table_name, domain_key, domain_label, raw_meta, enriched):
+    """Jinja2 템플릿용 context dict 생성"""
+    # 히어로 헤더
+    tier_raw = enriched.get("tier", "")
+    tier_short = re.sub(r"\s*-.*", "", tier_raw).strip()
+    tier_class = "tier-1" if "1" in tier_short else "tier-2" if "2" in tier_short else "tier-3"
 
-    for col in meta['columns']:
-        pk = "PK" if col['is_pk'] else ""
-        null = "" if col['is_nullable'] else "NN"
-        desc = get_description(col['name'], col['data_type'], col.get('distinct_values'))
-        # 길이 표시
-        if col['data_type'] in ('int', 'bigint', 'smallint', 'tinyint', 'bit', 'float', 'real', 'datetime', 'datetime2', 'date', 'time'):
-            length = ''
-        else:
-            length = str(col['max_length'])
+    access = enriched.get("access", "Internal")
+    pk_str = ", ".join(raw_meta.get("pk_columns", []))
+    db_name = enriched.get("db", raw_meta.get("representative_db", ""))
+    db_short = re.sub(r"_\d{6}$", "", db_name)
 
-        lines.append(f"| {col['ordinal']} | `{col['name']}` | {col['data_type']} | {length} | {null} | {pk} | {desc} |")
+    # 퀵 스탯
+    row_count = raw_meta.get("row_count", 0)
+    col_count = raw_meta.get("column_count", len(raw_meta.get("columns", [])))
+    owner = enriched.get("owner", "")
+    owner_short = re.sub(r"\s*\(.*?\)", "", owner).strip()
 
-    # 코드값 섹션
-    code_cols = [c for c in meta['columns'] if c.get('distinct_values')]
-    if code_cols:
-        lines.append("")
-        lines.append("## 코드값 / 고유값")
-        lines.append("")
-        for col in code_cols:
-            lines.append(f"### `{col['name']}`")
-            lines.append("")
-            lines.append(f"| 값 | 건수 |")
-            lines.append(f"|-----|------|")
-            for d in col['distinct_values'][:20]:
-                lines.append(f"| `{d['value']}` | {d['count']:,} |")
-            lines.append("")
+    # 컬럼 상세
+    columns_raw = raw_meta.get("columns", [])
+    columns = []
+    for col in columns_raw:
+        name = col["name"]
+        dtype = col.get("data_type", "")
+        ml = col.get("max_length", "")
+        nullable = col.get("is_nullable", False)
+        is_pk = col.get("is_pk", False)
+        ordinal = col.get("ordinal", "")
+
+        desc, std_name = get_col_desc_and_std(name, dtype, table_name)
+        type_str = format_type(dtype, ml)
+        null_html = '<span class="nn-mark">NN</span>' if not nullable else ""
+        pk_html = '<span class="pk-badge">PK</span>' if is_pk else ""
+
+        columns.append({
+            "ordinal": ordinal,
+            "name": esc(name),
+            "std_name": esc(std_name),
+            "type_str": esc(type_str),
+            "null_html": null_html,
+            "pk_html": pk_html,
+            "desc": esc(desc),
+        })
+
+    # 코드값 / 고유값
+    code_cols = [c for c in columns_raw if c.get("distinct_values")]
+    code_refs = enriched.get("code_refs", {})
+    code_entries = []
+    processed = set()
+
+    for col in columns_raw:
+        name = col["name"]
+        dv = col.get("distinct_values")
+        ref = code_refs.get(name)
+        if not dv and not ref:
+            continue
+        processed.add(name)
+
+        desc, _ = get_col_desc_and_std(name, col.get("data_type", ""), table_name)
+        desc_short = esc(desc.split("(")[0].strip() if desc else "")
+
+        values = None
+        if not ref and dv:
+            values = [{"value": esc(str(d.get("value", ""))),
+                        "count_fmt": f'{d.get("count", 0):,}'} for d in dv]
+
+        code_entries.append({
+            "name": esc(name),
+            "desc_short": desc_short,
+            "open": bool(dv and len(dv) <= 10),
+            "ref": ref,
+            "code_values": values,
+        })
+
+    for name, ref in code_refs.items():
+        if name in processed:
+            continue
+        desc, _ = get_col_desc_and_std(name, "", table_name)
+        desc_short = esc(desc.split("(")[0].strip() if desc else "")
+        code_entries.append({
+            "name": esc(name),
+            "desc_short": desc_short,
+            "open": False,
+            "ref": ref,
+            "code_values": None,
+        })
+
+    total_code_cols = len(set(
+        [c["name"] for c in code_cols] + list(code_refs.keys())
+    ))
 
     # 샘플 데이터
-    lines.append("## 샘플 데이터")
-    lines.append("")
-    lines.append("| 컬럼 | 샘플 |")
-    lines.append("|------|------|")
-    for col in meta['columns']:
-        samples = col.get('sample_values', [])
-        if samples:
-            sample_str = ', '.join(f'`{s}`' for s in samples[:3])
-        else:
-            sample_str = '(NULL)'
-        lines.append(f"| `{col['name']}` | {sample_str} |")
-    lines.append("")
+    sample_cols = []
+    for col in columns_raw:
+        if not col.get("sample_values"):
+            continue
+        samples = col["sample_values"][:3]
+        cells = []
+        for i in range(3):
+            if i < len(samples):
+                cells.append(f'<td>{esc(str(samples[i]))}</td>')
+            else:
+                cells.append('<td><span class="dict-sample-null">NULL</span></td>')
+        sample_cols.append({"name": esc(col["name"]), "cells": cells})
 
-    return '\n'.join(lines)
+    return {
+        "table_name": esc(table_name),
+        "domain_label": esc(domain_label),
+        "tier_short": esc(tier_short),
+        "tier_class": tier_class,
+        "tier_raw": esc(tier_raw) if tier_raw else "",
+        "access": esc(access),
+        "access_val": esc(enriched.get("access", "")),
+        "pk_str": esc(pk_str),
+        "db_name": esc(db_name),
+        "db_short": esc(db_short),
+        "row_count_fmt": f"{row_count:,}",
+        "col_count": col_count,
+        "owner": esc(owner),
+        "owner_short": esc(owner_short),
+        "consumers": esc(enriched.get("consumers", "")),
+        "product": enriched.get("product", ""),
+        "standards": enriched.get("standards", ""),
+        "notes": enriched.get("notes", []),
+        "euckr_warn": esc(enriched.get("euckr_warn", "")),
+        "columns": columns,
+        "code_entries": code_entries,
+        "total_code_cols": total_code_cols,
+        "sample_cols": sample_cols,
+    }
 
 
 def main():
-    with open(META_PATH, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+    template = _init_jinja()
 
-    # 도메인별 디렉토리 생성 및 파일 생성
-    for domain, info in DOMAINS.items():
-        domain_dir = os.path.join(DICT_DIR, domain)
-        os.makedirs(domain_dir, exist_ok=True)
+    # raw 메타데이터 로드
+    with open(META_PATH, encoding="utf-8") as f:
+        raw_data = json.load(f)["tables"]
 
-        # 도메인 인덱스
-        index_lines = [f"# {info['label']} 테이블 사전", ""]
-        index_lines.append(f"| 테이블 | 컬럼 수 | 행 수 | PK | 스키마 |")
-        index_lines.append(f"|--------|--------|-------|-----|--------|")
+    # enriched 캐시 로드 (있으면)
+    cache_path = BASE / "dictionary" / ".enriched-cache.json"
+    enriched_cache = {}
+    if cache_path.exists():
+        with open(cache_path, encoding="utf-8") as f:
+            enriched_cache = json.load(f)
+        print(f"enriched 캐시 로드: {len(enriched_cache)}개")
 
-        for tname in info['tables']:
-            if tname not in data['tables']:
-                print(f"  SKIP: {tname} (not in metadata)")
+    total = 0
+    for domain_key, domain_label in DOMAIN_LABELS.items():
+        domain_dir = DOCS / "dictionary" / domain_key
+        if not domain_dir.exists():
+            continue
+
+        for md_file in sorted(domain_dir.glob("*.md")):
+            if md_file.name in ("README.md", "index.md"):
                 continue
 
-            meta = data['tables'][tname]
-            pk_str = ', '.join(meta['pk_columns'])
-            index_lines.append(f"| [{tname}](./{tname}.md) | {meta['column_count']} | {meta['row_count']:,} | {pk_str} | {meta['schema_generation']} |")
+            table_name = md_file.stem
 
-            # 개별 파일
-            md = generate_table_md(tname, meta)
-            out_path = os.path.join(domain_dir, f"{tname}.md")
-            with open(out_path, 'w', encoding='utf-8') as f:
-                f.write(md)
-            print(f"  {domain}/{tname}.md ({meta['column_count']} cols)")
+            # raw 데이터
+            raw_meta = raw_data.get(table_name, {})
+            if not raw_meta:
+                for k, v in raw_data.items():
+                    if k.lower() == table_name.lower():
+                        raw_meta = v
+                        break
 
-        index_lines.append("")
-        index_path = os.path.join(domain_dir, "README.md")
-        with open(index_path, 'w', encoding='utf-8') as f:
-            f.write('\n'.join(index_lines))
-        print(f"  {domain}/README.md")
+            if not raw_meta:
+                print(f"  SKIP: {table_name} (not in column-metadata.json)")
+                continue
 
-    print(f"\nDone. Generated {sum(len(d['tables']) for d in DOMAINS.values())} table docs in {len(DOMAINS)} domains.")
+            # enriched 데이터: 캐시 우선, 없으면 현재 .md 파싱
+            if table_name in enriched_cache:
+                enriched = enriched_cache[table_name]
+            else:
+                enriched = parse_enriched_md(md_file)
 
-if __name__ == '__main__':
+            # context 생성 + 템플릿 렌더링
+            ctx = _build_context(
+                table_name, domain_key, domain_label, raw_meta, enriched
+            )
+            content = template.render(ctx)
+
+            md_file.write_text(content, encoding="utf-8")
+            total += 1
+            print(f"  {domain_key}/{table_name}.md ✓")
+
+    print(f"\n완료: {total}개 테이블 상세 페이지 생성")
+
+
+if __name__ == "__main__":
     main()

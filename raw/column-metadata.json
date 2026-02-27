@@ -3,7 +3,6 @@
     "BatTotal": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 13616,
-      "schema_generation": "legacy",
       "pk_columns": [
         "PCODE",
         "GYEAR",
@@ -743,7 +742,6 @@
     "CANCEL_GAME": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 1290,
-      "schema_generation": "new",
       "pk_columns": [
         "LE_ID",
         "SR_ID",
@@ -1020,7 +1018,6 @@
     "DEFEN": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 846736,
-      "schema_generation": "legacy",
       "pk_columns": [],
       "column_count": 12,
       "columns": [
@@ -1573,7 +1570,6 @@
     "ENTRY": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 854280,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GMKEY",
         "GDAY",
@@ -2255,7 +2251,6 @@
     "GAMECONTAPP": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 2531702,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GMKEY",
         "GYEAR",
@@ -4273,7 +4268,6 @@
     "GAMEINFO": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 23579,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GMKEY",
         "GDAY"
@@ -5641,7 +5635,6 @@
     "GAMEINFO_WEATHER": {
       "representative_db": "DB2_BASEBALL_220328",
       "row_count": 1680,
-      "schema_generation": "unknown",
       "pk_columns": [
         "code",
         "tm"
@@ -6641,7 +6634,6 @@
     "GAME_HR": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 7784,
-      "schema_generation": "new",
       "pk_columns": [
         "LE_ID",
         "SR_ID",
@@ -7410,7 +7402,6 @@
     "GAME_MEMO": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 54544,
-      "schema_generation": "new",
       "pk_columns": [
         "LE_ID",
         "SR_ID",
@@ -8650,7 +8641,6 @@
     "GAME_MEMO_PITCHCLOCK": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 237,
-      "schema_generation": "new",
       "pk_columns": [
         "LE_ID",
         "SR_ID",
@@ -9361,7 +9351,6 @@
     "Hitter": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 648248,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GMKEY",
         "GDAY",
@@ -10027,7 +10016,6 @@
     "IE_BallCount": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 15482,
-      "schema_generation": "unknown",
       "pk_columns": [
         "gameID",
         "GYEAR"
@@ -10626,7 +10614,6 @@
     "IE_BatterRecord": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 451166,
-      "schema_generation": "unknown",
       "pk_columns": [
         "gameID",
         "GYEAR",
@@ -11665,7 +11652,6 @@
     "IE_GAMESTATE": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 15237,
-      "schema_generation": "unknown",
       "pk_columns": [
         "GAMEID",
         "GYEAR"
@@ -11923,7 +11909,6 @@
     "IE_GameList": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 15908,
-      "schema_generation": "unknown",
       "pk_columns": [
         "gameID",
         "GYEAR"
@@ -12262,7 +12247,6 @@
     "IE_LiveText": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 8005079,
-      "schema_generation": "unknown",
       "pk_columns": [
         "gameID",
         "GYEAR",
@@ -12670,7 +12654,6 @@
     "IE_PitcherRecord": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 134388,
-      "schema_generation": "unknown",
       "pk_columns": [
         "gameID",
         "GYEAR",
@@ -14071,7 +14054,6 @@
     "IE_ScoreRHEB": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 30860,
-      "schema_generation": "unknown",
       "pk_columns": [
         "gameID",
         "GYEAR",
@@ -14536,7 +14518,6 @@
     "IE_Scoreinning": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 267166,
-      "schema_generation": "unknown",
       "pk_columns": [
         "gameID",
         "GYEAR",
@@ -14848,7 +14829,6 @@
     "IE_log": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 785406,
-      "schema_generation": "unknown",
       "pk_columns": [],
       "column_count": 3,
       "columns": [
@@ -14980,7 +14960,6 @@
     "KBO_BATRESULT": {
       "representative_db": "DB2_BASEBALL_220328",
       "row_count": 424921,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GMKEY",
         "GDAY",
@@ -19565,7 +19544,6 @@
     "KBO_ETCGAME": {
       "representative_db": "DB2_BASEBALL_220328",
       "row_count": 122762,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GMKEY",
         "GDAY",
@@ -19924,7 +19902,6 @@
     "KBO_PITRESULT": {
       "representative_db": "DB2_BASEBALL_220328",
       "row_count": 134292,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GMKEY",
         "GDAY",
@@ -21648,7 +21625,6 @@
     "KBO_schedule": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 27340,
-      "schema_generation": "legacy",
       "pk_columns": [
         "gmkey",
         "gamedate"
@@ -23253,7 +23229,6 @@
     "PERSON": {
       "representative_db": "DB2_MINOR_BASEBALL_220328",
       "row_count": 13902,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GYEAR",
         "PCODE"
@@ -24107,7 +24082,6 @@
     "PERSON_FA": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 228,
-      "schema_generation": "legacy",
       "pk_columns": [],
       "column_count": 4,
       "columns": [
@@ -24266,7 +24240,6 @@
     "PITCHCLOCK": {
       "representative_db": "DB2_BASEBALL_220328",
       "row_count": 215,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GMKEY",
         "GYEAR",
@@ -24796,7 +24769,6 @@
     "PitTotal": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 9377,
-      "schema_generation": "legacy",
       "pk_columns": [
         "PCODE",
         "GYEAR",
@@ -26818,7 +26790,6 @@
     "Pitcher": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 223624,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GMKEY",
         "GDAY",
@@ -27708,7 +27679,6 @@
     "SEASON_PLAYER_HITTER": {
       "representative_db": "DB1_BASEBALL_2_220328",
       "row_count": 19747,
-      "schema_generation": "new",
       "pk_columns": [
         "SEASON_ID",
         "P_ID",
@@ -28576,7 +28546,6 @@
     "SEASON_PLAYER_HITTER_SITUATION": {
       "representative_db": "DB1_BASEBALL_2_220328",
       "row_count": 360625,
-      "schema_generation": "new",
       "pk_columns": [
         "SEASON_ID",
         "P_ID",
@@ -29054,7 +29023,6 @@
     "SEASON_PLAYER_PITCHER": {
       "representative_db": "DB1_BASEBALL_2_220328",
       "row_count": 13306,
-      "schema_generation": "new",
       "pk_columns": [
         "SEASON_ID",
         "P_ID",
@@ -30076,7 +30044,6 @@
     "SEASON_PLAYER_PITCHER_SITUATION": {
       "representative_db": "DB1_BASEBALL_2_220328",
       "row_count": 301375,
-      "schema_generation": "new",
       "pk_columns": [
         "SEASON_ID",
         "P_ID",
@@ -30554,7 +30521,6 @@
     "STADIUM": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 487,
-      "schema_generation": "unknown",
       "pk_columns": [
         "gyear",
         "stadium"
@@ -30851,7 +30817,6 @@
     "Score": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 23579,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GMKEY",
         "GDAY"
@@ -33138,7 +33103,6 @@
     "TEAM": {
       "representative_db": "DB2_BASEBALL_2_220328",
       "row_count": 401,
-      "schema_generation": "unknown",
       "pk_columns": [
         "SEASON_ID",
         "T_ID"
@@ -33399,7 +33363,6 @@
     "TeamRank": {
       "representative_db": "DB1_BASEBALL_220328",
       "row_count": 373,
-      "schema_generation": "unknown",
       "pk_columns": [
         "GYEAR",
         "SEC",
@@ -34173,7 +34136,6 @@
     "person": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 100812,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GYEAR",
         "PCODE"
@@ -35220,7 +35182,6 @@
     "person2": {
       "representative_db": "DB2_BASEBALL_NEW_220328",
       "row_count": 91891,
-      "schema_generation": "legacy",
       "pk_columns": [
         "GYEAR",
         "PCODE",

@@ -5,10 +5,10 @@ title: IE_ScoreRHEB
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">실시간</span>
     <span class="dict-badge badge-tier tier-1">Tier 1</span>
-    <span class="dict-badge badge-gen gen-unknown">미분류</span>
     <span class="dict-badge badge-access">Internal</span>
   </div>
   <div class="dict-hero-title">IE_ScoreRHEB</div>
@@ -25,14 +25,13 @@ title: IE_ScoreRHEB
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB2_BASEBALL_NEW_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>gameID, GYEAR, bHome</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">unknown (미분류)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 1 — Critical</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 1 - Critical</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">S2i 운영 (R-06)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">실시간 (&lt; 5초)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">방송팀, 앱 서비스</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Internal</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[실시간 경기](../products/live-game.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards/domain-types.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards-dict/domains.md)</span></div>
 </div>
 
 <div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">7개</span></div>
@@ -41,13 +40,13 @@ title: IE_ScoreRHEB
 <table class="dict-col-table"><thead>
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
-<tr><td class="col-num">1</td><td><span class="col-name">gameID</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 ID (GMKEY와 동일 형식)</span></td></tr>
+<tr><td class="col-num">1</td><td><span class="col-name">gameID</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 ID</span></td></tr>
 <tr><td class="col-num">2</td><td><span class="col-name">GYEAR</span></td><td><span class="col-std">season_yr</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시즌 연도 (4자리, &quot;9999&quot;=통산)</span></td></tr>
 <tr><td class="col-num">3</td><td><span class="col-name">Run</span></td><td><span class="col-std">run</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">득점</span></td></tr>
 <tr><td class="col-num">4</td><td><span class="col-name">Hit</span></td><td><span class="col-std">hit</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">안타</span></td></tr>
 <tr><td class="col-num">5</td><td><span class="col-name">Error</span></td><td><span class="col-std">err</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">실책</span></td></tr>
 <tr><td class="col-num">6</td><td><span class="col-name">BallFour</span></td><td><span class="col-std">ball_four_if</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">볼넷 여부</span></td></tr>
-<tr><td class="col-num">7</td><td><span class="col-name">bHome</span></td><td><span class="col-std">home_if</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">홈팀 여부</span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">bHome</span></td><td><span class="col-std">home_if</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">홈팀 여부 (1=홈, 0=원정)</span></td></tr>
 </tbody></table>
 </div>
 
@@ -55,19 +54,19 @@ title: IE_ScoreRHEB
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>GYEAR</code><span class="code-desc"> — 시즌 연도</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GYEAR</code><span class="code-desc"> &mdash; 시즌 연도</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>Run</code><span class="code-desc"> — 득점</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>Run</code><span class="code-desc"> &mdash; 득점</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>Hit</code><span class="code-desc"> — 안타</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>Hit</code><span class="code-desc"> &mdash; 안타</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>Error</code><span class="code-desc"> — 실책</span></summary>
+<summary><code>Error</code><span class="code-desc"> &mdash; 실책</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>15,978</td></tr>
@@ -82,11 +81,11 @@ title: IE_ScoreRHEB
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>BallFour</code><span class="code-desc"> — 볼넷 여부</span></summary>
-<div class="code-ref">고유값 17종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>BallFour</code><span class="code-desc"> &mdash; 볼넷 여부</span></summary>
+<div class="code-ref">고유값 17종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>bHome</code><span class="code-desc"> — 홈팀 여부</span></summary>
+<summary><code>bHome</code><span class="code-desc"> &mdash; 홈팀 여부</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>1</td><td>15,430</td></tr>

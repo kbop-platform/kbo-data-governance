@@ -6,42 +6,30 @@ import json, sys, os
 from datetime import datetime
 from pathlib import Path
 import pymssql
+from config import load_env, BASE_DIR
+from db_helper import get_connection
 
-BASE_DIR = str(Path(__file__).resolve().parent.parent)
-
-# Load credentials from .env
-_env_path = os.path.join(BASE_DIR, ".env")
-if os.path.exists(_env_path):
-    with open(_env_path) as _f:
-        for _line in _f:
-            _line = _line.strip()
-            if _line and not _line.startswith("#") and "=" in _line:
-                _k, _v = _line.split("=", 1)
-                os.environ.setdefault(_k.strip(), _v.strip())
-
+load_env()
 SERVER = os.environ.get("MSSQL_SERVER", "")
 PORT = int(os.environ.get("MSSQL_PORT", "1433"))
 USER = os.environ.get("MSSQL_USER", "")
-PASSWORDS = [os.environ.get("MSSQL_PASSWORD", "")]
 OUTPUT_DIR = os.path.join(BASE_DIR, "raw")
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, "mssql-inventory.json")
 
-def connect(password, database="master"):
-    return pymssql.connect(server=SERVER, port=PORT, user=USER,
-        password=password, database=database,
-        login_timeout=15, timeout=30, charset="UTF-8")
+def connect(database="master"):
+    return get_connection(database=database)
 
 def find_working_password():
-    for pwd in PASSWORDS:
-        try:
-            conn = connect(pwd)
-            conn.close()
-            print("[OK] Connected: " + pwd[:4] + "***")
-            return pwd
-        except pymssql.OperationalError as e:
-            print("[FAIL] " + pwd[:4] + "***: " + str(e))
-    print("[ERROR] No valid password.")
-    sys.exit(1)
+    try:
+        conn = connect()
+        conn.close()
+        pwd = os.environ.get("MSSQL_PASSWORD", "")
+        print("[OK] Connected: " + pwd[:4] + "***")
+        return True
+    except pymssql.OperationalError as e:
+        print("[FAIL] Connection: " + str(e))
+        print("[ERROR] No valid password.")
+        sys.exit(1)
 
 def get_all_databases(conn):
     cur = conn.cursor()
@@ -70,9 +58,9 @@ def get_row_counts(conn, db):
     cur.execute(q, ("U",))
     return dict((r[0], r[1]) for r in cur.fetchall())
 
-def inventory_database(password, db):
+def inventory_database(db):
     try:
-        conn = connect(password, database=db)
+        conn = connect(database=db)
     except Exception as e:
         print("  [WARN] " + db + ": " + str(e))
         return None
@@ -100,11 +88,11 @@ def main():
     print()
 
     print("[1] Testing connection...")
-    password = find_working_password()
+    find_working_password()
     print()
 
     print("[2] Listing all databases...")
-    conn = connect(password)
+    conn = connect()
     all_dbs = get_all_databases(conn)
     conn.close()
     print("    Found " + str(len(all_dbs)) + " databases:")
@@ -123,7 +111,7 @@ def main():
     for i, db in enumerate(targets, 1):
         dt = "DB1" if db.startswith("DB1_") else "DB2"
         print("    [" + str(i) + "/" + str(len(targets)) + "] " + db + " (" + dt + ")")
-        tables = inventory_database(password, db)
+        tables = inventory_database(db)
         if tables is not None:
             for t in tables:
                 unique_tables.add(t["table_name"])

@@ -7,23 +7,8 @@ import os
 from collections import defaultdict, Counter
 from pathlib import Path
 import pymssql
-
-BASE_DIR = str(Path(__file__).resolve().parent.parent)
-
-# Load credentials from .env
-_env_path = os.path.join(BASE_DIR, ".env")
-if os.path.exists(_env_path):
-    with open(_env_path) as _f:
-        for _line in _f:
-            _line = _line.strip()
-            if _line and not _line.startswith("#") and "=" in _line:
-                _k, _v = _line.split("=", 1)
-                os.environ.setdefault(_k.strip(), _v.strip())
-
-MSSQL_SERVER = os.environ.get("MSSQL_SERVER", "")
-MSSQL_PORT = int(os.environ.get("MSSQL_PORT", "1433"))
-MSSQL_USER = os.environ.get("MSSQL_USER", "")
-MSSQL_PASSWORD = os.environ.get("MSSQL_PASSWORD", "")
+from config import BASE_DIR
+from db_helper import get_connection
 INPUT_FILE = os.path.join(BASE_DIR, "raw", "excel-inventory.json")
 OUTPUT_FILE = os.path.join(BASE_DIR, "raw", "column-diff.json")
 
@@ -75,9 +60,7 @@ def main():
 
         if db_name not in conn_cache:
             try:
-                conn = pymssql.connect(server=MSSQL_SERVER, port=MSSQL_PORT,
-                                       user=MSSQL_USER, password=MSSQL_PASSWORD,
-                                       database=db_name)
+                conn = get_connection(database=db_name)
                 conn_cache[db_name] = conn
                 print("  [Connected] %s" % db_name)
             except Exception as e:

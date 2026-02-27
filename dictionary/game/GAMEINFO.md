@@ -5,10 +5,10 @@ title: GAMEINFO
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">경기 기록</span>
     <span class="dict-badge badge-tier tier-1">Tier 1</span>
-    <span class="dict-badge badge-gen gen-legacy">구세대</span>
     <span class="dict-badge badge-access">Internal</span>
   </div>
   <div class="dict-hero-title">GAMEINFO</div>
@@ -25,14 +25,13 @@ title: GAMEINFO
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB1_BASEBALL_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>GMKEY, GDAY</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">legacy (구세대)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 1 — Critical</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 1 - Critical</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">기록위원회 (R-03)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">경기 당일 (S2i 전송)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">기록팀, 방송팀, 통계팀, 외부 API</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Internal</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[경기 요약](../products/game-summary.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[ID 체계](../../standards/id-system.md), [코드 사전](../../standards/code-dictionary.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[ID 체계](../../standards/id-system.md), [코드 사전](../../standards-dict/codes.md)</span></div>
 </div>
 
 <div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">27개</span></div>
@@ -43,17 +42,17 @@ title: GAMEINFO
 <table class="dict-col-table"><thead>
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
-<tr><td class="col-num">1</td><td><span class="col-name">GMKEY</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(15)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 고유키 (YYYYMMDDVVHH#, 유효 13자리; 현행 DB char(15), 표준 char(13) 전환 대상)</span></td></tr>
+<tr><td class="col-num">1</td><td><span class="col-name">GMKEY</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(15)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 고유키 (YYYYMMDDVVHH#)</span></td></tr>
 <tr><td class="col-num">2</td><td><span class="col-name">GDAY</span></td><td><span class="col-std">game_dt</span></td><td><span class="col-type">char(8)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 일자 (YYYYMMDD)</span></td></tr>
 <tr><td class="col-num">3</td><td><span class="col-name">DBHD</span></td><td><span class="col-std">doubleheader_no</span></td><td><span class="col-type">char(10)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">더블헤더 번호 (0=일반, 1=1차, 2=2차)</span></td></tr>
-<tr><td class="col-num">4</td><td><span class="col-name">STADIUM</span></td><td><span class="col-std">stadium_nm</span></td><td><span class="col-type">nvarchar(40)</span></td><td></td><td></td><td><span class="col-desc">구장</span></td></tr>
-<tr><td class="col-num">5</td><td><span class="col-name">VTEAM</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(4)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">6</td><td><span class="col-name">HTEAM</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(4)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">STADIUM</span></td><td><span class="col-std">stadium_nm</span></td><td><span class="col-type">nvarchar(40)</span></td><td></td><td></td><td><span class="col-desc">구장명</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">VTEAM</span></td><td><span class="col-std">away_team_cd</span></td><td><span class="col-type">nvarchar(4)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">원정팀 코드</span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">HTEAM</span></td><td><span class="col-std">home_team_cd</span></td><td><span class="col-type">nvarchar(4)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홈팀 코드</span></td></tr>
 <tr><td class="col-num">7</td><td><span class="col-name">STTM</span></td><td><span class="col-std">start_tm</span></td><td><span class="col-type">char(4)</span></td><td></td><td></td><td><span class="col-desc">경기 시작 시각 (HHMM)</span></td></tr>
 <tr><td class="col-num">8</td><td><span class="col-name">ENTM</span></td><td><span class="col-std">end_tm</span></td><td><span class="col-type">nvarchar(8)</span></td><td></td><td></td><td><span class="col-desc">경기 종료 시각 (HHMM)</span></td></tr>
 <tr><td class="col-num">9</td><td><span class="col-name">DLTM</span></td><td><span class="col-std">delay_tm</span></td><td><span class="col-type">nvarchar(8)</span></td><td></td><td></td><td><span class="col-desc">지연 시간 (분)</span></td></tr>
 <tr><td class="col-num">10</td><td><span class="col-name">GMTM</span></td><td><span class="col-std">game_duration_tm</span></td><td><span class="col-type">nvarchar(8)</span></td><td></td><td></td><td><span class="col-desc">경기 소요 시간 (분)</span></td></tr>
-<tr><td class="col-num">11</td><td><span class="col-name">STAD</span></td><td><span class="col-std">stadium_cd</span></td><td><span class="col-type">nvarchar(16)</span></td><td></td><td></td><td><span class="col-desc">구장 코드</span></td></tr>
+<tr><td class="col-num">11</td><td><span class="col-name">STAD</span></td><td><span class="col-std">stadium_cd</span></td><td><span class="col-type">nvarchar(16)</span></td><td></td><td></td><td><span class="col-desc">구장 코드 (JS=잠실, SJ=사직, DJ=대전, DG=대구, MH=목동, SW=수원, KJ=광주, KC=고척, IC=인천 등)</span></td></tr>
 <tr><td class="col-num">12</td><td><span class="col-name">UMPC</span></td><td><span class="col-std">umpire_chief_nm</span></td><td><span class="col-type">nvarchar(16)</span></td><td></td><td></td><td><span class="col-desc">주심 이름</span></td></tr>
 <tr><td class="col-num">13</td><td><span class="col-name">UMP1</span></td><td><span class="col-std">umpire_1b_nm</span></td><td><span class="col-type">nvarchar(16)</span></td><td></td><td></td><td><span class="col-desc">1루심 이름</span></td></tr>
 <tr><td class="col-num">14</td><td><span class="col-name">UMP2</span></td><td><span class="col-std">umpire_2b_nm</span></td><td><span class="col-type">nvarchar(16)</span></td><td></td><td></td><td><span class="col-desc">2루심 이름</span></td></tr>
@@ -64,7 +63,7 @@ title: GAMEINFO
 <tr><td class="col-num">19</td><td><span class="col-name">SCOB</span></td><td><span class="col-std">scorer_b_nm</span></td><td><span class="col-type">nvarchar(16)</span></td><td></td><td></td><td><span class="col-desc">기록원 B 이름</span></td></tr>
 <tr><td class="col-num">20</td><td><span class="col-name">TEMP</span></td><td><span class="col-std">temperature_va</span></td><td><span class="col-type">nvarchar(6)</span></td><td></td><td></td><td><span class="col-desc">기온 (×10, 예: 270=27.0℃)</span></td></tr>
 <tr><td class="col-num">21</td><td><span class="col-name">MOIS</span></td><td><span class="col-std">humidity_va</span></td><td><span class="col-type">nvarchar(6)</span></td><td></td><td></td><td><span class="col-desc">습도 (%)</span></td></tr>
-<tr><td class="col-num">22</td><td><span class="col-name">WEATH</span></td><td><span class="col-std">weather_cd</span></td><td><span class="col-type">nvarchar(4)</span></td><td></td><td></td><td><span class="col-desc">날씨 코드 (F=맑음, C=흐림, R=비)</span></td></tr>
+<tr><td class="col-num">22</td><td><span class="col-name">WEATH</span></td><td><span class="col-std">weather_cd</span></td><td><span class="col-type">nvarchar(4)</span></td><td></td><td></td><td><span class="col-desc">날씨 코드 (F=맑음, C=흐림, R=비, S=눈, 복합: FC/CR/CF/RC 등)</span></td></tr>
 <tr><td class="col-num">23</td><td><span class="col-name">WIND</span></td><td><span class="col-std">wind_dir_cd</span></td><td><span class="col-type">nvarchar(6)</span></td><td></td><td></td><td><span class="col-desc">풍향 (16방위)</span></td></tr>
 <tr><td class="col-num">24</td><td><span class="col-name">WINS</span></td><td><span class="col-std">wind_speed_va</span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc">풍속 (m/s)</span></td></tr>
 <tr><td class="col-num">25</td><td><span class="col-name">GWEEK</span></td><td><span class="col-std">game_week_nm</span></td><td><span class="col-type">varchar(12)</span></td><td></td><td></td><td><span class="col-desc">요일 (EUC-KR 인코딩)</span></td></tr>
@@ -77,11 +76,11 @@ title: GAMEINFO
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>GDAY</code><span class="code-desc"> — 경기 일자</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GDAY</code><span class="code-desc"> &mdash; 경기 일자</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>DBHD</code><span class="code-desc"> — 더블헤더 번호</span></summary>
+<summary><code>DBHD</code><span class="code-desc"> &mdash; 더블헤더 번호</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>22,076</td></tr>
@@ -91,7 +90,7 @@ title: GAMEINFO
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>VTEAM</code><span class="code-desc"> — </span></summary>
+<summary><code>VTEAM</code><span class="code-desc"> &mdash; 원정팀 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>HT</td><td>2,819</td></tr>
@@ -110,7 +109,7 @@ title: GAMEINFO
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>HTEAM</code><span class="code-desc"> — </span></summary>
+<summary><code>HTEAM</code><span class="code-desc"> &mdash; 홈팀 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>LT</td><td>2,819</td></tr>
@@ -129,31 +128,31 @@ title: GAMEINFO
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>STTM</code><span class="code-desc"> — 경기 시작 시각</span></summary>
-<div class="code-ref">연속값 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>STTM</code><span class="code-desc"> &mdash; 경기 시작 시각</span></summary>
+<div class="code-ref">연속값 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>ENTM</code><span class="code-desc"> — 경기 종료 시각</span></summary>
-<div class="code-ref">연속값 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>ENTM</code><span class="code-desc"> &mdash; 경기 종료 시각</span></summary>
+<div class="code-ref">연속값 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>DLTM</code><span class="code-desc"> — 지연 시간</span></summary>
-<div class="code-ref">연속값 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>DLTM</code><span class="code-desc"> &mdash; 지연 시간</span></summary>
+<div class="code-ref">연속값 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>GMTM</code><span class="code-desc"> — 경기 소요 시간</span></summary>
-<div class="code-ref">연속값 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GMTM</code><span class="code-desc"> &mdash; 경기 소요 시간</span></summary>
+<div class="code-ref">연속값 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>TEMP</code><span class="code-desc"> — 기온</span></summary>
-<div class="code-ref">연속값 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>TEMP</code><span class="code-desc"> &mdash; 기온</span></summary>
+<div class="code-ref">연속값 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>MOIS</code><span class="code-desc"> — 습도</span></summary>
-<div class="code-ref">연속값 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>MOIS</code><span class="code-desc"> &mdash; 습도</span></summary>
+<div class="code-ref">연속값 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>WEATH</code><span class="code-desc"> — 날씨 코드</span></summary>
+<summary><code>WEATH</code><span class="code-desc"> &mdash; 날씨 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>F</td><td>13,299</td></tr>
@@ -174,7 +173,7 @@ title: GAMEINFO
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>WIND</code><span class="code-desc"> — 풍향</span></summary>
+<summary><code>WIND</code><span class="code-desc"> &mdash; 풍향</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>W</td><td>3,604</td></tr>
@@ -201,12 +200,12 @@ title: GAMEINFO
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>WINS</code><span class="code-desc"> — 풍속</span></summary>
-<div class="code-ref">연속값 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>WINS</code><span class="code-desc"> &mdash; 풍속</span></summary>
+<div class="code-ref">연속값 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>CHAJUN</code><span class="code-desc"> — 차전</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>CHAJUN</code><span class="code-desc"> &mdash; 차전</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 </div>
 

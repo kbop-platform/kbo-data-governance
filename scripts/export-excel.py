@@ -20,330 +20,13 @@ except ImportError:
     print("openpyxl 필요: pip install openpyxl")
     sys.exit(1)
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-META_PATH = os.path.join(BASE, "raw", "column-metadata.json")
-OUT_DIR = os.path.join(BASE, "exports")
+from config import (DOMAIN_TABLES, DOMAIN_LABELS, TABLE_TO_DOMAIN,
+                    STANDARD_MAP, suggest_standard_name, COLUMN_DESC, BASE_DIR)
+
+META_PATH = os.path.join(BASE_DIR, "raw", "column-metadata.json")
+OUT_DIR = os.path.join(BASE_DIR, "exports")
 OUT_PATH = os.path.join(OUT_DIR, "데이터사전.xlsx")
 TODAY = date.today().strftime("%Y-%m-%d")
-
-# ── 도메인 분류 (generate-dictionary.py와 동일) ──
-DOMAIN_MAP = {
-    "game": ["GAMEINFO", "GAMEINFO_WEATHER", "GAMECONTAPP", "ENTRY",
-             "Hitter", "Pitcher", "Score", "DEFEN",
-             "GAME_HR", "GAME_MEMO", "GAME_MEMO_PITCHCLOCK", "PITCHCLOCK"],
-    "stats": ["BatTotal", "PitTotal", "TeamRank",
-              "KBO_BATRESULT", "KBO_PITRESULT", "KBO_ETCGAME",
-              "SEASON_PLAYER_HITTER", "SEASON_PLAYER_HITTER_SITUATION",
-              "SEASON_PLAYER_PITCHER", "SEASON_PLAYER_PITCHER_SITUATION"],
-    "realtime": ["IE_LiveText", "IE_BallCount", "IE_BatterRecord",
-                 "IE_PitcherRecord", "IE_GameList", "IE_GAMESTATE",
-                 "IE_ScoreRHEB", "IE_Scoreinning", "IE_log"],
-    "master": ["person", "person2", "PERSON", "PERSON_FA",
-               "TEAM", "STADIUM", "KBO_schedule", "CANCEL_GAME"],
-}
-
-TABLE_TO_DOMAIN = {}
-for domain, tables in DOMAIN_MAP.items():
-    for t in tables:
-        TABLE_TO_DOMAIN[t] = domain
-
-DOMAIN_KR = {
-    "game": "경기 기록",
-    "stats": "통계",
-    "realtime": "실시간",
-    "master": "마스터",
-}
-
-# ── 표준명 매핑 (upgrade-dictionary.py에서 가져옴) ──
-STANDARD_MAP = {
-    "GMKEY":"game_id","gameID":"game_id","GAMEID":"game_id","gmkey":"game_id",
-    "G_ID":"game_id","PCODE":"player_id","P_ID":"player_id","PlayerID":"player_id",
-    "T_ID":"team_id","LE_ID":"league_id","SR_ID":"series_id",
-    "SEASON_ID":"season_id","STATUS_ID":"status_id","REQ_T_ID":"req_team_id",
-    "BAT_P_ID":"bat_player_id","PIT_P_ID":"pit_player_id",
-    "GYEAR":"season_yr","gyear":"season_yr","GDAY":"game_dt","gday":"game_dt",
-    "gamedate":"game_dt","gmonth":"game_mon",
-    "STTM":"start_tm","START_TM":"start_tm","ENTM":"end_tm","END_TM":"end_tm",
-    "DLTM":"delay_tm","GMTM":"game_duration_tm","USE_TM":"use_tm",
-    "gtime":"game_tm","INPUTTIME":"input_tm","InsertedTime":"inserted_tm",
-    "REG_DT":"reg_dt","RECORD_DT":"record_dt","INDATE":"join_dt",
-    "TEAM":"team_cd","Team":"team_cd","HTEAM":"home_team_cd","VTEAM":"away_team_cd",
-    "home":"home_team_cd","visit":"away_team_cd",
-    "home_key":"home_team_id","visit_key":"away_team_id",
-    "HomeName":"home_team_nm","VisitName":"away_team_nm",
-    "HomeMascot":"home_mascot_nm","VisitMascot":"away_mascot_nm",
-    "STADIUM":"stadium_nm","stadium":"stadium_nm","STAD":"stadium_cd",
-    "stadium_key":"stadium_id",
-    "TEMP":"temperature_va","temp":"temperature_va",
-    "MOIS":"humidity_va","humi":"humidity_va",
-    "WEATH":"weather_cd","WIND":"wind_dir_cd","WINS":"wind_speed_va",
-    "wspeed":"wind_speed_va","wdirk":"wind_dir_cd",
-    "rain":"rain_if","snow":"snow_if",
-    "CROWD":"crowd_cn","CROWD_CN":"crowd_cn",
-    "UMPC":"umpire_chief_nm","UMP1":"umpire_1b_nm","UMP2":"umpire_2b_nm",
-    "UMP3":"umpire_3b_nm","UMPL":"umpire_lf_nm","UMPR":"umpire_rf_nm",
-    "SCOA":"scorer_a_nm","SCOB":"scorer_b_nm",
-    "DBHD":"doubleheader_no","dheader":"doubleheader_no",
-    "CHAJUN":"round_no","SEC":"series_cd","SECTION_CD":"section_cd",
-    "LEAGUE":"league_cd","GAMENUM":"game_cn","GAME_CN":"game_cn",
-    "NAME":"player_nm","PlayerName":"player_nm","ENGNAME":"player_eng_nm",
-    "FIRST_NM":"first_nm","LAST_NM":"last_nm",
-    "FIRST_ENG_NM":"first_eng_nm","LAST_ENG_NM":"last_eng_nm",
-    "CNAME":"player_hanja_nm","BIRTH":"birth_dt",
-    "HEIGHT":"height_va","WEIGHT":"weight_va","BACKNUM":"back_no",
-    "POS":"position_cd","POSITION":"position_nm","Position":"position_nm",
-    "PositionName":"position_nm","POSI":"position_cd",
-    "HITTYPE":"bat_throw_cd","CAREER":"career_nm","DRAFT":"draft_nm",
-    "PROMISE":"signing_bonus_va","MONEY":"salary_va",
-    "BatOrder":"bat_order_no","BAT_ORDER_NO":"bat_order_no",
-    "ORDER_NO":"order_no","TURN":"turn_no","RTURN":"real_turn_no",
-    "CHTURN":"change_turn_no","ONETURN":"one_turn_if",
-    "CHANGEINN":"change_inn_no",
-    "HOW":"how_cd","PLACE":"place_cd","PLACE_SC":"place_sc",
-    "DIREC_SC":"direc_sc","TB":"top_bottom_cd","TB_SC":"top_bottom_sc",
-    "bTop":"top_bottom_cd","FIELD":"field_cd","DETAIL":"detail_nm",
-    "BCNT":"ball_count_cd","BCOUNT":"ball_count_cd",
-    "CHBCNT":"change_ball_count_cd","RESULT":"result_cd",
-    "batResult":"bat_result_cd","PIT_RESULT_SC":"pit_result_sc",
-    "RUNNER":"runner_cd","OPTION":"option_cd",
-    "CATCHER":"catcher_id","CATNAME":"catcher_nm",
-    "batter":"batter_id","pitcher":"pitcher_id",
-    "HITTER":"hitter_nm","HITNAME":"hitter_nm",
-    "PITCHER":"pitcher_nm","PITNAME":"pitcher_nm",
-    "ball":"ball_cn","strike":"strike_cn","out":"out_cn",
-    "BallFour":"ball_four_if",
-    "PitchBallCnt":"pitch_ball_cn","PitchStrikeCnt":"pitch_strike_cn",
-    "PITCHCLOCK":"pitch_clock_cd",
-    "base1":"base_1b_id","base2":"base_2b_id","base3":"base_3b_id",
-    "BASE1A":"base_1b_after_id","BASE2A":"base_2b_after_id",
-    "BASE3A":"base_3b_after_id","BASE1B":"base_1b_before_id",
-    "BASE2B":"base_2b_before_id","BASE3B":"base_3b_before_id",
-    "inning":"inning_no","Inning":"inning_no","INN_NO":"inning_no",
-    "CHIN":"change_inning_no","CHIN2":"change_inning2_no","bHome":"home_if",
-    "SERNO":"seq_no","SEQ":"seq_no","SEQ_NO":"seq_no","SeqNO":"seq_no",
-    "PA":"pa","PA_CN":"pa_cn","AB":"ab","AB_CN":"ab_cn",
-    "HIT":"hit","Hit":"hit","HIT_CN":"hit_cn",
-    "H1":"h1b","H2":"h2b","H2_CN":"h2b_cn","H3":"h3b","H3_CN":"h3b_cn",
-    "HR":"hr","HR_CN":"hr_cn","HR_DISTANCE_VA":"hr_distance_va",
-    "RBI":"rbi","RBI_CN":"rbi_cn","RUN":"run","Run":"run","RUN_CN":"run_cn",
-    "BB":"bb","BB_CN":"bb_cn","HP":"hbp","HP_CN":"hbp_cn","HBP":"hbp",
-    "IB":"ibb","IB_CN":"ibb_cn","KK":"so","KK_CN":"so_cn","SO":"so",
-    "SB":"sb","SB_CN":"sb_cn","SB_RT":"sb_rt",
-    "CS":"cs","CS_CN":"cs_cn","Steal":"sb",
-    "SH":"sh","SH_CN":"sh_cn","SF":"sf","SF_CN":"sf_cn",
-    "GD":"gidp","GD_CN":"gidp_cn","ERR":"err","ERR_CN":"err_cn",
-    "Error":"err","LOB":"lob","DP":"dp",
-    "HRA":"avg","HRA_RT":"avg_rt","OBP_RT":"obp_rt","SLG_RT":"slg_rt",
-    "OPS_RT":"ops_rt","ISO_RT":"iso_rt","BABIP_RT":"babip_rt",
-    "WRA":"wrc","WRA_RT":"wrc_rt","BRA":"bat_avg","LRA":"left_avg",
-    "PH_HRA_RT":"pinch_avg_rt","SP_HRA_RT":"vs_sp_avg_rt",
-    "OAVG_RT":"opp_avg_rt","OOBP_RT":"opp_obp_rt",
-    "OOPS_RT":"opp_ops_rt","OSLG_RT":"opp_slg_rt",
-    "INN":"ip","INN2_CN":"ip_cn","BF":"bf","ER":"er","ER_CN":"er_cn",
-    "ERA":"era","ERA_RT":"era_rt","WHIP_RT":"whip_rt",
-    "CG":"cg","CG_CN":"cg_cn","SHO":"sho","SHO_CN":"sho_cn",
-    "WP":"wp","WP_CN":"wp_cn","BK":"bk","BK_CN":"bk_cn","PB":"pb",
-    "W":"win","W_CN":"win_cn","L":"loss","L_CN":"loss_cn",
-    "SV":"sv","SV_CN":"sv_cn","HOLD":"hld","Hold":"hld","HOLD_CN":"hld_cn",
-    "BS":"bs","BS_CN":"bs_cn","WLS":"wls_cd","WIN":"win","LOSE":"loss",
-    "GAME":"game_cn","START":"start_if","START_CN":"start_cn",
-    "START_W_CN":"start_win_cn","RELIEF_W_CN":"relief_win_cn",
-    "QS_CN":"qs_cn","QUIT":"quit","QUIT_CN":"quit_cn",
-    "PO":"po","ASS":"ast","POFF_CN":"poff_cn",
-    "PIT_CN":"pitch_cn","GAME_PIT_NO":"game_pitch_no",
-    "GAME_PIT_AVG_RT":"game_pitch_avg_rt","PA_PIT_NO":"pa_pitch_no",
-    "PA_PIT_RT":"pa_pitch_rt","INN_PIT_AVG_RT":"inn_pitch_avg_rt",
-    "GAME_BB_RT":"game_bb_rt","GAME_KK_RT":"game_so_rt",
-    "KK_BB_RT":"so_bb_rt","BB_KK_RT":"bb_so_rt",
-    "FOGO_RT":"fo_go_rt","FO_CN":"fo_cn","GO_CN":"go_cn",
-    "RO_CN":"ro_cn","D_CN":"double_cn","XBH_CN":"xbh_cn",
-    "WIN_HIT_CN":"win_hit_cn","MH_HITTER_CN":"mh_hitter_cn",
-    "BAT_AROUND_NO":"bat_around_no","TB_CN":"tb_cn",
-    "OAB":"opp_ab","OCOUNT":"opp_count","BHIT":"bunt_hit",
-    "BBBHP":"bb_bunt_hbp","BBHP":"bb_hbp","BBHP_CN":"bb_hbp_cn",
-    "TBBHP":"total_bb_hbp","THIT":"total_hit","TERR":"total_err",
-    "BPOINT":"bat_point","TPOINT":"total_point","BSCORE":"bat_score",
-    "TSCORE":"total_score","BERR":"bat_err","TP":"total_put",
-    "R":"runs_cn","R_CN":"runs_cn","S":"hits_cn","RANK":"rank_no",
-    "SAME":"same_rank_if","AVG5":"avg_5g","AVGS":"avg_season",
-    "Score":"score_cn","SCORE_CN":"score_cn",
-    "hscore":"home_score","vscore":"away_score",
-    "LiveText":"live_text","LIVETEXT":"live_text",
-    "textStyle":"text_style_cd","icon40":"icon_40_cd",
-    "code":"code_cd","continue":"continue_if",
-    "cancel_flag":"cancel_if","CANCEL_SC_NM":"cancel_sc_nm",
-    "game_flag":"game_if","end_flag":"end_if",
-    "suspended_flag":"suspended_if","GROUP_IF":"group_if",
-    "FIRST_IF":"first_if","LAST_IF":"last_if",
-    "SITUATION_IF":"situation_if","T_RECORDPAGE_IF":"recordpage_if",
-    "area_wide":"area_wide_nm","area_city":"area_city_nm",
-    "area_dong":"area_dong_nm","tm":"team_cd","BROAD_CD":"broad_cd",
-    "ETC_ME":"etc_memo","GWEEK":"game_week_nm","gweek":"game_week_nm",
-    "hpcode":"home_pitcher_id","vpcode":"away_pitcher_id",
-}
-
-# 이닝별 동적 매핑
-for i in range(1, 26):
-    STANDARD_MAP[f"{i}B"] = f"inn_{i}_bot"
-    STANDARD_MAP[f"{i}T"] = f"inn_{i}_top"
-    STANDARD_MAP[f"INN{i}"] = f"inn_{i}_score"
-    STANDARD_MAP[f"INN{i}_3"] = f"inn_{i}_out3_score"
-    STANDARD_MAP[f"IL{i}"] = f"inn_{i}_loss"
-
-
-def suggest_standard_name(col_name):
-    if col_name in STANDARD_MAP:
-        return STANDARD_MAP[col_name]
-    new_gen = ("_ID","_NM","_CD","_CN","_RT","_IF","_DT","_TM","_VA","_NO","_SC")
-    for sfx in new_gen:
-        if col_name.endswith(sfx):
-            return col_name.lower()
-    s = re.sub(r'([A-Z]+)([A-Z][a-z])', r'\1_\2', col_name)
-    s = re.sub(r'([a-z\d])([A-Z])', r'\1_\2', s)
-    return s.lower()
-
-
-# ── 컬럼 설명 (fill-descriptions.py COLUMN_DESC와 동기화) ──
-COL_DESC = {
-    # 식별자
-    "GMKEY":"경기 고유키 (YYYYMMDDVVHH#)","G_ID":"경기 ID","gameID":"경기 ID",
-    "GAMEID":"경기 ID","gmkey":"경기 고유키",
-    "PCODE":"선수 코드","P_ID":"선수 ID","PlayerID":"선수 코드",
-    "GYEAR":"시즌 연도","gyear":"연도","GDAY":"경기 일자","gday":"경기 일",
-    "gamedate":"경기 일자",
-    "TEAM":"팀 코드","Team":"팀 코드","T_ID":"팀 ID",
-    "LE_ID":"리그 ID","SR_ID":"시리즈 ID","SEASON_ID":"시즌 ID",
-    "STATUS_ID":"경기 상태 코드","REQ_T_ID":"요청 팀 코드",
-    "BAT_P_ID":"타자 선수 ID","PIT_P_ID":"투수 선수 ID",
-    "SERNO":"순번","SEQ_NO":"순번","SeqNO":"순번","SEQ":"순번","ORDER_NO":"정렬 순번",
-    # 경기 구분
-    "TB":"팀 구분 (T=원정, B=홈)",  # 주의: BatTotal에서 TB=루타(Total Bases, int), 나머지 테이블은 Top/Bottom(char)
-    "TB_SC":"팀 구분 코드",
-    "INN":"이닝","INN_NO":"이닝 번호","INN2":"이닝 세부 (아웃수 환산)",
-    "OCOUNT":"아웃 카운트","HOW":"결과 코드","PLACE":"타구 위치",
-    "POSI":"포지션 코드","TURN":"타순","ONETURN":"타순 (1~9)",
-    # 경기 환경
-    "DBHD":"더블헤더 번호","VTEAM":"원정팀 코드","HTEAM":"홈팀 코드",
-    "STTM":"경기 시작 시각","ENTM":"경기 종료 시각","DLTM":"지연 시간 (분)",
-    "GMTM":"경기 소요 시간 (분)","STAD":"구장 코드","STADIUM":"구장명",
-    "SNAME":"구장 약칭",
-    "UMPC":"주심 이름","UMP1":"1루심 이름","UMP2":"2루심 이름","UMP3":"3루심 이름",
-    "UMPL":"좌측 외야심 이름","UMPR":"우측 외야심 이름",
-    "SCOA":"기록원 A 이름","SCOB":"기록원 B 이름",
-    "TEMP":"기온 (×10)","MOIS":"습도 (%)","WEATH":"날씨 코드",
-    "WIND":"풍향 (16방위)","WINS":"풍속 (m/s)",
-    "GWEEK":"요일","gweek":"요일","CROWD":"관중수",
-    "CHAJUN":"차전 (라운드 번호)","SEC":"시리즈 구분",
-    # GAMECONTAPP
-    "BCOUNT":"투구 시퀀스 상세","RTURN":"실제 타순 (교체 포함)",
-    "FIELD":"수비 배치 코드","HITTER":"타자 선수 코드","HITNAME":"타자 이름",
-    "PITNAME":"투수 이름","PITCHER":"투수 선수 코드",
-    "CATNAME":"포수 이름","CATCHER":"포수 선수 코드",
-    "BCNT":"볼카운트 (S-B 형식)",
-    "TSCORE":"원정팀 누적 득점","BSCORE":"홈팀 누적 득점",
-    "BASE1B":"1루 주자 타순 (플레이 전)","BASE2B":"2루 주자 타순 (플레이 전)",
-    "BASE3B":"3루 주자 타순 (플레이 전)",
-    "BASE1A":"1루 주자 타순 (플레이 후)","BASE2A":"2루 주자 타순 (플레이 후)",
-    "BASE3A":"3루 주자 타순 (플레이 후)",
-    # Score 요약
-    "TPOINT":"원정팀 총득점","BPOINT":"홈팀 총득점",
-    "THIT":"원정팀 총안타","BHIT":"홈팀 총안타",
-    "TERR":"원정팀 총실책","BERR":"홈팀 총실책",
-    "TBBHP":"원정팀 볼넷+사구","BBBHP":"홈팀 볼넷+사구",
-    # 타격
-    "AB":"타수","PA":"타석","HIT":"안타","Hit":"안타",
-    "H1":"단타","H2":"2루타","H3":"3루타","HR":"홈런",
-    "RBI":"타점","RUN":"득점","Run":"득점",
-    "BB":"볼넷","HP":"사구","IB":"고의사구","KK":"삼진",
-    "GD":"병살타","SB":"도루","CS":"도루실패",
-    "SF":"희생플라이","SH":"희생번트","ERR":"실책","Error":"실책",
-    "LOB":"잔루","HRA":"타율",
-    # 투수
-    "W":"승","L":"패","SV":"세이브","HOLD":"홀드","Hold":"홀드",
-    "BS":"블론세이브","ERA":"평균자책점","ER":"자책점","R":"실점",
-    "BF":"상대타자수","NP":"투구수","CG":"완투","SHO":"완봉",
-    "WLS":"승패세","BK":"보크","WP":"폭투","PB":"포일",
-    "S":"피안타","BBHP":"볼넷+사구",
-    # 수비
-    "PO":"자살","ASS":"보살","DP":"병살",
-    # 팀/순위
-    "LEAGUE":"리그","RANK":"순위","GAME":"경기 수","GAMENUM":"경기 수",
-    "WIN":"승","LOSE":"패","SAME":"무승부","WRA":"승률",
-    "LRA":"좌타자 대 타율","BRA":"대타율",
-    # 선수 마스터
-    "NAME":"선수명","ENGNAME":"영문 이름","CNAME":"한자 이름",
-    "BIRTH":"생년월일","HEIGHT":"키","WEIGHT":"몸무게",
-    "POS":"포지션 코드","POSITION":"포지션명","Position":"포지션 코드",
-    "PositionName":"포지션명","HITTYPE":"투타 유형",
-    "BACKNUM":"등번호","CAREER":"경력","INDATE":"입단일",
-    "PROMISE":"계약금","MONEY":"연봉","DRAFT":"드래프트 정보","OPTION":"FA 옵션",
-    # ENTRY
-    "CHIN":"교체 이닝","CHTURN":"교체 타순",
-    "CHBCNT":"교체 시점 볼카운트","CHIN2":"교체 이닝 세부",
-    "CHANGEINN":"교체 이닝",
-    # BATRESULT 요약
-    "AVGS":"시즌 누적 타율","AVG5":"최근 5경기 타율",
-    # 기타 기록
-    "START":"선발 여부","QUIT":"강판 여부",
-    "continue":"연속 기록","CONTINUE":"연속 기록","CONT":"연속 기록",
-    "RESULT":"결과","BESSION":"세션",
-    # 신세대 접미사
-    "SECTION_CD":"구간 코드","GROUP_IF":"그룹 구분","SITUATION_IF":"상황 구분",
-    "FIRST_IF":"첫 여부 플래그","LAST_IF":"마지막 여부 플래그",
-    # GAME_MEMO
-    "REG_DT":"등록 일시","START_TM":"시작 시각","END_TM":"종료 시각",
-    "USE_TM":"사용 시간","ETC_ME":"기타 메모",
-    "BAT_ORDER_NO":"타순 번호","BAT_AROUND_NO":"타석 회전 번호",
-    "PA_PIT_NO":"타석 투구 번호","GAME_PIT_NO":"경기 투구 번호",
-    "PIT_RESULT_SC":"투구 결과 상태코드",
-    # PITCHCLOCK
-    "PITCHCLOCK":"피치클락 위반 코드","RUNNER":"주자 상태 코드","DETAIL":"상세 내용",
-    # 스케줄
-    "end_flag":"종료 여부","gmonth":"경기 월","home":"홈팀명",
-    "home_key":"홈팀 코드","visit":"원정팀명","visit_key":"원정팀 코드",
-    "stadium_key":"구장 코드","dheader":"더블헤더 번호",
-    "hpcode":"홈팀 선발투수 코드","vpcode":"원정팀 선발투수 코드",
-    "gtime":"경기 시작 시각","hscore":"홈팀 점수","vscore":"원정팀 점수",
-    "cancel_flag":"취소 여부","suspended_flag":"서스펜디드 여부",
-    "game_flag":"경기 유형 코드",
-    # CANCEL_GAME
-    "ENDYN":"종료 여부","CANCLE":"취소 여부","DHEADER":"더블헤더 번호",
-    "SUSPENDED":"서스펜디드 여부","GMONTH":"경기 월","GTIME":"경기 시각",
-    "Week":"요일","attendance":"관중수",
-    "HOME":"홈팀 코드","VISIT":"원정팀 코드",
-    "HSCORE":"홈팀 점수","VSCORE":"원정팀 점수",
-    "BROADCAST1":"방송사 1","BROADCAST2":"방송사 2",
-    "broadcast3":"방송사 3","broadcast4":"방송사 4",
-    "stadium":"구장 코드",
-    # IE 실시간
-    "LiveText":"실시간 문자 중계","LIVETEXT":"실시간 문자 중계",
-    "textStyle":"텍스트 스타일 코드","Inning":"이닝","inning":"이닝",
-    "bTop":"초/말 구분","bHome":"홈팀 여부","INPUTTIME":"입력 시각",
-    "InsertedTime":"데이터 입력 시각",
-    "strike":"스트라이크 카운트","ball":"볼 카운트","out":"아웃 카운트",
-    "base1":"1루 주자 여부","base2":"2루 주자 여부","base3":"3루 주자 여부",
-    "pitcher":"투수 선수 코드","batter":"타자 선수 코드",
-    "batResult":"타격 결과 텍스트",
-    "PlayerName":"선수명","BatOrder":"타순","OAB":"상대 타수",
-    "Steal":"도루","HBP":"사구","SO":"삼진",
-    "TP":"삼중살","BallFour":"볼넷 여부","Score":"득점",
-    "PitchBallCnt":"볼 투구 수","PitchStrikeCnt":"스트라이크 투구 수",
-    "HomeName":"홈팀명","HomeMascot":"홈팀 마스코트명",
-    "VisitName":"원정팀명","VisitMascot":"원정팀 마스코트명",
-    # GAMEINFO_WEATHER
-    "code":"관측 지점 코드","area_wide":"광역 지역명",
-    "area_city":"시/군 지역명","area_dong":"동/읍/면 지역명",
-    "tm":"관측 시각","icon40":"날씨 아이콘 코드",
-    "temp":"기온","humi":"습도","rain":"강수량","snow":"적설량",
-    "wdirk":"풍향","wspeed":"풍속",
-}
-# 이닝별 설명 동적 생성
-for _i in range(1, 26):
-    COL_DESC[f"{_i}T"] = f"{_i}회 초 득점"
-    COL_DESC[f"{_i}B"] = f"{_i}회 말 득점"
-    COL_DESC[f"INN{_i}"] = f"{_i}회 타격 결과"
-    COL_DESC[f"IL{_i}"] = f"{_i}회 교체타자 결과"
-    COL_DESC[f"INN{_i}_3"] = f"{_i}회 3아웃 후 결과"
 
 # ── 스타일 ──
 HEADER_FONT = Font(name="맑은 고딕", bold=True, size=10, color="FFFFFF")
@@ -397,7 +80,7 @@ def main():
     ws1.sheet_properties.tabColor = "2F5496"
 
     headers1 = ["#", "도메인", "테이블명", "표준명(안)", "컬럼 수", "행 수",
-                 "PK", "스키마 세대", "대표 DB"]
+                 "PK", "대표 DB"]
     for ci, h in enumerate(headers1, 1):
         ws1.cell(row=1, column=ci, value=h)
     style_header(ws1, 1, len(headers1))
@@ -405,12 +88,12 @@ def main():
     # 도메인 순서대로 정렬
     ordered_tables = []
     for domain in ["game", "stats", "realtime", "master"]:
-        for tname in DOMAIN_MAP.get(domain, []):
+        for tname in DOMAIN_TABLES.get(domain, []):
             if tname in tables:
                 ordered_tables.append((domain, tname, tables[tname]))
 
     for ri, (domain, tname, tdata) in enumerate(ordered_tables, 2):
-        domain_kr = DOMAIN_KR.get(domain, domain)
+        domain_kr = DOMAIN_LABELS.get(domain, domain)
         std_table = tname.lower()
         vals = [
             ri - 1,
@@ -420,11 +103,10 @@ def main():
             tdata["column_count"],
             f'{tdata["row_count"]:,}',
             ", ".join(tdata["pk_columns"]),
-            tdata["schema_generation"],
             tdata["representative_db"],
         ]
         for ci, v in enumerate(vals, 1):
-            cell = style_cell(ws1, ri, ci, center=(ci in [1, 5, 8]))
+            cell = style_cell(ws1, ri, ci, center=(ci in [1, 5]))
             cell.value = v
             # 도메인 색상
             if ci == 2 and domain_kr in DOMAIN_FILLS:
@@ -454,11 +136,11 @@ def main():
 
     row = 2
     for domain, tname, tdata in ordered_tables:
-        domain_kr = DOMAIN_KR.get(domain, domain)
+        domain_kr = DOMAIN_LABELS.get(domain, domain)
         for col in tdata["columns"]:
             cname = col["name"]
             std_name = suggest_standard_name(cname)
-            desc = COL_DESC.get(cname, "")
+            desc = COLUMN_DESC.get(cname, "")
             samples = col.get("sample_values") or []
             sample_str = ", ".join(str(s) for s in samples[:3]) if samples else ""
             length = col.get("max_length")
@@ -897,23 +579,23 @@ def main():
         ("세이버메트릭스", "WHIP", "Walks+Hits per IP", "WHIP", "이닝당 볼넷+안타", "whip_rt", "SEASON_PLAYER_PITCHER"),
         ("세이버메트릭스", "피안타율", "Opponent AVG", "OAVG", "상대 타자 타율", "opp_avg_rt", "SEASON_PLAYER_PITCHER"),
         # 경기 운영
-        ("경기 운영", "경기키", "Game Key", "—", "13자리 경기 고유 식별 코드", "game_id", "전체"),
-        ("경기 운영", "경기일자", "Game Date", "—", "경기 날짜 (YYYYMMDD)", "game_dt", "GAMEINFO"),
-        ("경기 운영", "시즌 연도", "Season Year", "—", "4자리 연도. 9999=통산", "season_yr", "전체"),
+        ("경기 운영", "경기키", "Game Key", "-", "13자리 경기 고유 식별 코드", "game_id", "전체"),
+        ("경기 운영", "경기일자", "Game Date", "-", "경기 날짜 (YYYYMMDD)", "game_dt", "GAMEINFO"),
+        ("경기 운영", "시즌 연도", "Season Year", "-", "4자리 연도. 9999=통산", "season_yr", "전체"),
         ("경기 운영", "더블헤더", "Doubleheader", "DH", "같은 날 같은 팀 2경기", "doubleheader_no", "GAMEINFO"),
-        ("경기 운영", "관중수", "Attendance", "—", "입장 관중 수", "crowd_cn", "GAMEINFO"),
+        ("경기 운영", "관중수", "Attendance", "-", "입장 관중 수", "crowd_cn", "GAMEINFO"),
         ("경기 운영", "초/말", "Top/Bottom", "TB", "이닝 전반(T)/후반(B)", "top_bottom_cd", "Hitter, Pitcher"),
         # 선수/팀
-        ("선수/팀", "선수 코드", "Player Code", "—", "선수 고유 식별 코드 (5자리)", "player_id", "전체"),
-        ("선수/팀", "선수명", "Player Name", "—", "한글 이름", "player_nm", "person"),
-        ("선수/팀", "팀 코드", "Team Code", "—", "팀 식별 2자리 코드", "team_id", "전체"),
-        ("선수/팀", "등번호", "Back Number", "—", "유니폼 번호", "back_no", "person"),
+        ("선수/팀", "선수 코드", "Player Code", "-", "선수 고유 식별 코드 (5자리)", "player_id", "전체"),
+        ("선수/팀", "선수명", "Player Name", "-", "한글 이름", "player_nm", "person"),
+        ("선수/팀", "팀 코드", "Team Code", "-", "팀 식별 2자리 코드", "team_id", "전체"),
+        ("선수/팀", "등번호", "Back Number", "-", "유니폼 번호", "back_no", "person"),
         ("선수/팀", "포지션", "Position", "POS", "수비 위치", "position_cd", "person, ENTRY"),
         # 데이터 품질
-        ("데이터 품질", "EUC-KR 인코딩", "—", "—", "레거시 varchar 한글 인코딩. nvarchar 환경에서 깨짐", "—", "—"),
-        ("데이터 품질", "-1 센티널", "—", "—", "Score 이닝에서 -1=미진행 이닝", "—", "Score"),
-        ("데이터 품질", "9999 예약값", "—", "—", "GYEAR=9999는 통산 기록", "—", "BatTotal, PitTotal"),
-        ("데이터 품질", "T/B 합계행", "—", "—", "PCODE='T'/'B'는 팀 합계행", "—", "Hitter, Pitcher"),
+        ("데이터 품질", "EUC-KR 인코딩", "-", "-", "레거시 varchar 한글 인코딩. nvarchar 환경에서 깨짐", "-", "-"),
+        ("데이터 품질", "-1 센티널", "-", "-", "Score 이닝에서 -1=미진행 이닝", "-", "Score"),
+        ("데이터 품질", "9999 예약값", "-", "-", "GYEAR=9999는 통산 기록", "-", "BatTotal, PitTotal"),
+        ("데이터 품질", "T/B 합계행", "-", "-", "PCODE='T'/'B'는 팀 합계행", "-", "Hitter, Pitcher"),
     ]
     headers8 = ["도메인", "용어", "영문", "약어", "정의", "DB 컬럼", "관련 테이블"]
     for ci, h in enumerate(headers8, 1):

@@ -12,82 +12,11 @@ import os
 import re
 from pathlib import Path
 from datetime import date
+from config import DOMAIN_ORDER, DOMAIN_TABLES, STANDARD_TABLE_NAMES, BASE_DIR
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-DICT_DIR = BASE_DIR / "dictionary"
-OUTPUT_DIR = BASE_DIR / "migration"
+DICT_DIR = Path(BASE_DIR) / "dictionary"
+OUTPUT_DIR = Path(BASE_DIR) / "migration"
 OUTPUT_FILE = OUTPUT_DIR / "column-mapping.md"
-
-DOMAIN_ORDER = [
-    ("game", "경기 기록"),
-    ("stats", "통계"),
-    ("realtime", "실시간"),
-    ("master", "마스터"),
-]
-
-TABLE_ORDER = {
-    "game": [
-        "GAMEINFO", "GAMEINFO_WEATHER", "GAMECONTAPP", "ENTRY",
-        "Hitter", "Pitcher", "Score", "DEFEN",
-        "GAME_HR", "GAME_MEMO", "GAME_MEMO_PITCHCLOCK", "PITCHCLOCK",
-    ],
-    "stats": [
-        "BatTotal", "PitTotal", "TeamRank",
-        "KBO_BATRESULT", "KBO_PITRESULT", "KBO_ETCGAME",
-        "SEASON_PLAYER_HITTER", "SEASON_PLAYER_HITTER_SITUATION",
-        "SEASON_PLAYER_PITCHER", "SEASON_PLAYER_PITCHER_SITUATION",
-    ],
-    "realtime": [
-        "IE_LiveText", "IE_BallCount", "IE_BatterRecord", "IE_PitcherRecord",
-        "IE_GameList", "IE_GAMESTATE", "IE_ScoreRHEB", "IE_Scoreinning", "IE_log",
-    ],
-    "master": [
-        "person", "person2", "PERSON", "PERSON_FA",
-        "TEAM", "STADIUM", "KBO_schedule", "CANCEL_GAME",
-    ],
-}
-
-STANDARD_TABLE_NAMES = {
-    "GAMEINFO": "GAME_INFO",
-    "GAMEINFO_WEATHER": "GAME_INFO_WEATHER",
-    "GAMECONTAPP": "GAME_CONT_APP",
-    "ENTRY": "ENTRY",
-    "Hitter": "HITTER",
-    "Pitcher": "PITCHER",
-    "Score": "SCORE",
-    "DEFEN": "DEFEN",
-    "GAME_HR": "GAME_HR",
-    "GAME_MEMO": "GAME_MEMO",
-    "GAME_MEMO_PITCHCLOCK": "GAME_MEMO_PITCHCLOCK",
-    "PITCHCLOCK": "PITCHCLOCK",
-    "BatTotal": "BAT_TOTAL",
-    "PitTotal": "PIT_TOTAL",
-    "TeamRank": "TEAM_RANK",
-    "KBO_BATRESULT": "KBO_BAT_RESULT",
-    "KBO_PITRESULT": "KBO_PIT_RESULT",
-    "KBO_ETCGAME": "KBO_ETC_GAME",
-    "SEASON_PLAYER_HITTER": "SEASON_PLAYER_HITTER",
-    "SEASON_PLAYER_HITTER_SITUATION": "SEASON_PLAYER_HITTER_SITUATION",
-    "SEASON_PLAYER_PITCHER": "SEASON_PLAYER_PITCHER",
-    "SEASON_PLAYER_PITCHER_SITUATION": "SEASON_PLAYER_PITCHER_SITUATION",
-    "IE_LiveText": "IE_LIVE_TEXT",
-    "IE_BallCount": "IE_BALL_COUNT",
-    "IE_BatterRecord": "IE_BATTER_RECORD",
-    "IE_PitcherRecord": "IE_PITCHER_RECORD",
-    "IE_GameList": "IE_GAME_LIST",
-    "IE_GAMESTATE": "IE_GAME_STATE",
-    "IE_ScoreRHEB": "IE_SCORE_RHEB",
-    "IE_Scoreinning": "IE_SCORE_INNING",
-    "IE_log": "IE_LOG",
-    "person": "PERSON",
-    "person2": "PERSON2",
-    "PERSON": "PERSON",
-    "PERSON_FA": "PERSON_FA",
-    "TEAM": "TEAM",
-    "STADIUM": "STADIUM",
-    "KBO_schedule": "KBO_SCHEDULE",
-    "CANCEL_GAME": "CANCEL_GAME",
-}
 
 
 def parse_column_table(filepath):
@@ -323,7 +252,7 @@ def generate_output(all_data):
     out.append("본 문서는 현행 시스템(AS-IS)의 컬럼을 신규 시스템(TO-BE) 표준으로 매핑한 전수 목록이다.")
     out.append("수행사 마이그레이션 핸드오프 문서로 활용한다.")
     out.append("")
-    out.append(f"{A} 참고: [도메인 타입 정의](../standards/domain-types.md) {DASH} 표준 타입 상세")
+    out.append(f"{A} 참고: [도메인 사전](../standards-dict/domains.md) {DASH} 표준 타입 상세")
     out.append(f"{A} 참고: [ID 체계](../standards/id-system.md) {DASH} 식별자 형식")
     out.append("")
     out.append("## 요약")
@@ -344,7 +273,7 @@ def generate_output(all_data):
         out.append("")
         out.append(f"## {section_num}. {domain_label} ({domain_key}/)")
         tables = all_data.get(domain_key, {})
-        for table_name in TABLE_ORDER[domain_key]:
+        for table_name in DOMAIN_TABLES.get(domain_key, []):
             if table_name not in tables:
                 continue
             rows = tables[table_name]
@@ -379,7 +308,7 @@ def main():
 
         all_data[domain_key] = {}
 
-        for table_name in TABLE_ORDER[domain_key]:
+        for table_name in DOMAIN_TABLES.get(domain_key, []):
             md_file = domain_dir / f"{table_name}.md"
             if not md_file.exists():
                 print(f"[WARN] 파일 없음: {md_file}")

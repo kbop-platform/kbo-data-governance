@@ -1,0 +1,109 @@
+---
+title: {{ table_name }}
+---
+
+<div class="dict-detail-page" markdown>
+
+<div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
+  <div class="dict-hero-badges">
+    <span class="dict-badge badge-domain">{{ domain_label }}</span>
+{% if tier_short %}
+    <span class="dict-badge badge-tier {{ tier_class }}">{{ tier_short }}</span>
+{% endif %}
+    <span class="dict-badge badge-access">{{ access }}</span>
+  </div>
+  <div class="dict-hero-title">{{ table_name }}</div>
+  <div class="dict-hero-sub">{{ db_short }} &middot; PK: {{ pk_str }}</div>
+</div>
+
+<div class="dict-quick-stats">
+  <div class="dict-qs"><div class="dict-qs-val">{{ row_count_fmt }}</div><div class="dict-qs-label">행 수</div></div>
+  <div class="dict-qs"><div class="dict-qs-val">{{ col_count }}</div><div class="dict-qs-label">컬럼</div></div>
+{% if owner_short %}
+  <div class="dict-qs"><div class="dict-qs-val">{{ owner_short }}</div><div class="dict-qs-label">오너</div></div>
+{% endif %}
+</div>
+
+<div class="dict-info-grid">
+  <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>{{ db_name }}</code></span></div>
+  <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>{{ pk_str }}</code></span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">{{ tier_raw if tier_raw else "-" }}</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">{{ owner if owner else "-" }}</span></div>
+{% if consumers %}
+  <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">{{ consumers }}</span></div>
+{% endif %}
+{% if access_val %}
+  <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">{{ access_val }}</span></div>
+{% endif %}
+{% if product %}
+  <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">{{ product|safe }}</span></div>
+{% endif %}
+{% if standards %}
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">{{ standards|safe }}</span></div>
+{% endif %}
+</div>
+
+{% for note in notes %}
+<div class="dict-note">
+{{ note }}
+</div>
+
+{% endfor %}
+<div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">{{ columns|length }}개</span></div>
+
+{% if euckr_warn %}
+<div class="dict-encoding-warn">{{ euckr_warn }}</div>
+
+{% endif %}
+<div style="overflow-x:auto">
+<table class="dict-col-table"><thead>
+<tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
+</thead><tbody>
+{% for col in columns %}
+<tr><td class="col-num">{{ col.ordinal }}</td><td><span class="col-name">{{ col.name }}</span></td><td><span class="col-std">{{ col.std_name }}</span></td><td><span class="col-type">{{ col.type_str }}</span></td><td>{{ col.null_html|safe }}</td><td>{{ col.pk_html|safe }}</td><td><span class="col-desc">{{ col.desc }}</span></td></tr>
+{% endfor %}
+</tbody></table>
+</div>
+
+{% if code_entries %}
+<div class="dict-section-hdr"><h2>코드값 / 고유값</h2><span class="dict-section-count">{{ total_code_cols }}개 컬럼</span></div>
+
+<div class="dict-codes-section">
+{% for entry in code_entries %}
+<details class="dict-code-group"{{ " open" if entry.open else "" }}>
+<summary><code>{{ entry.name }}</code><span class="code-desc"> &mdash; {{ entry.desc_short }}</span></summary>
+{% if entry.ref %}
+<div class="code-ref">{{ entry.ref|safe }}</div>
+{% elif entry.code_values %}
+<div class="code-body">
+<table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
+{% for d in entry.code_values[:20] %}
+<tr><td>{{ d.value }}</td><td>{{ d.count_fmt }}</td></tr>
+{% endfor %}
+</tbody></table>
+{% if entry.code_values|length > 20 %}
+<div class="code-overflow-note">외 {{ entry.code_values|length - 20 }}건 &mdash; 전체 목록은 raw/column-metadata.json 참조</div>
+{% endif %}
+</div>
+{% endif %}
+</details>
+{% endfor %}
+</div>
+
+{% endif %}
+{% if sample_cols %}
+<div class="dict-section-hdr"><h2>샘플 데이터</h2><span class="dict-section-count">상위 3건</span></div>
+
+<div class="dict-sample-section">
+<table class="dict-sample-table"><thead>
+<tr><th>컬럼</th><th>값 1</th><th>값 2</th><th>값 3</th></tr>
+</thead><tbody>
+{% for sc in sample_cols %}
+<tr><td>{{ sc.name }}</td>{% for cell in sc.cells %}{{ cell|safe }}{% endfor %}</tr>
+{% endfor %}
+</tbody></table>
+</div>
+
+{% endif %}
+</div>

@@ -5,10 +5,10 @@ title: KBO_PITRESULT
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">통계</span>
     <span class="dict-badge badge-tier tier-2">Tier 2</span>
-    <span class="dict-badge badge-gen gen-legacy">구세대</span>
     <span class="dict-badge badge-access">Internal</span>
   </div>
   <div class="dict-hero-title">KBO_PITRESULT</div>
@@ -25,14 +25,13 @@ title: KBO_PITRESULT
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB2_BASEBALL_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>GMKEY, GDAY, PCODE</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">legacy (구세대)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 2 — Standard</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 2 - Standard</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">기록위원회 (R-03)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">경기 당일 (S2i 전송)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">분석팀</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Internal</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[시즌 통계](../products/season-stats.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[코드 사전](../../standards/code-dictionary.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[코드 사전](../../standards-dict/codes.md)</span></div>
 </div>
 
 <div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">23개</span></div>
@@ -43,27 +42,27 @@ title: KBO_PITRESULT
 <table class="dict-col-table"><thead>
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
-<tr><td class="col-num">1</td><td><span class="col-name">GMKEY</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 고유키 (YYYYMMDDVVHH#, 유효 13자리; 현행 DB char(15), 표준 char(13) 전환 대상)</span></td></tr>
+<tr><td class="col-num">1</td><td><span class="col-name">GMKEY</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 고유키 (YYYYMMDDVVHH#)</span></td></tr>
 <tr><td class="col-num">2</td><td><span class="col-name">GDAY</span></td><td><span class="col-std">game_dt</span></td><td><span class="col-type">char(8)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 일자 (YYYYMMDD)</span></td></tr>
-<tr><td class="col-num">3</td><td><span class="col-name">TB</span></td><td><span class="col-std">top_bottom_cd</span></td><td><span class="col-type">char(1)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">팀 구분 (T=원정/Top, B=홈/Bottom)</span></td></tr>
-<tr><td class="col-num">4</td><td><span class="col-name">NAME</span></td><td><span class="col-std">player_nm</span></td><td><span class="col-type">varchar(16)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">선수명 (varchar=EUC-KR 깨짐 가능)</span></td></tr>
-<tr><td class="col-num">5</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 코드 (5~6자리 숫자 문자열)</span></td></tr>
-<tr><td class="col-num">6</td><td><span class="col-name">POS</span></td><td><span class="col-std">position_cd</span></td><td><span class="col-type">char(2)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">포지션 코드</span></td></tr>
-<tr><td class="col-num">7</td><td><span class="col-name">WLS</span></td><td><span class="col-std">wls_cd</span></td><td><span class="col-type">varchar(1)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">승패세 (W=승, L=패, S=세이브)</span></td></tr>
-<tr><td class="col-num">8</td><td><span class="col-name">CHANGEINN</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(4)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">3</td><td><span class="col-name">TB</span></td><td><span class="col-std">top_bottom_cd</span></td><td><span class="col-type">char(1)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">팀 구분 (T=원정, B=홈)</span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">NAME</span></td><td><span class="col-std">player_nm</span></td><td><span class="col-type">varchar(16)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">선수명</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 코드 (5~6자리 숫자)</span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">POS</span></td><td><span class="col-std">appear_order_pos_cd</span></td><td><span class="col-type">char(2)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">등판 순서·포지션 코드 (11=선발, 21=2번째, 31=3번째, ..., A1=10번째, B1=11번째, C1=12번째)</span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">WLS</span></td><td><span class="col-std">wls_cd</span></td><td><span class="col-type">varchar(1)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">승패세홀 (W=승, L=패, S=세이브, H=홀드, D=무승부, 0=미결정, 공백=해당없음)</span></td></tr>
+<tr><td class="col-num">8</td><td><span class="col-name">CHANGEINN</span></td><td><span class="col-std">change_inn_no</span></td><td><span class="col-type">varchar(4)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">교체 이닝</span></td></tr>
 <tr><td class="col-num">9</td><td><span class="col-name">GAME</span></td><td><span class="col-std">game_cn</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">경기 수</span></td></tr>
-<tr><td class="col-num">10</td><td><span class="col-name">W</span></td><td><span class="col-std">win_cn</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">승</span></td></tr>
-<tr><td class="col-num">11</td><td><span class="col-name">L</span></td><td><span class="col-std">lose_cn</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">패</span></td></tr>
-<tr><td class="col-num">12</td><td><span class="col-name">S</span></td><td><span class="col-std"></span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">13</td><td><span class="col-name">INN</span></td><td><span class="col-std">inn_no</span></td><td><span class="col-type">varchar(5)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">이닝 번호</span></td></tr>
+<tr><td class="col-num">10</td><td><span class="col-name">W</span></td><td><span class="col-std">win</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">승</span></td></tr>
+<tr><td class="col-num">11</td><td><span class="col-name">L</span></td><td><span class="col-std">loss</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">패</span></td></tr>
+<tr><td class="col-num">12</td><td><span class="col-name">S</span></td><td><span class="col-std">hit_allowed_cn</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">피안타</span></td></tr>
+<tr><td class="col-num">13</td><td><span class="col-name">INN</span></td><td><span class="col-std">ip</span></td><td><span class="col-type">varchar(5)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">이닝</span></td></tr>
 <tr><td class="col-num">14</td><td><span class="col-name">PA</span></td><td><span class="col-std">pa</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타석 (Plate Appearance)</span></td></tr>
 <tr><td class="col-num">15</td><td><span class="col-name">BF</span></td><td><span class="col-std">bf</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">상대타자수</span></td></tr>
 <tr><td class="col-num">16</td><td><span class="col-name">AB</span></td><td><span class="col-std">ab</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타수 (At Bat)</span></td></tr>
 <tr><td class="col-num">17</td><td><span class="col-name">HIT</span></td><td><span class="col-std">hit</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">안타</span></td></tr>
 <tr><td class="col-num">18</td><td><span class="col-name">HR</span></td><td><span class="col-std">hr</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홈런</span></td></tr>
-<tr><td class="col-num">19</td><td><span class="col-name">BBHP</span></td><td><span class="col-std"></span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">19</td><td><span class="col-name">BBHP</span></td><td><span class="col-std">bb_hbp_cn</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">볼넷+사구 합계</span></td></tr>
 <tr><td class="col-num">20</td><td><span class="col-name">KK</span></td><td><span class="col-std">so</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">삼진</span></td></tr>
-<tr><td class="col-num">21</td><td><span class="col-name">R</span></td><td><span class="col-std">r</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">실점</span></td></tr>
+<tr><td class="col-num">21</td><td><span class="col-name">R</span></td><td><span class="col-std">runs_cn</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">실점</span></td></tr>
 <tr><td class="col-num">22</td><td><span class="col-name">ER</span></td><td><span class="col-std">er</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">자책점</span></td></tr>
 <tr><td class="col-num">23</td><td><span class="col-name">ERA</span></td><td><span class="col-std">era</span></td><td><span class="col-type">varchar(6)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">평균자책점</span></td></tr>
 </tbody></table>
@@ -73,11 +72,11 @@ title: KBO_PITRESULT
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>GDAY</code><span class="code-desc"> — 경기 일자</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GDAY</code><span class="code-desc"> &mdash; 경기 일자</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>TB</code><span class="code-desc"> — 팀 구분</span></summary>
+<summary><code>TB</code><span class="code-desc"> &mdash; 팀 구분</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>B</td><td>68,661</td></tr>
@@ -86,11 +85,11 @@ title: KBO_PITRESULT
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>PCODE</code><span class="code-desc"> — 선수 코드</span></summary>
-<div class="code-ref">선수 식별자 — [선수 마스터(person)](../master/person.md) 참조</div>
+<summary><code>PCODE</code><span class="code-desc"> &mdash; 선수 코드</span></summary>
+<div class="code-ref">선수 식별자 - [선수 마스터(person)](../master/person.md) 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>POS</code><span class="code-desc"> — 포지션 코드</span></summary>
+<summary><code>POS</code><span class="code-desc"> &mdash; 등판 순서·포지션 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>11</td><td>30,980</td></tr>
@@ -109,7 +108,7 @@ title: KBO_PITRESULT
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>WLS</code><span class="code-desc"> — 승패세</span></summary>
+<summary><code>WLS</code><span class="code-desc"> &mdash; 승패세홀</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td></td><td>84,075</td></tr>
@@ -122,27 +121,27 @@ title: KBO_PITRESULT
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>CHANGEINN</code><span class="code-desc"> — </span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>CHANGEINN</code><span class="code-desc"> &mdash; 교체 이닝</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>GAME</code><span class="code-desc"> — 경기 수</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GAME</code><span class="code-desc"> &mdash; 경기 수</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>W</code><span class="code-desc"> — 승</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>W</code><span class="code-desc"> &mdash; 승</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>L</code><span class="code-desc"> — 패</span></summary>
-<div class="code-ref">고유값 19종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>L</code><span class="code-desc"> &mdash; 패</span></summary>
+<div class="code-ref">고유값 19종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>S</code><span class="code-desc"> — </span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>S</code><span class="code-desc"> &mdash; 피안타</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>INN</code><span class="code-desc"> — 이닝 번호</span></summary>
+<summary><code>INN</code><span class="code-desc"> &mdash; 이닝</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>1</td><td>36,985</td></tr>
@@ -169,23 +168,23 @@ title: KBO_PITRESULT
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>PA</code><span class="code-desc"> — 타석</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>PA</code><span class="code-desc"> &mdash; 타석</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>BF</code><span class="code-desc"> — 상대타자수</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>BF</code><span class="code-desc"> &mdash; 상대타자수</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>AB</code><span class="code-desc"> — 타수</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>AB</code><span class="code-desc"> &mdash; 타수</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>HIT</code><span class="code-desc"> — 안타</span></summary>
-<div class="code-ref">고유값 18종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>HIT</code><span class="code-desc"> &mdash; 안타</span></summary>
+<div class="code-ref">고유값 18종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>HR</code><span class="code-desc"> — 홈런</span></summary>
+<summary><code>HR</code><span class="code-desc"> &mdash; 홈런</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>111,742</td></tr>
@@ -198,7 +197,7 @@ title: KBO_PITRESULT
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>BBHP</code><span class="code-desc"> — </span></summary>
+<summary><code>BBHP</code><span class="code-desc"> &mdash; 볼넷+사구 합계</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>64,869</td></tr>
@@ -216,20 +215,20 @@ title: KBO_PITRESULT
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>KK</code><span class="code-desc"> — 삼진</span></summary>
-<div class="code-ref">고유값 18종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>KK</code><span class="code-desc"> &mdash; 삼진</span></summary>
+<div class="code-ref">고유값 18종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>R</code><span class="code-desc"> — 실점</span></summary>
-<div class="code-ref">고유값 15종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>R</code><span class="code-desc"> &mdash; 실점</span></summary>
+<div class="code-ref">고유값 15종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>ER</code><span class="code-desc"> — 자책점</span></summary>
-<div class="code-ref">고유값 15종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>ER</code><span class="code-desc"> &mdash; 자책점</span></summary>
+<div class="code-ref">고유값 15종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>ERA</code><span class="code-desc"> — 평균자책점</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>ERA</code><span class="code-desc"> &mdash; 평균자책점</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 </div>
 

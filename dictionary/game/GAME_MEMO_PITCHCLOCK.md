@@ -5,10 +5,10 @@ title: GAME_MEMO_PITCHCLOCK
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">경기 기록</span>
     <span class="dict-badge badge-tier tier-3">Tier 3</span>
-    <span class="dict-badge badge-gen gen-new">신세대</span>
     <span class="dict-badge badge-access">Internal</span>
   </div>
   <div class="dict-hero-title">GAME_MEMO_PITCHCLOCK</div>
@@ -25,14 +25,13 @@ title: GAME_MEMO_PITCHCLOCK
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB1_BASEBALL_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>LE_ID, SR_ID, G_ID, SEQ_NO</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">new (신세대)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 — Reference</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 - Reference</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">기록위원회 (R-03)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">경기 당일 (S2i 전송)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">기록팀</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Internal</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[경기 요약](../products/game-summary.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards/domain-types.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards-dict/domains.md)</span></div>
 </div>
 
 <div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">16개</span></div>
@@ -44,19 +43,19 @@ title: GAME_MEMO_PITCHCLOCK
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
 <tr><td class="col-num">1</td><td><span class="col-name">LE_ID</span></td><td><span class="col-std">league_id</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">리그 ID (1=1군)</span></td></tr>
-<tr><td class="col-num">2</td><td><span class="col-name">SR_ID</span></td><td><span class="col-std">series_id</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시리즈 ID (0=정규시즌)</span></td></tr>
+<tr><td class="col-num">2</td><td><span class="col-name">SR_ID</span></td><td><span class="col-std">series_id</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시리즈 ID (0=정규시즌, 1=올스타전, 3=준플레이오프, 4=미확인, 5=플레이오프, 6=미확인, 7=한국시리즈, 8=와일드카드, 9=기타)</span></td></tr>
 <tr><td class="col-num">3</td><td><span class="col-name">SEASON_ID</span></td><td><span class="col-std">season_id</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">시즌 ID (연도)</span></td></tr>
 <tr><td class="col-num">4</td><td><span class="col-name">G_ID</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 ID (YYYYMMDDVVHH# 형식)</span></td></tr>
-<tr><td class="col-num">5</td><td><span class="col-name">INN_NO</span></td><td><span class="col-std">inn_no</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">이닝 번호</span></td></tr>
-<tr><td class="col-num">6</td><td><span class="col-name">BAT_ORDER_NO</span></td><td><span class="col-std">bat_order_no</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">BAT_ORDER 번호</span></td></tr>
-<tr><td class="col-num">7</td><td><span class="col-name">BAT_AROUND_NO</span></td><td><span class="col-std">bat_around_no</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">BAT_AROUND 번호</span></td></tr>
-<tr><td class="col-num">8</td><td><span class="col-name">TB_SC</span></td><td><span class="col-std">top_bottom_cd</span></td><td><span class="col-type">char(1)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">팀 구분 코드 (T=원정, B=홈)</span></td></tr>
-<tr><td class="col-num">9</td><td><span class="col-name">PA_PIT_NO</span></td><td><span class="col-std">pa_pit_no</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">PA_PIT 번호</span></td></tr>
-<tr><td class="col-num">10</td><td><span class="col-name">GAME_PIT_NO</span></td><td><span class="col-std">game_pit_no</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">GAME_PIT 번호</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">INN_NO</span></td><td><span class="col-std">inning_no</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">이닝 번호</span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">BAT_ORDER_NO</span></td><td><span class="col-std">bat_order_no</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타순 번호</span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">BAT_AROUND_NO</span></td><td><span class="col-std">bat_around_no</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타석 회전 번호</span></td></tr>
+<tr><td class="col-num">8</td><td><span class="col-name">TB_SC</span></td><td><span class="col-std">top_bottom_sc</span></td><td><span class="col-type">char(1)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">팀 구분 코드 (T=원정, B=홈)</span></td></tr>
+<tr><td class="col-num">9</td><td><span class="col-name">PA_PIT_NO</span></td><td><span class="col-std">pa_pitch_no</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타석 투구 번호</span></td></tr>
+<tr><td class="col-num">10</td><td><span class="col-name">GAME_PIT_NO</span></td><td><span class="col-std">game_pitch_no</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">경기 투구 번호</span></td></tr>
 <tr><td class="col-num">11</td><td><span class="col-name">T_ID</span></td><td><span class="col-std">team_id</span></td><td><span class="col-type">char(2)</span></td><td></td><td></td><td><span class="col-desc">팀 코드 (2자리)</span></td></tr>
 <tr><td class="col-num">12</td><td><span class="col-name">P_ID</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">선수 ID (정수)</span></td></tr>
-<tr><td class="col-num">13</td><td><span class="col-name">PIT_RESULT_SC</span></td><td><span class="col-std">pit_result_sc</span></td><td><span class="col-type">varchar(20)</span></td><td></td><td></td><td><span class="col-desc">PIT_RESULT 상태코드</span></td></tr>
-<tr><td class="col-num">14</td><td><span class="col-name">ETC_ME</span></td><td><span class="col-std">etc_me</span></td><td><span class="col-type">varchar(400)</span></td><td></td><td></td><td><span class="col-desc">ETC 메모</span></td></tr>
+<tr><td class="col-num">13</td><td><span class="col-name">PIT_RESULT_SC</span></td><td><span class="col-std">pit_result_sc</span></td><td><span class="col-type">varchar(20)</span></td><td></td><td></td><td><span class="col-desc">투구 결과 상태코드 (S=스트라이크, B=볼, F=파울, T=파울팁, H=타격 등)</span></td></tr>
+<tr><td class="col-num">14</td><td><span class="col-name">ETC_ME</span></td><td><span class="col-std">etc_memo</span></td><td><span class="col-type">varchar(400)</span></td><td></td><td></td><td><span class="col-desc">기타 메모</span></td></tr>
 <tr><td class="col-num">15</td><td><span class="col-name">SEQ_NO</span></td><td><span class="col-std">seq_no</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">순번</span></td></tr>
 <tr><td class="col-num">16</td><td><span class="col-name">REG_DT</span></td><td><span class="col-std">reg_dt</span></td><td><span class="col-type">datetime</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">등록 일시</span></td></tr>
 </tbody></table>
@@ -66,7 +65,7 @@ title: GAME_MEMO_PITCHCLOCK
 
 <div class="dict-codes-section">
 <details class="dict-code-group" open>
-<summary><code>LE_ID</code><span class="code-desc"> — 리그 ID</span></summary>
+<summary><code>LE_ID</code><span class="code-desc"> &mdash; 리그 ID</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>1</td><td>237</td></tr>
@@ -74,7 +73,7 @@ title: GAME_MEMO_PITCHCLOCK
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>SR_ID</code><span class="code-desc"> — 시리즈 ID</span></summary>
+<summary><code>SR_ID</code><span class="code-desc"> &mdash; 시리즈 ID</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>215</td></tr>
@@ -86,7 +85,7 @@ title: GAME_MEMO_PITCHCLOCK
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>SEASON_ID</code><span class="code-desc"> — 시즌 ID</span></summary>
+<summary><code>SEASON_ID</code><span class="code-desc"> &mdash; 시즌 ID</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>2025</td><td>237</td></tr>
@@ -94,7 +93,7 @@ title: GAME_MEMO_PITCHCLOCK
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>G_ID</code><span class="code-desc"> — 경기 ID</span></summary>
+<summary><code>G_ID</code><span class="code-desc"> &mdash; 경기 ID</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>20250328HTHH0</td><td>3</td></tr>
@@ -121,7 +120,7 @@ title: GAME_MEMO_PITCHCLOCK
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>INN_NO</code><span class="code-desc"> — 이닝 번호</span></summary>
+<summary><code>INN_NO</code><span class="code-desc"> &mdash; 이닝 번호</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>7</td><td>37</td></tr>
@@ -139,7 +138,7 @@ title: GAME_MEMO_PITCHCLOCK
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>BAT_ORDER_NO</code><span class="code-desc"> — BAT_ORDER 번호</span></summary>
+<summary><code>BAT_ORDER_NO</code><span class="code-desc"> &mdash; 타순 번호</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>3</td><td>39</td></tr>
@@ -155,7 +154,7 @@ title: GAME_MEMO_PITCHCLOCK
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>BAT_AROUND_NO</code><span class="code-desc"> — BAT_AROUND 번호</span></summary>
+<summary><code>BAT_AROUND_NO</code><span class="code-desc"> &mdash; 타석 회전 번호</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>237</td></tr>
@@ -163,7 +162,7 @@ title: GAME_MEMO_PITCHCLOCK
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>TB_SC</code><span class="code-desc"> — 팀 구분 코드</span></summary>
+<summary><code>TB_SC</code><span class="code-desc"> &mdash; 팀 구분 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>B</td><td>123</td></tr>
@@ -172,7 +171,7 @@ title: GAME_MEMO_PITCHCLOCK
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>PA_PIT_NO</code><span class="code-desc"> — PA_PIT 번호</span></summary>
+<summary><code>PA_PIT_NO</code><span class="code-desc"> &mdash; 타석 투구 번호</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>1</td><td>177</td></tr>
@@ -188,19 +187,19 @@ title: GAME_MEMO_PITCHCLOCK
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>GAME_PIT_NO</code><span class="code-desc"> — GAME_PIT 번호</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GAME_PIT_NO</code><span class="code-desc"> &mdash; 경기 투구 번호</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>T_ID</code><span class="code-desc"> — 팀 코드</span></summary>
-<div class="code-ref">팀 식별자 — [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
+<summary><code>T_ID</code><span class="code-desc"> &mdash; 팀 코드</span></summary>
+<div class="code-ref">팀 식별자 - [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>P_ID</code><span class="code-desc"> — 선수 ID</span></summary>
-<div class="code-ref">선수 식별자 — [선수 마스터(person)](../master/person.md) 참조</div>
+<summary><code>P_ID</code><span class="code-desc"> &mdash; 선수 ID</span></summary>
+<div class="code-ref">선수 식별자 - [선수 마스터(person)](../master/person.md) 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>PIT_RESULT_SC</code><span class="code-desc"> — PIT_RESULT 상태코드</span></summary>
+<summary><code>PIT_RESULT_SC</code><span class="code-desc"> &mdash; 투구 결과 상태코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>C</td><td>170</td></tr>

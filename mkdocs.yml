@@ -1,5 +1,5 @@
 site_name: DataHub
-site_description: KBO DataHub — 데이터 카탈로그, 표준, 거버넌스, 마이그레이션 (DAR-001)
+site_description: KBO DataHub - 데이터 카탈로그, 표준, 거버넌스, 마이그레이션 (DAR-001)
 docs_dir: docs
 site_dir: site
 
@@ -27,6 +27,8 @@ theme:
   features:
     - search.highlight
     - search.suggest
+    - navigation.instant
+    - navigation.instant.progress
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
@@ -44,7 +46,6 @@ plugins:
         - en
 
 extra_css:
-  - https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css
   - https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/styles/ag-grid.min.css
   - https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/styles/ag-theme-alpine.min.css
   - assets/css/custom.css
@@ -53,18 +54,19 @@ extra_css:
   - assets/css/dict-detail.css
   - assets/css/product-detail.css
   - assets/css/home.css
+  - assets/css/section-landing.css
 
 extra_javascript:
-  - https://code.jquery.com/jquery-3.7.1.min.js
-  - https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js
   - https://cdn.jsdelivr.net/npm/ag-grid-community@32.3.3/dist/ag-grid-community.min.noStyle.js
   - assets/js/auth.js
-  - assets/js/datatables-init.js
+  - assets/js/ag-grid-common.js
   - assets/js/ag-grid-catalog.js
   - assets/js/ag-grid-instances.js
   - assets/js/ag-grid-glossary.js
   - assets/js/ag-grid-domain.js
   - assets/js/ag-grid-codes.js
+  - assets/js/ag-grid-abbreviations.js
+  - assets/js/home-dashboard.js
 
 extra:
   generator: false
@@ -78,11 +80,13 @@ nav:
   - Catalog:
     - catalog/instances.md
     - 컬럼 검색: catalog/columns.md
-    - 용어 사전: catalog/glossary.md
-    - 도메인 사전: catalog/domains.md
-    - 코드 사전: catalog/codes.md
   - Dictionary:
-    - dictionary/index.md
+    - standards-dict/glossary.md
+    - 약어 사전: standards-dict/abbreviations.md
+    - 도메인 사전: standards-dict/domains.md
+    - 코드 사전: standards-dict/codes.md
+    - 사전 상세:
+      - dictionary/index.md
     - 데이터 프로덕트:
       - 경기 요약: dictionary/products/game-summary.md
       - 실시간 경기: dictionary/products/live-game.md
@@ -138,13 +142,11 @@ nav:
       - 06. 구장: dictionary/master/STADIUM.md
       - 07. 경기 일정: dictionary/master/KBO_schedule.md
       - 08. 취소 경기: dictionary/master/CANCEL_GAME.md
-  - Standards & Governance:
+  - Governance:
+    - standards/index.md
     - 표준 정의:
       - 1. 명명 규칙: standards/naming-rules.md
       - 2. ID 체계: standards/id-system.md
-      - 3. 코드 사전: standards/code-dictionary.md
-      - 4. 도메인 타입: standards/domain-types.md
-      - 5. 약어 사전: standards/abbreviations.md
     - 거버넌스:
       - 1. 데이터 오너십: governance/data-ownership.md
       - 2. 품질 규칙: governance/quality-rules.md
@@ -153,6 +155,7 @@ nav:
       - 5. 데이터 보안: governance/data-security.md
       - 6. 재해 복구: governance/disaster-recovery.md
   - Migration:
+    - migration/index.md
     - 설계 결정 사항: migration/design-decisions.md
     - 컬럼 매핑: migration/column-mapping.md
     - 테이블 매핑: migration/table-mapping.md

@@ -5,10 +5,10 @@ title: GAMEINFO_WEATHER
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">경기 기록</span>
     <span class="dict-badge badge-tier tier-3">Tier 3</span>
-    <span class="dict-badge badge-gen gen-unknown">미분류</span>
     <span class="dict-badge badge-access">Internal</span>
   </div>
   <div class="dict-hero-title">GAMEINFO_WEATHER</div>
@@ -25,14 +25,13 @@ title: GAMEINFO_WEATHER
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB2_BASEBALL_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>code, tm</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">unknown (미분류)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 — Reference</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 3 - Reference</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">기록위원회 (R-03)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">경기 당일 (기상청)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">방송팀</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Internal</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[일정 관리](../products/schedule.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards/domain-types.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards-dict/domains.md)</span></div>
 </div>
 
 <div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">12개</span></div>
@@ -41,18 +40,18 @@ title: GAMEINFO_WEATHER
 <table class="dict-col-table"><thead>
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
-<tr><td class="col-num">1</td><td><span class="col-name">code</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">2</td><td><span class="col-name">area_wide</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">3</td><td><span class="col-name">area_city</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">4</td><td><span class="col-name">area_dong</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">5</td><td><span class="col-name">tm</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">6</td><td><span class="col-name">icon40</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">7</td><td><span class="col-name">temp</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">8</td><td><span class="col-name">humi</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">9</td><td><span class="col-name">rain</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">10</td><td><span class="col-name">snow</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">11</td><td><span class="col-name">wdirk</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">12</td><td><span class="col-name">wspeed</span></td><td><span class="col-std"></span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">1</td><td><span class="col-name">code</span></td><td><span class="col-std">code_cd</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">관측 지점 코드</span></td></tr>
+<tr><td class="col-num">2</td><td><span class="col-name">area_wide</span></td><td><span class="col-std">area_wide_nm</span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc">광역 지역명</span></td></tr>
+<tr><td class="col-num">3</td><td><span class="col-name">area_city</span></td><td><span class="col-std">area_city_nm</span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc">시/군 지역명</span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">area_dong</span></td><td><span class="col-std">area_dong_nm</span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc">동/읍/면 지역명</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">tm</span></td><td><span class="col-std">observation_tm</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">관측 시각</span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">icon40</span></td><td><span class="col-std">icon_40_cd</span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc">날씨 아이콘 코드 (01=맑음, 02=구름조금, 03=구름많음, 04=흐림, 07=비, 10=비/소나기, 15=눈, 39=뇌우, 40=소나기)</span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">temp</span></td><td><span class="col-std">temperature_va</span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc">기온 (℃)</span></td></tr>
+<tr><td class="col-num">8</td><td><span class="col-name">humi</span></td><td><span class="col-std">humidity_va</span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc">습도 (%)</span></td></tr>
+<tr><td class="col-num">9</td><td><span class="col-name">rain</span></td><td><span class="col-std">rain_if</span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc">강수량</span></td></tr>
+<tr><td class="col-num">10</td><td><span class="col-name">snow</span></td><td><span class="col-std">snow_if</span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc">적설량</span></td></tr>
+<tr><td class="col-num">11</td><td><span class="col-name">wdirk</span></td><td><span class="col-std">wind_dir_cd</span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc">풍향</span></td></tr>
+<tr><td class="col-num">12</td><td><span class="col-name">wspeed</span></td><td><span class="col-std">wind_speed_va</span></td><td><span class="col-type">nvarchar(10)</span></td><td></td><td></td><td><span class="col-desc">풍속 (m/s)</span></td></tr>
 </tbody></table>
 </div>
 
@@ -60,11 +59,11 @@ title: GAMEINFO_WEATHER
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>code</code><span class="code-desc"> — </span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>code</code><span class="code-desc"> &mdash; 관측 지점 코드</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>area_wide</code><span class="code-desc"> — </span></summary>
+<summary><code>area_wide</code><span class="code-desc"> &mdash; 광역 지역명</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>경기도</td><td>280</td></tr>
@@ -87,7 +86,7 @@ title: GAMEINFO_WEATHER
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>area_city</code><span class="code-desc"> — </span></summary>
+<summary><code>area_city</code><span class="code-desc"> &mdash; 시/군 지역명</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>이천시</td><td>140</td></tr>
@@ -114,7 +113,7 @@ title: GAMEINFO_WEATHER
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>area_dong</code><span class="code-desc"> — </span></summary>
+<summary><code>area_dong</code><span class="code-desc"> &mdash; 동/읍/면 지역명</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-</td><td>210</td></tr>
@@ -141,11 +140,11 @@ title: GAMEINFO_WEATHER
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>tm</code><span class="code-desc"> — </span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>tm</code><span class="code-desc"> &mdash; 관측 시각</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>icon40</code><span class="code-desc"> — </span></summary>
+<summary><code>icon40</code><span class="code-desc"> &mdash; 날씨 아이콘 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>04</td><td>422</td></tr>
@@ -161,19 +160,19 @@ title: GAMEINFO_WEATHER
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>temp</code><span class="code-desc"> — </span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>temp</code><span class="code-desc"> &mdash; 기온</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>humi</code><span class="code-desc"> — </span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>humi</code><span class="code-desc"> &mdash; 습도</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>rain</code><span class="code-desc"> — </span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>rain</code><span class="code-desc"> &mdash; 강수량</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>snow</code><span class="code-desc"> — </span></summary>
+<summary><code>snow</code><span class="code-desc"> &mdash; 적설량</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-</td><td>1,680</td></tr>
@@ -181,7 +180,7 @@ title: GAMEINFO_WEATHER
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>wdirk</code><span class="code-desc"> — </span></summary>
+<summary><code>wdirk</code><span class="code-desc"> &mdash; 풍향</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>북동</td><td>170</td></tr>
@@ -204,8 +203,8 @@ title: GAMEINFO_WEATHER
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>wspeed</code><span class="code-desc"> — </span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>wspeed</code><span class="code-desc"> &mdash; 풍속</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 </div>
 

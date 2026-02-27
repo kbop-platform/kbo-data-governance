@@ -3,245 +3,512 @@ hide:
   - toc
 ---
 
-<style>
-.dict-landing { max-width: 1100px; margin: 0 auto; }
-.dict-landing-header {
-  text-align: center;
-  padding: 32px 16px 24px;
-}
-.dict-landing-header h1 {
-  font-size: 1.6rem;
-  font-weight: 800;
-  margin: 0 0 8px;
-}
-.dict-landing-header p {
-  color: #777;
-  font-size: 0.92rem;
-  margin: 0;
-}
-[data-md-color-scheme="slate"] .dict-landing-header p { color: #aaa; }
+<div class="sl-landing">
 
-/* 통계 바 */
-.dict-landing-stats {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
-}
-.dict-landing-stat {
-  text-align: center;
-}
-.dict-landing-stat .num {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--kbo-accent, #4A7BF7);
-}
-.dict-landing-stat .label {
-  font-size: 0.75rem;
-  color: #999;
-  margin-top: 2px;
-}
-
-/* 도메인 카드 그리드 */
-.domain-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 28px;
-}
-@media (max-width: 720px) {
-  .domain-cards { grid-template-columns: 1fr; }
-}
-.domain-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 20px 24px;
-  text-decoration: none !important;
-  color: inherit !important;
-  transition: all 0.2s;
-  display: block;
-  background: #fff;
-}
-[data-md-color-scheme="slate"] .domain-card {
-  border-color: #333;
-  background: #1e1e1e;
-}
-.domain-card:hover {
-  border-color: var(--kbo-accent, #4A7BF7);
-  box-shadow: 0 4px 16px rgba(74, 123, 247, 0.12);
-  transform: translateY(-2px);
-}
-.domain-card-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.domain-card-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-}
-.dc-game { background: #e8f0fe; color: #1a73e8; }
-.dc-stats { background: #fce8e6; color: #d93025; }
-.dc-realtime { background: #e6f4ea; color: #188038; }
-.dc-master { background: #fef7e0; color: #e37400; }
-[data-md-color-scheme="slate"] .dc-game { background: #1a3052; }
-[data-md-color-scheme="slate"] .dc-stats { background: #3c1a1a; }
-[data-md-color-scheme="slate"] .dc-realtime { background: #1a3424; }
-[data-md-color-scheme="slate"] .dc-master { background: #3c2e0a; }
-
-.domain-card-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-.domain-card-meta {
-  font-size: 0.75rem;
-  color: #999;
-}
-.domain-card-desc {
-  font-size: 0.82rem;
-  color: #666;
-  margin-bottom: 12px;
-  line-height: 1.5;
-}
-[data-md-color-scheme="slate"] .domain-card-desc { color: #aaa; }
-
-.domain-card-tables {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-.domain-card-tables code {
-  font-size: 0.7rem;
-  padding: 2px 7px;
-  border-radius: 4px;
-  background: #f3f4f6;
-  color: #555;
-  font-family: 'JetBrains Mono', monospace;
-}
-[data-md-color-scheme="slate"] .domain-card-tables code {
-  background: #2a2a2a;
-  color: #bbb;
-}
-</style>
-
-<div class="dict-landing" markdown>
-
-<div class="dict-landing-header">
-  <h1>데이터 사전</h1>
-  <p>KBO 운영 데이터베이스 39개 테이블 · 787개 컬럼 정의서</p>
+<!-- Dictionary Sub-Tabs -->
+<div class="catalog-tabs">
+  <a href="../standards-dict/glossary/"><span class="tab-icon"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M1 2.828c.885-.37 2.154-.769 3.388-.893C5.33 1.827 6.16 1.882 6.84 2.28c.142.083.27.177.382.28.113-.103.24-.197.382-.28C8.283 1.882 9.114 1.827 10.056 1.935c1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687c-.935-.531-2.12-.603-3.213-.492C2.663 2.307 1.474 2.649.556 3v9.75A.5.5 0 0 1 0 12.5v-10a.5.5 0 0 1 .336-.472z"/></svg></span> 용어 사전 <span class="tab-count">134</span></a>
+  <a href="../standards-dict/abbreviations/"><span class="tab-icon"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm1.5 3h2.104l1.573 4.636h.06L8.81 4h2.104v8H9.485V7.168h-.046L8.03 11.58H6.89L5.48 7.138h-.046V12H4.006V4H3.5z"/></svg></span> 약어 사전 <span class="tab-count">118</span></a>
+  <a href="../standards-dict/domains/"><span class="tab-icon"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"/></svg></span> 도메인 사전 <span class="tab-count">93</span></a>
+  <a href="../standards-dict/codes/"><span class="tab-icon"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.532-.618-.532h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.985l-.516 2.304c-.008.04-.015.118-.015.163 0 .305.21.508.5.508.266 0 .492-.172.554-.477l.555-2.498h2.078l-.555 2.492zm.508-3.649a1855.5 1855.5 0 0 1-.062.289h-2.078l.515-2.523h2.086l-.461 2.234z"/></svg></span> 코드 사전 <span class="tab-count">168</span></a>
+  <a href="./" class="active"><span class="tab-icon"><svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M3 4.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1zm0 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1zm0 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1z"/></svg></span> 사전 상세 <span class="tab-count">39</span></a>
 </div>
 
-<div class="dict-landing-stats">
-  <div class="dict-landing-stat">
-    <div class="num">39</div>
-    <div class="label">테이블</div>
-  </div>
-  <div class="dict-landing-stat">
-    <div class="num">787</div>
-    <div class="label">컬럼</div>
-  </div>
-  <div class="dict-landing-stat">
-    <div class="num">25.7M</div>
-    <div class="label">총 행수</div>
-  </div>
-  <div class="dict-landing-stat">
-    <div class="num">4</div>
-    <div class="label">도메인</div>
-  </div>
+<div class="sl-hero">
+  <div class="sl-hero-title">데이터 사전</div>
+  <div class="sl-hero-desc">KBO 운영 데이터베이스 39개 테이블, 787개 컬럼 정의서</div>
 </div>
 
-<div class="domain-cards">
-  <a class="domain-card" href="game/GAMEINFO/">
-    <div class="domain-card-head">
-      <div class="domain-card-icon dc-game">&#9918;</div>
-      <div>
-        <div class="domain-card-title">경기 기록</div>
-        <div class="domain-card-meta">12 테이블 · 284 컬럼 · Tier 1~2</div>
-      </div>
+<div class="sl-group-title">경기 기록</div>
+
+<div class="sl-cards">
+
+  <a class="sl-card" href="game/GAMEINFO/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">GAMEINFO</div>
+      <span class="sl-card-type">경기 정보</span>
     </div>
-    <div class="domain-card-desc">경기 정보, 타자/투수 기록, 스코어, 수비, 엔트리, 홈런, 투구 메모 등 경기 당일 생성되는 핵심 기록 테이블</div>
-    <div class="domain-card-tables">
-      <code>GAMEINFO</code>
-      <code>Hitter</code>
-      <code>Pitcher</code>
-      <code>Score</code>
-      <code>ENTRY</code>
-      <code>DEFEN</code>
-      <code>GAMECONTAPP</code>
-      <code>GAME_HR</code>
-      <code>GAME_MEMO</code>
-      <code>+3</code>
+    <p class="sl-card-desc">경기 기본 정보 (날짜, 구장, 팀, 관중, 심판 등). 전체 도메인의 기준 테이블.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id</span>
+      <span class="sl-card-tag">42컬럼</span>
     </div>
   </a>
 
-  <a class="domain-card" href="stats/BatTotal/">
-    <div class="domain-card-head">
-      <div class="domain-card-icon dc-stats">&#128202;</div>
-      <div>
-        <div class="domain-card-title">통계</div>
-        <div class="domain-card-meta">10 테이블 · 318 컬럼 · Tier 1~2</div>
-      </div>
+  <a class="sl-card" href="game/Hitter/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">Hitter</div>
+      <span class="sl-card-type">타자 기록</span>
     </div>
-    <div class="domain-card-desc">타격·투구 합산, 팀 순위, 이닝별 타격, 시즌 타자/투수 통계 및 상황별 세분화 데이터</div>
-    <div class="domain-card-tables">
-      <code>BatTotal</code>
-      <code>PitTotal</code>
-      <code>TeamRank</code>
-      <code>KBO_BATRESULT</code>
-      <code>KBO_PITRESULT</code>
-      <code>SEASON_PLAYER_HITTER</code>
-      <code>+4</code>
+    <p class="sl-card-desc">경기별 타자 성적 (타수, 안타, 홈런, 타점, 도루 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id + player_id</span>
+      <span class="sl-card-tag">40컬럼</span>
     </div>
   </a>
 
-  <a class="domain-card" href="realtime/IE_LiveText/">
-    <div class="domain-card-head">
-      <div class="domain-card-icon dc-realtime">&#9889;</div>
-      <div>
-        <div class="domain-card-title">실시간</div>
-        <div class="domain-card-meta">9 테이블 · 96 컬럼 · IE_ 접두사</div>
-      </div>
+  <a class="sl-card" href="game/Pitcher/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">Pitcher</div>
+      <span class="sl-card-type">투수 기록</span>
     </div>
-    <div class="domain-card-desc">문자 중계, 볼카운트, 타자/투수 실시간 기록, 경기 목록·상태, 점수 요약/이닝, 시스템 로그</div>
-    <div class="domain-card-tables">
-      <code>IE_LiveText</code>
-      <code>IE_BallCount</code>
-      <code>IE_BatterRecord</code>
-      <code>IE_PitcherRecord</code>
-      <code>IE_GameList</code>
-      <code>IE_GAMESTATE</code>
-      <code>+3</code>
+    <p class="sl-card-desc">경기별 투수 성적 (이닝, 피안타, 삼진, 자책점 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id + player_id</span>
+      <span class="sl-card-tag">40컬럼</span>
     </div>
   </a>
 
-  <a class="domain-card" href="master/person/">
-    <div class="domain-card-head">
-      <div class="domain-card-icon dc-master">&#128100;</div>
-      <div>
-        <div class="domain-card-title">마스터</div>
-        <div class="domain-card-meta">8 테이블 · 95 컬럼 · 참조 데이터</div>
-      </div>
+  <a class="sl-card" href="game/Score/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">Score</div>
+      <span class="sl-card-type">이닝 스코어</span>
     </div>
-    <div class="domain-card-desc">선수, 팀, 구장, 경기 일정, 취소 경기, FA 선수 등 다른 도메인에서 참조하는 기준 데이터</div>
-    <div class="domain-card-tables">
-      <code>person</code>
-      <code>person2</code>
-      <code>PERSON</code>
-      <code>PERSON_FA</code>
-      <code>TEAM</code>
-      <code>STADIUM</code>
-      <code>KBO_schedule</code>
-      <code>CANCEL_GAME</code>
+    <p class="sl-card-desc">이닝별 득점 현황 (1~25회, R/H/E/B 포함).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id + top_bottom</span>
+      <span class="sl-card-tag">55컬럼</span>
     </div>
   </a>
+
+  <a class="sl-card" href="game/ENTRY/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">ENTRY</div>
+      <span class="sl-card-type">출전 엔트리</span>
+    </div>
+    <p class="sl-card-desc">경기 출전 선수 명단 (타순, 포지션, 교체 정보).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id + player_id</span>
+      <span class="sl-card-tag">11컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="game/DEFEN/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">DEFEN</div>
+      <span class="sl-card-type">수비 기록</span>
+    </div>
+    <p class="sl-card-desc">경기별 수비 기록 (자살, 병살, 실책 등 포지션별).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id</span>
+      <span class="sl-card-tag">12컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="game/GAMECONTAPP/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">GAMECONTAPP</div>
+      <span class="sl-card-type">경기 상세 기록</span>
+    </div>
+    <p class="sl-card-desc">투구 단위 상세 기록 (HOW, 주자 상황, 타구 방향 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id + seq_no</span>
+      <span class="sl-card-tag">29컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="game/GAME_HR/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">GAME_HR</div>
+      <span class="sl-card-type">홈런 기록</span>
+    </div>
+    <p class="sl-card-desc">홈런 상세 기록 (비거리, 발사각, 착지점 좌표 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id</span>
+      <span class="sl-card-tag">14컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="game/GAME_MEMO/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">GAME_MEMO</div>
+      <span class="sl-card-type">경기 메모</span>
+    </div>
+    <p class="sl-card-desc">경기 운영 메모 (선발 투수, 주심, 특이사항 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id</span>
+      <span class="sl-card-tag">17컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="game/GAME_MEMO_PITCHCLOCK/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">GAME_MEMO_PITCHCLOCK</div>
+      <span class="sl-card-type">피치클럭 메모</span>
+    </div>
+    <p class="sl-card-desc">피치클럭 위반 기록 (위반 선수, 팀, 판정 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id + seq_no</span>
+      <span class="sl-card-tag">14컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="game/PITCHCLOCK/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">PITCHCLOCK</div>
+      <span class="sl-card-type">피치클럭 설정</span>
+    </div>
+    <p class="sl-card-desc">시즌별 피치클럭 시간 기준 설정값.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">season_yr</span>
+      <span class="sl-card-tag">10컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="game/GAMEINFO_WEATHER/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">GAMEINFO_WEATHER</div>
+      <span class="sl-card-type">경기 날씨</span>
+    </div>
+    <p class="sl-card-desc">경기 당일 기상 데이터 (기온, 습도, 풍향, 풍속 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id</span>
+      <span class="sl-card-tag">22컬럼</span>
+    </div>
+  </a>
+
+</div>
+
+<div class="sl-group-title">통계</div>
+
+<div class="sl-cards">
+
+  <a class="sl-card" href="stats/BatTotal/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">BatTotal</div>
+      <span class="sl-card-type">타격 합산</span>
+    </div>
+    <p class="sl-card-desc">시즌/통산 타격 합산 통계 (타율, OPS 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">player_id + season_yr</span>
+      <span class="sl-card-tag">31컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="stats/PitTotal/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">PitTotal</div>
+      <span class="sl-card-type">투구 합산</span>
+    </div>
+    <p class="sl-card-desc">시즌/통산 투구 합산 통계 (ERA, WHIP 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">player_id + season_yr</span>
+      <span class="sl-card-tag">50컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="stats/TeamRank/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">TeamRank</div>
+      <span class="sl-card-type">팀 순위</span>
+    </div>
+    <p class="sl-card-desc">시즌별 팀 순위, 승패, 승률, 게임차.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">team_cd + season_yr</span>
+      <span class="sl-card-tag">16컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="stats/KBO_BATRESULT/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">KBO_BATRESULT</div>
+      <span class="sl-card-type">이닝별 타격</span>
+    </div>
+    <p class="sl-card-desc">이닝 구간별 타격 세부 기록 (1~25회).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id + player_id</span>
+      <span class="sl-card-tag">251컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="stats/KBO_PITRESULT/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">KBO_PITRESULT</div>
+      <span class="sl-card-type">이닝별 투구</span>
+    </div>
+    <p class="sl-card-desc">이닝 구간별 투구 세부 기록 (1~25회).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id + player_id</span>
+      <span class="sl-card-tag">36컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="stats/KBO_ETCGAME/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">KBO_ETCGAME</div>
+      <span class="sl-card-type">기타 경기 통계</span>
+    </div>
+    <p class="sl-card-desc">기타 경기 관련 통계 데이터.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id</span>
+      <span class="sl-card-tag">5컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="stats/SEASON_PLAYER_HITTER/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">SEASON_PLAYER_HITTER</div>
+      <span class="sl-card-type">시즌 타자 통계</span>
+    </div>
+    <p class="sl-card-desc">시즌 타자 개인 통계 (경기수, 타석, 안타 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">player_id + season_yr</span>
+      <span class="sl-card-tag">16컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="stats/SEASON_PLAYER_HITTER_SITUATION/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">SEASON_PLAYER_HITTER_SITUATION</div>
+      <span class="sl-card-type">상황별 타자</span>
+    </div>
+    <p class="sl-card-desc">상황별(주자, 아웃카운트 등) 타자 세부 통계.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">player_id + section</span>
+      <span class="sl-card-tag">8컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="stats/SEASON_PLAYER_PITCHER/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">SEASON_PLAYER_PITCHER</div>
+      <span class="sl-card-type">시즌 투수 통계</span>
+    </div>
+    <p class="sl-card-desc">시즌 투수 개인 통계 (승패, 이닝, ERA 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">player_id + season_yr</span>
+      <span class="sl-card-tag">31컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="stats/SEASON_PLAYER_PITCHER_SITUATION/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">SEASON_PLAYER_PITCHER_SITUATION</div>
+      <span class="sl-card-type">상황별 투수</span>
+    </div>
+    <p class="sl-card-desc">상황별(주자, 아웃카운트 등) 투수 세부 통계.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">player_id + section</span>
+      <span class="sl-card-tag">8컬럼</span>
+    </div>
+  </a>
+
+</div>
+
+<div class="sl-group-title">실시간</div>
+
+<div class="sl-cards">
+
+  <a class="sl-card" href="realtime/IE_LiveText/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">IE_LiveText</div>
+      <span class="sl-card-type">문자 중계</span>
+    </div>
+    <p class="sl-card-desc">실시간 문자 중계 데이터 (투구, 타격, 주루 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">gameID + seqNo</span>
+      <span class="sl-card-tag">9컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="realtime/IE_BallCount/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">IE_BallCount</div>
+      <span class="sl-card-type">볼카운트</span>
+    </div>
+    <p class="sl-card-desc">현재 볼/스트라이크/아웃 카운트 상태.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">gameID</span>
+      <span class="sl-card-tag">16컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="realtime/IE_BatterRecord/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">IE_BatterRecord</div>
+      <span class="sl-card-type">타자 실시간</span>
+    </div>
+    <p class="sl-card-desc">경기 중 타자 누적 기록 (타수, 안타, 타율 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">gameID + PlayerID</span>
+      <span class="sl-card-tag">12컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="realtime/IE_PitcherRecord/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">IE_PitcherRecord</div>
+      <span class="sl-card-type">투수 실시간</span>
+    </div>
+    <p class="sl-card-desc">경기 중 투수 누적 기록 (이닝, 투구수, ERA 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">gameID + PlayerID</span>
+      <span class="sl-card-tag">26컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="realtime/IE_GAMESTATE/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">IE_GAMESTATE</div>
+      <span class="sl-card-type">경기 상태</span>
+    </div>
+    <p class="sl-card-desc">경기 진행 상태 (이닝, 공수, 점수 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">GAMEID</span>
+      <span class="sl-card-tag">9컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="realtime/IE_ScoreRHEB/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">IE_ScoreRHEB</div>
+      <span class="sl-card-type">R/H/E/B 요약</span>
+    </div>
+    <p class="sl-card-desc">팀별 득점/안타/실책/볼넷 요약 스코어.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">gameID</span>
+      <span class="sl-card-tag">9컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="realtime/IE_Scoreinning/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">IE_Scoreinning</div>
+      <span class="sl-card-type">이닝 점수</span>
+    </div>
+    <p class="sl-card-desc">이닝별 점수 현황 (1~연장 이닝).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">gameID + inn</span>
+      <span class="sl-card-tag">5컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="realtime/IE_GameList/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">IE_GameList</div>
+      <span class="sl-card-type">경기 목록</span>
+    </div>
+    <p class="sl-card-desc">당일 경기 목록 (시간, 구장, 팀 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">gameID</span>
+      <span class="sl-card-tag">7컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="realtime/IE_log/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">IE_log</div>
+      <span class="sl-card-type">시스템 로그</span>
+    </div>
+    <p class="sl-card-desc">실시간 데이터 처리 시스템 로그.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">logDate</span>
+      <span class="sl-card-tag">3컬럼</span>
+    </div>
+  </a>
+
+</div>
+
+<div class="sl-group-title">마스터</div>
+
+<div class="sl-cards">
+
+  <a class="sl-card" href="master/person/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">person</div>
+      <span class="sl-card-type">선수 마스터</span>
+    </div>
+    <p class="sl-card-desc">1군 선수 기본 정보 (이름, 생년월일, 포지션, 팀 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">player_id</span>
+      <span class="sl-card-tag">20컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="master/person2/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">person2</div>
+      <span class="sl-card-type">선수 마스터 (구버전)</span>
+    </div>
+    <p class="sl-card-desc">1군 선수 마스터 구버전. person 대비 ENGNAME/DRAFT/REG_DT 없음.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">player_id</span>
+      <span class="sl-card-tag">17컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="master/PERSON/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">PERSON</div>
+      <span class="sl-card-type">2군 선수 마스터</span>
+    </div>
+    <p class="sl-card-desc">2군(퓨처스리그) 선수 기본 정보.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">player_id</span>
+      <span class="sl-card-tag">16컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="master/PERSON_FA/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">PERSON_FA</div>
+      <span class="sl-card-type">FA 계약</span>
+    </div>
+    <p class="sl-card-desc">FA(자유계약) 선수 계약 정보.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">player_id</span>
+      <span class="sl-card-tag">4컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="master/TEAM/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">TEAM</div>
+      <span class="sl-card-type">팀 마스터</span>
+    </div>
+    <p class="sl-card-desc">KBO 구단 기본 정보 (팀명, 연고지, 감독 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">team_cd + season_yr</span>
+      <span class="sl-card-tag">13컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="master/STADIUM/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">STADIUM</div>
+      <span class="sl-card-type">구장 마스터</span>
+    </div>
+    <p class="sl-card-desc">야구장 기본 정보 (구장명, 소재지 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">stadium_cd</span>
+      <span class="sl-card-tag">3컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="master/KBO_schedule/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">KBO_schedule</div>
+      <span class="sl-card-type">경기 일정</span>
+    </div>
+    <p class="sl-card-desc">시즌 경기 일정 (날짜, 시간, 구장, 대진 등).</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id</span>
+      <span class="sl-card-tag">39컬럼</span>
+    </div>
+  </a>
+
+  <a class="sl-card" href="master/CANCEL_GAME/">
+    <div class="sl-card-head">
+      <div class="sl-card-title">CANCEL_GAME</div>
+      <span class="sl-card-type">취소 경기</span>
+    </div>
+    <p class="sl-card-desc">우천/기타 사유로 취소된 경기 기록.</p>
+    <div class="sl-card-meta">
+      <span class="sl-card-tag">game_id</span>
+      <span class="sl-card-tag">5컬럼</span>
+    </div>
+  </a>
+
 </div>
 
 ---
@@ -250,8 +517,9 @@ hide:
 <summary>데이터 흐름도</summary>
 
 ```
-┌─────────────────┐     경기 당일 전송      ┌──────────────────┐
-│  S2i 운영 DB     │ ──────────────────────→ │  DB2 (시즌 13개)  │
+                                                    경기 당일 전송
+┌─────────────────┐                         ┌──────────────────┐
+│  S2i 운영 DB     │ ─────────────────────→  │  DB2 (시즌 13개)  │
 │  (Sports2i 외주) │                         │  시즌별 경기 데이터 │
 └─────────────────┘                         └────────┬─────────┘
                                                      │ 확정 후 반영
@@ -260,9 +528,9 @@ hide:
                                              │  DB1 (영구 4개)    │
                                              │  누적/마스터 데이터 │
                                              └──────────────────┘
-
-┌─────────────────┐     KBO 자체 구축       ┌──────────────────┐
-│  KBO 분석팀      │ ──────────────────────→ │  KBO 자체 DB      │
+                                                    KBO 자체 구축
+┌─────────────────┐                         ┌──────────────────┐
+│  KBO 분석팀      │ ─────────────────────→  │  KBO 자체 DB      │
 │  (내부)          │                         │  세이버/P-b-P 등   │
 └─────────────────┘                         └──────────────────┘
 ```
@@ -320,34 +588,16 @@ IE_LOG ← 시스템 로그 (FK 없음)
 </details>
 
 <details class="dict-reference" markdown>
-<summary>스키마 세대 분포</summary>
-
-| 세대 | 식별 패턴 | 테이블 수 | 주요 특징 |
-|------|----------|----------|----------|
-| **구세대 (legacy)** | GMKEY/PCODE, camelCase·PascalCase 혼용 | 24종 | 1982년~ 축적 데이터. `varchar` 한글, `float` 비율 |
-| **신세대 (new)** | G_ID/P_ID, `_CD`·`_CN`·`_SC` 접미사 | 6종 | 2022년~ 추가. `nvarchar`, 정수 ID |
-| **미분류 (unknown)** | 양쪽 패턴 혼합 또는 판별 불가 | 9종 | IE_* 실시간 등. S2i 확인 필요 |
-
-**구세대 → 신세대 전환 우선순위**:
-
-1. GAME_INFO, HITTER, PITCHER — 핵심 경기 기록 (가장 많이 조회)
-2. BAT_TOTAL, PIT_TOTAL — 통계 조회 빈도 높음
-3. ENTRY, DEFEN, SCORE — 경기 부속 기록
-4. IE_* — 실시간 테이블은 API/WebSocket 전환 시 함께
-
-</details>
-
-<details class="dict-reference" markdown>
 <summary>참고 문서</summary>
 
-- [데이터 프로덕트](products/game-summary.md) — 비즈니스 단위별 데이터 구조
-- [데이터 리니지](lineage.md) — 데이터 흐름 추적, 영향도 분석
-- [표준 명명 규칙](../standards/naming-rules.md) — 레거시→표준 변환 규칙
-- [ID 체계](../standards/id-system.md) — game_id, player_id 등 6종 ID 정의
-- [도메인 타입](../standards/domain-types.md) — 접미사별 MSSQL 타입 매핑
-- [코드 사전](../standards/code-dictionary.md) — how_cd, place_cd 등 코드값
-- [업무 용어 사전](../glossary/business-terms.md) — 용어 정의 ~165개
-- [컬럼 매핑](../migration/column-mapping.md) — AS-IS→TO-BE 컬럼 전수 매핑
+- [데이터 프로덕트](products/game-summary.md): 비즈니스 단위별 데이터 구조
+- [데이터 리니지](lineage.md): 데이터 흐름 추적, 영향도 분석
+- [표준 명명 규칙](../standards/naming-rules.md): 레거시 → 표준 변환 규칙
+- [ID 체계](../standards/id-system.md): game_id, player_id 등 6종 ID 정의
+- [도메인 사전](../standards-dict/domains.md): 접미사별 MSSQL 타입 매핑
+- [코드 사전](../standards-dict/codes.md): how_cd, place_cd 등 코드값
+- [업무 용어 사전](../glossary/business-terms.md): 용어 정의 ~165개
+- [컬럼 매핑](../migration/column-mapping.md): AS-IS → TO-BE 컬럼 전수 매핑
 
 </details>
 

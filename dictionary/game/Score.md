@@ -5,10 +5,10 @@ title: Score
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">경기 기록</span>
     <span class="dict-badge badge-tier tier-1">Tier 1</span>
-    <span class="dict-badge badge-gen gen-legacy">구세대</span>
     <span class="dict-badge badge-access">Internal</span>
   </div>
   <div class="dict-hero-title">Score</div>
@@ -25,8 +25,7 @@ title: Score
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB1_BASEBALL_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>GMKEY, GDAY</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">legacy (구세대)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 1 — Critical</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 1 - Critical</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">기록위원회 (R-03)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">경기 당일 (S2i 전송)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">방송팀, 외부 API</span></div>
@@ -41,66 +40,66 @@ title: Score
 <table class="dict-col-table"><thead>
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
-<tr><td class="col-num">1</td><td><span class="col-name">GMKEY</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 고유키 (YYYYMMDDVVHH#, 유효 13자리; 현행 DB char(15), 표준 char(13) 전환 대상)</span></td></tr>
+<tr><td class="col-num">1</td><td><span class="col-name">GMKEY</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 고유키 (YYYYMMDDVVHH#)</span></td></tr>
 <tr><td class="col-num">2</td><td><span class="col-name">GDAY</span></td><td><span class="col-std">game_dt</span></td><td><span class="col-type">char(8)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 일자 (YYYYMMDD)</span></td></tr>
-<tr><td class="col-num">3</td><td><span class="col-name">1T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">4</td><td><span class="col-name">1B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">5</td><td><span class="col-name">2T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">6</td><td><span class="col-name">2B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">7</td><td><span class="col-name">3T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">8</td><td><span class="col-name">3B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">9</td><td><span class="col-name">4T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">10</td><td><span class="col-name">4B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">11</td><td><span class="col-name">5T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">12</td><td><span class="col-name">5B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">13</td><td><span class="col-name">6T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">14</td><td><span class="col-name">6B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">15</td><td><span class="col-name">7T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">16</td><td><span class="col-name">7B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">17</td><td><span class="col-name">8T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">18</td><td><span class="col-name">8B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">19</td><td><span class="col-name">9T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">20</td><td><span class="col-name">9B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">21</td><td><span class="col-name">10T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">22</td><td><span class="col-name">10B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">23</td><td><span class="col-name">11T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">24</td><td><span class="col-name">11B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">25</td><td><span class="col-name">12T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">26</td><td><span class="col-name">12B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">27</td><td><span class="col-name">13T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">28</td><td><span class="col-name">13B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">29</td><td><span class="col-name">14T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">30</td><td><span class="col-name">14B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">31</td><td><span class="col-name">15T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">32</td><td><span class="col-name">15B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">33</td><td><span class="col-name">16T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">34</td><td><span class="col-name">16B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">35</td><td><span class="col-name">17T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">36</td><td><span class="col-name">17B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">37</td><td><span class="col-name">18T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">38</td><td><span class="col-name">18B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">39</td><td><span class="col-name">19T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">40</td><td><span class="col-name">19B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">41</td><td><span class="col-name">20T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">42</td><td><span class="col-name">20B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">43</td><td><span class="col-name">21T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">44</td><td><span class="col-name">21B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">45</td><td><span class="col-name">22T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">46</td><td><span class="col-name">22B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">47</td><td><span class="col-name">23T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">48</td><td><span class="col-name">23B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">49</td><td><span class="col-name">24T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">50</td><td><span class="col-name">24B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">51</td><td><span class="col-name">25T</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">52</td><td><span class="col-name">25B</span></td><td><span class="col-std"></span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">53</td><td><span class="col-name">TPOINT</span></td><td><span class="col-std"></span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">54</td><td><span class="col-name">BPOINT</span></td><td><span class="col-std"></span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">55</td><td><span class="col-name">THIT</span></td><td><span class="col-std"></span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">56</td><td><span class="col-name">BHIT</span></td><td><span class="col-std"></span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">57</td><td><span class="col-name">TERR</span></td><td><span class="col-std"></span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">58</td><td><span class="col-name">BERR</span></td><td><span class="col-std"></span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">59</td><td><span class="col-name">TBBHP</span></td><td><span class="col-std"></span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">60</td><td><span class="col-name">BBBHP</span></td><td><span class="col-std"></span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">3</td><td><span class="col-name">1T</span></td><td><span class="col-std">inn_1_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">1회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">1B</span></td><td><span class="col-std">inn_1_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">1회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">2T</span></td><td><span class="col-std">inn_2_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">2회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">2B</span></td><td><span class="col-std">inn_2_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">2회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">3T</span></td><td><span class="col-std">inn_3_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">3회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">8</td><td><span class="col-name">3B</span></td><td><span class="col-std">inn_3_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">3회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">9</td><td><span class="col-name">4T</span></td><td><span class="col-std">inn_4_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">4회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">10</td><td><span class="col-name">4B</span></td><td><span class="col-std">inn_4_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">4회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">11</td><td><span class="col-name">5T</span></td><td><span class="col-std">inn_5_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">5회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">12</td><td><span class="col-name">5B</span></td><td><span class="col-std">inn_5_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">5회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">13</td><td><span class="col-name">6T</span></td><td><span class="col-std">inn_6_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">6회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">14</td><td><span class="col-name">6B</span></td><td><span class="col-std">inn_6_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">6회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">15</td><td><span class="col-name">7T</span></td><td><span class="col-std">inn_7_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">7회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">16</td><td><span class="col-name">7B</span></td><td><span class="col-std">inn_7_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">7회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">17</td><td><span class="col-name">8T</span></td><td><span class="col-std">inn_8_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">8회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">18</td><td><span class="col-name">8B</span></td><td><span class="col-std">inn_8_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">8회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">19</td><td><span class="col-name">9T</span></td><td><span class="col-std">inn_9_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">9회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">20</td><td><span class="col-name">9B</span></td><td><span class="col-std">inn_9_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">9회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">21</td><td><span class="col-name">10T</span></td><td><span class="col-std">inn_10_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">10회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">22</td><td><span class="col-name">10B</span></td><td><span class="col-std">inn_10_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">10회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">23</td><td><span class="col-name">11T</span></td><td><span class="col-std">inn_11_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">11회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">24</td><td><span class="col-name">11B</span></td><td><span class="col-std">inn_11_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">11회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">25</td><td><span class="col-name">12T</span></td><td><span class="col-std">inn_12_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">12회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">26</td><td><span class="col-name">12B</span></td><td><span class="col-std">inn_12_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">12회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">27</td><td><span class="col-name">13T</span></td><td><span class="col-std">inn_13_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">13회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">28</td><td><span class="col-name">13B</span></td><td><span class="col-std">inn_13_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">13회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">29</td><td><span class="col-name">14T</span></td><td><span class="col-std">inn_14_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">14회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">30</td><td><span class="col-name">14B</span></td><td><span class="col-std">inn_14_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">14회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">31</td><td><span class="col-name">15T</span></td><td><span class="col-std">inn_15_top</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">15회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">32</td><td><span class="col-name">15B</span></td><td><span class="col-std">inn_15_bot</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">15회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">33</td><td><span class="col-name">16T</span></td><td><span class="col-std">inn_16_top</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">16회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">34</td><td><span class="col-name">16B</span></td><td><span class="col-std">inn_16_bot</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">16회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">35</td><td><span class="col-name">17T</span></td><td><span class="col-std">inn_17_top</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">17회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">36</td><td><span class="col-name">17B</span></td><td><span class="col-std">inn_17_bot</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">17회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">37</td><td><span class="col-name">18T</span></td><td><span class="col-std">inn_18_top</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">18회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">38</td><td><span class="col-name">18B</span></td><td><span class="col-std">inn_18_bot</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">18회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">39</td><td><span class="col-name">19T</span></td><td><span class="col-std">inn_19_top</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">19회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">40</td><td><span class="col-name">19B</span></td><td><span class="col-std">inn_19_bot</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">19회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">41</td><td><span class="col-name">20T</span></td><td><span class="col-std">inn_20_top</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">20회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">42</td><td><span class="col-name">20B</span></td><td><span class="col-std">inn_20_bot</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">20회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">43</td><td><span class="col-name">21T</span></td><td><span class="col-std">inn_21_top</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">21회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">44</td><td><span class="col-name">21B</span></td><td><span class="col-std">inn_21_bot</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">21회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">45</td><td><span class="col-name">22T</span></td><td><span class="col-std">inn_22_top</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">22회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">46</td><td><span class="col-name">22B</span></td><td><span class="col-std">inn_22_bot</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">22회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">47</td><td><span class="col-name">23T</span></td><td><span class="col-std">inn_23_top</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">23회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">48</td><td><span class="col-name">23B</span></td><td><span class="col-std">inn_23_bot</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">23회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">49</td><td><span class="col-name">24T</span></td><td><span class="col-std">inn_24_top</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">24회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">50</td><td><span class="col-name">24B</span></td><td><span class="col-std">inn_24_bot</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">24회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">51</td><td><span class="col-name">25T</span></td><td><span class="col-std">inn_25_top</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">25회 초 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">52</td><td><span class="col-name">25B</span></td><td><span class="col-std">inn_25_bot</span></td><td><span class="col-type">smallint</span></td><td></td><td></td><td><span class="col-desc">25회 말 득점 (-1=미진행)</span></td></tr>
+<tr><td class="col-num">53</td><td><span class="col-name">TPOINT</span></td><td><span class="col-std">total_point</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">원정팀 총득점</span></td></tr>
+<tr><td class="col-num">54</td><td><span class="col-name">BPOINT</span></td><td><span class="col-std">bat_point</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홈팀 총득점</span></td></tr>
+<tr><td class="col-num">55</td><td><span class="col-name">THIT</span></td><td><span class="col-std">total_hit</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">원정팀 총안타</span></td></tr>
+<tr><td class="col-num">56</td><td><span class="col-name">BHIT</span></td><td><span class="col-std">bunt_hit</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홈팀 총안타</span></td></tr>
+<tr><td class="col-num">57</td><td><span class="col-name">TERR</span></td><td><span class="col-std">total_err</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">원정팀 총실책</span></td></tr>
+<tr><td class="col-num">58</td><td><span class="col-name">BERR</span></td><td><span class="col-std">bat_err</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홈팀 총실책</span></td></tr>
+<tr><td class="col-num">59</td><td><span class="col-name">TBBHP</span></td><td><span class="col-std">total_bb_hbp</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">원정팀 볼넷+사구 합계</span></td></tr>
+<tr><td class="col-num">60</td><td><span class="col-name">BBBHP</span></td><td><span class="col-std">bb_bunt_hbp</span></td><td><span class="col-type">int</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홈팀 볼넷+사구 합계</span></td></tr>
 </tbody></table>
 </div>
 
@@ -108,11 +107,11 @@ title: Score
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>GDAY</code><span class="code-desc"> — 경기 일자</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GDAY</code><span class="code-desc"> &mdash; 경기 일자</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>1T</code><span class="code-desc"> — </span></summary>
+<summary><code>1T</code><span class="code-desc"> &mdash; 1회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>16,782</td></tr>
@@ -130,7 +129,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>1B</code><span class="code-desc"> — </span></summary>
+<summary><code>1B</code><span class="code-desc"> &mdash; 1회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>15,847</td></tr>
@@ -150,7 +149,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>2T</code><span class="code-desc"> — </span></summary>
+<summary><code>2T</code><span class="code-desc"> &mdash; 2회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>17,565</td></tr>
@@ -169,7 +168,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>2B</code><span class="code-desc"> — </span></summary>
+<summary><code>2B</code><span class="code-desc"> &mdash; 2회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>17,127</td></tr>
@@ -187,7 +186,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>3T</code><span class="code-desc"> — </span></summary>
+<summary><code>3T</code><span class="code-desc"> &mdash; 3회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>16,948</td></tr>
@@ -208,7 +207,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>3B</code><span class="code-desc"> — </span></summary>
+<summary><code>3B</code><span class="code-desc"> &mdash; 3회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>16,742</td></tr>
@@ -228,7 +227,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>4T</code><span class="code-desc"> — </span></summary>
+<summary><code>4T</code><span class="code-desc"> &mdash; 4회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>16,926</td></tr>
@@ -245,7 +244,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>4B</code><span class="code-desc"> — </span></summary>
+<summary><code>4B</code><span class="code-desc"> &mdash; 4회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>16,669</td></tr>
@@ -264,7 +263,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>5T</code><span class="code-desc"> — </span></summary>
+<summary><code>5T</code><span class="code-desc"> &mdash; 5회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>17,074</td></tr>
@@ -284,7 +283,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>5B</code><span class="code-desc"> — </span></summary>
+<summary><code>5B</code><span class="code-desc"> &mdash; 5회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>16,738</td></tr>
@@ -304,7 +303,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>6T</code><span class="code-desc"> — </span></summary>
+<summary><code>6T</code><span class="code-desc"> &mdash; 6회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>16,920</td></tr>
@@ -324,7 +323,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>6B</code><span class="code-desc"> — </span></summary>
+<summary><code>6B</code><span class="code-desc"> &mdash; 6회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>16,663</td></tr>
@@ -344,11 +343,11 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>7T</code><span class="code-desc"> — </span></summary>
-<div class="code-ref">고유값 15종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>7T</code><span class="code-desc"> &mdash; 7회 초 득점</span></summary>
+<div class="code-ref">고유값 15종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>7B</code><span class="code-desc"> — </span></summary>
+<summary><code>7B</code><span class="code-desc"> &mdash; 7회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>16,888</td></tr>
@@ -368,7 +367,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>8T</code><span class="code-desc"> — </span></summary>
+<summary><code>8T</code><span class="code-desc"> &mdash; 8회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>17,026</td></tr>
@@ -389,7 +388,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>8B</code><span class="code-desc"> — </span></summary>
+<summary><code>8B</code><span class="code-desc"> &mdash; 8회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>16,839</td></tr>
@@ -409,7 +408,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>9T</code><span class="code-desc"> — </span></summary>
+<summary><code>9T</code><span class="code-desc"> &mdash; 9회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>17,305</td></tr>
@@ -428,7 +427,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>9B</code><span class="code-desc"> — </span></summary>
+<summary><code>9B</code><span class="code-desc"> &mdash; 9회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>10,528</td></tr>
@@ -446,7 +445,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>10T</code><span class="code-desc"> — </span></summary>
+<summary><code>10T</code><span class="code-desc"> &mdash; 10회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>21,690</td></tr>
@@ -462,7 +461,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>10B</code><span class="code-desc"> — </span></summary>
+<summary><code>10B</code><span class="code-desc"> &mdash; 10회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>21,692</td></tr>
@@ -476,7 +475,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>11T</code><span class="code-desc"> — </span></summary>
+<summary><code>11T</code><span class="code-desc"> &mdash; 11회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>22,521</td></tr>
@@ -493,7 +492,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>11B</code><span class="code-desc"> — </span></summary>
+<summary><code>11B</code><span class="code-desc"> &mdash; 11회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>22,523</td></tr>
@@ -507,7 +506,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>12T</code><span class="code-desc"> — </span></summary>
+<summary><code>12T</code><span class="code-desc"> &mdash; 12회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,047</td></tr>
@@ -523,7 +522,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>12B</code><span class="code-desc"> — </span></summary>
+<summary><code>12B</code><span class="code-desc"> &mdash; 12회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,048</td></tr>
@@ -536,7 +535,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>13T</code><span class="code-desc"> — </span></summary>
+<summary><code>13T</code><span class="code-desc"> &mdash; 13회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,473</td></tr>
@@ -549,7 +548,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>13B</code><span class="code-desc"> — </span></summary>
+<summary><code>13B</code><span class="code-desc"> &mdash; 13회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,473</td></tr>
@@ -560,7 +559,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>14T</code><span class="code-desc"> — </span></summary>
+<summary><code>14T</code><span class="code-desc"> &mdash; 14회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,531</td></tr>
@@ -572,7 +571,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>14B</code><span class="code-desc"> — </span></summary>
+<summary><code>14B</code><span class="code-desc"> &mdash; 14회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,531</td></tr>
@@ -583,7 +582,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>15T</code><span class="code-desc"> — </span></summary>
+<summary><code>15T</code><span class="code-desc"> &mdash; 15회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,564</td></tr>
@@ -594,7 +593,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>15B</code><span class="code-desc"> — </span></summary>
+<summary><code>15B</code><span class="code-desc"> &mdash; 15회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,564</td></tr>
@@ -604,7 +603,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>16T</code><span class="code-desc"> — </span></summary>
+<summary><code>16T</code><span class="code-desc"> &mdash; 16회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,578</td></tr>
@@ -613,7 +612,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>16B</code><span class="code-desc"> — </span></summary>
+<summary><code>16B</code><span class="code-desc"> &mdash; 16회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,578</td></tr>
@@ -622,7 +621,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>17T</code><span class="code-desc"> — </span></summary>
+<summary><code>17T</code><span class="code-desc"> &mdash; 17회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,578</td></tr>
@@ -631,7 +630,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>17B</code><span class="code-desc"> — </span></summary>
+<summary><code>17B</code><span class="code-desc"> &mdash; 17회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,578</td></tr>
@@ -640,7 +639,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>18T</code><span class="code-desc"> — </span></summary>
+<summary><code>18T</code><span class="code-desc"> &mdash; 18회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,578</td></tr>
@@ -649,7 +648,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>18B</code><span class="code-desc"> — </span></summary>
+<summary><code>18B</code><span class="code-desc"> &mdash; 18회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,578</td></tr>
@@ -658,7 +657,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>19T</code><span class="code-desc"> — </span></summary>
+<summary><code>19T</code><span class="code-desc"> &mdash; 19회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -666,7 +665,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>19B</code><span class="code-desc"> — </span></summary>
+<summary><code>19B</code><span class="code-desc"> &mdash; 19회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -674,7 +673,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>20T</code><span class="code-desc"> — </span></summary>
+<summary><code>20T</code><span class="code-desc"> &mdash; 20회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -682,7 +681,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>20B</code><span class="code-desc"> — </span></summary>
+<summary><code>20B</code><span class="code-desc"> &mdash; 20회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -690,7 +689,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>21T</code><span class="code-desc"> — </span></summary>
+<summary><code>21T</code><span class="code-desc"> &mdash; 21회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -698,7 +697,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>21B</code><span class="code-desc"> — </span></summary>
+<summary><code>21B</code><span class="code-desc"> &mdash; 21회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -706,7 +705,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>22T</code><span class="code-desc"> — </span></summary>
+<summary><code>22T</code><span class="code-desc"> &mdash; 22회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -714,7 +713,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>22B</code><span class="code-desc"> — </span></summary>
+<summary><code>22B</code><span class="code-desc"> &mdash; 22회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -722,7 +721,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>23T</code><span class="code-desc"> — </span></summary>
+<summary><code>23T</code><span class="code-desc"> &mdash; 23회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -730,7 +729,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>23B</code><span class="code-desc"> — </span></summary>
+<summary><code>23B</code><span class="code-desc"> &mdash; 23회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -738,7 +737,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>24T</code><span class="code-desc"> — </span></summary>
+<summary><code>24T</code><span class="code-desc"> &mdash; 24회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -746,7 +745,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>24B</code><span class="code-desc"> — </span></summary>
+<summary><code>24B</code><span class="code-desc"> &mdash; 24회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -754,7 +753,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>25T</code><span class="code-desc"> — </span></summary>
+<summary><code>25T</code><span class="code-desc"> &mdash; 25회 초 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>
@@ -762,7 +761,7 @@ title: Score
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>25B</code><span class="code-desc"> — </span></summary>
+<summary><code>25B</code><span class="code-desc"> &mdash; 25회 말 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>-1</td><td>23,579</td></tr>

@@ -37,12 +37,12 @@ flowchart TB
         S2i[S2i 운영 시스템]
         KMA[기상청 API]
     end
-    subgraph DB2["DB2 — 시즌 데이터 (13개)"]
+    subgraph DB2["DB2 - 시즌 데이터 (13개)"]
         DB2_B["DB2_BASEBALL_YYYY"]
         DB2_M["DB2_MINOR_YYYY"]
         DB2_F["DB2_FUTURES_YYYY"]
     end
-    subgraph DB1["DB1 — 영구 데이터 (4개)"]
+    subgraph DB1["DB1 - 영구 데이터 (4개)"]
         DB1_B[DB1_BASEBALL]
         DB1_MA[DB1_MASTER]
         DB1_MN[DB1_MINOR]
@@ -166,7 +166,7 @@ flowchart TB
 <!-- 3. 컬럼 레벨 리니지                         -->
 <!-- ══════════════════════════════════════════ -->
 <div class="product-section">
-  <div class="product-section-hdr"><h2>3. 컬럼 레벨 리니지 — 핵심 식별자</h2></div>
+  <div class="product-section-hdr"><h2>3. 컬럼 레벨 리니지 - 핵심 식별자</h2></div>
   <p style="font-size:14px;color:#444;margin:0 0 12px">핵심 ID가 테이블 간 어떻게 참조되는지를 추적한다. → <a href="../standards/id-system/" style="color:#2563eb">ID 체계 문서</a></p>
 
   <div class="product-section-hdr" style="border-bottom:none;margin-top:16px;margin-bottom:8px;padding-bottom:0">
@@ -246,8 +246,8 @@ flowchart LR
     </tbody>
   </table>
   <div class="lineage-note" style="margin-top:8px">
-    → <a href="../governance/change-process/">변경 관리 절차</a> — 상태 전환 절차 &nbsp;|&nbsp;
-    → <a href="../standards/code-dictionary/">코드 사전</a> — record_status_cd 정의
+    → <a href="../governance/change-process/">변경 관리 절차</a> - 상태 전환 절차 &nbsp;|&nbsp;
+    → <a href="../standards/code-dictionary/">코드 사전</a> - record_status_cd 정의
   </div>
 </div>
 

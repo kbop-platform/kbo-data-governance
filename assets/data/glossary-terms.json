@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-25",
+  "generated": "2026-02-26",
   "rows": [
     {
       "category": "타격 기록",
@@ -1123,7 +1123,7 @@
       "term_en": "Pitch Clock",
       "abbreviation": "",
       "definition": "투수의 투구 준비 시간 제한 (초)",
-      "db_column": "—",
+      "db_column": "-",
       "related_tables": "PITCHCLOCK"
     },
     {

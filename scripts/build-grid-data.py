@@ -7,16 +7,12 @@ AG Grid 카탈로그 데이터 생성 스크립트
 """
 
 import json, os, re, sys
+from datetime import date
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
-
-DOMAIN_MAP = {
-    "game": "경기 기록",
-    "stats": "통계",
-    "realtime": "실시간",
-    "master": "마스터",
-}
+from config import DOMAIN_LABELS, COLUMN_DESC, STANDARD_MAP, TABLE_OVERRIDES
+from parsers import parse_dictionary_md, columns_from_metadata
 
 # ── 1. column-metadata.json 로드 ─────────────────────────────
 def load_column_metadata():
@@ -70,84 +66,8 @@ def parse_index_descriptions():
     return mapping
 
 # ── 3. dictionary/{domain}/{table}.md 파싱 ────────────────────
-def parse_dictionary_md(md_path):
-    """단일 dictionary md 파일에서 메타 + 컬럼 상세 파싱"""
-    meta = {}
-    columns = []
-    with open(md_path, encoding="utf-8") as f:
-        text = f.read()
+# parse_dictionary_md, columns_from_metadata → parsers.py에서 import
 
-    # 메타 테이블 (| 항목 | 값 | 형태)
-    for m in re.finditer(r"^\|\s*(.+?)\s*\|\s*(.+?)\s*\|", text, re.MULTILINE):
-        key = m.group(1).strip()
-        val = m.group(2).strip()
-        if key == "데이터 티어":
-            # "Tier 1 — Critical" → "Tier 1"
-            meta["tier"] = re.sub(r"\s*[—\-].*", "", val)
-        elif key == "데이터 오너":
-            # "기록위원회 (R-03)" → "기록위원회"
-            meta["owner"] = re.sub(r"\s*\(.*?\)", "", val)
-        elif key == "갱신 주기":
-            # "경기 당일 (S2i 전송)" → "경기 당일"
-            meta["refresh"] = re.sub(r"\s*\(.*?\)", "", val)
-        elif key == "접근 수준":
-            meta["access"] = val
-        elif key == "스키마 세대":
-            meta["schema_gen"] = val
-        elif key == "행 수":
-            meta["row_count"] = int(re.sub(r"[,\s]", "", val))
-        elif key == "대표 DB":
-            meta["representative_db"] = val.strip("`")
-
-    # 컬럼 상세 테이블
-    in_column_table = False
-    header_found = False
-    for line in text.split("\n"):
-        stripped = line.strip()
-        if "## 컬럼 상세" in stripped:
-            in_column_table = True
-            continue
-        if in_column_table and stripped.startswith("|"):
-            cols = [c.strip() for c in stripped.split("|")]
-            if len(cols) < 9:
-                continue
-            # 헤더 행 스킵
-            if cols[1] in ("#", "---", ""):
-                if cols[1] == "#":
-                    header_found = True
-                continue
-            if re.match(r"^-+$", cols[1]):
-                continue
-            if not header_found:
-                continue
-            try:
-                ordinal = int(cols[1])
-            except (ValueError, IndexError):
-                continue
-            col_name = cols[2].strip("`").strip()
-            data_type = cols[3].strip()
-            max_length = cols[4].strip()
-            nullable = cols[5].strip()
-            pk = cols[6].strip()
-            description = cols[7].strip() if len(cols) > 7 else ""
-            std_name = cols[8].strip() if len(cols) > 8 else ""
-            # 표준명에서 backtick 제거
-            std_name = std_name.strip("`")
-
-            columns.append({
-                "ordinal": ordinal,
-                "column_name": col_name,
-                "data_type": data_type,
-                "max_length": max_length,
-                "is_nullable": nullable,
-                "is_pk": pk,
-                "description": description,
-                "std_name": std_name,
-            })
-        elif in_column_table and stripped.startswith("##") and "컬럼 상세" not in stripped:
-            break  # 다음 섹션
-
-    return meta, columns
 
 # ── 4. 컬럼 카탈로그 JSON 생성 ────────────────────────────────
 def build_catalog_columns():
@@ -155,7 +75,7 @@ def build_catalog_columns():
     std_names = parse_index_std_names()
     rows = []
 
-    for domain_key, domain_label in DOMAIN_MAP.items():
+    for domain_key, domain_label in DOMAIN_LABELS.items():
         domain_dir = BASE / "dictionary" / domain_key
         if not domain_dir.exists():
             continue
@@ -168,24 +88,12 @@ def build_catalog_columns():
             # column-metadata.json 에서 보충
             cm = col_meta.get(table_name, {})
             row_count = meta.get("row_count", cm.get("row_count", 0))
-            schema_gen = meta.get("schema_gen", cm.get("schema_generation", "unknown"))
-
             table_std_name = std_names.get(table_name, "")
             table_doc_url = f"dictionary/{domain_key}/{table_name}/"
 
-            # columns 가 비어있으면 column-metadata.json 에서 가져오기
-            if not columns and table_name in col_meta:
-                for c in cm.get("columns", []):
-                    columns.append({
-                        "ordinal": c.get("ordinal", 0),
-                        "column_name": c.get("name", ""),
-                        "data_type": c.get("data_type", ""),
-                        "max_length": str(c.get("max_length", "")),
-                        "is_nullable": "" if c.get("is_nullable") else "NN",
-                        "is_pk": "PK" if c.get("is_pk") else "",
-                        "description": "",
-                        "std_name": "",
-                    })
+            # columns 가 비어있으면 column-metadata.json + config.py 에서 채우기
+            if not columns and cm:
+                columns = columns_from_metadata(table_name, cm)
 
             for col in columns:
                 rows.append({
@@ -203,9 +111,7 @@ def build_catalog_columns():
                     "std_name": col["std_name"],
                     "tier": meta.get("tier", ""),
                     "owner": meta.get("owner", ""),
-                    "refresh": meta.get("refresh", ""),
                     "access": meta.get("access", ""),
-                    "schema_gen": schema_gen,
                     "row_count": row_count,
                     "table_doc_url": table_doc_url,
                 })
@@ -336,7 +242,7 @@ def build_catalog_instances():
     with open(inv_path, encoding="utf-8") as f:
         inventory = json.load(f)
 
-    # 2) column-metadata.json 로드 (schema_generation)
+    # 2) column-metadata.json 로드
     col_meta = load_column_metadata()
 
     # 3) dictionary 파일 목록 → table_name→(domain, meta) 매핑
@@ -344,7 +250,7 @@ def build_catalog_instances():
     dict_exact = {}   # table_name → {domain_key, domain, meta, doc_url}
     dict_ci = {}      # table_name.lower() → {domain_key, domain, meta, doc_url}
 
-    for domain_key, domain_label in DOMAIN_MAP.items():
+    for domain_key, domain_label in DOMAIN_LABELS.items():
         domain_dir = BASE / "dictionary" / domain_key
         if not domain_dir.exists():
             continue
@@ -399,14 +305,12 @@ def build_catalog_instances():
                 meta = dentry["meta"]
                 tier = meta.get("tier", "")
                 owner = meta.get("owner", "")
-                refresh = meta.get("refresh", "")
                 access = meta.get("access", "")
             else:
                 domain = ""
                 table_doc_url = ""
                 tier = ""
                 owner = ""
-                refresh = ""
                 access = ""
 
             # index.md 보조 (dictionary md에 없으면)
@@ -416,7 +320,6 @@ def build_catalog_instances():
             if not owner and idx:
                 owner = idx.get("owner", "")
 
-            # schema_generation (column-metadata.json)
             cm = col_meta.get(table_name, {})
             if not cm:
                 # case-insensitive fallback
@@ -424,8 +327,6 @@ def build_catalog_instances():
                     if k.lower() == table_name.lower():
                         cm = v
                         break
-            schema_gen = cm.get("schema_generation", "")
-
             # pk_columns (column-metadata.json)
             pk_cols = cm.get("pk_columns", [])
             pk_columns = ", ".join(pk_cols) if pk_cols else ""
@@ -460,9 +361,7 @@ def build_catalog_instances():
                 "row_count": row_count,
                 "tier": tier,
                 "owner": owner,
-                "schema_gen": schema_gen,
                 "pk_columns": pk_columns,
-                "refresh": refresh,
                 "access": access,
                 "description": description,
                 "table_doc_url": table_doc_url,
@@ -487,7 +386,7 @@ def parse_index_meta():
             if not m:
                 continue
             tname = m.group(1)
-            # cols 순서: # | 테이블명 | 표준명(안) | 컬럼 수 | 행 수 | PK | 세대 | 티어 | 오너 | 갱신 주기 | 설명
+            # cols 순서: # | 테이블명 | 표준명(안) | 컬럼 수 | 행 수 | PK | (미사용) | 티어 | 오너 | (미사용) | 설명
             tier = cols[8].strip() if len(cols) > 8 else ""
             owner = cols[9].strip() if len(cols) > 9 else ""
             if tier and tier not in ("티어", "---", "--------"):
@@ -614,8 +513,8 @@ def build_domain_types():
 
 # ── 8. 코드 사전 JSON 생성 ─────────────────────────────────────
 def build_code_dictionary():
-    """standards/code-dictionary.md 파싱 → code-dictionary.json"""
-    p = BASE / "docs" / "standards" / "code-dictionary.md"
+    """scripts/data/code-dictionary-source.md 파싱 → code-dictionary.json"""
+    p = BASE / "scripts" / "data" / "code-dictionary-source.md"
     with open(p, encoding="utf-8") as f:
         text = f.read()
 
@@ -672,8 +571,8 @@ def build_code_dictionary():
             cur_subcategory = ""
             in_table = False
 
-            # "code_name / alias — 한글명" 또는 "code_name — 한글명" 또는 "한글명"
-            gm = re.match(r"([\w_]+(?:\s*/\s*[\w_]+)*)\s*[—\-]\s*(.+)", rest)
+            # "code_name / alias - 한글명" 또는 "code_name - 한글명" 또는 "한글명"
+            gm = re.match(r"([\w_]+(?:\s*/\s*[\w_]+)*)\s*-\s*(.+)", rest)
             if gm:
                 cur_code_group = gm.group(1).split("/")[0].strip()
                 cur_group_name = re.sub(r"\s*\(.+?\)\s*$", "", gm.group(2).strip())
@@ -790,6 +689,125 @@ def build_code_dictionary():
 
     return rows
 
+# ── 8b. 약어 사전 JSON 생성 ────────────────────────────────────
+def build_abbreviations():
+    """scripts/data/abbreviations-source.md 파싱 → abbreviations.json"""
+    p = BASE / "scripts" / "data" / "abbreviations-source.md"
+    with open(p, encoding="utf-8") as f:
+        text = f.read()
+
+    rows = []
+    cur_category = ""
+
+    # 섹션 번호 → 카테고리 매핑
+    section_map = {
+        "2": "식별자",
+        "3.1": "타격",
+        "3.2": "타격 비율",
+        "3.3": "투수",
+        "3.4": "투수 비율",
+        "3.5": "수비",
+        "4": "경기 정보",
+        "5": "시스템/운영",
+        "7": "비표준 약어",
+    }
+
+    in_appendix = False
+
+    for line in text.split("\n"):
+        stripped = line.strip()
+
+        # 부록 이후 중단
+        if stripped.startswith("## 부록"):
+            in_appendix = True
+            continue
+        if in_appendix:
+            continue
+
+        # 접미사 규칙(§6) 스킵
+        if stripped.startswith("## 6."):
+            cur_category = "__skip__"
+            continue
+
+        # ## 섹션 헤더 (예: ## 2. 식별자 약어)
+        hm2 = re.match(r"^##\s+(\d+)\.\s+(.+)", stripped)
+        if hm2:
+            sec_num = hm2.group(1)
+            cat = section_map.get(sec_num, hm2.group(2).strip())
+            cur_category = cat
+            continue
+
+        # ### 서브섹션 (예: ### 3.1 타격)
+        hm3 = re.match(r"^###\s+(\d+\.\d+)\s+(.+)", stripped)
+        if hm3:
+            sec_num = hm3.group(1)
+            cat = section_map.get(sec_num, hm3.group(2).strip())
+            cur_category = cat
+            continue
+
+        # ### 테이블 접두사 등 비테이블 서브섹션 스킵
+        if re.match(r"^###\s+", stripped) and "접두사" in stripped:
+            cur_category = "__skip__"
+            continue
+
+        if cur_category == "__skip__":
+            continue
+
+        if not stripped.startswith("|"):
+            continue
+
+        cols = [c.strip() for c in stripped.split("|")]
+        if len(cols) < 6:
+            continue
+
+        # 구분선/헤더 스킵
+        real = cols[1:-1] if cols[-1] == "" else cols[1:]
+        if not real or all(re.match(r"^-+$", c) or c == "" for c in real):
+            continue
+        first = real[0].strip()
+        if first in ("약어", "KBO 레거시", "접미사", "접두사", ""):
+            continue
+
+        # §7 비표준 약어: KBO레거시 | 국제표준 | 표준명(안) | 한글 | 비고
+        if cur_category == "비표준 약어" and len(real) >= 4:
+            abbr = re.sub(r"`", "", real[0]).strip()
+            full_en = re.sub(r"`", "", real[1]).strip()
+            std_name = re.sub(r"`", "", real[2]).strip()
+            full_ko = real[3].strip() if len(real) > 3 else ""
+            note = real[4].strip() if len(real) > 4 else ""
+            rows.append({
+                "category": cur_category,
+                "abbreviation": abbr,
+                "full_name_en": full_en,
+                "full_name_ko": full_ko,
+                "legacy_columns": abbr,
+                "std_name": std_name,
+                "note": note,
+            })
+            continue
+
+        # 일반 섹션: 약어 | 영문 | 한글 | 레거시컬럼 | 표준명(안)
+        if len(real) >= 5:
+            abbr = re.sub(r"`", "", real[0]).strip()
+            full_en = real[1].strip()
+            full_ko = real[2].strip()
+            legacy = re.sub(r"`", "", real[3]).strip()
+            std_name = re.sub(r"`", "", real[4]).strip()
+            # 볼드(**) 제거
+            legacy = re.sub(r"\*\*", "", legacy)
+            note = ""
+            rows.append({
+                "category": cur_category,
+                "abbreviation": abbr,
+                "full_name_en": full_en,
+                "full_name_ko": full_ko,
+                "legacy_columns": legacy,
+                "std_name": std_name,
+                "note": note,
+            })
+
+    return rows
+
 # ── 9. 딕셔너리 테이블 요약 JSON 생성 ─────────────────────────
 def build_dictionary_tables():
     """39종 테이블 요약 JSON 생성 (Dictionary AG Grid용)"""
@@ -798,7 +816,7 @@ def build_dictionary_tables():
     idx_descs = parse_index_descriptions()
 
     rows = []
-    for domain_key, domain_label in DOMAIN_MAP.items():
+    for domain_key, domain_label in DOMAIN_LABELS.items():
         domain_dir = BASE / "dictionary" / domain_key
         if not domain_dir.exists():
             continue
@@ -817,7 +835,6 @@ def build_dictionary_tables():
                         break
 
             row_count = meta.get("row_count", cm.get("row_count", 0))
-            schema_gen = meta.get("schema_gen", cm.get("schema_generation", "unknown"))
             pk_cols = cm.get("pk_columns", [])
             pk_columns = ", ".join(pk_cols) if pk_cols else ""
 
@@ -833,6 +850,10 @@ def build_dictionary_tables():
                     if k.lower() == table_name.lower():
                         description = v
                         break
+
+            # columns 폴백: column-metadata.json + config.py
+            if not columns and cm:
+                columns = columns_from_metadata(table_name, cm)
 
             column_count = len(columns) if columns else cm.get("column_count", 0)
 
@@ -854,10 +875,8 @@ def build_dictionary_tables():
                 "column_count": column_count,
                 "row_count": row_count,
                 "pk_columns": pk_columns,
-                "schema_gen": schema_gen,
                 "tier": meta.get("tier", ""),
                 "owner": meta.get("owner", ""),
-                "refresh": meta.get("refresh", ""),
                 "description": description,
                 "table_doc_url": f"dictionary/{domain_key}/{table_name}/",
                 "columns": col_summary,
@@ -866,51 +885,25 @@ def build_dictionary_tables():
     return rows
 
 # ── main ──────────────────────────────────────────────────────
+def _write_json(path, rows, label):
+    """JSON 파일 출력 (generated 날짜 자동 삽입)"""
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump({"generated": date.today().isoformat(), "rows": rows},
+                  f, ensure_ascii=False, indent=2)
+    print(f"{path.name}: {len(rows)} rows")
+
+
 def main():
     out_dir = BASE / "assets" / "data"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    # 컬럼 카탈로그
-    cat_rows = build_catalog_columns()
-    cat_path = out_dir / "catalog-columns.json"
-    with open(cat_path, "w", encoding="utf-8") as f:
-        json.dump({"generated": "2026-02-25", "rows": cat_rows}, f, ensure_ascii=False, indent=2)
-    print(f"catalog-columns.json: {len(cat_rows)} rows")
-
-    # 용어 사전
-    glo_rows = build_glossary_terms()
-    glo_path = out_dir / "glossary-terms.json"
-    with open(glo_path, "w", encoding="utf-8") as f:
-        json.dump({"generated": "2026-02-25", "rows": glo_rows}, f, ensure_ascii=False, indent=2)
-    print(f"glossary-terms.json: {len(glo_rows)} rows")
-
-    # 인스턴스 매트릭스
-    inst_rows = build_catalog_instances()
-    inst_path = out_dir / "catalog-instances.json"
-    with open(inst_path, "w", encoding="utf-8") as f:
-        json.dump({"generated": "2026-02-25", "rows": inst_rows}, f, ensure_ascii=False, indent=2)
-    print(f"catalog-instances.json: {len(inst_rows)} rows")
-
-    # 도메인 타입
-    dom_rows = build_domain_types()
-    dom_path = out_dir / "domain-types.json"
-    with open(dom_path, "w", encoding="utf-8") as f:
-        json.dump({"generated": "2026-02-25", "rows": dom_rows}, f, ensure_ascii=False, indent=2)
-    print(f"domain-types.json: {len(dom_rows)} rows")
-
-    # 코드 사전
-    code_rows = build_code_dictionary()
-    code_path = out_dir / "code-dictionary.json"
-    with open(code_path, "w", encoding="utf-8") as f:
-        json.dump({"generated": "2026-02-25", "rows": code_rows}, f, ensure_ascii=False, indent=2)
-    print(f"code-dictionary.json: {len(code_rows)} rows")
-
-    # 딕셔너리 테이블 요약
-    dict_rows = build_dictionary_tables()
-    dict_path = out_dir / "dictionary-tables.json"
-    with open(dict_path, "w", encoding="utf-8") as f:
-        json.dump({"generated": "2026-02-25", "rows": dict_rows}, f, ensure_ascii=False, indent=2)
-    print(f"dictionary-tables.json: {len(dict_rows)} rows")
+    _write_json(out_dir / "catalog-columns.json",   build_catalog_columns(),    "컬럼 카탈로그")
+    _write_json(out_dir / "glossary-terms.json",     build_glossary_terms(),     "용어 사전")
+    _write_json(out_dir / "catalog-instances.json",  build_catalog_instances(),  "인스턴스 매트릭스")
+    _write_json(out_dir / "domain-types.json",       build_domain_types(),       "도메인 타입")
+    _write_json(out_dir / "code-dictionary.json",    build_code_dictionary(),    "코드 사전")
+    _write_json(out_dir / "abbreviations.json",      build_abbreviations(),      "약어 사전")
+    _write_json(out_dir / "dictionary-tables.json",  build_dictionary_tables(),  "딕셔너리 테이블")
 
 if __name__ == "__main__":
     main()

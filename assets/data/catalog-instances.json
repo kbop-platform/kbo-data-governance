@@ -1,5 +1,5 @@
 {
-  "generated": "2026-02-25",
+  "generated": "2026-02-26",
   "rows": [
     {
       "db_name": "DB1_BASEBALL_2_220328",
@@ -13,9 +13,7 @@
       "row_count": 19747,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "new",
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER/"
@@ -32,9 +30,7 @@
       "row_count": 360625,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "new",
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER_SITUATION/"
@@ -51,9 +47,7 @@
       "row_count": 13306,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "new",
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER/"
@@ -70,9 +64,7 @@
       "row_count": 301375,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "new",
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER_SITUATION/"
@@ -89,9 +81,7 @@
       "row_count": 13616,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
@@ -108,9 +98,7 @@
       "row_count": 846736,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/DEFEN/"
@@ -127,9 +115,7 @@
       "row_count": 854280,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
@@ -146,9 +132,7 @@
       "row_count": 7784,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "new",
       "pk_columns": "LE_ID, SR_ID, G_ID, SEQ_NO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAME_HR/"
@@ -165,9 +149,7 @@
       "row_count": 54544,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "new",
       "pk_columns": "LE_ID, SR_ID, G_ID, INN_NO, BAT_ORDER_NO, BAT_AROUND_NO, TB_SC, PA_PIT_NO, ORDER_NO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAME_MEMO/"
@@ -184,9 +166,7 @@
       "row_count": 237,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "new",
       "pk_columns": "LE_ID, SR_ID, G_ID, SEQ_NO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAME_MEMO_PITCHCLOCK/"
@@ -203,9 +183,7 @@
       "row_count": 2531702,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, SERNO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
@@ -222,9 +200,7 @@
       "row_count": 23579,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
@@ -241,9 +217,7 @@
       "row_count": 648248,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
@@ -260,9 +234,7 @@
       "row_count": 223624,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
@@ -279,9 +251,7 @@
       "row_count": 9377,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
@@ -298,9 +268,7 @@
       "row_count": 23579,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Score/"
@@ -317,9 +285,7 @@
       "row_count": 373,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "unknown",
       "pk_columns": "GYEAR, SEC, TEAM",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
@@ -336,9 +302,7 @@
       "row_count": 9535,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
@@ -355,9 +319,7 @@
       "row_count": 334439,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
@@ -374,9 +336,7 @@
       "row_count": 975096,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, SERNO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
@@ -393,9 +353,7 @@
       "row_count": 8531,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
@@ -412,9 +370,7 @@
       "row_count": 239888,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
@@ -431,9 +387,7 @@
       "row_count": 92915,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
@@ -450,9 +404,7 @@
       "row_count": 6910,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
@@ -469,9 +421,7 @@
       "row_count": 8531,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Score/"
@@ -488,9 +438,7 @@
       "row_count": 179,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "unknown",
       "pk_columns": "GYEAR, SEC, TEAM",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
@@ -507,9 +455,7 @@
       "row_count": 1946,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
@@ -526,9 +472,7 @@
       "row_count": 4516,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
@@ -545,9 +489,7 @@
       "row_count": 13309,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, SERNO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
@@ -564,9 +506,7 @@
       "row_count": 124,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
@@ -583,9 +523,7 @@
       "row_count": 3303,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
@@ -602,9 +540,7 @@
       "row_count": 1265,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
@@ -621,9 +557,7 @@
       "row_count": 1142,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
@@ -640,9 +574,7 @@
       "row_count": 124,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Score/"
@@ -659,9 +591,7 @@
       "row_count": 67,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "unknown",
       "pk_columns": "GYEAR, SEC, TEAM",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
@@ -678,9 +608,7 @@
       "row_count": 0,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
@@ -697,9 +625,7 @@
       "row_count": 2560,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
@@ -716,9 +642,7 @@
       "row_count": 5683,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, SERNO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
@@ -735,9 +659,7 @@
       "row_count": 56,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
@@ -754,9 +676,7 @@
       "row_count": 1713,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
@@ -773,9 +693,7 @@
       "row_count": 25,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
@@ -792,9 +710,7 @@
       "row_count": 858,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
@@ -811,9 +727,7 @@
       "row_count": 21,
       "tier": "Tier 3",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
@@ -830,9 +744,7 @@
       "row_count": 25,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "GAMEID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
@@ -849,9 +761,7 @@
       "row_count": 11461,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
@@ -868,9 +778,7 @@
       "row_count": 379,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, PlayerID",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
@@ -887,9 +795,7 @@
       "row_count": 418,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, inning, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
@@ -906,9 +812,7 @@
       "row_count": 48,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
@@ -925,9 +829,7 @@
       "row_count": 548,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
@@ -944,9 +846,7 @@
       "row_count": 135,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, SEQ",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
@@ -963,9 +863,7 @@
       "row_count": 300,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
@@ -982,9 +880,7 @@
       "row_count": 833,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
@@ -1001,9 +897,7 @@
       "row_count": 0,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
@@ -1020,9 +914,7 @@
       "row_count": 56,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Score/"
@@ -1039,9 +931,7 @@
       "row_count": 0,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "unknown",
       "pk_columns": "GYEAR, SEC, TEAM",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
@@ -1058,9 +948,7 @@
       "row_count": 16099,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "new",
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER/"
@@ -1077,9 +965,7 @@
       "row_count": 228487,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "new",
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER_SITUATION/"
@@ -1096,9 +982,7 @@
       "row_count": 11173,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "new",
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER/"
@@ -1115,9 +999,7 @@
       "row_count": 214288,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "new",
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER_SITUATION/"
@@ -1134,9 +1016,7 @@
       "row_count": 401,
       "tier": "Tier 3",
       "owner": "데이터 관리자",
-      "schema_gen": "unknown",
       "pk_columns": "SEASON_ID, T_ID",
-      "refresh": "연 1회",
       "access": "Public",
       "description": "",
       "table_doc_url": "dictionary/master/TEAM/"
@@ -1153,9 +1033,7 @@
       "row_count": 796,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
@@ -1172,9 +1050,7 @@
       "row_count": 28243,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/DEFEN/"
@@ -1191,9 +1067,7 @@
       "row_count": 28058,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
@@ -1210,9 +1084,7 @@
       "row_count": 1280,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "new",
       "pk_columns": "LE_ID, SR_ID, G_ID, SEQ_NO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAME_HR/"
@@ -1229,9 +1101,7 @@
       "row_count": 23978,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "new",
       "pk_columns": "LE_ID, SR_ID, G_ID, INN_NO, BAT_ORDER_NO, BAT_AROUND_NO, TB_SC, PA_PIT_NO, ORDER_NO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAME_MEMO/"
@@ -1248,9 +1118,7 @@
       "row_count": 237,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "new",
       "pk_columns": "LE_ID, SR_ID, G_ID, SEQ_NO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAME_MEMO_PITCHCLOCK/"
@@ -1267,9 +1135,7 @@
       "row_count": 77280,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, SERNO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
@@ -1286,9 +1152,7 @@
       "row_count": 720,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
@@ -1305,9 +1169,7 @@
       "row_count": 1680,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "unknown",
       "pk_columns": "code, tm",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO_WEATHER/"
@@ -1324,9 +1186,7 @@
       "row_count": 19946,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
@@ -1343,9 +1203,7 @@
       "row_count": 424921,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
@@ -1362,9 +1220,7 @@
       "row_count": 122762,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, SEQ",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
@@ -1381,9 +1237,7 @@
       "row_count": 134292,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
@@ -1400,9 +1254,7 @@
       "row_count": 215,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, GDAY, LIVETEXT",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/PITCHCLOCK/"
@@ -1419,9 +1271,7 @@
       "row_count": 8466,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
@@ -1438,9 +1288,7 @@
       "row_count": 562,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
@@ -1457,9 +1305,7 @@
       "row_count": 720,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Score/"
@@ -1476,9 +1322,7 @@
       "row_count": 10,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "unknown",
       "pk_columns": "GYEAR, SEC, TEAM",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
@@ -1495,9 +1339,7 @@
       "row_count": 1290,
       "tier": "Tier 2",
       "owner": "경기운영팀",
-      "schema_gen": "new",
       "pk_columns": "LE_ID, SR_ID, G_ID",
-      "refresh": "발생 즉시",
       "access": "Public",
       "description": "",
       "table_doc_url": "dictionary/master/CANCEL_GAME/"
@@ -1514,9 +1356,7 @@
       "row_count": 15482,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
@@ -1533,9 +1373,7 @@
       "row_count": 451166,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
@@ -1552,9 +1390,7 @@
       "row_count": 15908,
       "tier": "Tier 3",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
@@ -1571,9 +1407,7 @@
       "row_count": 15237,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "GAMEID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
@@ -1590,9 +1424,7 @@
       "row_count": 8005079,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
@@ -1609,9 +1441,7 @@
       "row_count": 785406,
       "tier": "Tier 3",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_log/"
@@ -1628,9 +1458,7 @@
       "row_count": 134388,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, PlayerID",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
@@ -1647,9 +1475,7 @@
       "row_count": 267166,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, inning, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
@@ -1666,9 +1492,7 @@
       "row_count": 30860,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
@@ -1685,9 +1509,7 @@
       "row_count": 27340,
       "tier": "Tier 2",
       "owner": "경기운영팀",
-      "schema_gen": "legacy",
       "pk_columns": "gmkey, gamedate",
-      "refresh": "시즌 전 일괄",
       "access": "Public",
       "description": "",
       "table_doc_url": "dictionary/master/KBO_schedule/"
@@ -1704,9 +1526,7 @@
       "row_count": 100812,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GYEAR, PCODE",
-      "refresh": "시즌 전 갱신",
       "access": "Restricted",
       "description": "",
       "table_doc_url": "dictionary/master/person/"
@@ -1723,9 +1543,7 @@
       "row_count": 228,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "",
-      "refresh": "FA 발생 시 수시",
       "access": "Restricted",
       "description": "",
       "table_doc_url": "dictionary/master/PERSON_FA/"
@@ -1742,9 +1560,7 @@
       "row_count": 91891,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GYEAR, PCODE, NAME",
-      "refresh": "시즌 전 갱신",
       "access": "Restricted",
       "description": "",
       "table_doc_url": "dictionary/master/person2/"
@@ -1761,9 +1577,7 @@
       "row_count": 487,
       "tier": "Tier 3",
       "owner": "데이터 관리자",
-      "schema_gen": "unknown",
       "pk_columns": "gyear, stadium",
-      "refresh": "연 1회",
       "access": "Public",
       "description": "",
       "table_doc_url": "dictionary/master/STADIUM/"
@@ -1780,9 +1594,7 @@
       "row_count": 5127,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
@@ -1799,9 +1611,7 @@
       "row_count": 57411,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
@@ -1818,9 +1628,7 @@
       "row_count": 124637,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, SERNO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
@@ -1837,9 +1645,7 @@
       "row_count": 1205,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
@@ -1856,9 +1662,7 @@
       "row_count": 40728,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
@@ -1875,9 +1679,7 @@
       "row_count": 916,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
@@ -1894,9 +1696,7 @@
       "row_count": 35601,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
@@ -1913,9 +1713,7 @@
       "row_count": 916,
       "tier": "Tier 3",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
@@ -1932,9 +1730,7 @@
       "row_count": 969,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "GAMEID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
@@ -1951,9 +1747,7 @@
       "row_count": 480083,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
@@ -1970,9 +1764,7 @@
       "row_count": 9672,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, PlayerID",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
@@ -1989,9 +1781,7 @@
       "row_count": 16114,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, inning, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
@@ -2008,9 +1798,7 @@
       "row_count": 2022,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
@@ -2027,9 +1815,7 @@
       "row_count": 29217,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
@@ -2046,9 +1832,7 @@
       "row_count": 7092,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, SEQ",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
@@ -2065,9 +1849,7 @@
       "row_count": 8942,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
@@ -2084,9 +1866,7 @@
       "row_count": 14756,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
@@ -2103,9 +1883,7 @@
       "row_count": 3904,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
@@ -2122,9 +1900,7 @@
       "row_count": 1205,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Score/"
@@ -2141,9 +1917,7 @@
       "row_count": 466,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "new",
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER/"
@@ -2160,9 +1934,7 @@
       "row_count": 5700,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "new",
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_HITTER_SITUATION/"
@@ -2179,9 +1951,7 @@
       "row_count": 394,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "new",
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, GROUP_IF",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER/"
@@ -2198,9 +1968,7 @@
       "row_count": 5460,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "new",
       "pk_columns": "SEASON_ID, P_ID, SECTION_CD, SITUATION_IF",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/SEASON_PLAYER_PITCHER_SITUATION/"
@@ -2217,9 +1985,7 @@
       "row_count": 214,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "unknown",
       "pk_columns": "GYEAR, SEC, TEAM",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
@@ -2236,9 +2002,7 @@
       "row_count": 0,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
@@ -2255,9 +2019,7 @@
       "row_count": 2073,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
@@ -2274,9 +2036,7 @@
       "row_count": 4586,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, SERNO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
@@ -2293,9 +2053,7 @@
       "row_count": 43,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
@@ -2312,9 +2070,7 @@
       "row_count": 116,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
@@ -2331,9 +2087,7 @@
       "row_count": 34,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
@@ -2350,9 +2104,7 @@
       "row_count": 1364,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
@@ -2369,9 +2121,7 @@
       "row_count": 34,
       "tier": "Tier 3",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
@@ -2388,9 +2138,7 @@
       "row_count": 34,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "GAMEID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
@@ -2407,9 +2155,7 @@
       "row_count": 18535,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
@@ -2426,9 +2172,7 @@
       "row_count": 394,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, PlayerID",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
@@ -2445,9 +2189,7 @@
       "row_count": 595,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, inning, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
@@ -2464,9 +2206,7 @@
       "row_count": 68,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
@@ -2483,9 +2223,7 @@
       "row_count": 1324,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
@@ -2502,9 +2240,7 @@
       "row_count": 323,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, SEQ",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
@@ -2521,9 +2257,7 @@
       "row_count": 452,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
@@ -2540,9 +2274,7 @@
       "row_count": 87,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GYEAR, PCODE",
-      "refresh": "시즌 전 갱신",
       "access": "Restricted",
       "description": "",
       "table_doc_url": "dictionary/master/person/"
@@ -2559,9 +2291,7 @@
       "row_count": 592,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
@@ -2578,9 +2308,7 @@
       "row_count": 0,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
@@ -2597,9 +2325,7 @@
       "row_count": 43,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Score/"
@@ -2616,9 +2342,7 @@
       "row_count": 0,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "unknown",
       "pk_columns": "GYEAR, SEC, TEAM",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
@@ -2635,9 +2359,7 @@
       "row_count": 958,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
@@ -2654,9 +2376,7 @@
       "row_count": 22098,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
@@ -2673,9 +2393,7 @@
       "row_count": 63928,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, SERNO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
@@ -2692,9 +2410,7 @@
       "row_count": 539,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
@@ -2711,9 +2427,7 @@
       "row_count": 15083,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
@@ -2730,9 +2444,7 @@
       "row_count": 221839,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
@@ -2749,9 +2461,7 @@
       "row_count": 70096,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, SEQ",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
@@ -2768,9 +2478,7 @@
       "row_count": 70729,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
@@ -2787,9 +2495,7 @@
       "row_count": 4023,
       "tier": "Tier 2",
       "owner": "경기운영팀",
-      "schema_gen": "legacy",
       "pk_columns": "gmkey, gamedate",
-      "refresh": "시즌 전 일괄",
       "access": "Public",
       "description": "",
       "table_doc_url": "dictionary/master/KBO_schedule/"
@@ -2806,9 +2512,7 @@
       "row_count": 13902,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GYEAR, PCODE",
-      "refresh": "시즌 전 갱신",
       "access": "Restricted",
       "description": "",
       "table_doc_url": "dictionary/master/PERSON/"
@@ -2825,9 +2529,7 @@
       "row_count": 168,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, GDAY, LIVETEXT",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/PITCHCLOCK/"
@@ -2844,9 +2546,7 @@
       "row_count": 6743,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
@@ -2863,9 +2563,7 @@
       "row_count": 804,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
@@ -2882,9 +2580,7 @@
       "row_count": 539,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Score/"
@@ -2901,9 +2597,7 @@
       "row_count": 284,
       "tier": "Tier 3",
       "owner": "데이터 관리자",
-      "schema_gen": "unknown",
       "pk_columns": "gyear, stadium",
-      "refresh": "연 1회",
       "access": "Public",
       "description": "",
       "table_doc_url": "dictionary/master/STADIUM/"
@@ -2920,9 +2614,7 @@
       "row_count": 210,
       "tier": "Tier 3",
       "owner": "데이터 관리자",
-      "schema_gen": "unknown",
       "pk_columns": "SEASON_ID, T_ID",
-      "refresh": "연 1회",
       "access": "Public",
       "description": "",
       "table_doc_url": "dictionary/master/TEAM/"
@@ -2939,9 +2631,7 @@
       "row_count": 11,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "unknown",
       "pk_columns": "GYEAR, SEC, TEAM",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
@@ -2958,9 +2648,7 @@
       "row_count": 8651,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
@@ -2977,9 +2665,7 @@
       "row_count": 263107,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
@@ -2996,9 +2682,7 @@
       "row_count": 8362,
       "tier": "Tier 3",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
@@ -3015,9 +2699,7 @@
       "row_count": 6978,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "GAMEID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
@@ -3034,9 +2716,7 @@
       "row_count": 4506413,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
@@ -3053,9 +2733,7 @@
       "row_count": 75646,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, PlayerID",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
@@ -3072,9 +2750,7 @@
       "row_count": 147846,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, inning, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
@@ -3091,9 +2767,7 @@
       "row_count": 17302,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
@@ -3110,9 +2784,7 @@
       "row_count": 0,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
@@ -3129,9 +2801,7 @@
       "row_count": 111,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
@@ -3148,9 +2818,7 @@
       "row_count": 347,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, SERNO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
@@ -3167,9 +2835,7 @@
       "row_count": 3,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
@@ -3186,9 +2852,7 @@
       "row_count": 77,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
@@ -3205,9 +2869,7 @@
       "row_count": 3,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
@@ -3224,9 +2886,7 @@
       "row_count": 77,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
@@ -3243,9 +2903,7 @@
       "row_count": 0,
       "tier": "Tier 3",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
@@ -3262,9 +2920,7 @@
       "row_count": 3,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "GAMEID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
@@ -3281,9 +2937,7 @@
       "row_count": 1672,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
@@ -3300,9 +2954,7 @@
       "row_count": 36,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, PlayerID",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
@@ -3319,9 +2971,7 @@
       "row_count": 53,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, inning, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
@@ -3338,9 +2988,7 @@
       "row_count": 6,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
@@ -3357,9 +3005,7 @@
       "row_count": 77,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
@@ -3376,9 +3022,7 @@
       "row_count": 21,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, SEQ",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
@@ -3395,9 +3039,7 @@
       "row_count": 36,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
@@ -3414,9 +3056,7 @@
       "row_count": 1,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, GDAY, LIVETEXT",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/PITCHCLOCK/"
@@ -3433,9 +3073,7 @@
       "row_count": 42,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
@@ -3452,9 +3090,7 @@
       "row_count": 0,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
@@ -3471,9 +3107,7 @@
       "row_count": 3,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Score/"
@@ -3490,9 +3124,7 @@
       "row_count": 0,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "unknown",
       "pk_columns": "GYEAR, SEC, TEAM",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
@@ -3509,9 +3141,7 @@
       "row_count": 144,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
@@ -3528,9 +3158,7 @@
       "row_count": 346,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
@@ -3547,9 +3175,7 @@
       "row_count": 954,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, SERNO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
@@ -3566,9 +3192,7 @@
       "row_count": 9,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
@@ -3585,9 +3209,7 @@
       "row_count": 246,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
@@ -3604,9 +3226,7 @@
       "row_count": 3303,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
@@ -3623,9 +3243,7 @@
       "row_count": 1119,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, SEQ",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
@@ -3642,9 +3260,7 @@
       "row_count": 1099,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
@@ -3661,9 +3277,7 @@
       "row_count": 146,
       "tier": "Tier 2",
       "owner": "경기운영팀",
-      "schema_gen": "legacy",
       "pk_columns": "gmkey, gamedate",
-      "refresh": "시즌 전 일괄",
       "access": "Public",
       "description": "",
       "table_doc_url": "dictionary/master/KBO_schedule/"
@@ -3680,9 +3294,7 @@
       "row_count": 8249,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GYEAR, PCODE",
-      "refresh": "시즌 전 갱신",
       "access": "Restricted",
       "description": "",
       "table_doc_url": "dictionary/master/PERSON/"
@@ -3699,9 +3311,7 @@
       "row_count": 103,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
@@ -3718,9 +3328,7 @@
       "row_count": 116,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
@@ -3737,9 +3345,7 @@
       "row_count": 9,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Score/"
@@ -3756,9 +3362,7 @@
       "row_count": 178,
       "tier": "Tier 3",
       "owner": "데이터 관리자",
-      "schema_gen": "unknown",
       "pk_columns": "SEASON_ID, T_ID",
-      "refresh": "연 1회",
       "access": "Public",
       "description": "",
       "table_doc_url": "dictionary/master/TEAM/"
@@ -3775,9 +3379,7 @@
       "row_count": 4,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "unknown",
       "pk_columns": "GYEAR, SEC, TEAM",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
@@ -3794,9 +3396,7 @@
       "row_count": 16,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
@@ -3813,9 +3413,7 @@
       "row_count": 449,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
@@ -3832,9 +3430,7 @@
       "row_count": 0,
       "tier": "Tier 3",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
@@ -3851,9 +3447,7 @@
       "row_count": 16,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "GAMEID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
@@ -3870,9 +3464,7 @@
       "row_count": 7813,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
@@ -3889,9 +3481,7 @@
       "row_count": 141,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, PlayerID",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
@@ -3908,9 +3498,7 @@
       "row_count": 279,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, inning, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
@@ -3927,9 +3515,7 @@
       "row_count": 32,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
@@ -3946,9 +3532,7 @@
       "row_count": 207,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
@@ -3965,9 +3549,7 @@
       "row_count": 1614,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
@@ -3984,9 +3566,7 @@
       "row_count": 3307,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, SERNO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
@@ -4003,9 +3583,7 @@
       "row_count": 32,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
@@ -4022,9 +3600,7 @@
       "row_count": 1131,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
@@ -4041,9 +3617,7 @@
       "row_count": 2,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
@@ -4060,9 +3634,7 @@
       "row_count": 46,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
@@ -4079,9 +3651,7 @@
       "row_count": 2,
       "tier": "Tier 3",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
@@ -4098,9 +3668,7 @@
       "row_count": 2,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "GAMEID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
@@ -4117,9 +3685,7 @@
       "row_count": 894,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
@@ -4136,9 +3702,7 @@
       "row_count": 14,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, PlayerID",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
@@ -4155,9 +3719,7 @@
       "row_count": 35,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, inning, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
@@ -4174,9 +3736,7 @@
       "row_count": 4,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
@@ -4193,9 +3753,7 @@
       "row_count": 1131,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
@@ -4212,9 +3770,7 @@
       "row_count": 260,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, SEQ",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
@@ -4231,9 +3787,7 @@
       "row_count": 355,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
@@ -4250,9 +3804,7 @@
       "row_count": 419,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
@@ -4269,9 +3821,7 @@
       "row_count": 161,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
@@ -4288,9 +3838,7 @@
       "row_count": 32,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Score/"
@@ -4307,9 +3855,7 @@
       "row_count": 10,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "unknown",
       "pk_columns": "GYEAR, SEC, TEAM",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"
@@ -4326,9 +3872,7 @@
       "row_count": 2615,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/BatTotal/"
@@ -4345,9 +3889,7 @@
       "row_count": 19482,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, TURN, PCODE, POSI",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/ENTRY/"
@@ -4364,9 +3906,7 @@
       "row_count": 57975,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, SERNO",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMECONTAPP/"
@@ -4383,9 +3923,7 @@
       "row_count": 551,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/GAMEINFO/"
@@ -4402,9 +3940,7 @@
       "row_count": 14604,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Hitter/"
@@ -4421,9 +3957,7 @@
       "row_count": 310,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BallCount/"
@@ -4440,9 +3974,7 @@
       "row_count": 8507,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, BatOrder, PlayerID, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_BatterRecord/"
@@ -4459,9 +3991,7 @@
       "row_count": 296,
       "tier": "Tier 3",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GameList/"
@@ -4478,9 +4008,7 @@
       "row_count": 294,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "GAMEID, GYEAR",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_GAMESTATE/"
@@ -4497,9 +4025,7 @@
       "row_count": 164791,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, SeqNO",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_LiveText/"
@@ -4516,9 +4042,7 @@
       "row_count": 3015,
       "tier": "Tier 2",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, PlayerID",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_PitcherRecord/"
@@ -4535,9 +4059,7 @@
       "row_count": 5605,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, inning, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_Scoreinning/"
@@ -4554,9 +4076,7 @@
       "row_count": 622,
       "tier": "Tier 1",
       "owner": "S2i 운영",
-      "schema_gen": "unknown",
       "pk_columns": "gameID, GYEAR, bHome",
-      "refresh": "실시간",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/realtime/IE_ScoreRHEB/"
@@ -4573,9 +4093,7 @@
       "row_count": 6573,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_BATRESULT/"
@@ -4592,9 +4110,7 @@
       "row_count": 1957,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, SEQ",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_ETCGAME/"
@@ -4611,9 +4127,7 @@
       "row_count": 2463,
       "tier": "Tier 2",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/KBO_PITRESULT/"
@@ -4630,9 +4144,7 @@
       "row_count": 2,
       "tier": "Tier 3",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GYEAR, GDAY, LIVETEXT",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/PITCHCLOCK/"
@@ -4649,9 +4161,7 @@
       "row_count": 5706,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY, PCODE",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Pitcher/"
@@ -4668,9 +4178,7 @@
       "row_count": 1892,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "legacy",
       "pk_columns": "PCODE, GYEAR, SEC",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/PitTotal/"
@@ -4687,9 +4195,7 @@
       "row_count": 551,
       "tier": "Tier 1",
       "owner": "기록위원회",
-      "schema_gen": "legacy",
       "pk_columns": "GMKEY, GDAY",
-      "refresh": "경기 당일",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/game/Score/"
@@ -4706,9 +4212,7 @@
       "row_count": 165,
       "tier": "Tier 2",
       "owner": "통계분석팀",
-      "schema_gen": "unknown",
       "pk_columns": "GYEAR, SEC, TEAM",
-      "refresh": "D+1",
       "access": "Internal",
       "description": "",
       "table_doc_url": "dictionary/stats/TeamRank/"

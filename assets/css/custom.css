@@ -1,4 +1,7 @@
-/* === KBO DataHub — MkDocs Material Custom Theme === */
+/* === KBO DataHub - MkDocs Material Custom Theme === */
+
+/* Auth: JS 인증 확인 전까지 페이지 숨김 - 콘텐츠 플래시 방지 */
+html:not([data-authed]) { visibility: hidden; }
 
 :root {
   --kbo-navy: #1B2A5B;
@@ -13,7 +16,7 @@
   background-color: var(--kbo-navy);
 }
 
-/* 헤더 로고 — 흰색 반전 + 사이트명과 밀착 */
+/* 헤더 로고 - 흰색 반전 + 사이트명과 밀착 */
 .md-header .md-header__button.md-logo {
   margin: 0;
   padding: 0.4rem 0.3rem 0.4rem 0.4rem;
@@ -26,7 +29,7 @@
 .md-header .md-header__title {
   margin-left: 0;
 }
-/* 헤더 사이트명 고정 — 스크롤 시 페이지 제목으로 바뀌는 것 방지 */
+/* 헤더 사이트명 고정 - 스크롤 시 페이지 제목으로 바뀌는 것 방지 */
 .md-header__title .md-header__topic:first-child {
   transform: translateY(0) !important;
   opacity: 1 !important;
@@ -105,76 +108,107 @@
 
 .auth-card {
   background: #fff;
-  border-radius: 16px;
-  padding: 3rem 2.5rem 2.5rem;
+  border-radius: 8px;
+  padding: 2.5rem 2.5rem 1.8rem;
   width: 380px;
   max-width: 90vw;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
   text-align: center;
-  animation: authFadeIn 0.4s ease;
+  animation: authFadeIn 0.35s ease;
 }
 
 @keyframes authFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.auth-logo img {
-  height: 48px;
+.auth-logo-img {
+  height: 36px;
   width: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .auth-title {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #1B2A5B;
-  margin: 0 0 0.3rem;
-  letter-spacing: -0.01em;
+  color: var(--kbo-navy, #1B2A5B);
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.02em;
 }
 
-.auth-desc {
-  font-size: 0.85rem;
-  color: #888;
+.auth-subtitle {
+  font-size: 0.62rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: #b0b0b0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   margin: 0 0 2rem;
 }
 
-.auth-input-wrap {
-  margin-bottom: 1rem;
+.auth-field {
+  position: relative;
+  margin-bottom: 0.7rem;
 }
 
-.auth-input-wrap input {
+.auth-field-icon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  color: #ccc;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.auth-field input:focus ~ .auth-field-icon,
+.auth-field:focus-within .auth-field-icon {
+  color: var(--kbo-accent, #4A7BF7);
+}
+
+.auth-field input {
   width: 100%;
-  padding: 0.85rem 1rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
-  font-size: 0.95rem;
+  padding: 0.75rem 1rem 0.75rem 2.4rem;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 6px;
+  font-size: 0.85rem;
   font-family: inherit;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
   box-sizing: border-box;
+  background: #f9f9fb;
 }
 
-.auth-input-wrap input:focus {
-  border-color: #4A7BF7;
+.auth-field input:focus {
+  border-color: var(--kbo-accent, #4A7BF7);
+  box-shadow: 0 0 0 3px rgba(74, 123, 247, 0.08);
+  background: #fff;
+}
+
+.auth-field input::placeholder {
+  color: #c0c0c0;
+  font-size: 0.82rem;
 }
 
 .auth-btn {
   width: 100%;
-  padding: 0.85rem;
-  background: linear-gradient(135deg, #1B2A5B, #2A3D7A);
+  padding: 0.78rem;
+  margin-top: 0.4rem;
+  background: var(--kbo-navy, #1B2A5B);
   color: #fff;
   border: none;
-  border-radius: 10px;
-  font-size: 0.95rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  transition: opacity 0.2s, transform 0.1s;
+  transition: background 0.15s, transform 0.1s;
+  letter-spacing: 0.3px;
 }
 
 .auth-btn:hover {
-  opacity: 0.9;
+  background: var(--kbo-navy-light, #2A3D7A);
 }
 
 .auth-btn:active {
@@ -182,16 +216,34 @@
 }
 
 .auth-error {
-  font-size: 0.82rem;
+  font-size: 0.75rem;
   color: #e53935;
-  margin: 0.8rem 0 0;
-  min-height: 1.2em;
+  margin: 0.5rem 0 0;
+  min-height: 1em;
 }
 
 .auth-footer {
-  font-size: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.auth-footer p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.auth-footer .auth-footer-label {
+  font-size: 0.6rem;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #ccc;
+}
+
+.auth-footer .auth-footer-copy {
+  font-size: 0.68rem;
   color: #bbb;
-  margin: 2rem 0 0;
 }
 
 @keyframes authShake {
@@ -204,139 +256,12 @@
   animation: authShake 0.4s ease;
 }
 
-/* ══════════════════════════════════════════
-   DataTables 스타일 오버라이드
-   ══════════════════════════════════════════ */
-
-/* 컨테이너 */
-.dataTables_wrapper {
-  font-size: 0.85rem;
-  margin: 1rem 0;
-}
-
-/* 검색창 */
-.dataTables_wrapper .dataTables_filter input {
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 0.4rem 0.8rem;
-  font-family: inherit;
-  font-size: 0.85rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.dataTables_wrapper .dataTables_filter input:focus {
-  border-color: var(--kbo-accent);
-}
-
-/* 행 수 선택 드롭다운 */
-.dataTables_wrapper .dataTables_length select {
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
-  padding: 0.3rem 0.5rem;
-  font-family: inherit;
-  font-size: 0.85rem;
-}
-
-/* 페이지네이션 버튼 */
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-  border: none !important;
-  border-radius: 6px !important;
-  padding: 0.3rem 0.7rem !important;
-  margin: 0 2px !important;
-  font-size: 0.82rem;
-  background: transparent !important;
-  color: var(--kbo-navy) !important;
-}
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-  background: var(--kbo-bg-subtle) !important;
-  color: var(--kbo-navy) !important;
-}
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
-  background: var(--kbo-navy) !important;
-  color: #fff !important;
-}
-.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
-  opacity: 0.35;
-}
-
-/* 정렬 아이콘 색상 */
-table.dataTable thead .sorting::after,
-table.dataTable thead .sorting_asc::after,
-table.dataTable thead .sorting_desc::after {
-  opacity: 0.6;
-}
-
-/* DataTables가 추가하는 테이블에도 기존 th 스타일 유지 */
-table.dataTable thead th {
-  background-color: var(--kbo-navy) !important;
-  color: #fff !important;
-  font-weight: 600;
-  border-bottom: none !important;
-}
-
-/* 줄무늬 유지 */
-table.dataTable tbody tr:nth-child(even) td {
-  background-color: var(--kbo-bg-subtle);
-}
-table.dataTable tbody tr:hover td {
-  background-color: rgba(74, 123, 247, 0.08) !important;
-}
-
-/* 정보 텍스트 */
-.dataTables_wrapper .dataTables_info {
-  font-size: 0.8rem;
-  color: #888;
-  padding-top: 0.6rem;
-}
-
-/* ── 다크 모드 (slate) ── */
-[data-md-color-scheme="slate"] table.dataTable thead th {
-  background-color: var(--kbo-navy-light) !important;
-}
-[data-md-color-scheme="slate"] table.dataTable tbody tr:nth-child(even) td {
-  background-color: rgba(255, 255, 255, 0.03);
-}
-[data-md-color-scheme="slate"] table.dataTable tbody tr:hover td {
-  background-color: rgba(74, 123, 247, 0.12) !important;
-}
-[data-md-color-scheme="slate"] .dataTables_wrapper .dataTables_filter input {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: #ddd;
-}
-[data-md-color-scheme="slate"] .dataTables_wrapper .dataTables_length select {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: #ddd;
-}
-[data-md-color-scheme="slate"] .dataTables_wrapper .dataTables_paginate .paginate_button {
-  color: #aaa !important;
-}
-[data-md-color-scheme="slate"] .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-  background: rgba(255, 255, 255, 0.08) !important;
-  color: #fff !important;
-}
-[data-md-color-scheme="slate"] .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-  background: var(--kbo-accent) !important;
-  color: #fff !important;
-}
-[data-md-color-scheme="slate"] .dataTables_wrapper .dataTables_info {
-  color: #777;
-}
-
-/* DataTables 기본 테두리 제거 — Material 스타일 통일 */
-table.dataTable,
-table.dataTable td,
-table.dataTable th {
-  border-collapse: collapse;
-}
-table.dataTable {
-  border: none !important;
-}
-
 /* ── 로그아웃 버튼 ── */
-.logout-btn {
+/* 팔레트 토글(다크/라이트)을 우측 정렬 */
+.md-header__inner > [data-md-component="palette"] {
   margin-left: auto;
+}
+.logout-btn {
   background: none;
   border: none;
   color: rgba(255, 255, 255, 0.7);

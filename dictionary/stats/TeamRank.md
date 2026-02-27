@@ -5,10 +5,10 @@ title: TeamRank
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">통계</span>
     <span class="dict-badge badge-tier tier-2">Tier 2</span>
-    <span class="dict-badge badge-gen gen-unknown">미분류</span>
     <span class="dict-badge badge-access">Internal</span>
   </div>
   <div class="dict-hero-title">TeamRank</div>
@@ -25,8 +25,7 @@ title: TeamRank
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB1_BASEBALL_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>GYEAR, SEC, TEAM</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">unknown (미분류)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 2 — Standard</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 2 - Standard</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">통계분석팀 (R-04)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">D+1 (전일 경기 반영)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">미디어, 외부 API</span></div>
@@ -42,30 +41,30 @@ title: TeamRank
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
 <tr><td class="col-num">1</td><td><span class="col-name">GYEAR</span></td><td><span class="col-std">season_yr</span></td><td><span class="col-type">nvarchar(4)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시즌 연도 (4자리, &quot;9999&quot;=통산)</span></td></tr>
-<tr><td class="col-num">2</td><td><span class="col-name">SEC</span></td><td><span class="col-std">series_cd</span></td><td><span class="col-type">varchar(4)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">구간 (시즌연도 또는 &quot;9999&quot;=통산)</span></td></tr>
+<tr><td class="col-num">2</td><td><span class="col-name">SEC</span></td><td><span class="col-std">series_cd</span></td><td><span class="col-type">varchar(4)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시즌 연도 (4자리, 9999=통산)</span></td></tr>
 <tr><td class="col-num">3</td><td><span class="col-name">RANK</span></td><td><span class="col-std">rank_no</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">순위</span></td></tr>
-<tr><td class="col-num">4</td><td><span class="col-name">LEAGUE</span></td><td><span class="col-std">league_nm</span></td><td><span class="col-type">char(5)</span></td><td></td><td></td><td><span class="col-desc">리그</span></td></tr>
-<tr><td class="col-num">5</td><td><span class="col-name">TEAM</span></td><td><span class="col-std">team_cd</span></td><td><span class="col-type">nvarchar(6)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">팀 코드 (2자리, HH=키움, HT=KIA 등)</span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">LEAGUE</span></td><td><span class="col-std">league_cd</span></td><td><span class="col-type">char(5)</span></td><td></td><td></td><td><span class="col-desc">리그 구분 (dream=드림리그, magic=매직리그, 0/공백=미지정)</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">TEAM</span></td><td><span class="col-std">team_cd</span></td><td><span class="col-type">nvarchar(6)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">팀 코드 (HH=한화, LG, SK, HT=KIA, LT=롯데, OB=두산, SS=삼성, WO=키움, NC, KT 등 2자리)</span></td></tr>
 <tr><td class="col-num">6</td><td><span class="col-name">GAME</span></td><td><span class="col-std">game_cn</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">경기 수</span></td></tr>
-<tr><td class="col-num">7</td><td><span class="col-name">WIN</span></td><td><span class="col-std">win_cn</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">승</span></td></tr>
-<tr><td class="col-num">8</td><td><span class="col-name">LOSE</span></td><td><span class="col-std">lose_cn</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">패</span></td></tr>
-<tr><td class="col-num">9</td><td><span class="col-name">SAME</span></td><td><span class="col-std">draw_cn</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">무승부</span></td></tr>
-<tr><td class="col-num">10</td><td><span class="col-name">WRA</span></td><td><span class="col-std">win_rt</span></td><td><span class="col-type">real</span></td><td></td><td></td><td><span class="col-desc">승률</span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">WIN</span></td><td><span class="col-std">win</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">승</span></td></tr>
+<tr><td class="col-num">8</td><td><span class="col-name">LOSE</span></td><td><span class="col-std">loss</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">패</span></td></tr>
+<tr><td class="col-num">9</td><td><span class="col-name">SAME</span></td><td><span class="col-std">same_rank_if</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">무승부</span></td></tr>
+<tr><td class="col-num">10</td><td><span class="col-name">WRA</span></td><td><span class="col-std">wrc</span></td><td><span class="col-type">real</span></td><td></td><td></td><td><span class="col-desc">승률</span></td></tr>
 <tr><td class="col-num">11</td><td><span class="col-name">AB</span></td><td><span class="col-std">ab</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">타수 (At Bat)</span></td></tr>
 <tr><td class="col-num">12</td><td><span class="col-name">HIT</span></td><td><span class="col-std">hit</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">안타</span></td></tr>
 <tr><td class="col-num">13</td><td><span class="col-name">HR</span></td><td><span class="col-std">hr</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">홈런</span></td></tr>
 <tr><td class="col-num">14</td><td><span class="col-name">SB</span></td><td><span class="col-std">sb</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">도루</span></td></tr>
 <tr><td class="col-num">15</td><td><span class="col-name">RUN</span></td><td><span class="col-std">run</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">득점</span></td></tr>
-<tr><td class="col-num">16</td><td><span class="col-name">INN</span></td><td><span class="col-std">inn_no</span></td><td><span class="col-type">varchar(10)</span></td><td></td><td></td><td><span class="col-desc">이닝 번호</span></td></tr>
-<tr><td class="col-num">17</td><td><span class="col-name">INN2</span></td><td><span class="col-std">inn_detail_no</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">이닝 세부 (아웃수 환산 또는 연장 구분)</span></td></tr>
-<tr><td class="col-num">18</td><td><span class="col-name">R</span></td><td><span class="col-std">r</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">실점</span></td></tr>
+<tr><td class="col-num">16</td><td><span class="col-name">INN</span></td><td><span class="col-std">ip</span></td><td><span class="col-type">varchar(10)</span></td><td></td><td></td><td><span class="col-desc">이닝</span></td></tr>
+<tr><td class="col-num">17</td><td><span class="col-name">INN2</span></td><td><span class="col-std">inn_2_score</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">2회 타격 결과 (HOW 코드, EUC-KR)</span></td></tr>
+<tr><td class="col-num">18</td><td><span class="col-name">R</span></td><td><span class="col-std">runs_cn</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">실점</span></td></tr>
 <tr><td class="col-num">19</td><td><span class="col-name">ER</span></td><td><span class="col-std">er</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">자책점</span></td></tr>
 <tr><td class="col-num">20</td><td><span class="col-name">ERR</span></td><td><span class="col-std">err</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">실책</span></td></tr>
 <tr><td class="col-num">21</td><td><span class="col-name">HRA</span></td><td><span class="col-std">avg</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">타율</span></td></tr>
-<tr><td class="col-num">22</td><td><span class="col-name">LRA</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">23</td><td><span class="col-name">BRA</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">22</td><td><span class="col-name">LRA</span></td><td><span class="col-std">left_avg</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">좌타자 대 타율</span></td></tr>
+<tr><td class="col-num">23</td><td><span class="col-name">BRA</span></td><td><span class="col-std">bat_avg</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">대타율 (Batting Avg Against)</span></td></tr>
 <tr><td class="col-num">24</td><td><span class="col-name">ERA</span></td><td><span class="col-std">era</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">평균자책점</span></td></tr>
-<tr><td class="col-num">25</td><td><span class="col-name">continue</span></td><td><span class="col-std">continue_cn</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">연속 기록</span></td></tr>
+<tr><td class="col-num">25</td><td><span class="col-name">continue</span></td><td><span class="col-std">continue_if</span></td><td><span class="col-type">varchar(50)</span></td><td></td><td></td><td><span class="col-desc">연속 기록</span></td></tr>
 <tr><td class="col-num">26</td><td><span class="col-name">H2</span></td><td><span class="col-std">h2b</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">2루타</span></td></tr>
 <tr><td class="col-num">27</td><td><span class="col-name">H3</span></td><td><span class="col-std">h3b</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">3루타</span></td></tr>
 <tr><td class="col-num">28</td><td><span class="col-name">BB</span></td><td><span class="col-std">bb</span></td><td><span class="col-type">int</span></td><td></td><td></td><td><span class="col-desc">볼넷</span></td></tr>
@@ -78,15 +77,15 @@ title: TeamRank
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>GYEAR</code><span class="code-desc"> — 시즌 연도</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GYEAR</code><span class="code-desc"> &mdash; 시즌 연도</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>SEC</code><span class="code-desc"> — 구간</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>SEC</code><span class="code-desc"> &mdash; 시즌 연도</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>LEAGUE</code><span class="code-desc"> — 리그</span></summary>
+<summary><code>LEAGUE</code><span class="code-desc"> &mdash; 리그 구분</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td></td><td>154</td></tr>
@@ -97,11 +96,11 @@ title: TeamRank
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>TEAM</code><span class="code-desc"> — 팀 코드</span></summary>
-<div class="code-ref">팀 식별자 — [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
+<summary><code>TEAM</code><span class="code-desc"> &mdash; 팀 코드</span></summary>
+<div class="code-ref">팀 식별자 - [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>INN</code><span class="code-desc"> — 이닝 번호</span></summary>
+<summary><code>INN</code><span class="code-desc"> &mdash; 이닝</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>10</td></tr>

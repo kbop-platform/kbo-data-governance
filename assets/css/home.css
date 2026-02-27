@@ -12,20 +12,33 @@
 /* ── Hero ── */
 .home-hero {
   background: var(--kbo-navy, #1B2A5B);
-  border-radius: 3px;
-  padding: 28px 32px 24px;
-  margin: -8px 0 16px;
+  border-radius: 4px;
+  padding: 36px 40px 32px;
+  margin: -8px 0 20px;
   color: #fff;
 }
+.home-hero-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
 .home-hero-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 4px;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
 }
 .home-hero-desc {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.55);
-  margin: 0 0 20px;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 28px;
   line-height: 1.5;
 }
 .home-hero-stats {
@@ -34,60 +47,71 @@
   flex-wrap: wrap;
 }
 .home-hero-stat {
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 2px;
-  padding: 10px 18px;
-  min-width: 80px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  padding: 12px 20px;
+  min-width: 88px;
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 .home-hero-stat .stat-num {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.2;
+  font-family: 'JetBrains Mono', monospace;
 }
 .home-hero-stat .stat-label {
-  font-size: 0.68rem;
-  color: rgba(255, 255, 255, 0.4);
-  margin-top: 1px;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 3px;
+  letter-spacing: 0.02em;
+}
+.home-hero-stat--date {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.home-hero-stat--date .stat-num {
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 /* ── 카드 그리드 ── */
 .home-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: #ddd;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
 }
 .home-card {
   background: #fff;
-  padding: 16px 20px 14px;
+  padding: 22px 26px 18px;
   text-decoration: none;
   color: inherit;
   display: block;
-  transition: background 0.1s;
+  transition: background 0.12s;
 }
 .home-card:hover {
   background: #f5f7fa;
 }
 .home-card-title {
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--kbo-navy, #1B2A5B);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 .home-card-desc {
   font-size: 0.8rem;
-  color: #666;
-  line-height: 1.5;
-  margin: 0;
+  color: #777;
+  line-height: 1.55;
+  margin: 0 0 12px;
 }
 .home-card-meta {
   display: flex;
   gap: 6px;
-  margin-top: 8px;
   flex-wrap: wrap;
 }
 .home-card-tag {
@@ -102,10 +126,19 @@
 
 /* ── 다크 모드 ── */
 [data-md-color-scheme="slate"] .home-hero {
-  background: #1a1f35;
+  background: #141928;
+}
+[data-md-color-scheme="slate"] .home-hero-badge {
+  border-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.3);
 }
 [data-md-color-scheme="slate"] .home-hero-stat {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.03);
+}
+[data-md-color-scheme="slate"] .home-hero-stat--date {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.06);
 }
 [data-md-color-scheme="slate"] .home-cards {
   background: #333;
@@ -135,7 +168,9 @@
   .home-cards { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
-  .home-hero { padding: 20px 18px 18px; }
-  .home-hero-title { font-size: 1.2rem; }
+  .home-hero { padding: 24px 20px 20px; }
+  .home-hero-title { font-size: 1.5rem; }
+  .home-hero-stats { gap: 6px; }
+  .home-hero-stat { min-width: 72px; padding: 10px 14px; }
   .home-cards { grid-template-columns: 1fr; }
 }

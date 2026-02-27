@@ -5,30 +5,19 @@ hide:
 title: ""
 ---
 
+<div id="home-dashboard">
+
 <div class="home-hero">
-  <div class="home-hero-title">KBO DataHub</div>
-  <div class="home-hero-desc">데이터 자산의 표준, 품질, 거버넌스를 한 곳에서 관리합니다.</div>
-  <div class="home-hero-stats">
-    <div class="home-hero-stat">
-      <div class="stat-num">17</div>
-      <div class="stat-label">데이터베이스</div>
-    </div>
-    <div class="home-hero-stat">
-      <div class="stat-num">39</div>
-      <div class="stat-label">테이블</div>
-    </div>
-    <div class="home-hero-stat">
-      <div class="stat-num">787</div>
-      <div class="stat-label">컬럼</div>
-    </div>
-    <div class="home-hero-stat">
-      <div class="stat-num">25.7M</div>
-      <div class="stat-label">총 행수</div>
-    </div>
-    <div class="home-hero-stat">
-      <div class="stat-num">248</div>
-      <div class="stat-label">인스턴스</div>
-    </div>
+  <div class="home-hero-badge">KBO Data Biz Team</div>
+  <div class="home-hero-title">DataHub</div>
+  <div class="home-hero-desc">프로야구 데이터 표준 &middot; 카탈로그 &middot; 거버넌스</div>
+  <div class="home-hero-stats" id="hero-stats">
+    <div class="home-hero-stat"><div class="stat-num">&#8203;</div><div class="stat-label">데이터베이스</div></div>
+    <div class="home-hero-stat"><div class="stat-num">&#8203;</div><div class="stat-label">테이블</div></div>
+    <div class="home-hero-stat"><div class="stat-num">&#8203;</div><div class="stat-label">컬럼</div></div>
+    <div class="home-hero-stat"><div class="stat-num">&#8203;</div><div class="stat-label">총 행수</div></div>
+    <div class="home-hero-stat"><div class="stat-num">&#8203;</div><div class="stat-label">인스턴스</div></div>
+    <div class="home-hero-stat home-hero-stat--date"><div class="stat-num">&#8203;</div><div class="stat-label">최근 갱신</div></div>
   </div>
 </div>
 
@@ -36,66 +25,43 @@ title: ""
 
   <a class="home-card" href="catalog/instances/">
     <div class="home-card-title">Catalog</div>
-    <p class="home-card-desc">테이블 목록, 컬럼 검색, 용어 사전. AG Grid 기반 검색·필터·정렬·CSV 내보내기.</p>
+    <div class="home-card-desc">테이블 인스턴스 248개, 컬럼 메타데이터 787개 검색.</div>
     <div class="home-card-meta">
-      <span class="home-card-tag">248 인스턴스</span>
-      <span class="home-card-tag">787 컬럼</span>
-      <span class="home-card-tag">134 용어</span>
+      <span class="home-card-tag" id="tag-instances">248 인스턴스</span>
+      <span class="home-card-tag" id="tag-columns">787 컬럼</span>
     </div>
   </a>
 
-  <a class="home-card" href="dictionary/index/">
+  <a class="home-card" href="standards-dict/glossary/">
     <div class="home-card-title">Dictionary</div>
-    <p class="home-card-desc">39종 테이블 컬럼 명세. 타입, PK, 표준명, 티어, 오너, 갱신 주기 포함.</p>
+    <div class="home-card-desc">용어 &middot; 약어 &middot; 도메인 &middot; 코드 4대 사전과 39종 테이블 정의서.</div>
     <div class="home-card-meta">
-      <span class="home-card-tag">경기 기록 12</span>
-      <span class="home-card-tag">통계 10</span>
-      <span class="home-card-tag">실시간 9</span>
-      <span class="home-card-tag">마스터 8</span>
+      <span class="home-card-tag" id="tag-glossary">134 용어</span>
+      <span class="home-card-tag" id="tag-tables">39종 테이블</span>
+      <span class="home-card-tag" id="tag-codes">168 코드</span>
+      <span class="home-card-tag" id="tag-domain-types">93 도메인</span>
     </div>
   </a>
 
-  <a class="home-card" href="standards/naming-rules/">
-    <div class="home-card-title">Standards</div>
-    <p class="home-card-desc">4계층 명명 규칙, 6종 ID 체계, 코드 사전, 12종 도메인 타입, 약어 사전.</p>
-    <div class="home-card-meta">
-      <span class="home-card-tag">명명 규칙</span>
-      <span class="home-card-tag">ID 체계</span>
-      <span class="home-card-tag">코드 사전</span>
-      <span class="home-card-tag">도메인 타입</span>
-    </div>
-  </a>
-
-  <a class="home-card" href="governance/data-ownership/">
+  <a class="home-card" href="standards/">
     <div class="home-card-title">Governance</div>
-    <p class="home-card-desc">오너십, 품질 규칙, 변경 관리, 설계 가이드, 보안, 재해 복구.</p>
+    <div class="home-card-desc">명명 규칙, ID 체계, 품질 관리, 보안 정책, 변경 관리 절차.</div>
     <div class="home-card-meta">
-      <span class="home-card-tag">SLA/KPI</span>
-      <span class="home-card-tag">RBAC</span>
-      <span class="home-card-tag">변경 절차</span>
-      <span class="home-card-tag">DR</span>
+      <span class="home-card-tag">표준 2</span>
+      <span class="home-card-tag">거버넌스 6</span>
     </div>
   </a>
 
-  <a class="home-card" href="migration/column-mapping/">
+  <a class="home-card" href="migration/">
     <div class="home-card-title">Migration</div>
-    <p class="home-card-desc">787개 컬럼 AS-IS→TO-BE 전수 매핑, 설계 결정, 테이블·컬럼 차이 분석.</p>
+    <div class="home-card-desc">S2i &rarr; 신규 시스템 전환. 컬럼 매핑 787건, 설계 결정, 차이 분석.</div>
     <div class="home-card-meta">
-      <span class="home-card-tag">컬럼 매핑</span>
+      <span class="home-card-tag">787 매핑</span>
       <span class="home-card-tag">설계 결정</span>
       <span class="home-card-tag">차이 분석</span>
     </div>
   </a>
 
-  <a class="home-card" href="dictionary/products/game-summary/">
-    <div class="home-card-title">Data Products</div>
-    <p class="home-card-desc">6개 비즈니스 단위 데이터 프로덕트 정의. 경기, 선수, 통계, 일정 등.</p>
-    <div class="home-card-meta">
-      <span class="home-card-tag">경기 요약</span>
-      <span class="home-card-tag">실시간</span>
-      <span class="home-card-tag">선수</span>
-      <span class="home-card-tag">시즌 통계</span>
-    </div>
-  </a>
+</div>
 
 </div>

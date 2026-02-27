@@ -5,10 +5,10 @@ title: IE_BatterRecord
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">실시간</span>
     <span class="dict-badge badge-tier tier-2">Tier 2</span>
-    <span class="dict-badge badge-gen gen-unknown">미분류</span>
     <span class="dict-badge badge-access">Internal</span>
   </div>
   <div class="dict-hero-title">IE_BatterRecord</div>
@@ -25,14 +25,13 @@ title: IE_BatterRecord
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB2_BASEBALL_NEW_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>gameID, GYEAR, BatOrder, PlayerID, SeqNO</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">unknown (미분류)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 2 — Standard</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 2 - Standard</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">S2i 운영 (R-06)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">실시간 (&lt; 5초)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">방송팀</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Internal</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[실시간 경기](../products/live-game.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards/domain-types.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[도메인 타입](../../standards-dict/domains.md)</span></div>
 </div>
 
 <div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">25개</span></div>
@@ -41,31 +40,31 @@ title: IE_BatterRecord
 <table class="dict-col-table"><thead>
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
-<tr><td class="col-num">1</td><td><span class="col-name">gameID</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 ID (GMKEY와 동일 형식)</span></td></tr>
+<tr><td class="col-num">1</td><td><span class="col-name">gameID</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 ID</span></td></tr>
 <tr><td class="col-num">2</td><td><span class="col-name">GYEAR</span></td><td><span class="col-std">season_yr</span></td><td><span class="col-type">smallint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">시즌 연도 (4자리, &quot;9999&quot;=통산)</span></td></tr>
 <tr><td class="col-num">3</td><td><span class="col-name">BatOrder</span></td><td><span class="col-std">bat_order_no</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">타순</span></td></tr>
-<tr><td class="col-num">4</td><td><span class="col-name">Position</span></td><td><span class="col-std"></span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">5</td><td><span class="col-name">PositionName</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(20)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">6</td><td><span class="col-name">PlayerName</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(15)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">Position</span></td><td><span class="col-std">position_nm</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">포지션 코드 (1=투수, 2=포수, 3=1루, 4=2루, 5=3루, 6=유격, 7=좌익, 8=중견, 9=우익)</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">PositionName</span></td><td><span class="col-std">position_nm</span></td><td><span class="col-type">varchar(20)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">포지션명 (EUC-KR)</span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">PlayerName</span></td><td><span class="col-std">player_nm</span></td><td><span class="col-type">varchar(15)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">선수명 (EUC-KR)</span></td></tr>
 <tr><td class="col-num">7</td><td><span class="col-name">PlayerID</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 코드</span></td></tr>
 <tr><td class="col-num">8</td><td><span class="col-name">SeqNO</span></td><td><span class="col-std">seq_no</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">순번</span></td></tr>
-<tr><td class="col-num">9</td><td><span class="col-name">OAB</span></td><td><span class="col-std"></span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">9</td><td><span class="col-name">OAB</span></td><td><span class="col-std">opp_ab</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">상대 타수</span></td></tr>
 <tr><td class="col-num">10</td><td><span class="col-name">Run</span></td><td><span class="col-std">run</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">득점</span></td></tr>
-<tr><td class="col-num">11</td><td><span class="col-name">H1</span></td><td><span class="col-std"></span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">11</td><td><span class="col-name">H1</span></td><td><span class="col-std">h1b</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">단타</span></td></tr>
 <tr><td class="col-num">12</td><td><span class="col-name">H2</span></td><td><span class="col-std">h2b</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">2루타</span></td></tr>
 <tr><td class="col-num">13</td><td><span class="col-name">H3</span></td><td><span class="col-std">h3b</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">3루타</span></td></tr>
 <tr><td class="col-num">14</td><td><span class="col-name">HR</span></td><td><span class="col-std">hr</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홈런</span></td></tr>
 <tr><td class="col-num">15</td><td><span class="col-name">RBI</span></td><td><span class="col-std">rbi</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">타점</span></td></tr>
-<tr><td class="col-num">16</td><td><span class="col-name">Steal</span></td><td><span class="col-std"></span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">16</td><td><span class="col-name">Steal</span></td><td><span class="col-std">sb</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">도루</span></td></tr>
 <tr><td class="col-num">17</td><td><span class="col-name">CS</span></td><td><span class="col-std">cs</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">도루실패</span></td></tr>
 <tr><td class="col-num">18</td><td><span class="col-name">SH</span></td><td><span class="col-std">sh</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">희생번트</span></td></tr>
 <tr><td class="col-num">19</td><td><span class="col-name">SF</span></td><td><span class="col-std">sf</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">희생플라이</span></td></tr>
 <tr><td class="col-num">20</td><td><span class="col-name">BB</span></td><td><span class="col-std">bb</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">볼넷</span></td></tr>
-<tr><td class="col-num">21</td><td><span class="col-name">HBP</span></td><td><span class="col-std"></span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">22</td><td><span class="col-name">SO</span></td><td><span class="col-std"></span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">23</td><td><span class="col-name">DP</span></td><td><span class="col-std"></span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">24</td><td><span class="col-name">TP</span></td><td><span class="col-std"></span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">25</td><td><span class="col-name">bHome</span></td><td><span class="col-std">home_if</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홈팀 여부</span></td></tr>
+<tr><td class="col-num">21</td><td><span class="col-name">HBP</span></td><td><span class="col-std">hbp</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">사구 (Hit by Pitch)</span></td></tr>
+<tr><td class="col-num">22</td><td><span class="col-name">SO</span></td><td><span class="col-std">so</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">삼진</span></td></tr>
+<tr><td class="col-num">23</td><td><span class="col-name">DP</span></td><td><span class="col-std">dp</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">병살 (Double Play)</span></td></tr>
+<tr><td class="col-num">24</td><td><span class="col-name">TP</span></td><td><span class="col-std">total_put</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">삼중살 (Triple Play)</span></td></tr>
+<tr><td class="col-num">25</td><td><span class="col-name">bHome</span></td><td><span class="col-std">home_if</span></td><td><span class="col-type">tinyint</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">홈팀 여부 (1=홈, 0=원정)</span></td></tr>
 </tbody></table>
 </div>
 
@@ -73,15 +72,15 @@ title: IE_BatterRecord
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>GYEAR</code><span class="code-desc"> — 시즌 연도</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GYEAR</code><span class="code-desc"> &mdash; 시즌 연도</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>BatOrder</code><span class="code-desc"> — 타순</span></summary>
-<div class="code-ref">선수 식별자 — [선수 마스터(person)](../master/person.md) 참조</div>
+<summary><code>BatOrder</code><span class="code-desc"> &mdash; 타순</span></summary>
+<div class="code-ref">선수 식별자 - [선수 마스터(person)](../master/person.md) 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>Position</code><span class="code-desc"> — </span></summary>
+<summary><code>Position</code><span class="code-desc"> &mdash; 포지션 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>7</td><td>45,926</td></tr>
@@ -100,11 +99,11 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>PlayerID</code><span class="code-desc"> — 선수 코드</span></summary>
-<div class="code-ref">선수 식별자 — [선수 마스터(person)](../master/person.md) 참조</div>
+<summary><code>PlayerID</code><span class="code-desc"> &mdash; 선수 코드</span></summary>
+<div class="code-ref">선수 식별자 - [선수 마스터(person)](../master/person.md) 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>SeqNO</code><span class="code-desc"> — 순번</span></summary>
+<summary><code>SeqNO</code><span class="code-desc"> &mdash; 순번</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>1</td><td>276,289</td></tr>
@@ -122,7 +121,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>OAB</code><span class="code-desc"> — </span></summary>
+<summary><code>OAB</code><span class="code-desc"> &mdash; 상대 타수</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>4</td><td>110,980</td></tr>
@@ -137,7 +136,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>Run</code><span class="code-desc"> — 득점</span></summary>
+<summary><code>Run</code><span class="code-desc"> &mdash; 득점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>319,235</td></tr>
@@ -151,7 +150,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>H1</code><span class="code-desc"> — </span></summary>
+<summary><code>H1</code><span class="code-desc"> &mdash; 단타</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>284,152</td></tr>
@@ -165,7 +164,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>H2</code><span class="code-desc"> — 2루타</span></summary>
+<summary><code>H2</code><span class="code-desc"> &mdash; 2루타</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>401,703</td></tr>
@@ -177,7 +176,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>H3</code><span class="code-desc"> — 3루타</span></summary>
+<summary><code>H3</code><span class="code-desc"> &mdash; 3루타</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>446,232</td></tr>
@@ -188,7 +187,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>HR</code><span class="code-desc"> — 홈런</span></summary>
+<summary><code>HR</code><span class="code-desc"> &mdash; 홈런</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>424,675</td></tr>
@@ -200,7 +199,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>RBI</code><span class="code-desc"> — 타점</span></summary>
+<summary><code>RBI</code><span class="code-desc"> &mdash; 타점</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>350,495</td></tr>
@@ -218,7 +217,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>Steal</code><span class="code-desc"> — </span></summary>
+<summary><code>Steal</code><span class="code-desc"> &mdash; 도루</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>425,665</td></tr>
@@ -231,7 +230,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>CS</code><span class="code-desc"> — 도루실패</span></summary>
+<summary><code>CS</code><span class="code-desc"> &mdash; 도루실패</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>439,457</td></tr>
@@ -242,7 +241,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>SH</code><span class="code-desc"> — 희생번트</span></summary>
+<summary><code>SH</code><span class="code-desc"> &mdash; 희생번트</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>435,512</td></tr>
@@ -253,7 +252,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>SF</code><span class="code-desc"> — 희생플라이</span></summary>
+<summary><code>SF</code><span class="code-desc"> &mdash; 희생플라이</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>440,895</td></tr>
@@ -264,7 +263,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>BB</code><span class="code-desc"> — 볼넷</span></summary>
+<summary><code>BB</code><span class="code-desc"> &mdash; 볼넷</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>350,461</td></tr>
@@ -278,7 +277,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>HBP</code><span class="code-desc"> — </span></summary>
+<summary><code>HBP</code><span class="code-desc"> &mdash; 사구</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>433,427</td></tr>
@@ -289,7 +288,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>SO</code><span class="code-desc"> — </span></summary>
+<summary><code>SO</code><span class="code-desc"> &mdash; 삼진</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>274,486</td></tr>
@@ -302,7 +301,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>DP</code><span class="code-desc"> — </span></summary>
+<summary><code>DP</code><span class="code-desc"> &mdash; 병살</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>426,504</td></tr>
@@ -313,7 +312,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>TP</code><span class="code-desc"> — </span></summary>
+<summary><code>TP</code><span class="code-desc"> &mdash; 삼중살</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>451,145</td></tr>
@@ -322,7 +321,7 @@ title: IE_BatterRecord
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>bHome</code><span class="code-desc"> — 홈팀 여부</span></summary>
+<summary><code>bHome</code><span class="code-desc"> &mdash; 홈팀 여부</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>226,414</td></tr>

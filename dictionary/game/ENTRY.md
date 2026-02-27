@@ -5,10 +5,10 @@ title: ENTRY
 <div class="dict-detail-page" markdown>
 
 <div class="dict-hero">
+  <div class="dict-as-is-banner">현행 시스템(As-Is) 데이터 사전</div>
   <div class="dict-hero-badges">
     <span class="dict-badge badge-domain">경기 기록</span>
     <span class="dict-badge badge-tier tier-1">Tier 1</span>
-    <span class="dict-badge badge-gen gen-legacy">구세대</span>
     <span class="dict-badge badge-access">Internal</span>
   </div>
   <div class="dict-hero-title">ENTRY</div>
@@ -25,14 +25,13 @@ title: ENTRY
 <div class="dict-info-grid">
   <div class="dict-info-item"><span class="dict-info-label">대표 DB</span><span class="dict-info-value"><code>DB1_BASEBALL_220328</code></span></div>
   <div class="dict-info-item"><span class="dict-info-label">PK</span><span class="dict-info-value"><code>GMKEY, GDAY, TURN, PCODE, POSI</code></span></div>
-  <div class="dict-info-item"><span class="dict-info-label">스키마 세대</span><span class="dict-info-value">legacy (구세대)</span></div>
-  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 1 — Critical</span></div>
+  <div class="dict-info-item"><span class="dict-info-label">데이터 티어</span><span class="dict-info-value">Tier 1 - Critical</span></div>
   <div class="dict-info-item"><span class="dict-info-label">데이터 오너</span><span class="dict-info-value">기록위원회 (R-03)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">갱신 주기</span><span class="dict-info-value">경기 당일 (S2i 전송)</span></div>
   <div class="dict-info-item"><span class="dict-info-label">소비자</span><span class="dict-info-value">기록팀, 방송팀</span></div>
   <div class="dict-info-item"><span class="dict-info-label">접근 수준</span><span class="dict-info-value">Internal</span></div>
   <div class="dict-info-item full"><span class="dict-info-label">데이터 프로덕트</span><span class="dict-info-value">[경기 요약](../products/game-summary.md)</span></div>
-  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[코드 사전](../../standards/code-dictionary.md)</span></div>
+  <div class="dict-info-item full"><span class="dict-info-label">관련 표준</span><span class="dict-info-value">[코드 사전](../../standards-dict/codes.md)</span></div>
 </div>
 
 <div class="dict-section-hdr"><h2>컬럼 상세</h2><span class="dict-section-count">11개</span></div>
@@ -41,17 +40,17 @@ title: ENTRY
 <table class="dict-col-table"><thead>
 <tr><th class="col-num">#</th><th>컬럼명</th><th>표준명(안)</th><th>타입</th><th>NULL</th><th>PK</th><th>설명</th></tr>
 </thead><tbody>
-<tr><td class="col-num">1</td><td><span class="col-name">GMKEY</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 고유키 (YYYYMMDDVVHH#, 유효 13자리; 현행 DB char(15), 표준 char(13) 전환 대상)</span></td></tr>
+<tr><td class="col-num">1</td><td><span class="col-name">GMKEY</span></td><td><span class="col-std">game_id</span></td><td><span class="col-type">char(13)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 고유키 (YYYYMMDDVVHH#)</span></td></tr>
 <tr><td class="col-num">2</td><td><span class="col-name">GDAY</span></td><td><span class="col-std">game_dt</span></td><td><span class="col-type">char(8)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">경기 일자 (YYYYMMDD)</span></td></tr>
 <tr><td class="col-num">3</td><td><span class="col-name">TURN</span></td><td><span class="col-std">turn_no</span></td><td><span class="col-type">char(2)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">타순</span></td></tr>
-<tr><td class="col-num">4</td><td><span class="col-name">NAME</span></td><td><span class="col-std">player_nm</span></td><td><span class="col-type">varchar(15)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">선수명 (varchar=EUC-KR 깨짐 가능)</span></td></tr>
-<tr><td class="col-num">5</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 코드 (5~6자리 숫자 문자열)</span></td></tr>
-<tr><td class="col-num">6</td><td><span class="col-name">TEAM</span></td><td><span class="col-std">team_cd</span></td><td><span class="col-type">char(1)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">팀 코드 (2자리, HH=키움, HT=KIA 등)</span></td></tr>
-<tr><td class="col-num">7</td><td><span class="col-name">POSI</span></td><td><span class="col-std">position_cd</span></td><td><span class="col-type">char(2)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">포지션 코드 (XY: X=교체순번, Y=포지션)</span></td></tr>
-<tr><td class="col-num">8</td><td><span class="col-name">CHIN</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(2)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">9</td><td><span class="col-name">CHTURN</span></td><td><span class="col-std"></span></td><td><span class="col-type">char(1)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">10</td><td><span class="col-name">CHBCNT</span></td><td><span class="col-std"></span></td><td><span class="col-type">varchar(2)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
-<tr><td class="col-num">11</td><td><span class="col-name">CHIN2</span></td><td><span class="col-std"></span></td><td><span class="col-type">char(1)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc"></span></td></tr>
+<tr><td class="col-num">4</td><td><span class="col-name">NAME</span></td><td><span class="col-std">player_nm</span></td><td><span class="col-type">varchar(15)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">선수명</span></td></tr>
+<tr><td class="col-num">5</td><td><span class="col-name">PCODE</span></td><td><span class="col-std">player_id</span></td><td><span class="col-type">varchar(10)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">선수 코드 (5~6자리 숫자)</span></td></tr>
+<tr><td class="col-num">6</td><td><span class="col-name">TEAM</span></td><td><span class="col-std">team_cd</span></td><td><span class="col-type">char(1)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">팀 코드 (HH=한화, LG, SK, HT=KIA, LT=롯데, OB=두산, SS=삼성, WO=키움, NC, KT 등 2자리)</span></td></tr>
+<tr><td class="col-num">7</td><td><span class="col-name">POSI</span></td><td><span class="col-std">position_cd</span></td><td><span class="col-type">char(2)</span></td><td><span class="nn-mark">NN</span></td><td><span class="pk-badge">PK</span></td><td><span class="col-desc">수비 포지션 코드 (XY 형식: X=타순, Y=포지션번호 1~9, 예: 11=1번타순 투수, 35=3번타순 3루수)</span></td></tr>
+<tr><td class="col-num">8</td><td><span class="col-name">CHIN</span></td><td><span class="col-std">change_inning_no</span></td><td><span class="col-type">varchar(2)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">교체 이닝</span></td></tr>
+<tr><td class="col-num">9</td><td><span class="col-name">CHTURN</span></td><td><span class="col-std">change_turn_no</span></td><td><span class="col-type">char(1)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">교체 타순</span></td></tr>
+<tr><td class="col-num">10</td><td><span class="col-name">CHBCNT</span></td><td><span class="col-std">change_ball_count_cd</span></td><td><span class="col-type">varchar(2)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">교체 시점 볼카운트</span></td></tr>
+<tr><td class="col-num">11</td><td><span class="col-name">CHIN2</span></td><td><span class="col-std">change_inning2_no</span></td><td><span class="col-type">char(1)</span></td><td><span class="nn-mark">NN</span></td><td></td><td><span class="col-desc">교체 이닝 세부</span></td></tr>
 </tbody></table>
 </div>
 
@@ -59,23 +58,23 @@ title: ENTRY
 
 <div class="dict-codes-section">
 <details class="dict-code-group">
-<summary><code>GDAY</code><span class="code-desc"> — 경기 일자</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>GDAY</code><span class="code-desc"> &mdash; 경기 일자</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>TURN</code><span class="code-desc"> — 타순</span></summary>
-<div class="code-ref">고유값 20종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>TURN</code><span class="code-desc"> &mdash; 타순</span></summary>
+<div class="code-ref">고유값 20종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>PCODE</code><span class="code-desc"> — 선수 코드</span></summary>
-<div class="code-ref">선수 식별자 — [선수 마스터(person)](../master/person.md) 참조</div>
+<summary><code>PCODE</code><span class="code-desc"> &mdash; 선수 코드</span></summary>
+<div class="code-ref">선수 식별자 - [선수 마스터(person)](../master/person.md) 참조</div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>TEAM</code><span class="code-desc"> — 팀 코드</span></summary>
-<div class="code-ref">팀 식별자 — [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
+<summary><code>TEAM</code><span class="code-desc"> &mdash; 팀 코드</span></summary>
+<div class="code-ref">팀 식별자 - [팀 마스터(TEAM)](../master/TEAM.md) 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>POSI</code><span class="code-desc"> — 포지션 코드</span></summary>
+<summary><code>POSI</code><span class="code-desc"> &mdash; 수비 포지션 코드</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>11</td><td>47,384</td></tr>
@@ -102,11 +101,11 @@ title: ENTRY
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>CHIN</code><span class="code-desc"> — </span></summary>
-<div class="code-ref">고유값 16종 이상 — 상세 분포는 `raw/column-metadata.json` 참조</div>
+<summary><code>CHIN</code><span class="code-desc"> &mdash; 교체 이닝</span></summary>
+<div class="code-ref">고유값 16종 이상 - 상세 분포는 `raw/column-metadata.json` 참조</div>
 </details>
 <details class="dict-code-group">
-<summary><code>CHTURN</code><span class="code-desc"> — </span></summary>
+<summary><code>CHTURN</code><span class="code-desc"> &mdash; 교체 타순</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>471,566</td></tr>
@@ -124,7 +123,7 @@ title: ENTRY
 </div>
 </details>
 <details class="dict-code-group">
-<summary><code>CHBCNT</code><span class="code-desc"> — </span></summary>
+<summary><code>CHBCNT</code><span class="code-desc"> &mdash; 교체 시점 볼카운트</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>849,347</td></tr>
@@ -142,7 +141,7 @@ title: ENTRY
 </div>
 </details>
 <details class="dict-code-group" open>
-<summary><code>CHIN2</code><span class="code-desc"> — </span></summary>
+<summary><code>CHIN2</code><span class="code-desc"> &mdash; 교체 이닝 세부</span></summary>
 <div class="code-body">
 <table class="dict-code-table"><thead><tr><th>값</th><th>건수</th></tr></thead><tbody>
 <tr><td>0</td><td>852,852</td></tr>
