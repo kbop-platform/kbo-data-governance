@@ -63,42 +63,43 @@ KBO는 1982년부터 축적된 경기 기록 데이터를 MSSQL 기반으로 운
 
 아키텍처 상세는 [architecture.md](architecture.md) 참조.
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                        데이터 소스                                   │
-│  S2i (경기기록 벤더)    KMA (기상청)    KBO 자체 (운영/세이버)          │
-└────────┬──────────────────┬──────────────────┬──────────────────────┘
-         │                  │                  │
-         v                  v                  v
-┌─────────────────────────────────────────────────────────────────────┐
-│                    MSSQL Server (49.50.172.83)                       │
-│                                                                     │
-│  DB1 (4개, 누적형)              DB2 (13개, 리그별 시즌형)              │
-│  ├ DB1_BASEBALL_220328          ├ DB2_BASEBALL_220328                │
-│  ├ DB1_BASEBALL_2_220328        ├ DB2_BASEBALL_NEW_220328            │
-│  ├ DB1_MINOR_BASEBALL_220328    ├ DB2_POSTSEASON, DB2_ALLSTAR ...    │
-│  └ DB1_MINOR_SO_BASEBALL        └ BROADCAST_BASEBALL, FALL_LEAGUE   │
-└────────┬────────────────────────────────────────────────────────────┘
-         │
-         │  Python 스크립트 (13종)
-         v
-┌─────────────────────────────────────────────────────────────────────┐
-│                    kbo-data-governance 저장소                         │
-│                                                                     │
-│  raw/*.json ─→ scripts/ ─→ dictionary/*.md + assets/data/*.json     │
-│                              standards/*.md                          │
-│                              governance/*.md                         │
-│                              migration/*.md                          │
-│                              standards-dict/*.md                     │
-│                              catalog/*.md (AG Grid 페이지)            │
-└────────┬────────────────────────────────────────────────────────────┘
-         │
-         │  MkDocs build + GitHub Actions
-         v
-┌─────────────────────────────────────────────────────────────────────┐
-│                    GitHub Pages (정적 사이트)                         │
-│  인증 게이트 → 홈 대시보드 → Catalog / Dictionary / Governance / ...   │
-└─────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph SRC["데이터 소스"]
+        S2i["S2i\n경기기록 벤더"]
+        KMA["KMA\n기상청"]
+        KBO["KBO 자체\n운영 / 세이버"]
+    end
+
+    subgraph MSSQL["MSSQL Server"]
+        direction LR
+        DB1["DB1 (4개, 누적형)\nDB1_BASEBALL\nDB1_BASEBALL_2\nDB1_MINOR_BASEBALL\nDB1_MINOR_SO"]
+        DB2["DB2 (13개, 리그별)\nDB2_BASEBALL / NEW\nDB2_POSTSEASON\nDB2_ALLSTAR\nBROADCAST 외"]
+    end
+
+    subgraph REPO["kbo-data-governance 저장소"]
+        RAW["raw/*.json"]
+        SCRIPTS["scripts/*.py\n(13종 파이프라인)"]
+        DICT["dictionary/*.md\n39개 테이블 사전"]
+        ASSETS["assets/data/*.json\nAG Grid 데이터"]
+        DOCS["standards/ governance/\nmigration/ catalog/\nstandards-dict/"]
+    end
+
+    subgraph DEPLOY["GitHub Pages"]
+        AUTH["인증 게이트"]
+        SITE["Catalog / Dictionary\nGovernance / Migration"]
+    end
+
+    S2i --> MSSQL
+    KMA --> MSSQL
+    KBO --> MSSQL
+    MSSQL -- "pymssql" --> RAW
+    RAW --> SCRIPTS
+    SCRIPTS --> DICT
+    SCRIPTS --> ASSETS
+    DICT --> DOCS
+    REPO -- "MkDocs build\nGitHub Actions" --> AUTH
+    AUTH --> SITE
 ```
 
 **핵심 구조**:
@@ -294,19 +295,33 @@ EOF
 
 13개 Python 스크립트가 순차 의존성을 가진 파이프라인을 구성한다.
 
-```
-[MSSQL] ──→ [1] inventory-mssql.py ──→ raw/mssql-inventory.json
-[Excel] ──→ [2] inventory-excel.py ──→ raw/excel-inventory.json
-              [3] column-diff.py ──→ raw/column-diff.json
-[MSSQL] ──→ [4] extract-columns.py ──→ raw/column-metadata.json
-                                          │
-              [5] generate-dictionary.py ←─┘──→ dictionary/*.md (초기)
-              [6] upgrade-dictionary.py ──→ dictionary/*.md (표준명 추가)
-              [7] fill-descriptions.py ──→ dictionary/*.md (설명 추가)
-              [8] export-excel.py ──→ exports/데이터사전.xlsx
-              [9] enrich-metadata.py ──→ dictionary/*.md (티어/오너 추가)
-              [10] extract-mapping.py ──→ migration/column-mapping.md
-              [11] build-grid-data.py ──→ assets/data/*.json
+```mermaid
+flowchart LR
+    subgraph P1["Phase 1: 추출 (DB 필요)"]
+        MSSQL[(MSSQL)] --> S1["1 inventory-mssql"]
+        EXCEL[(Excel)] --> S2["2 inventory-excel"]
+        S1 & S2 --> S3["3 column-diff"]
+        MSSQL --> S4["4 extract-columns"]
+    end
+
+    subgraph P2["Phase 2: 문서 생성 (오프라인)"]
+        S4 --> S5["5 generate-dictionary"]
+        S5 --> S6["6 upgrade-dictionary"]
+        S6 --> S7["7 fill-descriptions"]
+    end
+
+    subgraph P3["Phase 3: 산출물"]
+        S7 --> S8["8 export-excel"]
+        S7 --> S9["9 enrich-metadata"]
+        S9 --> S10["10 extract-mapping"]
+        S9 --> S11["11 build-grid-data"]
+    end
+
+    S1 --> RAW["raw/*.json"]
+    S8 --> XLSX["exports/\n데이터사전.xlsx"]
+    S10 --> MIG["migration/\ncolumn-mapping.md"]
+    S11 --> JSON["assets/data/\n*.json"]
+    S9 --> DICT["dictionary/\n*.md"]
 ```
 
 - 1~4번은 **MSSQL 접속 필요** (VPN 또는 내부망)

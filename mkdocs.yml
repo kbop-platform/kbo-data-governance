@@ -39,6 +39,13 @@ theme:
     - content.code.copy
     - header.autohide
 
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_mermaid
+
 plugins:
   - search:
       lang:
