@@ -36,8 +36,10 @@ jobs:
           ln -sfn ../governance docs/governance
           ln -sfn ../migration docs/migration
           ln -sfn ../assets docs/assets
-          ln -sf ../README.md docs/index.md
+          ln -sf ../home.md docs/index.md
           ln -sf ../project-guide.md docs/project-guide.md
+          ln -sf ../architecture.md docs/architecture.md
+          ln -sf ../development-guide.md docs/development-guide.md
 
       - run: mkdocs build
 

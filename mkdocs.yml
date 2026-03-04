@@ -77,6 +77,8 @@ nav:
   - Home:
     - index.md
     - 프로젝트 가이드: project-guide.md
+    - 아키텍처: architecture.md
+    - 개발 가이드: development-guide.md
   - Catalog:
     - catalog/instances.md
     - 컬럼: catalog/columns.md
