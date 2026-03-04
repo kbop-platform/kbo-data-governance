@@ -9,39 +9,37 @@ KBO DataHub의 시스템 구성, DB 구조, 데이터 흐름을 기술한다.
 ```mermaid
 flowchart TB
     subgraph SRC["데이터 소스"]
-        S2i["S2i\n경기기록 벤더"]
-        KMA["KMA\n기상청"]
-        KBO_OWN["KBO 자체\n운영 / 세이버"]
+        S2i["외주업체 S2i"]
+        KBO_OWN["KBO 자체"]
     end
 
-    subgraph MSSQL["MSSQL Server (49.50.172.83:1433)"]
+    subgraph MSSQL["MSSQL Server"]
         direction LR
-        DB1["DB1 (4개, 누적형)\nDB1_BASEBALL\nDB1_BASEBALL_2\nDB1_MINOR_BASEBALL\nDB1_MINOR_SO"]
-        DB2["DB2 (13개, 리그별)\nDB2_BASEBALL / NEW\nDB2_POSTSEASON / ALLSTAR\nDB2_EXHIBITION / INTERNATIONAL\nBROADCAST / FALL_LEAGUE"]
+        DB1["DB1 - 4개, 누적형"]
+        DB2["DB2 - 13개, 리그별"]
     end
 
     subgraph REPO["kbo-data-governance 저장소"]
         RAW["raw/*.json"]
-        SCRIPTS["scripts/*.py\n13종 파이프라인"]
-        DICT["dictionary/*.md\n39개 테이블"]
+        SCRIPTS["scripts/*.py - 13종"]
+        DICT["dictionary/*.md - 39개 테이블"]
         ASSETS["assets/data/*.json"]
-        XLSX["exports/\n데이터사전.xlsx"]
+        XLSX["exports/데이터사전.xlsx"]
     end
 
     subgraph DEPLOY["GitHub Pages"]
         AUTH["인증 게이트"]
-        SITE["Catalog / Dictionary\nGovernance / Migration"]
+        SITE["Catalog / Dictionary / Governance / Migration"]
     end
 
     S2i --> MSSQL
-    KMA --> MSSQL
     KBO_OWN --> MSSQL
     MSSQL -- "pymssql" --> RAW
     RAW --> SCRIPTS
     SCRIPTS --> DICT
     SCRIPTS --> ASSETS
     SCRIPTS --> XLSX
-    REPO -- "MkDocs build\nGitHub Actions" --> AUTH --> SITE
+    REPO -- "MkDocs build + GitHub Actions" --> AUTH --> SITE
 ```
 
 ---

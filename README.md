@@ -7,24 +7,24 @@ AS-IS 현황 정리, 표준화 설계, 마이그레이션 매핑까지 포함한
 
 ---
 
-## 프로젝트 배경과 목적
+## 배경
 
-KBO는 1982년부터 축적된 경기 기록 데이터를 MSSQL 기반으로 운영하고 있다.
-현행 시스템은 레거시 명명(PascalCase, 약어 중심), EUC-KR 인코딩, float 정밀도 손실 등의 기술 부채를 안고 있으며,
-신규 시스템 전환을 앞두고 **데이터 자산 전수 조사와 표준화**가 필요한 상황이다.
+- 현행 시스템: MSSQL 기반, 1982년부터 축적된 경기 기록 데이터
+- 신규 시스템 전환을 앞두고 현행 데이터 자산 전수 조사 및 표준화 진행
 
-이 프로젝트의 목적:
+## 목적
 
-- 현행 39개 테이블, 787개 컬럼의 **데이터 사전** 구축
-- AS-IS → TO-BE **컬럼 매핑**(577건 이름 변경, 210건 타입 전환) 정의
-- **명명 규칙, 도메인 타입, 코드 사전, ID 체계** 등 데이터 표준 수립
-- **거버넌스 정책**(오너십, 품질 규칙, 변경 관리, 보안, DR) 문서화
-- 위 모든 산출물을 검색 가능한 **MkDocs Material 사이트**로 배포
+- 39개 테이블, 787개 컬럼 **데이터 사전** 구축
+- 787컬럼 AS-IS → TO-BE **컬럼 매핑** (577건 이름 변경, 210건 타입 전환)
+- 명명 규칙, 도메인 타입, 코드 사전, ID 체계 등 **데이터 표준** 수립
+- 오너십, 품질 규칙, 변경 관리, 보안, DR 등 **거버넌스 정책** 문서화
+- 전체 산출물을 **MkDocs Material 사이트**로 배포
 
-대상 독자:
-- **수행사 개발자** — 신규 시스템 설계 시 현행 구조, 표준, 매핑 참조
-- **KBO 운영팀** — 거버넌스 정책 수립과 데이터 품질 관리
-- **데이터팀** — 일상적인 데이터 사전 조회 및 유지보수
+## 대상 독자
+
+- **수행사** — 신규 시스템 설계 시 현행 구조, 표준, 매핑 참조
+- **KBO 운영팀** — 거버넌스 정책, 데이터 품질 관리
+- **데이터팀** — 데이터 사전 조회 및 유지보수
 
 ---
 
@@ -46,27 +46,25 @@ KBO는 1982년부터 축적된 경기 기록 데이터를 MSSQL 기반으로 운
 ```mermaid
 flowchart TB
     subgraph SRC["데이터 소스"]
-        S2i["S2i\n경기기록 벤더"]
-        KMA["KMA\n기상청"]
-        KBO["KBO 자체\n운영 / 세이버"]
+        S2i["외주업체 S2i"]
+        KBO["KBO 자체"]
     end
 
     subgraph MSSQL["MSSQL Server"]
         direction LR
-        DB1["DB1 (4개, 누적형)"]
-        DB2["DB2 (13개, 리그별)"]
+        DB1["DB1 - 4개, 누적형"]
+        DB2["DB2 - 13개, 리그별"]
     end
 
     subgraph REPO["kbo-data-governance 저장소"]
         RAW["raw/*.json"]
         SCRIPTS["scripts/*.py"]
-        OUT["dictionary/ standards/\ngovernance/ migration/\nassets/data/*.json"]
+        OUT["dictionary / standards / governance / migration"]
     end
 
-    DEPLOY["GitHub Pages\n(MkDocs Material)"]
+    DEPLOY["GitHub Pages - MkDocs Material"]
 
     S2i --> MSSQL
-    KMA --> MSSQL
     KBO --> MSSQL
     MSSQL -- "pymssql" --> RAW
     RAW --> SCRIPTS
